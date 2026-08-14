@@ -1,0 +1,656 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How to charge, load, use, and clean the G Pen Hydout 510 cartridge battery.">
+<meta name="theme-color" content="#ECEDEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
+<title>G Pen Hydout — How to Use</title>
+<style>
+/* ============================================================
+   TOKENS — light is the bare :root; dark redefines tokens only
+   ============================================================ */
+:root{
+  --bg:#ECEDEE; --surface:#FFFFFF; --surface-2:#F5F6F7;
+  --ink:#101215; --ink-2:#454A50; --ink-3:#787E86;
+  --line:#D9DBDE; --line-2:#E8EAEC;
+  --accent:#B76F10; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
+  --accent-wash:rgba(183,111,16,.08);
+  --plate:#E4E5E7;                 /* photo ground — light in both themes */
+  --led:#FF3B1F; --led-off:rgba(255,59,31,.14); --led-plate:#0A0A0C;
+  --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
+  --radius:14px;
+
+  --f-display:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
+    --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
+    --line:#262A30; --line-2:#1F2329;
+    --accent:#F0B24A; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
+    --accent-wash:rgba(240,178,74,.10);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
+  --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
+  --line:#262A30; --line-2:#1F2329;
+  --accent:#F0B24A; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
+  --accent-wash:rgba(240,178,74,.10);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--accent); text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+
+.wrap{max-width:680px; margin:0 auto; padding:0 18px}
+
+/* display / label registers */
+.d{font-family:var(--f-display); font-weight:800; font-style:italic;
+   text-transform:uppercase; letter-spacing:-.02em; text-wrap:balance; margin:0}
+.eyebrow{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em;
+   text-transform:uppercase; color:var(--ink-3); margin:0}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   HEADER + NAV
+   ============================================================ */
+.bar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(12px);
+  -webkit-backdrop-filter:saturate(1.6) blur(12px);
+  border-bottom:1px solid transparent; transition:border-color .2s ease;
+}
+.bar.stuck{border-bottom-color:var(--line)}
+.bar-top{display:flex; align-items:center; gap:10px; height:52px}
+.glyph{
+  width:26px; height:26px; border-radius:7px; background:var(--ink); color:var(--bg);
+  display:grid; place-items:center; font-family:var(--f-display); font-weight:800;
+  font-style:italic; font-size:15px; flex:none; letter-spacing:-.04em; text-decoration:none;
+}
+.bar-name{
+  font-family:var(--f-display); font-weight:800; font-style:italic; font-size:14px;
+  text-transform:uppercase; letter-spacing:-.01em;
+  opacity:0; transform:translateY(4px); transition:opacity .25s ease, transform .25s ease;
+}
+.bar.stuck .bar-name{opacity:1; transform:none}
+.bar-tag{margin-left:auto; font-family:var(--f-mono); font-size:10.5px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+
+nav.jump{display:flex; gap:6px; overflow-x:auto; padding:0 0 10px;
+  scrollbar-width:none; -ms-overflow-style:none}
+nav.jump::-webkit-scrollbar{display:none}
+nav.jump a{
+  flex:none; text-decoration:none; color:var(--ink-2);
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:7px 12px; border-radius:999px; border:1px solid var(--line);
+  background:var(--surface); transition:background .18s ease, color .18s ease, border-color .18s ease;
+}
+nav.jump a[aria-current="true"]{
+  background:var(--ink); color:var(--bg); border-color:var(--ink);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+/* NB: these siblings of .wrap must use padding longhands — a `padding` shorthand
+   here has equal specificity and would wipe out .wrap's side padding. */
+.hero{padding-top:22px; padding-bottom:30px}
+.shot{
+  position:relative; border-radius:var(--radius); overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% 8%, var(--accent-wash), transparent 62%),
+    var(--surface);
+  border:1px solid var(--line); box-shadow:var(--shadow);
+  display:grid; place-items:center; padding:20px 0 10px; min-height:300px;
+}
+.shot img{width:min(62%,250px); filter:drop-shadow(0 22px 30px rgba(0,0,0,.28))}
+.hero h1{font-size:clamp(34px,10vw,46px); line-height:.92; margin:16px 0 0}
+.hero .eyebrow{margin-bottom:8px}
+.lede{color:var(--ink-2); font-size:16.5px; margin:12px 0 0; max-width:60ch}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; padding:0; list-style:none}
+.chips li{
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.05em;
+  padding:5px 10px; border-radius:999px; background:var(--surface-2);
+  border:1px solid var(--line-2); color:var(--ink-2);
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{scroll-margin-top:104px; padding-top:34px; padding-bottom:34px}
+.sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:20px}
+.sec-head h2{font-size:clamp(24px,6.5vw,30px)}
+.sec-head .count{margin-left:auto; font-family:var(--f-mono); font-size:11px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.rule{height:1px; background:var(--line); border:0; margin:0}
+
+/* ---------- STEPS: numbered rail ---------- */
+.steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:26px}
+.step{display:grid; grid-template-columns:34px 1fr; gap:14px; position:relative}
+.rail{position:relative; display:flex; justify-content:center}
+.num{
+  width:34px; height:34px; border-radius:50%; background:var(--accent-soft);
+  color:var(--accent-ink); display:grid; place-items:center; z-index:1;
+  font-family:var(--f-display); font-weight:800; font-style:italic; font-size:17px;
+}
+.rail::after{
+  content:""; position:absolute; top:38px; bottom:-30px; width:2px;
+  background:linear-gradient(var(--line), var(--line)); border-radius:2px;
+}
+.step:last-child .rail::after{display:none}
+.step-body{min-width:0}
+.step h3{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:5px 0 0}
+.plate{
+  margin:12px 0 0; border-radius:var(--radius); overflow:hidden;
+  background:var(--plate); border:1px solid var(--line-2);
+}
+.plate img{width:100%}
+.do{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:9px}
+.do li{position:relative; padding-left:20px; color:var(--ink-2); font-size:15.5px}
+.do li::before{
+  content:""; position:absolute; left:4px; top:.62em; width:6px; height:6px;
+  border-radius:50%; background:var(--accent);
+}
+.do li b{color:var(--ink); font-weight:600}
+.note{
+  margin:14px 0 0; padding:10px 12px; border-radius:10px;
+  background:var(--accent-wash); border:1px solid var(--line-2);
+  font-size:14px; color:var(--ink-2);
+}
+.note b{color:var(--ink); font-weight:600}
+
+/* ---------- LED simulator ---------- */
+.controller{margin:16px 0 0; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--surface); overflow:hidden; box-shadow:var(--shadow)}
+.led{
+  background:var(--led-plate); padding:18px 16px 16px;
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:14px;
+}
+.readout{font-family:var(--f-mono); font-weight:600; color:var(--led);
+  font-size:34px; line-height:1; letter-spacing:.04em; font-variant-numeric:tabular-nums;
+  text-shadow:0 0 14px rgba(255,59,31,.55); min-height:34px}
+.readout small{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.46); text-shadow:none; margin-top:9px; font-weight:400;
+  letter-spacing:.12em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bars{display:flex; gap:5px; align-items:flex-end}
+.bars i{width:7px; border-radius:2px; background:var(--led-off); transition:background .18s ease}
+.bars i:nth-child(1){height:12px} .bars i:nth-child(2){height:18px}
+.bars i:nth-child(3){height:24px} .bars i:nth-child(4){height:30px}
+.bars i:nth-child(5){height:36px}
+.bars i.on{background:var(--led); box-shadow:0 0 10px rgba(255,59,31,.5)}
+.presses{list-style:none; margin:0; padding:0}
+.presses li{border-top:1px solid var(--line-2)}
+.presses button{
+  width:100%; display:grid; grid-template-columns:52px 1fr; align-items:center; gap:12px;
+  background:none; border:0; padding:13px 14px; cursor:pointer; text-align:left;
+  font:inherit; color:var(--ink); transition:background .15s ease;
+}
+.presses button:hover{background:var(--surface-2)}
+.presses button[aria-pressed="true"]{background:var(--accent-wash)}
+.tap{
+  font-family:var(--f-mono); font-size:12px; font-weight:600; letter-spacing:.04em;
+  padding:5px 0; border-radius:999px; background:var(--surface-2); color:var(--ink-2);
+  text-align:center; border:1px solid var(--line-2);
+}
+.presses button[aria-pressed="true"] .tap{background:var(--accent-soft); color:var(--accent-ink); border-color:transparent}
+.tap-label{font-size:15px}
+.tap-label span{display:block; color:var(--ink-3); font-size:13px}
+
+/* ---------- heat scale ---------- */
+.scale{margin:14px 0 0; padding:14px; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--surface)}
+.scale-track{display:flex; gap:4px; margin:10px 0 8px}
+.scale-track i{flex:1; height:8px; border-radius:3px;
+  background:linear-gradient(90deg, var(--accent-soft), var(--accent))}
+.scale-track i:nth-child(1){opacity:.35} .scale-track i:nth-child(2){opacity:.5}
+.scale-track i:nth-child(3){opacity:.68} .scale-track i:nth-child(4){opacity:.84}
+.scale-ends{display:flex; justify-content:space-between; gap:10px; font-family:var(--f-mono);
+  font-size:11.5px; letter-spacing:.06em; color:var(--ink-2)}
+.scale-note{margin:8px 0 0; font-size:13.5px; color:var(--ink-3)}
+
+/* ---------- videos ---------- */
+.vids{display:grid; gap:14px}
+@media (min-width:560px){.vids{grid-template-columns:1fr 1fr}}
+.vid{
+  display:block; text-decoration:none; color:inherit; border-radius:var(--radius);
+  overflow:hidden; background:var(--surface); border:1px solid var(--line);
+  box-shadow:var(--shadow); transition:transform .18s ease, border-color .18s ease;
+}
+.vid:hover{transform:translateY(-2px); border-color:var(--accent)}
+.vid-thumb{position:relative; aspect-ratio:16/9; background:var(--surface-2)}
+.vid-thumb img{width:100%; height:100%; object-fit:cover}
+.play{
+  position:absolute; inset:0; margin:auto; width:50px; height:50px; border-radius:50%;
+  background:rgba(10,10,12,.62); backdrop-filter:blur(3px);
+  display:grid; place-items:center;
+}
+.play::after{content:""; width:0; height:0; margin-left:3px;
+  border-left:14px solid #fff; border-top:9px solid transparent; border-bottom:9px solid transparent}
+.vid-meta{padding:12px 14px 13px}
+.vid-meta h3{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; font-size:15px; margin:0}
+.vid-meta p{margin:4px 0 0; font-family:var(--f-mono); font-size:10.5px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+
+/* ---------- box contents / specs ---------- */
+.box{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0}
+.box li{display:flex; gap:12px; align-items:baseline; padding:11px 0; border-bottom:1px solid var(--line-2)}
+.box li:last-child{border-bottom:0}
+.box .qty{font-family:var(--f-mono); font-size:12px; color:var(--accent); flex:none; width:34px}
+.box li.not .qty{color:var(--ink-3)}
+.box li.not{color:var(--ink-3)}
+
+.specs{width:100%; border-collapse:collapse; font-size:14.5px}
+.specs th,.specs td{text-align:left; padding:11px 0; border-bottom:1px solid var(--line-2); vertical-align:baseline}
+.specs th{font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:400; width:46%}
+.specs td{font-variant-numeric:tabular-nums; color:var(--ink)}
+.specs tr:last-child th,.specs tr:last-child td{border-bottom:0}
+.table-scroll{overflow-x:auto}
+
+/* ---------- faq ---------- */
+.faq{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-2)}
+.faq details{border-bottom:1px solid var(--line-2)}
+.faq summary{
+  cursor:pointer; padding:14px 30px 14px 0; position:relative; list-style:none;
+  font-weight:600; font-size:15.5px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:""; position:absolute; right:6px; top:50%; width:9px; height:9px;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:translateY(-70%) rotate(45deg); transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq p{margin:0 0 15px; color:var(--ink-2); font-size:15px; max-width:62ch}
+
+/* ---------- support ---------- */
+.support{display:grid; gap:10px}
+@media (min-width:520px){.support{grid-template-columns:1fr 1fr}}
+.card-link{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;
+  padding:14px; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--surface); transition:border-color .18s ease, transform .18s ease;
+}
+.card-link:hover{border-color:var(--accent); transform:translateY(-1px)}
+.card-link .k{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); display:block}
+.card-link .v{font-weight:600; font-size:15px}
+.card-link .arrow{margin-left:auto; color:var(--accent); font-size:18px; line-height:1}
+
+footer{padding-top:30px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
+footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
+footer .legal{font-size:11.5px; line-height:1.6}
+
+/* ---------- ≥620px: steps go two-up ---------- */
+@media (min-width:620px){
+  .step{grid-template-columns:34px 1fr}
+  .step-grid{display:grid; grid-template-columns:200px 1fr; gap:18px; align-items:start}
+  .step-grid .plate{margin-top:0}
+  .step h3{margin-top:0}
+}
+</style>
+
+<div class="bar" id="bar">
+  <div class="wrap">
+    <div class="bar-top">
+      <a class="glyph" href="../" aria-label="All G Pen product guides">G</a>
+      <div class="bar-name">Hydout</div>
+      <div class="bar-tag">Product Guide</div>
+    </div>
+    <nav class="jump" aria-label="Sections">
+      <a href="#use">How to use</a>
+      <a href="#videos">Videos</a>
+      <a href="#box">In the box</a>
+      <a href="#specs">Specs</a>
+      <a href="#help">Help</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <header class="hero wrap">
+    <div class="shot">
+      <img src="img/hero.png" alt="G Pen Hydout 510 cartridge battery, front view" width="720" height="720">
+    </div>
+    <p class="eyebrow" style="margin-top:18px">510 Cartridge Battery</p>
+    <h1 class="d">G&nbsp;Pen<br>Hydout</h1>
+    <p class="lede">A pocket-sized 510 battery with a magnetic mouthpiece cover that hides your cartridge. Five heat settings, a preheat mode, and an LED display — so every session is dialed in and low-key.</p>
+    <ul class="chips">
+      <li>400 mAh</li><li>USB-C</li><li>2.4V – 3.8V</li><li>Fits carts up to 2g</li><li>90 × 37.5 × 18.5 mm</li>
+    </ul>
+  </header>
+
+  <hr class="rule">
+
+  <!-- ===================== HOW TO USE ===================== -->
+  <section id="use" class="wrap">
+    <div class="sec-head">
+      <h2 class="d">How to use</h2>
+      <span class="count">4 steps</span>
+    </div>
+
+    <ol class="steps">
+
+      <li class="step">
+        <div class="rail"><div class="num">1</div></div>
+        <div class="step-body">
+          <div class="step-grid">
+            <div class="plate"><img src="img/step-01-charge.jpg" alt="USB-C cable next to the charging port on the base of the Hydout" loading="lazy"></div>
+            <div>
+              <h3>Charge it first</h3>
+              <ul class="do">
+                <li>Plug <b>any USB-C cable</b> into the port on the base.</li>
+                <li>The display shows the battery level while it charges.</li>
+                <li>Give it a full charge before the first session.</li>
+              </ul>
+              <p class="note">A USB-C cable isn't included — use the one you already carry.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="rail"><div class="num">2</div></div>
+        <div class="step-body">
+          <div class="step-grid">
+            <div class="plate"><img src="img/step-02-load.jpg" alt="Magnetic mouthpiece cover lifted off, showing a 510 cartridge ready to thread in" loading="lazy"></div>
+            <div>
+              <h3>Load your cart</h3>
+              <ul class="do">
+                <li><b>Pull off</b> the magnetic mouthpiece cover.</li>
+                <li><b>Screw in</b> your 510 cartridge — snug, not cranked.</li>
+                <li><b>Snap the cover</b> back on. Your cart is now hidden and shielded from light.</li>
+              </ul>
+              <p class="note">Fits most 510-thread cartridges up to <b>2g</b>. Cartridge sold separately.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="rail"><div class="num">3</div></div>
+        <div class="step-body">
+          <div class="step-grid">
+            <div class="plate"><img src="img/step-03-activate.jpg" alt="Close-up of the single control button on the side of the Hydout" loading="lazy"></div>
+            <div>
+              <h3>Learn the button</h3>
+              <p class="lede" style="font-size:15.5px; margin:8px 0 0">One button does everything. Tap a command to see what the display does.</p>
+            </div>
+          </div>
+
+          <div class="controller">
+            <div class="led">
+              <div class="readout" id="readout" aria-live="polite" role="status">OFF<small id="readout-sub">Device asleep</small></div>
+              <div class="bars" id="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <ul class="presses" id="presses">
+              <li><button type="button" data-act="power" aria-pressed="false">
+                <span class="tap mono">5×</span>
+                <span class="tap-label">Power on / off<span>Five quick presses</span></span></button></li>
+              <li><button type="button" data-act="heat" aria-pressed="false">
+                <span class="tap mono">3×</span>
+                <span class="tap-label">Change heat setting<span>Cycles through all five</span></span></button></li>
+              <li><button type="button" data-act="preheat" aria-pressed="false">
+                <span class="tap mono">2×</span>
+                <span class="tap-label">10-second preheat<span>Warms the oil at 1.8V</span></span></button></li>
+              <li><button type="button" data-act="draw" aria-pressed="false">
+                <span class="tap mono">HOLD</span>
+                <span class="tap-label">Activate and draw<span>Hold while you inhale</span></span></button></li>
+            </ul>
+          </div>
+
+          <div class="scale">
+            <p class="eyebrow">Heat settings</p>
+            <div class="scale-track" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="scale-ends"><span>2.4V</span><span>3.8V</span></div>
+            <p class="scale-note">Lower heat brings out more flavor and stretches a cart further. Higher heat gives you bigger, warmer clouds.</p>
+          </div>
+
+          <p class="note">The Hydout <b>shuts itself off after 2 minutes</b> of no use. Five presses wakes it back up.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <div class="rail"><div class="num">4</div></div>
+        <div class="step-body">
+          <div class="step-grid">
+            <div class="plate"><img src="img/step-04-clean.jpg" alt="Cotton swab cleaning the cartridge connection point and the inside of the mouthpiece cover" loading="lazy"></div>
+            <div>
+              <h3>Keep it clean</h3>
+              <ul class="do">
+                <li>Use a <b>cotton swab with isopropyl alcohol</b>.</li>
+                <li>Wipe the <b>inside of the mouthpiece cover</b>.</li>
+                <li>Wipe the <b>connection point</b> where the cart meets the battery.</li>
+                <li>Let it dry fully before loading a cart again.</li>
+              </ul>
+              <p class="note"><b>Never soak the battery</b> in alcohol or any liquid.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===================== VIDEOS ===================== -->
+  <section id="videos" class="wrap">
+    <div class="sec-head">
+      <h2 class="d">Watch it</h2>
+      <span class="count">2 videos</span>
+    </div>
+    <div class="vids">
+      <a class="vid" href="https://www.youtube.com/watch?v=WK3EXouKwGs" target="_blank" rel="noopener noreferrer">
+        <div class="vid-thumb">
+          <img src="img/video-how-to-use.jpg" alt="Still from the How to Use video: a hand pressing the Hydout button three times" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </div>
+        <div class="vid-meta"><h3>How to use</h3><p>Watch on YouTube</p></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=e9oEXqNajh4" target="_blank" rel="noopener noreferrer">
+        <div class="vid-thumb">
+          <img src="img/video-how-to-clean.jpg" alt="Still from the How to Clean video: cotton swabs and the opened Hydout" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </div>
+        <div class="vid-meta"><h3>How to clean</h3><p>Watch on YouTube</p></div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===================== IN THE BOX ===================== -->
+  <section id="box" class="wrap">
+    <div class="sec-head"><h2 class="d">In the box</h2></div>
+    <ul class="box">
+      <li><span class="qty mono">1×</span><span>G Pen Hydout 510 cartridge battery</span></li>
+      <li><span class="qty mono">1×</span><span>Magnetic mouthpiece cover</span></li>
+      <li class="not"><span class="qty mono">—</span><span>510 cartridge <em>(not included)</em></span></li>
+      <li class="not"><span class="qty mono">—</span><span>USB-C charging cable <em>(not included)</em></span></li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===================== SPECS ===================== -->
+  <section id="specs" class="wrap">
+    <div class="sec-head"><h2 class="d">Specs</h2></div>
+    <div class="table-scroll">
+      <table class="specs">
+        <tbody>
+          <tr><th scope="row">Battery</th><td>400 mAh rechargeable</td></tr>
+          <tr><th scope="row">Charging</th><td>USB-C</td></tr>
+          <tr><th scope="row">Heat settings</th><td>5 · 2.4V – 3.8V</td></tr>
+          <tr><th scope="row">Preheat</th><td>1.8V · 10 seconds</td></tr>
+          <tr><th scope="row">Auto shut-off</th><td>2 minutes</td></tr>
+          <tr><th scope="row">Compatibility</th><td>510-thread carts up to 2g</td></tr>
+          <tr><th scope="row">Display</th><td>LED · voltage and battery level</td></tr>
+          <tr><th scope="row">Dimensions</th><td>90 × 37.5 × 18.5 mm</td></tr>
+          <tr><th scope="row">Weight</th><td>50 g</td></tr>
+          <tr><th scope="row">SKU</th><td class="mono">GHO-001-AOZZ</td></tr>
+          <tr><th scope="row">UPC</th><td class="mono">811736029254</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===================== HELP ===================== -->
+  <section id="help" class="wrap">
+    <div class="sec-head"><h2 class="d">Common questions</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Nothing happens when I press the button</summary>
+        <p>The device auto-sleeps after 2 minutes. Press five times to wake it. If the display still doesn't light up, charge it with a USB-C cable and try again.</p>
+      </details>
+      <details>
+        <summary>My cart isn't producing vapor</summary>
+        <p>Make sure the cartridge is threaded in snugly — not over-tightened, which can push the connection pin down. Try a double-press for a 10-second preheat to loosen thick oil, then hold the button as you draw.</p>
+      </details>
+      <details>
+        <summary>Which heat setting should I use?</summary>
+        <p>Start low. Lower voltages give you more flavor and make a cart last longer; higher voltages give bigger, warmer clouds. Press three times to move through the five settings and find yours.</p>
+      </details>
+      <details>
+        <summary>Will my cartridge fit?</summary>
+        <p>The Hydout takes standard 510-thread cartridges up to 2g. Very wide or extra-tall carts may keep the magnetic cover from seating flush.</p>
+      </details>
+      <details>
+        <summary>How do I know when it's charged?</summary>
+        <p>The LED display shows the battery level. Leave it on the cable until it reads full.</p>
+      </details>
+      <details>
+        <summary>What does the warranty cover?</summary>
+        <p>The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.</p>
+      </details>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===================== SUPPORT ===================== -->
+  <section id="support" class="wrap" style="padding-bottom:20px">
+    <div class="sec-head"><h2 class="d">Still stuck?</h2></div>
+    <div class="support">
+      <a class="card-link" href="https://cdn.shopify.com/s/files/1/0185/1576/files/20250528_GPen_Hydout_Manual.pdf?v=1749240232" target="_blank" rel="noopener noreferrer">
+        <span><span class="k">Download</span><span class="v">Full product manual</span></span>
+        <span class="arrow" aria-hidden="true">↓</span>
+      </a>
+      <a class="card-link" href="https://www.gpen.com/products/g-pen-hydout" target="_blank" rel="noopener noreferrer">
+        <span><span class="k">Shop</span><span class="v">View on gpen.com</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="card-link" href="tel:+18336913224">
+        <span><span class="k">Call support</span><span class="v mono">+1 833-691-3224</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="card-link" href="mailto:help@gpen.com">
+        <span><span class="k">Email support</span><span class="v">help@gpen.com</span></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <p><strong>G Pen Hydout</strong> · 510 Cartridge Battery · Grenco Science</p>
+    <p class="legal">Intended for adults 21 and over. Use only with products that are legal where you live. Keep away from children and pets. Charge with a USB-C cable on a hard, non-flammable surface, and don't leave the device charging unattended.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  /* --- sticky bar state --- */
+  var bar = document.getElementById('bar');
+  var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* --- scroll spy on the jump nav --- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.jump a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = targets.indexOf(e.target);
+        links.forEach(function(a, j){ a.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+      });
+    }, {rootMargin:'-108px 0px -65% 0px'});
+    targets.forEach(function(t){ if (t) io.observe(t); });
+  }
+
+  /* --- LED simulator --- */
+  var readout = document.getElementById('readout');
+  var sub     = document.getElementById('readout-sub');
+  var bars    = document.getElementById('bars').children;
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.presses button'));
+  var reduce  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var powered = false, level = 1, timer = null;
+
+  function paintBars(n){
+    for (var i = 0; i < bars.length; i++) bars[i].classList.toggle('on', i < n);
+  }
+  function render(main, caption, litBars){
+    readout.firstChild.nodeValue = main;
+    sub.textContent = caption;
+    paintBars(litBars);
+  }
+  function reset(){ if (timer) { clearTimeout(timer); timer = null; } }
+
+  function idle(){ render(String(level), 'Ready · heat ' + level + ' of 5', level); }
+
+  var actions = {
+    power: function(){
+      powered = !powered;
+      if (powered) render('ON', 'Ready · heat ' + level + ' of 5', level);
+      else render('OFF', 'Device asleep', 0);
+    },
+    heat: function(){
+      powered = true;
+      level = level % 5 + 1;
+      render(String(level), 'Heat ' + level + ' of 5', level);
+    },
+    preheat: function(){
+      powered = true;
+      render('1.8', 'Preheat · 10 seconds', 5);
+      if (!reduce) timer = setTimeout(idle, 2400);
+    },
+    draw: function(){
+      powered = true;
+      render('‖‖', 'Firing · heat ' + level, 5);
+      if (!reduce) timer = setTimeout(idle, 2000);
+    }
+  };
+
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      reset();
+      buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+      actions[btn.dataset.act]();
+    });
+  });
+})();
+</script>

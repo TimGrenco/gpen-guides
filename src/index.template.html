@@ -1,0 +1,108 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Step-by-step how-to guides for G Pen devices. Scan, learn, session.">
+<meta name="theme-color" content="#ECEDEE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
+<title>G Pen Product Guides</title>
+<style>
+:root{
+  --bg:#ECEDEE; --surface:#FFFFFF; --surface-2:#F5F6F7;
+  --ink:#101215; --ink-2:#454A50; --ink-3:#787E86;
+  --line:#D9DBDE; --line-2:#E8EAEC;
+  --accent:#B76F10; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
+  --accent-wash:rgba(183,111,16,.08);
+  --plate:#E4E5E7;
+  --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
+  --radius:14px;
+  --f-display:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
+    --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
+    --line:#262A30; --line-2:#1F2329;
+    --accent:#F0B24A; --accent-wash:rgba(240,178,74,.10);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
+  --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
+  --line:#262A30; --line-2:#1F2329;
+  --accent:#F0B24A; --accent-wash:rgba(240,178,74,.10);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--f-body);
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--accent); text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+.wrap{max-width:680px; margin:0 auto; padding:0 18px}
+.d{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.02em; text-wrap:balance; margin:0}
+.eyebrow{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3); margin:0}
+
+.bar{border-bottom:1px solid var(--line)}
+.bar-top{display:flex; align-items:center; gap:10px; height:52px}
+.glyph{width:26px; height:26px; border-radius:7px; background:var(--ink); color:var(--bg);
+  display:grid; place-items:center; font-family:var(--f-display); font-weight:800;
+  font-style:italic; font-size:15px; flex:none; letter-spacing:-.04em; text-decoration:none}
+.bar-tag{margin-left:auto; font-family:var(--f-mono); font-size:10.5px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+
+header.intro{padding-top:30px; padding-bottom:26px}
+header.intro h1{font-size:clamp(32px,9vw,44px); line-height:.94; margin:10px 0 0}
+header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
+
+.grid{display:grid; gap:14px; padding-bottom:40px}
+@media (min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+.card{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center;
+  text-decoration:none; color:inherit; padding:14px; border:1px solid var(--line);
+  border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow);
+  transition:border-color .18s ease, transform .18s ease}
+.card:hover{border-color:var(--accent); transform:translateY(-2px)}
+.card .thumb{background:var(--plate); border-radius:10px; padding:8px; display:grid; place-items:center}
+.card .thumb img{width:100%}
+.card h2{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; font-size:18px; margin:4px 0 0; letter-spacing:-.01em}
+.card .meta{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin:6px 0 0}
+
+footer{border-top:1px solid var(--line); padding-top:26px; padding-bottom:44px}
+footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
+footer .legal{font-size:11.5px; line-height:1.6}
+</style>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="bar-top">
+      <a class="glyph" href="https://www.gpen.com" aria-label="gpen.com">G</a>
+      <div class="bar-tag">Product Guides</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <header class="intro wrap">
+    <p class="eyebrow">Grenco Science</p>
+    <h1 class="d">Product<br>Guides</h1>
+    <p>Scan the code on your device or its packaging to land straight on that product's guide — how to charge it, load it, use it, and keep it clean.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+{{CARDS}}
+    </div>
+  </div>
+
+  <div class="wrap">
+    <footer>
+      <p><strong>G Pen</strong> · Grenco Science · Need a hand? <a href="mailto:help@gpen.com">help@gpen.com</a> or <a href="tel:+18336913224">+1 833-691-3224</a></p>
+      <p class="legal">Intended for adults 21 and over. Use only with products that are legal where you live. Keep away from children and pets.</p>
+    </footer>
+  </div>
+</main>
