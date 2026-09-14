@@ -28,5 +28,6 @@ if __name__ == "__main__":
     socketserver.TCPServer.allow_reuse_address = True
     handler = functools.partial(Handler, directory=str(ROOT))
     with socketserver.TCPServer(("", PORT), handler) as httpd:
-        print(f"G Pen guides → http://localhost:{PORT}/hydout.html")
+        print(f"G Pen guides → http://localhost:{PORT}/")
+        print(f"Hydout guide → http://localhost:{PORT}/hydout/")
         httpd.serve_forever()
