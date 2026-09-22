@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Step-by-step how-to guides for G Pen devices. Scan, learn, session.">
@@ -5,25 +8,26 @@
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 <title>G Pen Product Guides</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,800&family=Lato:wght@300;400;700&display=swap');
 :root{
-  --bg:#ECEDEE; --surface:#FFFFFF; --surface-2:#F5F6F7;
+  --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F5F6F7;
   --ink:#101215; --ink-2:#454A50; --ink-3:#787E86;
   --line:#D9DBDE; --line-2:#E8EAEC;
-  --accent:#B76F10; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
-  --accent-wash:rgba(183,111,16,.08);
+  --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+  --accent-wash:rgba(255,200,118,.12);
   --plate:#E4E5E7;
   --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
   --radius:14px;
-  --f-display:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --f-body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --f-display:'Kanit','Arial Black',Arial,sans-serif;
+  --f-body:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
     --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
     --line:#262A30; --line-2:#1F2329;
-    --accent:#F0B24A; --accent-wash:rgba(240,178,74,.10);
+    --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+    --accent-wash:rgba(255,200,118,.12);
     --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
   }
 }
@@ -31,34 +35,49 @@
   --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
   --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
   --line:#262A30; --line-2:#1F2329;
-  --accent:#F0B24A; --accent-wash:rgba(240,178,74,.10);
+  --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+  --accent-wash:rgba(255,200,118,.12);
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
 }
+[hidden]{display:none!important}
 *{box-sizing:border-box}
 body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--f-body);
-  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden}
 img{max-width:100%; height:auto; display:block}
 a{color:var(--accent); text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
-.wrap{max-width:680px; margin:0 auto; padding:0 18px}
+.wrap{max-width:680px; margin:0 auto; padding-inline:18px}
 .d{font-family:var(--f-display); font-weight:800; font-style:italic;
   text-transform:uppercase; letter-spacing:-.02em; text-wrap:balance; margin:0}
-.eyebrow{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em;
+.eyebrow{font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--ink-3); margin:0}
 
-.bar{border-bottom:1px solid var(--line)}
+/* header bar — same as the guide pages */
+.bar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(12px);
+  -webkit-backdrop-filter:saturate(1.6) blur(12px);
+  border-bottom:1px solid transparent; transition:border-color .2s ease;
+}
+.bar.stuck{border-bottom-color:var(--line)}
 .bar-top{display:flex; align-items:center; gap:10px; height:52px}
-.glyph{width:26px; height:26px; border-radius:7px; background:var(--ink); color:var(--bg);
-  display:grid; place-items:center; font-family:var(--f-display); font-weight:800;
-  font-style:italic; font-size:15px; flex:none; letter-spacing:-.04em; text-decoration:none}
-.bar-tag{margin-left:auto; font-family:var(--f-mono); font-size:10.5px;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.glyph{
+  width:26px; height:26px; border-radius:7px; background:var(--ink); color:var(--bg);
+  display:grid; place-items:center; flex:none; text-decoration:none; padding:4px; box-sizing:border-box;
+}
 
 header.intro{padding-top:30px; padding-bottom:26px}
-header.intro h1{font-size:clamp(32px,9vw,44px); line-height:.94; margin:10px 0 0}
+header.intro h1{
+  margin:0; display:flex; flex-direction:column; align-items:flex-start; gap:10px;
+  font-family:var(--f-body); font-weight:700; font-size:clamp(13px,3.7vw,16px); line-height:1.2;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2);
+}
+.wordmark{height:clamp(32px,9.5vw,44px); width:auto; flex:none; display:block; color:var(--ink)}
 header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
 
-.grid{display:grid; gap:14px; padding-bottom:40px}
+.list{padding-bottom:40px}
+.grid{display:grid; gap:14px}
 @media (min-width:560px){.grid{grid-template-columns:1fr 1fr}}
 .card{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center;
   text-decoration:none; color:inherit; padding:14px; border:1px solid var(--line);
@@ -68,48 +87,190 @@ header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
 .card .thumb{background:var(--plate); border-radius:10px; padding:8px; display:grid; place-items:center}
 .card .thumb img{width:100%}
 .card h2{font-family:var(--f-display); font-weight:800; font-style:italic;
-  text-transform:uppercase; font-size:18px; margin:4px 0 0; letter-spacing:-.01em}
-.card .meta{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--ink-3); margin:6px 0 0}
+  text-transform:uppercase; font-size:18px; margin:0; letter-spacing:-.01em}
+.card .eyebrow{display:block; margin-top:5px}
 
-footer{border-top:1px solid var(--line); padding-top:26px; padding-bottom:44px}
+/* legacy products fold — same look as the collapsibles in the guides */
+.legacy{margin-top:18px}
+.legacy > summary{
+  cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);
+  font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  letter-spacing:-.01em; font-size:16px; user-select:none;
+}
+.legacy > summary::-webkit-details-marker{display:none}
+.legacy > summary::after{
+  content:""; width:10px; height:10px; flex:none;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .2s ease; margin-top:-4px;
+}
+.legacy[open] > summary::after{transform:rotate(225deg); margin-top:4px}
+.legacy > summary:hover{background:var(--surface-2)}
+.legacy[open] > summary{margin-bottom:14px}
+
+/* support buttons — same as the guides' Help section */
+.help{padding-bottom:36px}
+.help h3{font-size:16px; font-weight:600; color:var(--ink-2); margin:6px 0 12px}
+.support{display:grid; gap:10px}
+@media (min-width:560px){.support{grid-template-columns:1fr 1fr}}
+.card-link{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--accent-ink);
+  padding:14px; border:1px solid var(--accent); border-radius:var(--radius);
+  background:var(--accent); transition:background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.card-link:hover{background:var(--accent-soft); border-color:var(--accent-soft); transform:translateY(-1px)}
+.card-link .v{font-weight:600; font-size:17px; line-height:1.25}
+.card-link .arrow{margin-left:auto; color:var(--accent-ink); font-size:18px; line-height:1}
+.card-icon{flex:none; width:36px; height:36px; color:var(--accent-ink)}
+.card-icon svg{width:100%; height:100%}
+
+footer{padding-top:28px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
 footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
 footer .legal{font-size:11.5px; line-height:1.6}
 </style>
+</head>
+<body>
 
-<div class="bar">
+<div class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="https://www.gpen.com" aria-label="gpen.com">G</a>
-      <div class="bar-tag">Product Guides</div>
+      <a class="glyph" href="./" aria-label="G Pen guides home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
     </div>
   </div>
 </div>
 
 <main>
   <header class="intro wrap">
-    <p class="eyebrow">Grenco Science</p>
-    <h1 class="d">Product<br>Guides</h1>
+    <h1><svg class="wordmark" viewBox="0 0 214 65" xmlns="http://www.w3.org/2000/svg" aria-label="G Pen" role="img"><path fill="currentColor" d="M11.74,58.69c-4.35-3.58-6.53-8.72-6.53-15.42,0-2.14.24-4.48.73-7.01,1.89-9.24,5.91-16.27,12.05-21.09,6.13-4.81,14.29-7.22,24.46-7.22,6.27,0,11.6.82,15.98,2.45l-3.16,15.46c-3.79-1.69-8.71-2.53-14.76-2.53-4.76,0-8.52,1.01-11.28,3.04s-4.6,5.32-5.52,9.89c-.43,2.25-.65,4.08-.65,5.49,0,2.59.74,4.39,2.23,5.41,1.49,1.01,3.99,1.52,7.5,1.52,2.38,0,4.49-.28,6.33-.84l1.14-5.58h-9.49l2.27-11.07h24.01l-5.68,27.71c-2.54,1.58-5.64,2.83-9.29,3.76s-7.77,1.39-12.37,1.39c-7.63,0-13.62-1.79-17.97-5.37h0ZM66.07,8.79h27.18c5.35,0,9.46,1.48,12.33,4.44,2.87,2.96,4.3,6.8,4.3,11.53,0,1.47-.16,3.01-.49,4.65-1.19,6.48-3.79,11.51-7.79,15.08-4,3.58-9.36,5.37-16.06,5.37h-10.38l-2.68,13.35h-17.44l11.03-54.42ZM84.4,35.75c2.16,0,3.8-.53,4.91-1.61,1.11-1.07,1.88-2.65,2.31-4.73.16-.84.24-1.63.24-2.37,0-2.76-1.51-4.14-4.54-4.14h-6.65l-2.6,12.84h6.33ZM116.77,8.79h40.64l-2.68,13.43h-23.2l-1.46,6.93h20.2l-2.76,13.77h-20.2l-1.46,6.84h23.2l-2.68,13.43h-40.64l11.04-54.4ZM161.47,8.79h14.68l12.09,25.09,5.11-25.09h17.44l-11.03,54.41h-14.85l-12.01-25.01-5.03,25.01h-17.44l11.04-54.41Z"/></svg>Product Guides</h1>
     <p>Scan the code on your device or its packaging to land straight on that product's guide — how to charge it, load it, use it, and keep it clean.</p>
   </header>
 
-  <div class="wrap">
+  <div class="wrap list">
     <div class="grid">
-      <a class="card" href="hydout/">
+      <a class="card" href="hydout/" >
         <span class="thumb"><img src="hydout/img/hero.png" alt="" loading="lazy"></span>
         <span>
-          <span class="eyebrow">510 Cartridge Battery</span>
           <h2>G Pen Hydout</h2>
-          <p class="meta">4 steps · 2 videos</p>
+          <span class="eyebrow">510 Cartridge Battery</span>
         </span>
+      </a>
+      <a class="card" href="dash-ii/" >
+        <span class="thumb"><img src="dash-ii/img/dash-ii-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Dash II</h2>
+          <span class="eyebrow">Dry Herb Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="510-original/" >
+        <span class="thumb"><img src="510-original/img/510-original-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen 510 Original</h2>
+          <span class="eyebrow">510 Cartridge Battery</span>
+        </span>
+      </a>
+      <a class="card" href="micro-ii/" >
+        <span class="thumb"><img src="micro-ii/img/micro-ii-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Micro II</h2>
+          <span class="eyebrow">Concentrate Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="melt/" >
+        <span class="thumb"><img src="melt/img/melt-card.jpg" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Melt</h2>
+          <span class="eyebrow">Hot Knife / Dab Tool</span>
+        </span>
+      </a>
+      <a class="card" href="dash-plus/" >
+        <span class="thumb"><img src="dash-plus/img/dash-plus-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Dash+</h2>
+          <span class="eyebrow">Dry Herb Vaporizer</span>
+        </span>
+      </a>
+    </div>
+
+    <details class="legacy">
+      <summary>Legacy products</summary>
+      <div class="grid">
+      <a class="card" href="elite-ii/" >
+        <span class="thumb"><img src="elite-ii/img/elite-ii-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Elite II</h2>
+          <span class="eyebrow">Dry Herb Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="micro-plus/" >
+        <span class="thumb"><img src="micro-plus/img/micro-plus-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Micro+</h2>
+          <span class="eyebrow">Concentrate Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="hyer/" >
+        <span class="thumb"><img src="hyer/img/hyer-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Hyer</h2>
+          <span class="eyebrow">Concentrate Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="connect/" >
+        <span class="thumb"><img src="connect/img/connect-card.png" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Connect</h2>
+          <span class="eyebrow">Concentrate Vaporizer</span>
+        </span>
+      </a>
+      <a class="card" href="https://www.gpen.com/products/g-pen-roam" target="_blank" rel="noopener noreferrer">
+        <span class="thumb"><img src="https://cdn.shopify.com/s/files/1/0185/1576/files/Roam_thumb_01.png?v=1768241512" alt="" loading="lazy"></span>
+        <span>
+          <h2>G Pen Roam</h2>
+          <span class="eyebrow">Portable E-Rig</span>
+        </span>
+      </a>
+      </div>
+    </details>
+  </div>
+
+  <div class="wrap help">
+    <h3>Need help?</h3>
+    <div class="support">
+      <a class="card-link" href="tel:+18336913224">
+        <span class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="30"/>
+            <path d="M39.5 40.5c-1.5 1.5-3 2-4.5 2-8 0-13.5-5.5-13.5-13.5 0-1.5.5-3 2-4.5l3-3c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5l-1.5 1.5c-.5.5-.5 1 0 1.5 1 1.5 2.5 3 4 4 .5.5 1 .5 1.5 0l1.5-1.5c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5z"/>
+          </svg>
+        </span>
+        <span class="v">+1 833-691-3224</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="card-link" href="mailto:help@gpen.com">
+        <span class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="30"/>
+            <path d="M20 24h24v16H20z" rx="2"/>
+            <path d="M20 24l12 10 12-10"/>
+          </svg>
+        </span>
+        <span class="v">help@gpen.com</span>
+        <span class="arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
 
-  <div class="wrap">
-    <footer>
-      <p><strong>G Pen</strong> · Grenco Science · Need a hand? <a href="mailto:help@gpen.com">help@gpen.com</a> or <a href="tel:+18336913224">+1 833-691-3224</a></p>
-      <p class="legal">Intended for adults 21 and over. Use only with products that are legal where you live. Keep away from children and pets.</p>
-    </footer>
-  </div>
+  <footer class="wrap">
+    <p class="legal">© 2026 G Pen</p>
+  </footer>
 </main>
+
+<script>
+(function(){
+  var bar = document.getElementById('bar');
+  var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+</body>
+</html>

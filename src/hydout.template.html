@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="How to charge, load, use, and clean the G Pen Hydout 510 cartridge battery.">
@@ -5,31 +8,29 @@
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 <title>G Pen Hydout — How to Use</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,800&family=Lato:wght@300;400;700&display=swap');
 /* ============================================================
-   TOKENS — light is the bare :root; dark redefines tokens only
+   TOKENS
    ============================================================ */
 :root{
-  --bg:#ECEDEE; --surface:#FFFFFF; --surface-2:#F5F6F7;
+  --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F5F6F7;
   --ink:#101215; --ink-2:#454A50; --ink-3:#787E86;
   --line:#D9DBDE; --line-2:#E8EAEC;
-  --accent:#B76F10; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
-  --accent-wash:rgba(183,111,16,.08);
-  --plate:#E4E5E7;                 /* photo ground — light in both themes */
-  --led:#FF3B1F; --led-off:rgba(255,59,31,.14); --led-plate:#0A0A0C;
+  --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+  --accent-wash:rgba(255,200,118,.12);
+  --plate:#E4E5E7;
   --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
   --radius:14px;
-
-  --f-display:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --f-body:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --f-display:'Kanit','Arial Black',Arial,sans-serif;
+  --f-body:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
     --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
     --line:#262A30; --line-2:#1F2329;
-    --accent:#F0B24A; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
-    --accent-wash:rgba(240,178,74,.10);
+    --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+    --accent-wash:rgba(255,200,118,.12);
     --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
   }
 }
@@ -37,14 +38,15 @@
   --bg:#0C0D10; --surface:#15171B; --surface-2:#1C1F24;
   --ink:#ECEDEF; --ink-2:#A9AFB7; --ink-3:#787E86;
   --line:#262A30; --line-2:#1F2329;
-  --accent:#F0B24A; --accent-soft:#F7CA7D; --accent-ink:#1A1206;
-  --accent-wash:rgba(240,178,74,.10);
+  --accent:#FFC876; --accent-soft:#FFE4B0; --accent-ink:#1A0F00;
+  --accent-wash:rgba(255,200,118,.12);
   --shadow:0 1px 2px rgba(0,0,0,.5), 0 12px 32px -16px rgba(0,0,0,.7);
 }
 
 /* ============================================================
    BASE
    ============================================================ */
+[hidden]{display:none!important}
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
@@ -61,14 +63,12 @@ html{scroll-behavior:smooth}
   *,*::before,*::after{animation-duration:.001ms !important; transition-duration:.001ms !important}
 }
 
-.wrap{max-width:680px; margin:0 auto; padding:0 18px}
+.wrap{max-width:680px; margin:0 auto; padding-inline:18px}
 
-/* display / label registers */
 .d{font-family:var(--f-display); font-weight:800; font-style:italic;
    text-transform:uppercase; letter-spacing:-.02em; text-wrap:balance; margin:0}
-.eyebrow{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em;
+.eyebrow{font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.1em;
    text-transform:uppercase; color:var(--ink-3); margin:0}
-.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
 
 /* ============================================================
    HEADER + NAV
@@ -84,8 +84,7 @@ html{scroll-behavior:smooth}
 .bar-top{display:flex; align-items:center; gap:10px; height:52px}
 .glyph{
   width:26px; height:26px; border-radius:7px; background:var(--ink); color:var(--bg);
-  display:grid; place-items:center; font-family:var(--f-display); font-weight:800;
-  font-style:italic; font-size:15px; flex:none; letter-spacing:-.04em; text-decoration:none;
+  display:grid; place-items:center; flex:none; text-decoration:none; padding:4px; box-sizing:border-box;
 }
 .bar-name{
   font-family:var(--f-display); font-weight:800; font-style:italic; font-size:14px;
@@ -93,141 +92,148 @@ html{scroll-behavior:smooth}
   opacity:0; transform:translateY(4px); transition:opacity .25s ease, transform .25s ease;
 }
 .bar.stuck .bar-name{opacity:1; transform:none}
-.bar-tag{margin-left:auto; font-family:var(--f-mono); font-size:10.5px;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.bar-tag{margin-left:auto; font-family:var(--f-body); font-weight:700; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
 
 nav.jump{display:flex; gap:6px; overflow-x:auto; padding:0 0 10px;
   scrollbar-width:none; -ms-overflow-style:none}
 nav.jump::-webkit-scrollbar{display:none}
 nav.jump a{
   flex:none; text-decoration:none; color:var(--ink-2);
-  font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
   padding:7px 12px; border-radius:999px; border:1px solid var(--line);
   background:var(--surface); transition:background .18s ease, color .18s ease, border-color .18s ease;
 }
 nav.jump a[aria-current="true"]{
   background:var(--ink); color:var(--bg); border-color:var(--ink);
 }
+/* hide top nav pills on mobile — bottom nav takes over */
+@media (max-width:639px){ nav.jump{ display:none } }
 
 /* ============================================================
-   HERO
+   BOTTOM NAV — mobile only (≤639px)
    ============================================================ */
-/* NB: these siblings of .wrap must use padding longhands — a `padding` shorthand
-   here has equal specificity and would wipe out .wrap's side padding. */
-.hero{padding-top:22px; padding-bottom:30px}
-.shot{
-  position:relative; border-radius:var(--radius); overflow:hidden;
-  background:
-    radial-gradient(120% 90% at 50% 8%, var(--accent-wash), transparent 62%),
-    var(--surface);
-  border:1px solid var(--line); box-shadow:var(--shadow);
-  display:grid; place-items:center; padding:20px 0 10px; min-height:300px;
+.bottom-nav{
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:100;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:saturate(1.8) blur(16px);
+  -webkit-backdrop-filter:saturate(1.8) blur(16px);
+  border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);
 }
-.shot img{width:min(62%,250px); filter:drop-shadow(0 22px 30px rgba(0,0,0,.28))}
-.hero h1{font-size:clamp(34px,10vw,46px); line-height:.92; margin:16px 0 0}
-.hero .eyebrow{margin-bottom:8px}
-.lede{color:var(--ink-2); font-size:16.5px; margin:12px 0 0; max-width:60ch}
-.chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; padding:0; list-style:none}
-.chips li{
-  font-family:var(--f-mono); font-size:11px; letter-spacing:.05em;
-  padding:5px 10px; border-radius:999px; background:var(--surface-2);
-  border:1px solid var(--line-2); color:var(--ink-2);
+@media (max-width:639px){ .bottom-nav{ display:flex } }
+.bottom-nav a{
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
+  padding:8px 4px 7px; text-decoration:none;
+  color:var(--ink-3);
+  font-family:var(--f-body); font-weight:700; font-size:9.5px; letter-spacing:.04em; text-transform:uppercase;
+  transition:color .18s ease; -webkit-tap-highlight-color:transparent;
+  position:relative;
 }
+.bottom-nav a[aria-current="true"]{
+  color:var(--ink);
+}
+.bottom-nav a[aria-current="true"]::before{
+  content:'';
+  position:absolute; inset:4px 6px;
+  background:var(--accent); border-radius:10px;
+  z-index:-1;
+}
+.bottom-nav a[aria-current="true"] svg,
+.bottom-nav a[aria-current="true"] { color:var(--accent-ink); }
+.bottom-nav svg{ width:22px; height:22px; flex:none }
+/* push page content above the bottom nav */
+@media (max-width:639px){
+  main{ padding-bottom:calc(62px + env(safe-area-inset-bottom)) }
+}
+
+/* ============================================================
+   PAGE HEADER — simple product name, no hero card
+   ============================================================ */
+.page-head{padding-top:32px; padding-bottom:32px}
+.page-head h1{font-size:clamp(26px,7vw,36px); line-height:1; margin:6px 0 0; display:flex; align-items:baseline; gap:.28em; flex-wrap:wrap}
+.wordmark{height:.88em; width:auto; flex:none; display:block}
 
 /* ============================================================
    SECTIONS
    ============================================================ */
-section{scroll-margin-top:104px; padding-top:34px; padding-bottom:34px}
-.sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:20px}
-.sec-head h2{font-size:clamp(24px,6.5vw,30px)}
-.sec-head .count{margin-left:auto; font-family:var(--f-mono); font-size:11px;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+section{scroll-margin-top:104px; padding-top:56px; padding-bottom:56px}
+.sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:28px}
+.sec-head h2{font-size:clamp(22px,6vw,28px)}
+.sec-head .count{margin-left:auto; font-family:var(--f-body); font-weight:700; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
 .rule{height:1px; background:var(--line); border:0; margin:0}
 
-/* ---------- STEPS: numbered rail ---------- */
-.steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:26px}
-.step{display:grid; grid-template-columns:34px 1fr; gap:14px; position:relative}
-.rail{position:relative; display:flex; justify-content:center}
+/* ============================================================
+   STEPS — PDF-inspired: circular image + number badge
+   ============================================================ */
+.steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.step{
+  display:flex; gap:20px; align-items:flex-start;
+  padding:26px 0; border-bottom:1px solid var(--line-2);
+}
+.step:last-child{border-bottom:0}
+
+/* Circular image with overlapping number badge */
+.step-img-wrap{position:relative; flex:none; width:130px; height:130px}
+.step-circle{
+  width:130px; height:130px; border-radius:50%;
+  overflow:hidden; background:var(--plate);
+  border:1px solid var(--line-2);
+}
+.step-circle img{width:100%; height:100%; object-fit:cover; display:block}
+/* Step with two circles: the number badge stays on the first, the second sits below it */
+.step-img-wrap.step-img-stack{height:auto; display:flex; flex-direction:column; gap:14px}
+.step-img-main{position:relative; width:130px; height:130px}
 .num{
-  width:34px; height:34px; border-radius:50%; background:var(--accent-soft);
-  color:var(--accent-ink); display:grid; place-items:center; z-index:1;
-  font-family:var(--f-display); font-weight:800; font-style:italic; font-size:17px;
+  position:absolute; bottom:-6px; left:-6px;
+  width:40px; height:40px; border-radius:50%;
+  background:var(--accent); color:var(--accent-ink);
+  display:grid; place-items:center; z-index:1;
+  font-family:var(--f-display); font-weight:800; font-style:italic; font-size:21px;
+  border:3px solid var(--bg);
+  box-shadow:0 2px 8px rgba(0,0,0,.14);
 }
-.rail::after{
-  content:""; position:absolute; top:38px; bottom:-30px; width:2px;
-  background:linear-gradient(var(--line), var(--line)); border-radius:2px;
+
+.step-body{min-width:0; padding-top:2px}
+.step h3{
+  font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:0 0 10px;
 }
-.step:last-child .rail::after{display:none}
-.step-body{min-width:0}
-.step h3{font-family:var(--f-display); font-weight:800; font-style:italic;
-  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:5px 0 0}
-.plate{
-  margin:12px 0 0; border-radius:var(--radius); overflow:hidden;
-  background:var(--plate); border:1px solid var(--line-2);
-}
-.plate img{width:100%}
-.do{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:9px}
-.do li{position:relative; padding-left:20px; color:var(--ink-2); font-size:15.5px}
+.do{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
+.do li{position:relative; padding-left:20px; color:var(--ink-2); font-size:15px}
 .do li::before{
   content:""; position:absolute; left:4px; top:.62em; width:6px; height:6px;
   border-radius:50%; background:var(--accent);
 }
 .do li b{color:var(--ink); font-weight:600}
 .note{
-  margin:14px 0 0; padding:10px 12px; border-radius:10px;
+  margin:12px 0 0; padding:10px 12px; border-radius:10px;
   background:var(--accent-wash); border:1px solid var(--line-2);
-  font-size:14px; color:var(--ink-2);
+  font-size:13.5px; color:var(--ink-2);
 }
 .note b{color:var(--ink); font-weight:600}
 
-/* ---------- LED simulator ---------- */
-.controller{margin:16px 0 0; border:1px solid var(--line); border-radius:var(--radius);
-  background:var(--surface); overflow:hidden; box-shadow:var(--shadow)}
-.led{
-  background:var(--led-plate); padding:18px 16px 16px;
-  display:grid; grid-template-columns:1fr auto; align-items:center; gap:14px;
+/* ---------- activate: press list (PDF-style) ---------- */
+.press-list{
+  margin:12px 0 0; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--surface); overflow:hidden; box-shadow:var(--shadow);
 }
-.readout{font-family:var(--f-mono); font-weight:600; color:var(--led);
-  font-size:34px; line-height:1; letter-spacing:.04em; font-variant-numeric:tabular-nums;
-  text-shadow:0 0 14px rgba(255,59,31,.55); min-height:34px}
-.readout small{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-  color:rgba(255,255,255,.46); text-shadow:none; margin-top:9px; font-weight:400;
-  letter-spacing:.12em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.bars{display:flex; gap:5px; align-items:flex-end}
-.bars i{width:7px; border-radius:2px; background:var(--led-off); transition:background .18s ease}
-.bars i:nth-child(1){height:12px} .bars i:nth-child(2){height:18px}
-.bars i:nth-child(3){height:24px} .bars i:nth-child(4){height:30px}
-.bars i:nth-child(5){height:36px}
-.bars i.on{background:var(--led); box-shadow:0 0 10px rgba(255,59,31,.5)}
-.presses{list-style:none; margin:0; padding:0}
-.presses li{border-top:1px solid var(--line-2)}
-.presses button{
-  width:100%; display:grid; grid-template-columns:52px 1fr; align-items:center; gap:12px;
-  background:none; border:0; padding:13px 14px; cursor:pointer; text-align:left;
-  font:inherit; color:var(--ink); transition:background .15s ease;
+.press-row{
+  display:flex; align-items:center; gap:14px;
+  padding:12px 16px; border-bottom:1px solid var(--line-2);
 }
-.presses button:hover{background:var(--surface-2)}
-.presses button[aria-pressed="true"]{background:var(--accent-wash)}
-.tap{
-  font-family:var(--f-mono); font-size:12px; font-weight:600; letter-spacing:.04em;
-  padding:5px 0; border-radius:999px; background:var(--surface-2); color:var(--ink-2);
-  text-align:center; border:1px solid var(--line-2);
+.press-row:last-child{border-bottom:0}
+.press-badge{
+  flex:none; width:42px; height:42px; border-radius:50%;
+  background:var(--accent); color:var(--accent-ink);
+  font-family:var(--f-body); font-weight:700; font-size:13px; letter-spacing:.02em;
+  display:grid; place-items:center;
 }
-.presses button[aria-pressed="true"] .tap{background:var(--accent-soft); color:var(--accent-ink); border-color:transparent}
-.tap-label{font-size:15px}
-.tap-label span{display:block; color:var(--ink-3); font-size:13px}
-
-/* ---------- heat scale ---------- */
-.scale{margin:14px 0 0; padding:14px; border:1px solid var(--line); border-radius:var(--radius);
-  background:var(--surface)}
-.scale-track{display:flex; gap:4px; margin:10px 0 8px}
-.scale-track i{flex:1; height:8px; border-radius:3px;
-  background:linear-gradient(90deg, var(--accent-soft), var(--accent))}
-.scale-track i:nth-child(1){opacity:.35} .scale-track i:nth-child(2){opacity:.5}
-.scale-track i:nth-child(3){opacity:.68} .scale-track i:nth-child(4){opacity:.84}
-.scale-ends{display:flex; justify-content:space-between; gap:10px; font-family:var(--f-mono);
-  font-size:11.5px; letter-spacing:.06em; color:var(--ink-2)}
-.scale-note{margin:8px 0 0; font-size:13.5px; color:var(--ink-3)}
+.press-hold{font-size:10px; letter-spacing:.08em; text-transform:uppercase; width:auto; min-width:42px; padding:0 5px; border-radius:999px; white-space:nowrap}
+.press-action{display:block; font-size:15px; font-weight:600; color:var(--ink)}
+.press-sub{display:block; font-size:13px; color:var(--ink-3); margin-top:2px}
 
 /* ---------- videos ---------- */
 .vids{display:grid; gap:14px}
@@ -236,6 +242,9 @@ section{scroll-margin-top:104px; padding-top:34px; padding-bottom:34px}
   display:block; text-decoration:none; color:inherit; border-radius:var(--radius);
   overflow:hidden; background:var(--surface); border:1px solid var(--line);
   box-shadow:var(--shadow); transition:transform .18s ease, border-color .18s ease;
+  /* button reset */
+  appearance:none; -webkit-appearance:none; padding:0; width:100%;
+  cursor:pointer; font:inherit; text-align:left;
 }
 .vid:hover{transform:translateY(-2px); border-color:var(--accent)}
 .vid-thumb{position:relative; aspect-ratio:16/9; background:var(--surface-2)}
@@ -250,204 +259,448 @@ section{scroll-margin-top:104px; padding-top:34px; padding-bottom:34px}
 .vid-meta{padding:12px 14px 13px}
 .vid-meta h3{font-family:var(--f-display); font-weight:800; font-style:italic;
   text-transform:uppercase; font-size:15px; margin:0}
-.vid-meta p{margin:4px 0 0; font-family:var(--f-mono); font-size:10.5px;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.vid-meta p{margin:4px 0 0; font-family:var(--f-body); font-weight:700; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
 
-/* ---------- box contents / specs ---------- */
-.box{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0}
-.box li{display:flex; gap:12px; align-items:baseline; padding:11px 0; border-bottom:1px solid var(--line-2)}
-.box li:last-child{border-bottom:0}
-.box .qty{font-family:var(--f-mono); font-size:12px; color:var(--accent); flex:none; width:34px}
-.box li.not .qty{color:var(--ink-3)}
-.box li.not{color:var(--ink-3)}
+/* ---------- video modal ---------- */
+.vm-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.92);
+  z-index:300; backdrop-filter:blur(6px);
+}
+.vm{
+  position:fixed; inset:0; z-index:301;
+  display:grid; place-items:center; padding:20px;
+}
+.vm-frame{position:relative; width:100%; max-width:860px}
+.vm-close{
+  position:absolute; top:-42px; right:0;
+  width:34px; height:34px; border-radius:50%;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+  color:#fff; font-size:20px; line-height:1; cursor:pointer;
+  display:grid; place-items:center; transition:background .15s ease;
+  appearance:none; -webkit-appearance:none;
+}
+.vm-close:hover{background:rgba(255,255,255,.28)}
+.vm-player{
+  aspect-ratio:16/9; background:#000; border-radius:10px; overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,.7);
+}
+.vm-player iframe{width:100%; height:100%; border:0}
 
+/* ---------- collapsed specs + faq sections ---------- */
+.collapsible{
+  border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--surface); overflow:hidden;
+}
+.collapsible > summary{
+  cursor:pointer; list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:18px;
+  user-select:none;
+}
+.collapsible > summary::-webkit-details-marker{display:none}
+.collapsible > summary::after{
+  content:""; width:10px; height:10px; flex:none;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .2s ease; margin-top:-4px;
+}
+.collapsible[open] > summary::after{transform:rotate(225deg); margin-top:4px}
+.collapsible > summary:hover{background:var(--surface-2)}
+.collapsible-body{border-top:1px solid var(--line); padding:18px}
+
+/* specs table */
 .specs{width:100%; border-collapse:collapse; font-size:14.5px}
-.specs th,.specs td{text-align:left; padding:11px 0; border-bottom:1px solid var(--line-2); vertical-align:baseline}
-.specs th{font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--ink-3); font-weight:400; width:46%}
+.specs th,.specs td{text-align:left; padding:10px 0; border-bottom:1px solid var(--line-2); vertical-align:baseline}
+.specs th{font-family:var(--f-body); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:700; width:46%}
 .specs td{font-variant-numeric:tabular-nums; color:var(--ink)}
 .specs tr:last-child th,.specs tr:last-child td{border-bottom:0}
 .table-scroll{overflow-x:auto}
 
-/* ---------- faq ---------- */
-.faq{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-2)}
+/* faq inside collapsible */
+.faq{display:flex; flex-direction:column; gap:0}
 .faq details{border-bottom:1px solid var(--line-2)}
+.faq details:last-child{border-bottom:0}
 .faq summary{
-  cursor:pointer; padding:14px 30px 14px 0; position:relative; list-style:none;
-  font-weight:600; font-size:15.5px;
+  cursor:pointer; padding:13px 30px 13px 0; position:relative; list-style:none;
+  font-weight:600; font-size:15px;
 }
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{
-  content:""; position:absolute; right:6px; top:50%; width:9px; height:9px;
+  content:""; position:absolute; right:6px; top:50%; width:8px; height:8px;
   border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
   transform:translateY(-70%) rotate(45deg); transition:transform .2s ease;
 }
 .faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.faq p{margin:0 0 15px; color:var(--ink-2); font-size:15px; max-width:62ch}
+.faq p{margin:0 0 14px; color:var(--ink-2); font-size:15px; max-width:62ch}
 
 /* ---------- support ---------- */
 .support{display:grid; gap:10px}
-@media (min-width:520px){.support{grid-template-columns:1fr 1fr}}
+@media (min-width:560px){.support{grid-template-columns:1fr 1fr}}
 .card-link{
-  display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;
-  padding:14px; border:1px solid var(--line); border-radius:var(--radius);
-  background:var(--surface); transition:border-color .18s ease, transform .18s ease;
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--accent-ink);
+  padding:14px; border:1px solid var(--accent); border-radius:var(--radius);
+  background:var(--accent); transition:background .18s ease, border-color .18s ease, transform .18s ease;
 }
-.card-link:hover{border-color:var(--accent); transform:translateY(-1px)}
-.card-link .k{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--ink-3); display:block}
-.card-link .v{font-weight:600; font-size:15px}
-.card-link .arrow{margin-left:auto; color:var(--accent); font-size:18px; line-height:1}
+.card-link:hover{background:var(--accent-soft); border-color:var(--accent-soft); transform:translateY(-1px)}
+.card-link .v{font-weight:600; font-size:17px; line-height:1.25}
+.card-link .arrow{margin-left:auto; color:var(--accent-ink); font-size:18px; line-height:1}
+.card-icon{flex:none; width:36px; height:36px; color:var(--accent-ink)}
+.card-icon svg{width:100%; height:100%}
 
-footer{padding-top:30px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
+/* ---------- upgrade / accessories ---------- */
+.upgrade-sub{color:var(--ink-2); font-size:15px; margin:0 0 20px}
+.acc-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:22px}
+@media(max-width:400px){.acc-grid{grid-template-columns:1fr}}
+.acc-card{
+  background:var(--surface-2); border-radius:var(--radius);
+  overflow:hidden; text-decoration:none; display:block;
+  transition:box-shadow .18s ease, transform .18s ease;
+}
+.acc-card:hover{box-shadow:var(--shadow); transform:translateY(-2px)}
+.acc-card img{width:100%; aspect-ratio:1/1; object-fit:cover; display:block}
+.acc-card-body{padding:12px 14px 14px}
+.acc-card-name{display:block; font-weight:700; font-size:14px; color:var(--ink); margin-bottom:4px; line-height:1.3}
+.acc-card-note{display:block; font-size:12.5px; color:var(--ink-2); line-height:1.45}
+.acc-shop{
+  display:inline-flex; align-items:center; gap:5px;
+  margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.03em;
+  color:var(--accent-ink); background:var(--accent);
+  padding:5px 11px; border-radius:999px;
+}
+.upgrade-cta{display:flex}
+.upgrade-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 22px; border-radius:999px;
+  background:var(--accent); color:var(--accent-ink);
+  font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:14px;
+  text-decoration:none; transition:background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.upgrade-btn.alt{background:var(--surface-2); color:var(--ink)}
+.upgrade-btn:hover{background:var(--ink); color:var(--bg); transform:translateY(-1px)}
+.upgrade-btn svg{width:16px; height:16px; flex:none}
+
+footer{padding-top:28px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
 footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
 footer .legal{font-size:11.5px; line-height:1.6}
 
-/* ---------- ≥620px: steps go two-up ---------- */
-@media (min-width:620px){
-  .step{grid-template-columns:34px 1fr}
-  .step-grid{display:grid; grid-template-columns:200px 1fr; gap:18px; align-items:start}
-  .step-grid .plate{margin-top:0}
-  .step h3{margin-top:0}
+/* ≥480px: slightly larger circles */
+@media (min-width:480px){
+  .step-img-wrap{width:150px; height:150px}
+  .step-img-main{width:150px; height:150px}
+  .step-circle{width:150px; height:150px}
+  .num{width:44px; height:44px; font-size:23px}
 }
+
+/* Mobile: compact press badges so text fits on one line */
+@media (max-width:420px){
+  .press-badge{width:36px; height:36px; font-size:11px}
+  .press-hold{font-size:9px; width:auto; min-width:36px; padding:0 3px}
+  .press-row{gap:10px; padding:11px 14px}
+  .press-action{font-size:14px}
+  .press-sub{font-size:12px}
+}
+
+/* ============================================================
+   LANGUAGE SELECTOR
+   ============================================================ */
+.lang-wrap{position:relative; margin-left:auto}
+.lang-btn{
+  display:flex; align-items:center; gap:5px;
+  background:none; border:1px solid var(--line); border-radius:999px;
+  padding:5px 8px 5px 9px; cursor:pointer; color:var(--ink-2);
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; transition:border-color .18s, color .18s;
+  white-space:nowrap; user-select:none;
+}
+.lang-btn svg:first-child{width:14px; height:14px; flex:none}
+.lang-code{font-weight:700; font-size:11px; letter-spacing:.06em}
+.lang-chevron{width:10px; height:7px; flex:none; transition:transform .2s ease}
+.lang-btn[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)}
+.lang-btn:hover{border-color:var(--ink); color:var(--ink)}
+
+.lang-drop{
+  position:absolute; top:calc(100% + 8px); right:0;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,.14);
+  padding:6px; min-width:220px; list-style:none; margin:0;
+  z-index:300;
+}
+.lang-opt{
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:9px; cursor:pointer;
+  transition:background .14s ease;
+  border:1.5px solid transparent;
+}
+.lang-opt:hover{background:var(--surface-2)}
+.lang-opt.active{border-color:var(--ink); background:transparent}
+.lc{
+  font-family:var(--f-body); font-size:10.5px; font-weight:700;
+  letter-spacing:.06em; color:var(--ink-3); width:22px; flex:none;
+}
+.lang-opt.active .lc{color:var(--ink)}
+.ll{flex:1; font-size:15px; font-weight:600; color:var(--ink)}
+.lcheck{width:14px; height:10px; flex:none; color:var(--ink)}
+
+/* ============================================================
+   ALL-GUIDES BUTTON (header)
+   ============================================================ */
+.guides-btn{
+  display:flex; align-items:center; gap:5px;
+  background:none; border:1px solid var(--line); border-radius:999px;
+  padding:5px 10px 5px 8px; cursor:pointer; color:var(--ink-2);
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; transition:border-color .18s, color .18s;
+  white-space:nowrap; flex:none;
+}
+.guides-btn svg{width:14px; height:14px; flex:none}
+.guides-btn:hover{border-color:var(--ink); color:var(--ink)}
+
+/* ============================================================
+   PRODUCT SWITCHER SHEET
+   ============================================================ */
+.sheet-backdrop{
+  position:fixed; inset:0; z-index:200;
+  background:rgba(10,10,12,.48);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+  opacity:0; transition:opacity .28s ease;
+}
+.sheet-backdrop.open{opacity:1}
+
+.sheet{
+  position:fixed; left:0; right:0; bottom:0; z-index:201;
+  background:var(--surface);
+  border-radius:20px 20px 0 0;
+  box-shadow:0 -4px 40px rgba(0,0,0,.18);
+  transform:translateY(100%);
+  transition:transform .32s cubic-bezier(.32,1,.6,1);
+  display:flex; flex-direction:column;
+  max-height:85dvh;
+}
+.sheet.open{transform:translateY(0)}
+
+.sheet-handle{
+  width:36px; height:4px; border-radius:2px;
+  background:var(--line); margin:12px auto 0; flex:none;
+}
+.sheet-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px 10px; flex:none;
+}
+.sheet-title{
+  font-family:var(--f-display); font-weight:800; font-style:italic;
+  font-size:18px; text-transform:uppercase; letter-spacing:-.02em;
+}
+.sheet-close{
+  background:none; border:none; cursor:pointer; color:var(--ink-2);
+  padding:4px; border-radius:6px; display:grid; place-items:center;
+  transition:color .18s ease;
+}
+.sheet-close:hover{color:var(--ink)}
+.sheet-close svg{width:20px; height:20px}
+
+.sheet-body{overflow-y:auto; padding:8px 16px 24px; -webkit-overflow-scrolling:touch}
+@media (max-width:639px){
+  .sheet-body{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+}
+
+.sheet-grid{display:grid; gap:10px; grid-template-columns:1fr 1fr}
+@media (min-width:480px){.sheet-grid{grid-template-columns:repeat(3,1fr)}}
+
+.guide-card{
+  display:flex; flex-direction:column; text-decoration:none; color:inherit;
+  border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; background:var(--surface);
+  transition:border-color .18s ease, transform .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.guide-card:hover{border-color:var(--accent); transform:translateY(-2px)}
+.guide-card[aria-current="true"]{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent)}
+.guide-card .gc-img{aspect-ratio:1; background:var(--surface-2); overflow:hidden}
+.guide-card .gc-img img{width:100%; height:100%; object-fit:cover; display:block}
+.guide-card .gc-body{padding:10px 12px 12px}
+.guide-card .gc-cat{font-family:var(--f-body); font-weight:700; font-size:9.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-3); display:block; margin-top:3px}
+.guide-card .gc-name{display:block; font-family:var(--f-display); font-weight:800; font-style:italic;
+  font-size:13px; text-transform:uppercase; letter-spacing:-.01em; line-height:1.1}
+
+/* legacy products fold inside the switcher sheet */
+.sheet-grid .legacy{grid-column:1 / -1; margin-top:6px}
+.legacy > summary{
+  cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between;
+  padding:13px 16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);
+  font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  letter-spacing:-.01em; font-size:15px; user-select:none;
+}
+.legacy > summary::-webkit-details-marker{display:none}
+.legacy > summary::after{
+  content:""; width:9px; height:9px; flex:none;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .2s ease; margin-top:-4px;
+}
+.legacy[open] > summary::after{transform:rotate(225deg); margin-top:4px}
+.legacy > summary:hover{background:var(--surface-2)}
+.legacy[open] > summary{margin-bottom:10px}
+.legacy-grid{display:grid; gap:10px; grid-template-columns:1fr 1fr}
+@media (min-width:480px){.legacy-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
+</head>
+<body>
 
 <div class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="{{HOME}}" aria-label="All G Pen product guides">G</a>
+      <a class="glyph" href="{{HOME}}" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <div class="bar-name">Hydout</div>
-      <div class="bar-tag">Product Guide</div>
+      <!-- Language selector -->
+      <div class="lang-wrap" id="lang-wrap">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="10" cy="10" r="8"/>
+            <path d="M10 2C10 2 7 6 7 10s3 8 3 8M10 2c0 0 3 4 3 8s-3 8-3 8M2 10h16"/>
+          </svg>
+          <span class="lang-code" id="lang-code">EN</span>
+          <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg>
+        </button>
+        <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Language" hidden>
+          <li role="option" data-lang="EN" data-label="English"      aria-selected="true"  class="lang-opt active"><span class="lc">EN</span><span class="ll">English</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
+          <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll">Español</span></li>
+          <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="false" class="lang-opt"><span class="lc">DE</span><span class="ll">Deutsch</span></li>
+          <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll">Italiano</span></li>
+          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll">Français</span></li>
+          <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
+        </ul>
+      </div>
+      <button class="guides-btn" id="guides-btn" aria-label="All product guides" aria-expanded="false" data-i18n="all_guides">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <rect x="2"  y="2"  width="7" height="7" rx="1.5"/>
+          <rect x="11" y="2"  width="7" height="7" rx="1.5"/>
+          <rect x="2"  y="11" width="7" height="7" rx="1.5"/>
+          <rect x="11" y="11" width="7" height="7" rx="1.5"/>
+        </svg>
+        All guides
+      </button>
     </div>
     <nav class="jump" aria-label="Sections">
-      <a href="#use">How to use</a>
-      <a href="#videos">Videos</a>
-      <a href="#box">In the box</a>
-      <a href="#specs">Specs</a>
-      <a href="#help">Help</a>
+      <a href="#use" data-i18n="nav_use">How to use</a>
+      <a href="#videos" data-i18n="nav_videos">Videos</a>
+      <a href="#specs" data-i18n="nav_specs">Specs</a>
+      <a href="#help" data-i18n="nav_help">Help</a>
     </nav>
   </div>
 </div>
 
 <main>
-  <header class="hero wrap">
-    <div class="shot">
-      <img src="{{HERO}}" alt="G Pen Hydout 510 cartridge battery, front view" width="720" height="720">
-    </div>
-    <p class="eyebrow" style="margin-top:18px">510 Cartridge Battery</p>
-    <h1 class="d">G&nbsp;Pen<br>Hydout</h1>
-    <p class="lede">A pocket-sized 510 battery with a magnetic mouthpiece cover that hides your cartridge. Five heat settings, a preheat mode, and an LED display — so every session is dialed in and low-key.</p>
-    <ul class="chips">
-      <li>400 mAh</li><li>USB-C</li><li>2.4V – 3.8V</li><li>Fits carts up to 2g</li><li>90 × 37.5 × 18.5 mm</li>
-    </ul>
+  <header class="page-head wrap">
+    <p class="eyebrow" data-i18n="eyebrow">Using your</p>
+    <h1 class="d"><svg class="wordmark" viewBox="0 0 214 65" xmlns="http://www.w3.org/2000/svg" aria-label="G Pen" role="img"><path fill="currentColor" d="M11.74,58.69c-4.35-3.58-6.53-8.72-6.53-15.42,0-2.14.24-4.48.73-7.01,1.89-9.24,5.91-16.27,12.05-21.09,6.13-4.81,14.29-7.22,24.46-7.22,6.27,0,11.6.82,15.98,2.45l-3.16,15.46c-3.79-1.69-8.71-2.53-14.76-2.53-4.76,0-8.52,1.01-11.28,3.04s-4.6,5.32-5.52,9.89c-.43,2.25-.65,4.08-.65,5.49,0,2.59.74,4.39,2.23,5.41,1.49,1.01,3.99,1.52,7.5,1.52,2.38,0,4.49-.28,6.33-.84l1.14-5.58h-9.49l2.27-11.07h24.01l-5.68,27.71c-2.54,1.58-5.64,2.83-9.29,3.76s-7.77,1.39-12.37,1.39c-7.63,0-13.62-1.79-17.97-5.37h0ZM66.07,8.79h27.18c5.35,0,9.46,1.48,12.33,4.44,2.87,2.96,4.3,6.8,4.3,11.53,0,1.47-.16,3.01-.49,4.65-1.19,6.48-3.79,11.51-7.79,15.08-4,3.58-9.36,5.37-16.06,5.37h-10.38l-2.68,13.35h-17.44l11.03-54.42ZM84.4,35.75c2.16,0,3.8-.53,4.91-1.61,1.11-1.07,1.88-2.65,2.31-4.73.16-.84.24-1.63.24-2.37,0-2.76-1.51-4.14-4.54-4.14h-6.65l-2.6,12.84h6.33ZM116.77,8.79h40.64l-2.68,13.43h-23.2l-1.46,6.93h20.2l-2.76,13.77h-20.2l-1.46,6.84h23.2l-2.68,13.43h-40.64l11.04-54.4ZM161.47,8.79h14.68l12.09,25.09,5.11-25.09h17.44l-11.03,54.41h-14.85l-12.01-25.01-5.03,25.01h-17.44l11.04-54.41Z"/></svg>Hydout</h1>
   </header>
 
   <hr class="rule">
 
   <!-- ===================== HOW TO USE ===================== -->
   <section id="use" class="wrap">
-    <div class="sec-head">
-      <h2 class="d">How to use</h2>
-      <span class="count">4 steps</span>
-    </div>
-
     <ol class="steps">
 
       <li class="step">
-        <div class="rail"><div class="num">1</div></div>
-        <div class="step-body">
-          <div class="step-grid">
-            <div class="plate"><img src="{{STEP1}}" alt="USB-C cable next to the charging port on the base of the Hydout" loading="lazy"></div>
-            <div>
-              <h3>Charge it first</h3>
-              <ul class="do">
-                <li>Plug <b>any USB-C cable</b> into the port on the base.</li>
-                <li>The display shows the battery level while it charges.</li>
-                <li>Give it a full charge before the first session.</li>
-              </ul>
-              <p class="note">A USB-C cable isn't included — use the one you already carry.</p>
-            </div>
-          </div>
+        <div class="step-img-wrap">
+          <div class="step-circle"><img src="{{STEP1}}" alt="USB-C cable plugged into the base of the Hydout" loading="lazy"></div>
+          <div class="num">1</div>
+        </div>
+        <div class="step-body" data-i18n-zone="step1_body">
+          <h3>Charge</h3>
+          <ul class="do">
+            <li>Plug <b>any USB-C cable</b> into the port on the base.</li>
+            <li>The display shows battery level while charging.</li>
+            <li>Give it a full charge before first use.</li>
+          </ul>
+          <p class="note">USB-C cable not included — use the one you already carry.</p>
         </div>
       </li>
 
       <li class="step">
-        <div class="rail"><div class="num">2</div></div>
-        <div class="step-body">
-          <div class="step-grid">
-            <div class="plate"><img src="{{STEP2}}" alt="Magnetic mouthpiece cover lifted off, showing a 510 cartridge ready to thread in" loading="lazy"></div>
-            <div>
-              <h3>Load your cart</h3>
-              <ul class="do">
-                <li><b>Pull off</b> the magnetic mouthpiece cover.</li>
-                <li><b>Screw in</b> your 510 cartridge — snug, not cranked.</li>
-                <li><b>Snap the cover</b> back on. Your cart is now hidden and shielded from light.</li>
-              </ul>
-              <p class="note">Fits most 510-thread cartridges up to <b>2g</b>. Cartridge sold separately.</p>
-            </div>
-          </div>
+        <div class="step-img-wrap">
+          <div class="step-circle"><img src="{{STEP2}}" alt="Magnetic mouthpiece cover removed, 510 cartridge ready to thread in" loading="lazy"></div>
+          <div class="num">2</div>
+        </div>
+        <div class="step-body" data-i18n-zone="step2_body">
+          <h3>Load</h3>
+          <ul class="do">
+            <li><b>Pull off</b> the magnetic mouthpiece cover.</li>
+            <li><b>Screw in</b> your 510 cartridge — snug, not cranked.</li>
+            <li><b>Snap the cover</b> back on.</li>
+          </ul>
+          <p class="note">Fits most 510-thread cartridges up to <b>2g</b>. Cartridge sold separately.</p>
         </div>
       </li>
 
       <li class="step">
-        <div class="rail"><div class="num">3</div></div>
-        <div class="step-body">
-          <div class="step-grid">
-            <div class="plate"><img src="{{STEP3}}" alt="Close-up of the single control button on the side of the Hydout" loading="lazy"></div>
-            <div>
-              <h3>Learn the button</h3>
-              <p class="lede" style="font-size:15.5px; margin:8px 0 0">One button does everything. Tap a command to see what the display does.</p>
+        <div class="step-img-wrap">
+          <div class="step-circle"><img src="{{STEP3}}" alt="Single control button on the side of the Hydout" loading="lazy"></div>
+          <div class="num">3</div>
+        </div>
+        <div class="step-body" data-i18n-zone="step3_body">
+          <h3>Activate</h3>
+          <div class="press-list">
+            <div class="press-row">
+              <div class="press-badge">5×</div>
+              <div>
+                <span class="press-action">Turn on</span>
+                <span class="press-sub">Five quick presses</span>
+              </div>
+            </div>
+            <div class="press-row">
+              <div class="press-badge">3×</div>
+              <div>
+                <span class="press-action">Adjust voltage</span>
+                <span class="press-sub">Cycles 2.4V → 3.8V</span>
+              </div>
+            </div>
+            <div class="press-row">
+              <div class="press-badge">2×</div>
+              <div>
+                <span class="press-action">10-second preheat</span>
+                <span class="press-sub">Warms oil at 1.8V</span>
+              </div>
+            </div>
+            <div class="press-row">
+              <div class="press-badge press-hold">hold</div>
+              <div>
+                <span class="press-action">Activate + draw</span>
+                <span class="press-sub">Hold while you inhale</span>
+              </div>
+            </div>
+            <div class="press-row">
+              <div class="press-badge">5×</div>
+              <div>
+                <span class="press-action">Turn off</span>
+                <span class="press-sub">Auto shut-off after 2 min</span>
+              </div>
             </div>
           </div>
-
-          <div class="controller">
-            <div class="led">
-              <div class="readout" id="readout" aria-live="polite" role="status">OFF<small id="readout-sub">Device asleep</small></div>
-              <div class="bars" id="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-            </div>
-            <ul class="presses" id="presses">
-              <li><button type="button" data-act="power" aria-pressed="false">
-                <span class="tap mono">5×</span>
-                <span class="tap-label">Power on / off<span>Five quick presses</span></span></button></li>
-              <li><button type="button" data-act="heat" aria-pressed="false">
-                <span class="tap mono">3×</span>
-                <span class="tap-label">Change heat setting<span>Cycles through all five</span></span></button></li>
-              <li><button type="button" data-act="preheat" aria-pressed="false">
-                <span class="tap mono">2×</span>
-                <span class="tap-label">10-second preheat<span>Warms the oil at 1.8V</span></span></button></li>
-              <li><button type="button" data-act="draw" aria-pressed="false">
-                <span class="tap mono">HOLD</span>
-                <span class="tap-label">Activate and draw<span>Hold while you inhale</span></span></button></li>
-            </ul>
-          </div>
-
-          <div class="scale">
-            <p class="eyebrow">Heat settings</p>
-            <div class="scale-track" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="scale-ends"><span>2.4V</span><span>3.8V</span></div>
-            <p class="scale-note">Lower heat brings out more flavor and stretches a cart further. Higher heat gives you bigger, warmer clouds.</p>
-          </div>
-
-          <p class="note">The Hydout <b>shuts itself off after 2 minutes</b> of no use. Five presses wakes it back up.</p>
+          <p class="note">Lower voltage = more flavor. Higher = bigger clouds.</p>
         </div>
       </li>
 
       <li class="step">
-        <div class="rail"><div class="num">4</div></div>
-        <div class="step-body">
-          <div class="step-grid">
-            <div class="plate"><img src="{{STEP4}}" alt="Cotton swab cleaning the cartridge connection point and the inside of the mouthpiece cover" loading="lazy"></div>
-            <div>
-              <h3>Keep it clean</h3>
-              <ul class="do">
-                <li>Use a <b>cotton swab with isopropyl alcohol</b>.</li>
-                <li>Wipe the <b>inside of the mouthpiece cover</b>.</li>
-                <li>Wipe the <b>connection point</b> where the cart meets the battery.</li>
-                <li>Let it dry fully before loading a cart again.</li>
-              </ul>
-              <p class="note"><b>Never soak the battery</b> in alcohol or any liquid.</p>
-            </div>
+        <div class="step-img-wrap step-img-stack">
+          <div class="step-img-main">
+            <div class="step-circle"><img src="{{STEP4}}" alt="Cotton swab cleaning the cartridge connection point" loading="lazy"></div>
+            <div class="num">4</div>
           </div>
+          <div class="step-circle"><img src="{{STEP4B}}" alt="Cotton swab cleaning inside the mouthpiece cover" loading="lazy"></div>
+        </div>
+        <div class="step-body" data-i18n-zone="step4_body">
+          <h3>Clean</h3>
+          <ul class="do">
+            <li>Use a <b>cotton swab + isopropyl alcohol</b>.</li>
+            <li>Wipe the <b>inside of the mouthpiece cover</b>.</li>
+            <li>Wipe the <b>cartridge connection point</b>.</li>
+            <li>Let dry fully before reloading.</li>
+          </ul>
+          <p class="note"><b>Never soak the battery</b> in alcohol or any liquid.</p>
         </div>
       </li>
 
@@ -459,127 +712,198 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <!-- ===================== VIDEOS ===================== -->
   <section id="videos" class="wrap">
     <div class="sec-head">
-      <h2 class="d">Watch it</h2>
-      <span class="count">2 videos</span>
+      <h2 class="d" data-i18n="sec_videos">Videos</h2>
     </div>
-    <div class="vids">
-      <a class="vid" href="https://www.youtube.com/watch?v=WK3EXouKwGs" target="_blank" rel="noopener noreferrer">
+    <div class="vids" data-i18n-zone="vids_block">
+      <button class="vid" data-vimeo="1105906397" aria-label="Play How to Use video">
         <div class="vid-thumb">
-          <img src="{{VID1}}" alt="Still from the How to Use video: a hand pressing the Hydout button three times" loading="lazy">
+          <img src="{{VID1}}" alt="Still from the How to Use video" loading="lazy">
           <span class="play" aria-hidden="true"></span>
         </div>
-        <div class="vid-meta"><h3>How to use</h3><p>Watch on YouTube</p></div>
-      </a>
-      <a class="vid" href="https://www.youtube.com/watch?v=e9oEXqNajh4" target="_blank" rel="noopener noreferrer">
+        <div class="vid-meta"><h3 data-i18n="vid1_title">How to use</h3></div>
+      </button>
+      <button class="vid" data-vimeo="1105958727" data-hash="59fe004ad8" aria-label="Play How to Clean video">
         <div class="vid-thumb">
-          <img src="{{VID2}}" alt="Still from the How to Clean video: cotton swabs and the opened Hydout" loading="lazy">
+          <img src="{{VID2}}" alt="Still from the How to Clean video" loading="lazy">
           <span class="play" aria-hidden="true"></span>
         </div>
-        <div class="vid-meta"><h3>How to clean</h3><p>Watch on YouTube</p></div>
-      </a>
+        <div class="vid-meta"><h3 data-i18n="vid2_title">How to clean</h3></div>
+      </button>
     </div>
   </section>
 
   <hr class="rule">
 
-  <!-- ===================== IN THE BOX ===================== -->
-  <section id="box" class="wrap">
-    <div class="sec-head"><h2 class="d">In the box</h2></div>
-    <ul class="box">
-      <li><span class="qty mono">1×</span><span>G Pen Hydout 510 cartridge battery</span></li>
-      <li><span class="qty mono">1×</span><span>Magnetic mouthpiece cover</span></li>
-      <li class="not"><span class="qty mono">—</span><span>510 cartridge <em>(not included)</em></span></li>
-      <li class="not"><span class="qty mono">—</span><span>USB-C charging cable <em>(not included)</em></span></li>
-    </ul>
+  <!-- ===================== UPGRADE ===================== -->
+  <section id="upgrade" class="wrap">
+    <div class="sec-head"><h2 class="d">Upgrades</h2></div>
+    <p class="upgrade-sub">The Hydout in retro see-through colors.</p>
+{{ACCESSORIES}}
   </section>
 
   <hr class="rule">
 
-  <!-- ===================== SPECS ===================== -->
+  <!-- ===================== SPECS (collapsed) ===================== -->
   <section id="specs" class="wrap">
-    <div class="sec-head"><h2 class="d">Specs</h2></div>
-    <div class="table-scroll">
-      <table class="specs">
-        <tbody>
-          <tr><th scope="row">Battery</th><td>400 mAh rechargeable</td></tr>
-          <tr><th scope="row">Charging</th><td>USB-C</td></tr>
-          <tr><th scope="row">Heat settings</th><td>5 · 2.4V – 3.8V</td></tr>
-          <tr><th scope="row">Preheat</th><td>1.8V · 10 seconds</td></tr>
-          <tr><th scope="row">Auto shut-off</th><td>2 minutes</td></tr>
-          <tr><th scope="row">Compatibility</th><td>510-thread carts up to 2g</td></tr>
-          <tr><th scope="row">Display</th><td>LED · voltage and battery level</td></tr>
-          <tr><th scope="row">Dimensions</th><td>90 × 37.5 × 18.5 mm</td></tr>
-          <tr><th scope="row">Weight</th><td>50 g</td></tr>
-          <tr><th scope="row">SKU</th><td class="mono">GHO-001-AOZZ</td></tr>
-          <tr><th scope="row">UPC</th><td class="mono">811736029254</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="sec-head"><h2 class="d" data-i18n="sec_specs">Specs</h2></div>
+    <details class="collapsible">
+      <summary data-i18n="sum_specs">View Product Details</summary>
+      <div class="collapsible-body" data-i18n-zone="specs_body">
+        <div class="table-scroll">
+          <table class="specs">
+            <tbody>
+              <tr><th scope="row">Battery</th><td>400 mAh rechargeable</td></tr>
+              <tr><th scope="row">Charging</th><td>USB-C</td></tr>
+              <tr><th scope="row">Heat settings</th><td>5 · 2.4V – 3.8V</td></tr>
+              <tr><th scope="row">Preheat</th><td>1.8V · 10 seconds</td></tr>
+              <tr><th scope="row">Auto shut-off</th><td>2 minutes</td></tr>
+              <tr><th scope="row">Compatibility</th><td>510-thread carts up to 2g</td></tr>
+              <tr><th scope="row">Display</th><td>LED · voltage and battery level</td></tr>
+              <tr><th scope="row">Dimensions</th><td>90 × 37.5 × 18.5 mm</td></tr>
+              <tr><th scope="row">Weight</th><td>50 g</td></tr>
+              <tr><th scope="row">SKU</th><td>GHO-001-AOZZ</td></tr>
+              <tr><th scope="row">UPC</th><td>811736029254</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
   </section>
 
   <hr class="rule">
 
   <!-- ===================== HELP ===================== -->
   <section id="help" class="wrap">
-    <div class="sec-head"><h2 class="d">Common questions</h2></div>
-    <div class="faq">
-      <details>
-        <summary>Nothing happens when I press the button</summary>
-        <p>The device auto-sleeps after 2 minutes. Press five times to wake it. If the display still doesn't light up, charge it with a USB-C cable and try again.</p>
-      </details>
-      <details>
-        <summary>My cart isn't producing vapor</summary>
-        <p>Make sure the cartridge is threaded in snugly — not over-tightened, which can push the connection pin down. Try a double-press for a 10-second preheat to loosen thick oil, then hold the button as you draw.</p>
-      </details>
-      <details>
-        <summary>Which heat setting should I use?</summary>
-        <p>Start low. Lower voltages give you more flavor and make a cart last longer; higher voltages give bigger, warmer clouds. Press three times to move through the five settings and find yours.</p>
-      </details>
-      <details>
-        <summary>Will my cartridge fit?</summary>
-        <p>The Hydout takes standard 510-thread cartridges up to 2g. Very wide or extra-tall carts may keep the magnetic cover from seating flush.</p>
-      </details>
-      <details>
-        <summary>How do I know when it's charged?</summary>
-        <p>The LED display shows the battery level. Leave it on the cable until it reads full.</p>
-      </details>
-      <details>
-        <summary>What does the warranty cover?</summary>
-        <p>The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.</p>
-      </details>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <!-- ===================== SUPPORT ===================== -->
-  <section id="support" class="wrap" style="padding-bottom:20px">
-    <div class="sec-head"><h2 class="d">Still stuck?</h2></div>
+    <div class="sec-head"><h2 class="d" data-i18n="sec_help">Help</h2></div>
+    <details class="collapsible">
+      <summary data-i18n="sum_faq">Common questions</summary>
+      <div class="collapsible-body">
+        <div class="faq" data-i18n-zone="faq_body">
+          <details>
+            <summary>Nothing happens when I press the button</summary>
+            <p>The device auto-sleeps after 2 minutes. Press five times to wake it. If the display still doesn't light up, charge it and try again.</p>
+          </details>
+          <details>
+            <summary>My cart isn't producing vapor</summary>
+            <p>Make sure the cartridge is threaded in snugly — not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then hold the button as you draw.</p>
+          </details>
+          <details>
+            <summary>Which heat setting should I use?</summary>
+            <p>Start low. Lower voltages give more flavor and make a cart last longer; higher voltages give bigger, warmer clouds. Press three times to cycle through the five settings.</p>
+          </details>
+          <details>
+            <summary>Will my cartridge fit?</summary>
+            <p>The Hydout takes standard 510-thread cartridges up to 2g. Very wide or extra-tall carts may keep the magnetic cover from seating flush.</p>
+          </details>
+          <details>
+            <summary>How do I know when it's fully charged?</summary>
+            <p>The LED display shows the battery level. Leave it on the cable until it reads full.</p>
+          </details>
+          <details>
+            <summary>What does the warranty cover?</summary>
+            <p>The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.</p>
+          </details>
+        </div>
+      </div>
+    </details>
+    <h3 style="font-size:16px; font-weight:600; color:var(--ink-2); margin:32px 0 12px" data-i18n="still_stuck">Still stuck?</h3>
     <div class="support">
-      <a class="card-link" href="{{MANUAL_PDF}}" target="_blank" rel="noopener noreferrer">
-        <span><span class="k">Download</span><span class="v">Full product manual</span></span>
-        <span class="arrow" aria-hidden="true">↓</span>
-      </a>
-      <a class="card-link" href="https://www.gpen.com/products/g-pen-hydout" target="_blank" rel="noopener noreferrer">
-        <span><span class="k">Shop</span><span class="v">View on gpen.com</span></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
       <a class="card-link" href="tel:+18336913224">
-        <span><span class="k">Call support</span><span class="v mono">+1 833-691-3224</span></span>
+        <span class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="30"/>
+            <path d="M39.5 40.5c-1.5 1.5-3 2-4.5 2-8 0-13.5-5.5-13.5-13.5 0-1.5.5-3 2-4.5l3-3c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5l-1.5 1.5c-.5.5-.5 1 0 1.5 1 1.5 2.5 3 4 4 .5.5 1 .5 1.5 0l1.5-1.5c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5z"/>
+          </svg>
+        </span>
+        <span class="v">+1 833-691-3224</span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
       <a class="card-link" href="mailto:help@gpen.com">
-        <span><span class="k">Email support</span><span class="v">help@gpen.com</span></span>
+        <span class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="30"/>
+            <path d="M20 24h24v16H20z" rx="2"/>
+            <path d="M20 24l12 10 12-10"/>
+          </svg>
+        </span>
+        <span class="v">help@gpen.com</span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
     </div>
   </section>
 
   <footer class="wrap">
-    <p><strong>G Pen Hydout</strong> · 510 Cartridge Battery · Grenco Science</p>
-    <p class="legal">Intended for adults 21 and over. Use only with products that are legal where you live. Keep away from children and pets. Charge with a USB-C cable on a hard, non-flammable surface, and don't leave the device charging unattended.</p>
+    <p class="legal">© {{YEAR}} G Pen</p>
   </footer>
 </main>
+
+<!-- ========== PRODUCT SWITCHER SHEET ========== -->
+<div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+<div class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-label="All G Pen guides" hidden>
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <span class="sheet-title" data-i18n="guides_title">G Pen Guides</span>
+    <button class="sheet-close" id="sheet-close" aria-label="Close">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
+    </button>
+  </div>
+  <div class="sheet-body">
+    <div class="sheet-grid">
+{{PRODUCT_SWITCHER}}
+    </div>
+  </div>
+</div>
+
+<!-- ========== BOTTOM NAV (mobile) ========== -->
+<nav class="bottom-nav" aria-label="Sections">
+  <a href="#use" data-i18n="bn_steps">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <circle cx="5" cy="7"  r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="5" cy="17" r="1.4" fill="currentColor" stroke="none"/>
+      <line x1="9" y1="7"  x2="20" y2="7"/>
+      <line x1="9" y1="12" x2="20" y2="12"/>
+      <line x1="9" y1="17" x2="20" y2="17"/>
+    </svg>
+    Steps
+  </a>
+  <a href="#videos" data-i18n="bn_videos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <polygon points="10,8.5 17,12 10,15.5" fill="currentColor" stroke="none"/>
+    </svg>
+    Videos
+  </a>
+  <a href="#specs" data-i18n="bn_specs">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <rect x="4" y="3" width="16" height="18" rx="2"/>
+      <line x1="8"  y1="8"  x2="16" y2="8"/>
+      <line x1="8"  y1="12" x2="16" y2="12"/>
+      <line x1="8"  y1="16" x2="12" y2="16"/>
+    </svg>
+    Specs
+  </a>
+  <a href="#help" data-i18n="bn_help">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M9.5 9.5a2.8 2.8 0 0 1 5 1.5c0 2-2.5 2.5-2.5 4"/>
+      <circle cx="12" cy="17.5" r=".6" fill="currentColor" stroke="none"/>
+    </svg>
+    Help
+  </a>
+</nav>
+
+<!-- video modal -->
+<div class="vm-backdrop" id="vm-backdrop" hidden></div>
+<div class="vm" id="vm" hidden aria-modal="true" role="dialog" aria-label="Video player">
+  <div class="vm-frame">
+    <button class="vm-close" id="vm-close" aria-label="Close video">&#x2715;</button>
+    <div class="vm-player">
+      <iframe id="vm-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -588,69 +912,167 @@ footer .legal{font-size:11.5px; line-height:1.6}
   var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
-  /* --- scroll spy on the jump nav --- */
-  var links = Array.prototype.slice.call(document.querySelectorAll('nav.jump a'));
-  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (!e.isIntersecting) return;
-        var i = targets.indexOf(e.target);
-        links.forEach(function(a, j){ a.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+  /* --- scroll spy: top nav + bottom nav --- */
+  var HREFS = ['#use','#videos','#specs','#help'];
+  var topLinks    = HREFS.map(function(h){ return document.querySelector('nav.jump a[href="'+h+'"]'); });
+  var bottomLinks = HREFS.map(function(h){ return document.querySelector('.bottom-nav a[href="'+h+'"]'); });
+  var targets     = HREFS.map(function(h){ return document.querySelector(h); });
+
+  function setActive(i){
+    [topLinks, bottomLinks].forEach(function(group){
+      group.forEach(function(a, j){
+        if (a) a.setAttribute('aria-current', j === i ? 'true' : 'false');
       });
-    }, {rootMargin:'-108px 0px -65% 0px'});
-    targets.forEach(function(t){ if (t) io.observe(t); });
-  }
-
-  /* --- LED simulator --- */
-  var readout = document.getElementById('readout');
-  var sub     = document.getElementById('readout-sub');
-  var bars    = document.getElementById('bars').children;
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.presses button'));
-  var reduce  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var powered = false, level = 1, timer = null;
-
-  function paintBars(n){
-    for (var i = 0; i < bars.length; i++) bars[i].classList.toggle('on', i < n);
-  }
-  function render(main, caption, litBars){
-    readout.firstChild.nodeValue = main;
-    sub.textContent = caption;
-    paintBars(litBars);
-  }
-  function reset(){ if (timer) { clearTimeout(timer); timer = null; } }
-
-  function idle(){ render(String(level), 'Ready · heat ' + level + ' of 5', level); }
-
-  var actions = {
-    power: function(){
-      powered = !powered;
-      if (powered) render('ON', 'Ready · heat ' + level + ' of 5', level);
-      else render('OFF', 'Device asleep', 0);
-    },
-    heat: function(){
-      powered = true;
-      level = level % 5 + 1;
-      render(String(level), 'Heat ' + level + ' of 5', level);
-    },
-    preheat: function(){
-      powered = true;
-      render('1.8', 'Preheat · 10 seconds', 5);
-      if (!reduce) timer = setTimeout(idle, 2400);
-    },
-    draw: function(){
-      powered = true;
-      render('‖‖', 'Firing · heat ' + level, 5);
-      if (!reduce) timer = setTimeout(idle, 2000);
-    }
-  };
-
-  buttons.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      reset();
-      buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
-      actions[btn.dataset.act]();
     });
+  }
+
+  /* Scroll-position spy: find the last section whose top edge has crossed
+     the sticky-nav threshold. More reliable than IntersectionObserver when
+     two targets (e.g. #specs and the #help <details> inside it) are both
+     in the viewport at the same time. */
+  var NAV_H = 108;
+  function spy(){
+    var active = 0;
+    for (var i = 0; i < targets.length; i++){
+      if (!targets[i]) continue;
+      if (targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
+    }
+    setActive(active);
+  }
+  spy();
+  window.addEventListener('scroll', spy, {passive:true});
+
+  var _sp = document.createElement('div');
+  document.querySelector('main').appendChild(_sp);
+  function _adj(){ var last = targets[targets.length-1]; if(!last) return; var gap = last.offsetTop - NAV_H + window.innerHeight - document.documentElement.scrollHeight; _sp.style.height = (gap > 0 ? gap : 0) + 'px'; }
+  _adj();
+  window.addEventListener('resize', _adj);
+})();
+
+/* --- language selector --- */
+(function(){
+  var btn  = document.getElementById('lang-btn');
+  var drop = document.getElementById('lang-drop');
+  var code = document.getElementById('lang-code');
+  if (!btn || !drop) return;
+
+  function openDrop(){
+    drop.hidden = false;
+    btn.setAttribute('aria-expanded','true');
+  }
+  function closeDrop(){
+    drop.hidden = true;
+    btn.setAttribute('aria-expanded','false');
+  }
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    drop.hidden ? openDrop() : closeDrop();
+  });
+
+  drop.addEventListener('click', function(e){
+    var opt = e.target.closest('.lang-opt');
+    if (!opt) return;
+    /* update active state */
+    drop.querySelectorAll('.lang-opt').forEach(function(o){
+      o.classList.remove('active');
+      o.setAttribute('aria-selected','false');
+      var chk = o.querySelector('.lcheck');
+      if (chk) chk.remove();
+    });
+    opt.classList.add('active');
+    opt.setAttribute('aria-selected','true');
+    var chk = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    chk.setAttribute('viewBox','0 0 14 10');
+    chk.setAttribute('fill','none');
+    chk.setAttribute('stroke','currentColor');
+    chk.setAttribute('stroke-width','2');
+    chk.setAttribute('stroke-linecap','round');
+    chk.setAttribute('stroke-linejoin','round');
+    chk.setAttribute('class','lcheck');
+    chk.innerHTML = '<polyline points="1,5 5,9 13,1"/>';
+    opt.appendChild(chk);
+    code.textContent = opt.dataset.lang;
+    if(window._i18n) window._i18n(opt.dataset.lang);
+    closeDrop();
+    /* TODO: navigate to /<slug>/<lang>/ when translated pages exist */
+  });
+
+  document.addEventListener('click', closeDrop);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDrop(); });
+})();
+
+/* --- product switcher sheet --- */
+(function(){
+  var btn      = document.getElementById('guides-btn');
+  var sheet    = document.getElementById('product-sheet');
+  var backdrop = document.getElementById('sheet-backdrop');
+  var closeBtn = document.getElementById('sheet-close');
+  if (!btn || !sheet) return;
+
+  function open(){
+    sheet.hidden = false; backdrop.hidden = false;
+    requestAnimationFrame(function(){
+      sheet.classList.add('open'); backdrop.classList.add('open');
+    });
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    sheet.classList.remove('open'); backdrop.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+    setTimeout(function(){ sheet.hidden = true; backdrop.hidden = true; }, 320);
+  }
+
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+
+  /* swipe-down to close */
+  var startY = 0;
+  sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; }, {passive:true});
+  sheet.addEventListener('touchend', function(e){
+    if (e.changedTouches[0].clientY - startY > 60) close();
+  }, {passive:true});
+})();
+
+/* --- video modal --- */
+(function(){
+  var backdrop = document.getElementById('vm-backdrop');
+  var modal    = document.getElementById('vm');
+  var iframe   = document.getElementById('vm-iframe');
+  var closeBtn = document.getElementById('vm-close');
+  if (!modal) return;
+
+  function openVid(vimeoId, hash){
+    var src = 'https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&dnt=1';
+    if (hash) src += '&h=' + hash;
+    iframe.src = src;
+    backdrop.hidden = false;
+    modal.hidden    = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVid(){
+    iframe.src = '';
+    backdrop.hidden = true;
+    modal.hidden    = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.vid[data-vimeo]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openVid(btn.dataset.vimeo, btn.dataset.hash || '');
+    });
+  });
+
+  closeBtn.addEventListener('click', closeVid);
+  backdrop.addEventListener('click', closeVid);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !modal.hidden) closeVid();
   });
 })();
 </script>
+</body>
+</html>
