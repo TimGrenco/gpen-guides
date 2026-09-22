@@ -258,35 +258,20 @@ section{scroll-margin-top:104px; padding-top:56px; padding-bottom:56px}
 .vm-player{aspect-ratio:16/9; background:#000; border-radius:10px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,.7)}
 .vm-player iframe{width:100%; height:100%; border:0}
 
-/* ---------- attachments card list ---------- */
-.attach-list{
-  margin:0; padding:0; list-style:none;
-  display:flex; flex-direction:column; gap:10px;
-}
+/* ---------- attachments list (same circle treatment as steps) ---------- */
+.attach-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
 .attach-item{
-  display:flex; align-items:center; gap:16px;
-  padding:14px 16px; border:1px solid var(--line); border-radius:var(--radius);
-  background:var(--surface); box-shadow:var(--shadow);
+  display:flex; gap:20px; align-items:flex-start;
+  padding:26px 0; border-bottom:1px solid var(--line-2);
 }
-.attach-icon{
-  flex:none; width:84px; height:84px; border-radius:50%; overflow:hidden;
-  background:var(--plate); border:1px solid var(--line-2);
+.attach-item:last-child{border-bottom:0}
+.attach-text{min-width:0; padding-top:2px}
+.attach-name{
+  font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:0 0 8px;
 }
-.attach-icon img{width:100%; height:100%; object-fit:cover; display:block}
-.attach-text{flex:1; min-width:0}
-.attach-name{display:block; font-weight:700; font-size:15px; color:var(--ink); margin-bottom:3px}
-.attach-note{display:block; font-size:13.5px; color:var(--ink-2)}
-.attach-badge{
-  margin-left:auto; flex:none;
-  font-family:var(--f-body); font-weight:700; font-size:10px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--ink-3);
-  padding:4px 8px; border:1px solid var(--line); border-radius:999px;
-}
-@media (max-width:479px){
-  .attach-item{display:grid; grid-template-columns:72px 1fr; column-gap:14px; align-items:start}
-  .attach-icon{width:72px; height:72px; grid-row:1 / span 2}
-  .attach-badge{grid-column:2; justify-self:start; margin:8px 0 0}
-}
+.attach-note{margin:0; color:var(--ink-2); font-size:15px}
+.attach-note b{color:var(--ink); font-weight:600}
 
 /* ---------- collapsed specs + faq ---------- */
 .collapsible{
@@ -734,24 +719,26 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <!-- ===================== ATTACHMENTS ===================== -->
   <section id="attachments" class="wrap">
     <div class="sec-head">
-      <h2 class="d">Attachments</h2>
+      <h2 class="d">Using Attachments</h2>
     </div>
     <ul class="attach-list">
       <li class="attach-item">
-        <div class="attach-icon"><img src="{{ATTACH_SIDECAR}}" alt="Micro II with the Side Car glass attachment lifted off its silicone adapter" loading="lazy"></div>
-        <div class="attach-text">
-          <span class="attach-name">Side Car</span>
-          <span class="attach-note">Remove the mouthpiece and attach via the <b>silicone adapter</b> for a water-cooled draw.</span>
+        <div class="step-img-wrap">
+          <div class="step-circle"><img src="{{ATTACH_SIDECAR}}" alt="Micro II with the Side Car glass attachment lifted off its silicone adapter" loading="lazy"></div>
         </div>
-        <span class="attach-badge">Sold separately</span>
+        <div class="attach-text">
+          <h3 class="attach-name">Side Car</h3>
+          <p class="attach-note">Remove the mouthpiece and attach via the <b>silicone adapter</b> for a water-cooled draw.</p>
+        </div>
       </li>
       <li class="attach-item">
-        <div class="attach-icon"><img src="{{ATTACH_ADAPTER}}" alt="Micro II with the Rig Adapter and its 14mm glass stem lifted off" loading="lazy"></div>
-        <div class="attach-text">
-          <span class="attach-name">Rig Adapter</span>
-          <span class="attach-note">Remove the mouthpiece and attach the <b>rig adapter</b>, then connect 14mm glass to a compatible glass rig.</span>
+        <div class="step-img-wrap">
+          <div class="step-circle"><img src="{{ATTACH_ADAPTER}}" alt="Micro II with the Rig Adapter and its 14mm glass stem lifted off" loading="lazy"></div>
         </div>
-        <span class="attach-badge">Sold separately</span>
+        <div class="attach-text">
+          <h3 class="attach-name">Rig Adapter</h3>
+          <p class="attach-note">Remove the mouthpiece and attach the <b>rig adapter</b>, then connect 14mm glass to a compatible glass rig.</p>
+        </div>
       </li>
     </ul>
   </section>
@@ -760,8 +747,8 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
   <!-- ===================== UPGRADE ===================== -->
   <section id="upgrade" class="wrap">
-    <div class="sec-head"><h2 class="d">Upgrades</h2></div>
-    <p class="upgrade-sub">Attachments, accessories &amp; replacement parts for your Micro II.</p>
+    <div class="sec-head"><h2 class="d" data-i18n="upgrade_title">Upgrades</h2></div>
+    <p class="upgrade-sub" data-i18n="upgrade_sub">Accessories & replacement parts for your Micro II.</p>
 {{ACCESSORIES}}
   </section>
 

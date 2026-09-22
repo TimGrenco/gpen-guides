@@ -66,6 +66,8 @@ PRODUCTS = {
             "STEP2": "dash-ii-step-02-load.jpg",
             "STEP3": "dash-ii-step-03-activate.jpg",
             "STEP4": "dash-ii-step-04-clean.jpg",
+            "VID1":  "dash-ii-video-how-to-use.jpg",
+            "VID2":  "dash-ii-video-cleaning.jpg",
         },
         "text": {},
     },
@@ -81,6 +83,8 @@ PRODUCTS = {
             "STEP2": "510-original-step-02-load.jpg",
             "STEP3": "510-original-step-03-activate.jpg",
             "STEP4": "510-original-step-04-clean.jpg",
+            "VID1":  "510-original-video-how-to-use.jpg",
+            "VID2":  "510-original-video-cleaning.jpg",
         },
         "text": {},
         "shop_button": ("Shop the Retro collection", "https://www.gpen.com/collections/g-pen-510-original-retro-collection"),
@@ -109,16 +113,17 @@ PRODUCTS = {
         "template": "melt.template.html",
         "name": "G Pen Melt",
         "category": "Hot Knife / Dab Tool",
-        "card_image": "melt-card.jpg",
+        "card_image": "melt-card.png",
         "images": {
             "HERO":  "melt-hero.png",
-            "CARD":  "melt-card.jpg",
+            "CARD":  "melt-card.png",
             "STEP1": "melt-step-01-charge.jpg",
             "STEP2": "melt-step-02-activate.jpg",
             "STEP3": "melt-step-03-scoop.jpg",
             "STEP4": "melt-step-04-clean.jpg",
             "UPG_MICRO_II": "melt-upgrade-micro-ii.png",
             "UPG_MICRO_PLUS": "melt-upgrade-micro-plus.png",
+            "VID1":  "melt-video-in-action.jpg",
         },
         "text": {},
         "shop_button": ("Shop all vaporizers", "https://www.gpen.com/collections/vaporizers"),
@@ -198,7 +203,7 @@ PRODUCTS = {
             "STEP2": "connect-card.png",
             "STEP3": "connect-card.png",
             "STEP4": "connect-card.png",
-            "VID1":  "connect-video-how-to-use.png",
+            "VID1":  "connect-video-how-to-use.jpg",
             "VID2":  "connect-video-cleaning.jpg",
         },
         "text": {},
@@ -268,19 +273,23 @@ def accessories_html(slug: str) -> str:
     out = []
     if cards:
         out.append('    <div class="acc-grid">')
-        for c in cards:
+        for i, c in enumerate(cards, start=1):
             img = c["image"]
             if img.startswith("http"):  # store CDN: ask for a card-sized rendition
                 img += ("&" if "?" in img else "?") + "width=480"
             href = c.get("url") or f"https://www.gpen.com/products/{c['handle']}"
-            name, note = htmllib.escape(c["name"]), htmllib.escape(c["note"])
+            # alt attribute needs full escaping; the visible text is set via data-i18n's
+            # textContent (not innerHTML), so it must stay UNescaped or entities like
+            # &amp;/&#x27; would show up literally once a translation is applied.
+            alt = htmllib.escape(c["name"])
+            name, note = c["name"], c["note"]
             out.append(
                 f'      <a class="acc-card" href="{href}" target="_blank" rel="noopener noreferrer">\n'
-                f'        <img src="{img}" alt="{name}" loading="lazy">\n'
+                f'        <img src="{img}" alt="{alt}" loading="lazy">\n'
                 '        <div class="acc-card-body">\n'
-                f'          <span class="acc-card-name">{name}</span>\n'
-                f'          <span class="acc-card-note">{note}</span>\n'
-                '          <span class="acc-shop">Shop →</span>\n'
+                f'          <span class="acc-card-name" data-i18n="acc{i}_name">{name}</span>\n'
+                f'          <span class="acc-card-note" data-i18n="acc{i}_note">{note}</span>\n'
+                '          <span class="acc-shop" data-i18n="acc_shop">Shop →</span>\n'
                 '        </div>\n'
                 '      </a>'
             )
@@ -288,7 +297,7 @@ def accessories_html(slug: str) -> str:
     label, url = PRODUCTS[slug].get("shop_button") or ("Shop all accessories" if cards else "Shop accessories", ACCESSORIES_URL)
     cls = "upgrade-btn alt" if cards else "upgrade-btn"
     out.append('    <div class="upgrade-cta">')
-    out.append(f'      <a class="{cls}" href="{url}" target="_blank" rel="noopener noreferrer">')
+    out.append(f'      <a class="{cls}" href="{url}" target="_blank" rel="noopener noreferrer" data-i18n="upgrade_btn">')
     out.append(f'        {label}\n        {ARROW_SVG}')
     out.append('      </a>')
     out.append('    </div>')

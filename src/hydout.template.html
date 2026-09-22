@@ -736,8 +736,8 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
   <!-- ===================== UPGRADE ===================== -->
   <section id="upgrade" class="wrap">
-    <div class="sec-head"><h2 class="d">Upgrades</h2></div>
-    <p class="upgrade-sub">The Hydout in retro see-through colors.</p>
+    <div class="sec-head"><h2 class="d" data-i18n="upgrade_title">Upgrades</h2></div>
+    <p class="upgrade-sub" data-i18n="upgrade_sub">The Hydout in retro see-through colors.</p>
 {{ACCESSORIES}}
   </section>
 
@@ -995,7 +995,6 @@ footer .legal{font-size:11.5px; line-height:1.6}
     code.textContent = opt.dataset.lang;
     if(window._i18n) window._i18n(opt.dataset.lang);
     closeDrop();
-    /* TODO: navigate to /<slug>/<lang>/ when translated pages exist */
   });
 
   document.addEventListener('click', closeDrop);
