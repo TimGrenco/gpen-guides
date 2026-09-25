@@ -282,12 +282,13 @@ def accessories_html(slug: str) -> str:
             # textContent (not innerHTML), so it must stay UNescaped or entities like
             # &amp;/&#x27; would show up literally once a translation is applied.
             alt = htmllib.escape(c["name"])
-            name, note = c["name"], c["note"]
+            name, note, price = c["name"], c["note"], c["price"]
             out.append(
                 f'      <a class="acc-card" href="{href}" target="_blank" rel="noopener noreferrer">\n'
                 f'        <img src="{img}" alt="{alt}" loading="lazy">\n'
                 '        <div class="acc-card-body">\n'
                 f'          <span class="acc-card-name" data-i18n="acc{i}_name">{name}</span>\n'
+                f'          <span class="acc-card-price">{price}</span>\n'
                 f'          <span class="acc-card-note" data-i18n="acc{i}_note">{note}</span>\n'
                 '          <span class="acc-shop" data-i18n="acc_shop">Shop →</span>\n'
                 '        </div>\n'
