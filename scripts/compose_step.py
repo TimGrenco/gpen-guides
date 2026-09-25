@@ -16,7 +16,7 @@ from scipy import ndimage
 PLATE = (228, 229, 231)  # matches --plate (#E4E5E7) in the templates
 PLATE_F = np.array(PLATE, dtype=np.float32)
 CANVAS = 900
-PAD_FRAC = 0.09
+PAD_FRAC = 0.04
 
 
 def foreground_mask(arr, hard_thresh=244, connect_thresh=120, sat_thresh=0.10, bright_thresh=130):
@@ -52,9 +52,16 @@ def bbox_of_mask(mask):
 
 
 def compose(src_path, out_path, crop=None, feather=10, canvas=CANVAS, pad_frac=PAD_FRAC):
-    img = Image.open(src_path).convert("RGB")
+    img = Image.open(src_path).convert("RGBA")
     if crop:
         img = img.crop(crop)
+    # Flatten any real transparency onto white first. A renderer's untouched
+    # transparent pixels are often RGB (0,0,0) underneath — converting straight
+    # to RGB would turn "empty" into solid black, which then reads as foreground
+    # instead of background once the alpha channel is gone.
+    white_bg = Image.new("RGBA", img.size, (255, 255, 255, 255))
+    white_bg.alpha_composite(img)
+    img = white_bg.convert("RGB")
     arr = np.array(img).astype(np.float32)
 
     fg_mask = foreground_mask(arr)
