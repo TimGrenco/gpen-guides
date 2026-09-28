@@ -308,11 +308,9 @@ def extract_content_leaves(content):
                 leaves[f"{prefix}.press.{p['id']}.badge"] = p["badge"]["label"]
         if step.get("note"):
             leaves[f"{prefix}.note"] = step["note"]["text"]
-    for item in content.get("attachments", []):
-        prefix = f"attach.{item['id']}"
-        leaves[f"{prefix}.title"] = item["title"]
-        for b in item.get("bullets", []):
-            leaves[f"{prefix}.bullet.{b['id']}"] = b["text"]
+    # Attachments are deliberately excluded: there's no data-i18n-zone wired up for that
+    # section (never has been — it's English-only today, same as before this migration),
+    # so translating it now would just be wasted spend on strings nothing displays.
     for spec in content.get("specs", []):
         prefix = f"specs.{spec['id']}"
         leaves[f"{prefix}.label"] = spec["label"]
