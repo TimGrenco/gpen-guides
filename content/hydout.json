@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/step-01-charge.jpg",
       "imageAlt": "USB-C cable plugged into the base of the Hydout",
       "image2": null,
       "image2Alt": null,
@@ -31,7 +31,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/step-02-load.jpg",
       "imageAlt": "Magnetic mouthpiece cover removed, 510 cartridge ready to thread in",
       "image2": null,
       "image2Alt": null,
@@ -59,7 +59,7 @@
     {
       "id": "activate",
       "title": "Activate",
-      "image": "STEP3",
+      "image": "images/step-03-activate.jpg",
       "imageAlt": "Single control button on the side of the Hydout",
       "image2": null,
       "image2Alt": null,
@@ -120,9 +120,9 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "STEP4",
+      "image": "images/step-04-clean.jpg",
       "imageAlt": "Cotton swab cleaning the cartridge connection point",
-      "image2": "STEP4B",
+      "image2": "images/step-04b-clean.jpg",
       "image2Alt": "Cotton swab cleaning inside the mouthpiece cover",
       "bullets": [
         {
@@ -246,14 +246,14 @@
       "vimeoId": "1105906397",
       "vimeoHash": null,
       "title": "How to use",
-      "thumb": "VID1"
+      "thumb": "images/video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "1105958727",
       "vimeoHash": "59fe004ad8",
       "title": "How to clean",
-      "thumb": "VID2"
+      "thumb": "images/video-how-to-clean.jpg"
     }
   ]
 }

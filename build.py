@@ -30,7 +30,9 @@ CONTENT_DIR = ROOT / "content"
 YEAR = str(datetime.date.today().year)
 
 sys.path.insert(0, str(ROOT))
-from sections.render import render_product_body, compose_translations  # noqa: E402
+from sections.render import render_product_body, compose_translations, IMG_REF_RE  # noqa: E402
+from sections.normalize import load_normalized  # noqa: E402
+from sections.schema import validate_content  # noqa: E402
 
 MANUAL_PDF = ("https://cdn.shopify.com/s/files/1/0185/1576/files/"
               "20250528_GPen_Hydout_Manual.pdf?v=1749240232")
@@ -48,13 +50,6 @@ PRODUCTS = {
         "card_image": "hero.png",           # local file in src/
         "images": {
             "HERO":  "hero.png",
-            "STEP1": "step-01-charge.jpg",
-            "STEP2": "step-02-load.jpg",
-            "STEP3": "step-03-activate.jpg",
-            "STEP4": "step-04-clean.jpg",
-            "STEP4B": "step-04b-clean.jpg",
-            "VID1":  "video-how-to-use.jpg",
-            "VID2":  "video-how-to-clean.jpg",
         },
         "text": {"MANUAL_PDF": MANUAL_PDF},
         "shop_button": ("Shop the Hydout collection", "https://www.gpen.com/collections/g-pen-hydout-collection"),
@@ -67,12 +62,6 @@ PRODUCTS = {
         "images": {
             "HERO":  "dash-ii-hero.png",
             "CARD":  "dash-ii-card.png",    # card img must be in images so build copies it
-            "STEP1": "dash-ii-step-01-charge.jpg",
-            "STEP2": "dash-ii-step-02-load.jpg",
-            "STEP3": "dash-ii-step-03-activate.jpg",
-            "STEP4": "dash-ii-step-04-clean.jpg",
-            "VID1":  "dash-ii-video-how-to-use.jpg",
-            "VID2":  "dash-ii-video-cleaning.jpg",
         },
         "text": {},
     },
@@ -84,12 +73,6 @@ PRODUCTS = {
         "images": {
             "HERO":  "510-original-hero.png",
             "CARD":  "510-original-card.png",
-            "STEP1": "510-original-step-01-charge.jpg",
-            "STEP2": "510-original-step-02-load.jpg",
-            "STEP3": "510-original-step-03-activate.jpg",
-            "STEP4": "510-original-step-04-clean.jpg",
-            "VID1":  "510-original-video-how-to-use.jpg",
-            "VID2":  "510-original-video-cleaning.jpg",
         },
         "text": {},
         "shop_button": ("Shop the Retro collection", "https://www.gpen.com/collections/g-pen-510-original-retro-collection"),
@@ -102,15 +85,6 @@ PRODUCTS = {
         "images": {
             "HERO":  "micro-ii-hero.jpg",
             "CARD":  "micro-ii-card.png",
-            "STEP1": "micro-ii-step-01-charge.jpg",
-            "STEP2": "micro-ii-step-02-load.jpg",
-            "STEP3": "micro-ii-step-03-activate.jpg",
-            "STEP4": "micro-ii-step-04-clean.jpg",
-            "STEP5": "micro-ii-step-05-alerts.jpg",
-            "ATTACH_SIDECAR": "micro-ii-attach-sidecar.jpg",
-            "ATTACH_ADAPTER": "micro-ii-attach-rig-adapter.jpg",
-            "VID1":  "micro-ii-video-how-to-use.jpg",
-            "VID2":  "micro-ii-video-cleaning.jpg",
         },
         "text": {},
     },
@@ -122,13 +96,8 @@ PRODUCTS = {
         "images": {
             "HERO":  "melt-hero.png",
             "CARD":  "melt-card.png",
-            "STEP1": "melt-step-01-charge.jpg",
-            "STEP2": "melt-step-02-activate.jpg",
-            "STEP3": "melt-step-03-scoop.jpg",
-            "STEP4": "melt-step-04-clean.jpg",
             "UPG_MICRO_II": "melt-upgrade-micro-ii.png",
             "UPG_MICRO_PLUS": "melt-upgrade-micro-plus.png",
-            "VID1":  "melt-video-in-action.jpg",
         },
         "text": {},
         "shop_button": ("Shop all vaporizers", "https://www.gpen.com/collections/vaporizers"),
@@ -139,14 +108,7 @@ PRODUCTS = {
         "name": "G Pen Dash+",
         "category": "Dry Herb Vaporizer",
         "card_image": "dash-plus-card.png",
-        "images": {
-            "STEP1": "dash-plus-step-01-charge.jpg",
-            "STEP2": "dash-plus-step-02-load.jpg",
-            "STEP3": "dash-plus-step-03-heat.jpg",
-            "STEP4": "dash-plus-step-04-draw.jpg",
-            "VID1":  "dash-plus-video-how-to-use.jpg",
-            "VID2":  "dash-plus-video-cleaning.jpg",
-        },
+        "images": {},
         "text": {},
     },
     "elite-ii": {
@@ -155,14 +117,7 @@ PRODUCTS = {
         "name": "G Pen Elite II",
         "category": "Dry Herb Vaporizer",
         "card_image": "elite-ii-card.png",
-        "images": {
-            "STEP1": "elite-ii-step-01-charge.jpg",
-            "STEP2": "elite-ii-step-02-load.jpg",
-            "STEP3": "elite-ii-step-03-heat.jpg",
-            "STEP4": "elite-ii-step-04-draw.jpg",
-            "VID1":  "elite-ii-video-how-to-use.jpg",
-            "VID2":  "elite-ii-video-cleaning.jpg",
-        },
+        "images": {},
         "text": {},
     },
     "micro-plus": {
@@ -171,14 +126,7 @@ PRODUCTS = {
         "name": "G Pen Micro+",
         "category": "Concentrate Vaporizer",
         "card_image": "micro-plus-card.png",
-        "images": {
-            "STEP1": "microplus-step-01-charge.jpg",
-            "STEP2": "microplus-step-02-load.jpg",
-            "STEP3": "microplus-step-03-heat.jpg",
-            "STEP4": "microplus-step-04-draw.jpg",
-            "VID1":  "micro-plus-video-how-to-use.jpg",
-            "VID2":  "micro-plus-video-cleaning.jpg",
-        },
+        "images": {},
         "text": {},
     },
     "hyer": {
@@ -187,14 +135,7 @@ PRODUCTS = {
         "name": "G Pen Hyer",
         "category": "Concentrate Vaporizer",
         "card_image": "hyer-card.png",
-        "images": {
-            "STEP1": "hyer-step-01-charge.jpg",
-            "STEP2": "hyer-step-02-setup.jpg",
-            "STEP3": "hyer-step-03-heat.jpg",
-            "STEP4": "hyer-step-04-draw.jpg",
-            "VID1":  "hyer-video-how-to-use.jpg",
-            "VID2":  "hyer-video-cleaning.jpg",
-        },
+        "images": {},
         "text": {},
     },
     "connect": {
@@ -203,14 +144,7 @@ PRODUCTS = {
         "name": "G Pen Connect",
         "category": "Concentrate Vaporizer",
         "card_image": "connect-card.png",
-        "images": {
-            "STEP1": "connect-step-01-charge.jpg",
-            "STEP2": "connect-step-02-setup.jpg",
-            "STEP3": "connect-step-03-load.jpg",
-            "STEP4": "connect-step-04-draw.jpg",
-            "VID1":  "connect-video-how-to-use.jpg",
-            "VID2":  "connect-video-cleaning.jpg",
-        },
+        "images": {},
         "text": {},
     },
 
@@ -310,12 +244,35 @@ def accessories_html(slug: str) -> str:
     return "\n".join(out)
 
 
+class ContentError(Exception):
+    pass
+
+
+def content_images(content: dict) -> list[str]:
+    refs = []
+    for s in content.get("steps", []):
+        refs += [s["image"]] + ([s["image2"]] if s.get("image2") else [])
+    refs += [a["image"] for a in content.get("attachments", [])]
+    refs += [v["thumb"] for v in content.get("videos", [])]
+    return refs
+
+
 def load_content(slug: str):
-    """Load structured content/<slug>.json if it exists (steps/attachments/specs/faq/videos)."""
+    """Load, normalize and validate content/<slug>.json (steps/attachments/specs/faq/videos).
+
+    Normalizing writes back any freshly minted IDs (e.g. a bullet just added in the CMS),
+    so they stay stable from then on. Bad content fails the build loudly rather than
+    publishing a half-broken guide.
+    """
     path = CONTENT_DIR / f"{slug}.json"
-    if path.exists():
-        return json.loads(path.read_text())
-    return None
+    if not path.exists():
+        return None
+    content = load_normalized(path)
+    errors = validate_content(slug, content)
+    errors += [f"{slug}: image not found: src/{f}" for f in content_images(content) if not (SRC / f).is_file()]
+    if errors:
+        raise ContentError("\n  ".join([f"content/{slug}.json is invalid:"] + errors))
+    return content
 
 
 def load_i18n(slug: str):
@@ -392,6 +349,7 @@ def build_switcher(current_slug: str) -> str:
 
 def build_product(slug: str, spec: dict) -> None:
     template = (SRC / spec["template"]).read_text()
+    content = load_content(slug)  # validate before touching the output folder
     out_dir = ROOT / slug
     img_dir = out_dir / "img"
 
@@ -404,7 +362,6 @@ def build_product(slug: str, spec: dict) -> None:
 
     # Structured content (steps/attachments/specs/faq/videos) — still contains unresolved
     # {{STEP1}}-style image tokens, resolved by the per-image loop right below.
-    content = load_content(slug)
     if content:
         body = render_product_body(slug, content)
         for key in ("STEPS", "ATTACHMENTS", "SPECS_ROWS", "FAQ_ITEMS", "VIDEOS"):
@@ -416,6 +373,15 @@ def build_product(slug: str, spec: dict) -> None:
         shutil.copy(src, img_dir / filename)
         hosted = hosted.replace("{{%s}}" % key, f"img/{filename}")
         offline = offline.replace("{{%s}}" % key, data_uri(src))
+
+    # Images referenced from content/<slug>.json by filename (relative to src/, e.g. a
+    # CMS upload under src/uploads/) — published flat into <product>/img/.
+    for ref in sorted(set(IMG_REF_RE.findall(hosted))):
+        src = SRC / ref
+        name = pathlib.PurePosixPath(ref).name
+        shutil.copy(src, img_dir / name)
+        hosted = hosted.replace("{{img:%s}}" % ref, f"img/{name}")
+        offline = offline.replace("{{img:%s}}" % ref, data_uri(src))
 
     # The card image (used by the portal index + product switcher) isn't always
     # one of the template's {{KEY}} images — copy it too if it's a local file.
@@ -472,9 +438,15 @@ def build_index() -> None:
 
 if __name__ == "__main__":
     print("Building G Pen product guides\n")
+    failed = []
     for slug, spec in PRODUCTS.items():
         if spec.get("template"):          # only build products with a local template
-            build_product(slug, spec)
+            try:
+                build_product(slug, spec)
+            except ContentError as e:
+                # leave that product's previously built pages untouched; build the rest
+                failed.append(slug)
+                print(f"\n  ✗ {e}\n")
     build_index()
 
     stale = [p for p in ("hydout.html", "hydout-standalone.html") if (ROOT / p).exists()]
@@ -487,4 +459,7 @@ if __name__ == "__main__":
         shutil.rmtree(ROOT / "img")
         print("  img/")
 
+    if failed:
+        print(f"\nFAILED: {', '.join(failed)} — fix the content errors above; their pages were not rebuilt.")
+        sys.exit(1)
     print(f"\nDone. Preview with: python3 serve.py")

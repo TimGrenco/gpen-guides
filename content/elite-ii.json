@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/elite-ii-step-01-charge.jpg",
       "imageAlt": "G Pen Elite II charging port",
       "image2": null,
       "image2Alt": null,
@@ -28,7 +28,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/elite-ii-step-02-load.jpg",
       "imageAlt": "Loading the G Pen Elite II herb chamber",
       "image2": null,
       "image2Alt": null,
@@ -56,7 +56,7 @@
     {
       "id": "set-heat",
       "title": "Set & Heat",
-      "image": "STEP3",
+      "image": "images/elite-ii-step-03-heat.jpg",
       "imageAlt": "Setting temperature on the G Pen Elite II",
       "image2": null,
       "image2Alt": null,
@@ -118,7 +118,7 @@
     {
       "id": "draw",
       "title": "Draw",
-      "image": "STEP4",
+      "image": "images/elite-ii-step-04-draw.jpg",
       "imageAlt": "Drawing from the G Pen Elite II",
       "image2": null,
       "image2Alt": null,
@@ -240,14 +240,14 @@
       "vimeoId": "989182210",
       "vimeoHash": null,
       "title": "Using the Elite II",
-      "thumb": "VID1"
+      "thumb": "images/elite-ii-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "989180603",
       "vimeoHash": null,
       "title": "Cleaning the Elite II",
-      "thumb": "VID2"
+      "thumb": "images/elite-ii-video-cleaning.jpg"
     }
   ]
 }

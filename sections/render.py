@@ -125,8 +125,18 @@ def render_note(note, id_prefix, leaf_lookup):
     return _fill(_partial("note"), ICON=icon, TEXT=rendered)
 
 
+def img_ref(filename):
+    """Placeholder build.py resolves per output: img/<basename> (hosted) or a data: URI
+    (offline). filename is relative to src/ — e.g. "dash-ii-step-01-charge.jpg" or a
+    CMS upload like "uploads/new-step.jpg"."""
+    return "{{img:%s}}" % filename
+
+
+IMG_REF_RE = re.compile(r"\{\{img:([^}]+)\}\}")
+
+
 def _img_tag(token, alt, indent):
-    return f'{indent}<div class="step-circle"><img src="{{{{{token}}}}}" alt="{alt}" loading="lazy"></div>'
+    return f'{indent}<div class="step-circle"><img src="{img_ref(token)}" alt="{alt}" loading="lazy"></div>'
 
 
 def render_step_image(step, num):
@@ -207,7 +217,7 @@ def render_attach_item(item, leaf_lookup):
     do_block = render_bullets(item.get("bullets", []), id_prefix, leaf_lookup)
     return _fill(
         _partial("attach-item"),
-        IMG="{{%s}}" % item["image"],
+        IMG=img_ref(item["image"]),
         IMG_ALT=htmllib.escape(item["imageAlt"], quote=True),
         TITLE=render_inline(title),
         DO_BLOCK=do_block,
@@ -237,7 +247,7 @@ def _video_card(video, num, leaf_lookup):
     card = _fill(
         _partial("video-card"),
         VIMEO_ID=video["vimeoId"], HASH_ATTR=hash_attr,
-        THUMB="{{%s}}" % video["thumb"],
+        THUMB=img_ref(video["thumb"]),
         TITLE=render_inline(title, quote=True),
         TITLE_KEY=f"vid{num}_title",
     )

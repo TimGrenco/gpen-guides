@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/hyer-step-01-charge.jpg",
       "imageAlt": "G Pen Hyer USB-C charging",
       "image2": null,
       "image2Alt": null,
@@ -28,7 +28,7 @@
     {
       "id": "set-up",
       "title": "Set Up",
-      "image": "STEP2",
+      "image": "images/hyer-step-02-setup.jpg",
       "imageAlt": "Setting up the G Pen Hyer on a glass rig",
       "image2": null,
       "image2Alt": null,
@@ -56,7 +56,7 @@
     {
       "id": "set-heat",
       "title": "Set Heat",
-      "image": "STEP3",
+      "image": "images/hyer-step-03-heat.jpg",
       "imageAlt": "Setting heat level on the G Pen Hyer",
       "image2": null,
       "image2Alt": null,
@@ -113,7 +113,7 @@
     {
       "id": "draw",
       "title": "Draw",
-      "image": "STEP4",
+      "image": "images/hyer-step-04-draw.jpg",
       "imageAlt": "Drawing from the G Pen Hyer",
       "image2": null,
       "image2Alt": null,
@@ -249,14 +249,14 @@
       "vimeoId": "989222280",
       "vimeoHash": null,
       "title": "Using the Hyer",
-      "thumb": "VID1"
+      "thumb": "images/hyer-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "989216818",
       "vimeoHash": null,
       "title": "Cleaning the Hyer",
-      "thumb": "VID2"
+      "thumb": "images/hyer-video-cleaning.jpg"
     }
   ]
 }

@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/dash-ii-step-01-charge.jpg",
       "imageAlt": "G Pen Dash II with USB-C cable",
       "image2": null,
       "image2Alt": null,
@@ -27,7 +27,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/dash-ii-step-02-load.jpg",
       "imageAlt": "Dash II mouthpiece removed, chamber open for loading",
       "image2": null,
       "image2Alt": null,
@@ -55,7 +55,7 @@
     {
       "id": "activate",
       "title": "Activate",
-      "image": "STEP3",
+      "image": "images/dash-ii-step-03-activate.jpg",
       "imageAlt": "Dash II power button and temperature controls",
       "image2": null,
       "image2Alt": null,
@@ -125,7 +125,7 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "STEP4",
+      "image": "images/dash-ii-step-04-clean.jpg",
       "imageAlt": "Cleaning the Dash II mouthpiece filter screen and bowl",
       "image2": null,
       "image2Alt": null,
@@ -252,14 +252,14 @@
       "vimeoId": "1170864602",
       "vimeoHash": null,
       "title": "Using the Dash II",
-      "thumb": "VID1"
+      "thumb": "images/dash-ii-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "1170878031",
       "vimeoHash": null,
       "title": "Cleaning the Dash II",
-      "thumb": "VID2"
+      "thumb": "images/dash-ii-video-cleaning.jpg"
     }
   ]
 }

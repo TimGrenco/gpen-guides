@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/dash-plus-step-01-charge.jpg",
       "imageAlt": "G Pen Dash+ USB-C charging port",
       "image2": null,
       "image2Alt": null,
@@ -28,7 +28,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/dash-plus-step-02-load.jpg",
       "imageAlt": "Loading the G Pen Dash+ herb chamber",
       "image2": null,
       "image2Alt": null,
@@ -56,7 +56,7 @@
     {
       "id": "set-heat",
       "title": "Set & Heat",
-      "image": "STEP3",
+      "image": "images/dash-plus-step-03-heat.jpg",
       "imageAlt": "Setting temperature on the G Pen Dash+",
       "image2": null,
       "image2Alt": null,
@@ -122,7 +122,7 @@
     {
       "id": "draw",
       "title": "Draw",
-      "image": "STEP4",
+      "image": "images/dash-plus-step-04-draw.jpg",
       "imageAlt": "Drawing from the G Pen Dash+",
       "image2": null,
       "image2Alt": null,
@@ -244,14 +244,14 @@
       "vimeoId": "989095151",
       "vimeoHash": null,
       "title": "Using the Dash+",
-      "thumb": "VID1"
+      "thumb": "images/dash-plus-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "989096678",
       "vimeoHash": null,
       "title": "Cleaning the Dash+",
-      "thumb": "VID2"
+      "thumb": "images/dash-plus-video-cleaning.jpg"
     }
   ]
 }

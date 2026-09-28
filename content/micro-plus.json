@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/microplus-step-01-charge.jpg",
       "imageAlt": "G Pen Micro+ USB-C charging port",
       "image2": null,
       "image2Alt": null,
@@ -28,7 +28,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/microplus-step-02-load.jpg",
       "imageAlt": "Loading concentrate into the G Pen Micro+",
       "image2": null,
       "image2Alt": null,
@@ -56,7 +56,7 @@
     {
       "id": "set-heat",
       "title": "Set Heat",
-      "image": "STEP3",
+      "image": "images/microplus-step-03-heat.jpg",
       "imageAlt": "Setting heat level on the G Pen Micro+",
       "image2": null,
       "image2Alt": null,
@@ -96,7 +96,7 @@
     {
       "id": "heat-draw",
       "title": "Heat & Draw",
-      "image": "STEP4",
+      "image": "images/microplus-step-04-draw.jpg",
       "imageAlt": "Heating and drawing from the G Pen Micro+",
       "image2": null,
       "image2Alt": null,
@@ -232,14 +232,14 @@
       "vimeoId": "989157950",
       "vimeoHash": null,
       "title": "Using the Micro+",
-      "thumb": "VID1"
+      "thumb": "images/micro-plus-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "989157776",
       "vimeoHash": null,
       "title": "Cleaning the Micro+",
-      "thumb": "VID2"
+      "thumb": "images/micro-plus-video-cleaning.jpg"
     }
   ]
 }

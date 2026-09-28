@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/connect-step-01-charge.jpg",
       "imageAlt": "G Pen Connect Micro USB charging",
       "image2": null,
       "image2Alt": null,
@@ -28,7 +28,7 @@
     {
       "id": "set-up",
       "title": "Set Up",
-      "image": "STEP2",
+      "image": "images/connect-step-02-setup.jpg",
       "imageAlt": "Assembling the G Pen Connect on a water piece",
       "image2": null,
       "image2Alt": null,
@@ -56,7 +56,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP3",
+      "image": "images/connect-step-03-load.jpg",
       "imageAlt": "Loading concentrate into the G Pen Connect tank",
       "image2": null,
       "image2Alt": null,
@@ -81,7 +81,7 @@
     {
       "id": "heat-draw",
       "title": "Heat & Draw",
-      "image": "STEP4",
+      "image": "images/connect-step-04-draw.jpg",
       "imageAlt": "Heating and drawing through the G Pen Connect",
       "image2": null,
       "image2Alt": null,
@@ -240,14 +240,14 @@
       "vimeoId": "989115752",
       "vimeoHash": null,
       "title": "Using the Connect",
-      "thumb": "VID1"
+      "thumb": "images/connect-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "989110420",
       "vimeoHash": null,
       "title": "Cleaning the Connect",
-      "thumb": "VID2"
+      "thumb": "images/connect-video-cleaning.jpg"
     }
   ]
 }

@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/melt-step-01-charge.jpg",
       "imageAlt": "G Pen Melt USB-C charging port",
       "image2": null,
       "image2Alt": null,
@@ -31,7 +31,7 @@
     {
       "id": "activate",
       "title": "Activate",
-      "image": "STEP2",
+      "image": "images/melt-step-02-activate.jpg",
       "imageAlt": "G Pen Melt ceramic tip and button",
       "image2": null,
       "image2Alt": null,
@@ -79,7 +79,7 @@
     {
       "id": "scoop-drop",
       "title": "Scoop & Drop",
-      "image": "STEP3",
+      "image": "images/melt-step-03-scoop.jpg",
       "imageAlt": "G Pen Melt scooping concentrate",
       "image2": null,
       "image2Alt": null,
@@ -107,7 +107,7 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "STEP4",
+      "image": "images/melt-step-04-clean.jpg",
       "imageAlt": "Cleaning the G Pen Melt tip with a cotton swab",
       "image2": null,
       "image2Alt": null,
@@ -226,7 +226,7 @@
       "vimeoId": "1143236451",
       "vimeoHash": null,
       "title": "Melt in Action",
-      "thumb": "VID1"
+      "thumb": "images/melt-video-in-action.jpg"
     }
   ]
 }

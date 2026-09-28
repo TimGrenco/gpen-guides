@@ -29,6 +29,7 @@ I18N_DIR.mkdir(exist_ok=True)
 
 sys.path.insert(0, str(ROOT))
 from sections.render import extract_content_leaves  # noqa: E402
+from sections.normalize import load_normalized  # noqa: E402
 
 LANGUAGES = {
     "ES": "Spanish (Latin America)",
@@ -90,9 +91,7 @@ def extract_shell_strings(html):
 
 def load_content(slug):
     path = CONTENT_DIR / f"{slug}.json"
-    if path.exists():
-        return json.loads(path.read_text())
-    return None
+    return load_normalized(path) if path.exists() else None
 
 
 # ── Translation via Claude CLI ──────────────────────────────────────────────

@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/micro-ii-step-01-charge.jpg",
       "imageAlt": "G Pen Micro II with USB-C charging cable",
       "image2": null,
       "image2Alt": null,
@@ -27,7 +27,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/micro-ii-step-02-load.jpg",
       "imageAlt": "Micro II mouthpiece removed, ceramic chamber open for loading",
       "image2": null,
       "image2Alt": null,
@@ -51,7 +51,7 @@
     {
       "id": "activate",
       "title": "Activate",
-      "image": "STEP3",
+      "image": "images/micro-ii-step-03-activate.jpg",
       "imageAlt": "Micro II power button and temperature settings display",
       "image2": null,
       "image2Alt": null,
@@ -121,7 +121,7 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "STEP4",
+      "image": "images/micro-ii-step-04-clean.jpg",
       "imageAlt": "Cleaning the Micro II ceramic heating chamber with a cotton swab",
       "image2": null,
       "image2Alt": null,
@@ -153,7 +153,7 @@
     {
       "id": "alerts",
       "title": "Alerts",
-      "image": "STEP5",
+      "image": "images/micro-ii-step-05-alerts.jpg",
       "imageAlt": "G Pen Micro II LED indicator light",
       "image2": null,
       "image2Alt": null,
@@ -176,7 +176,7 @@
     {
       "id": "side-car",
       "title": "Side Car",
-      "image": "ATTACH_SIDECAR",
+      "image": "images/micro-ii-attach-sidecar.jpg",
       "imageAlt": "Micro II with the Side Car glass attachment lifted off its silicone adapter",
       "bullets": [
         {
@@ -196,7 +196,7 @@
     {
       "id": "rig-adapter",
       "title": "Rig Adapter",
-      "image": "ATTACH_ADAPTER",
+      "image": "images/micro-ii-attach-rig-adapter.jpg",
       "imageAlt": "Micro II with the Rig Adapter and its 14mm glass stem lifted off",
       "bullets": [
         {
@@ -319,14 +319,14 @@
       "vimeoId": "1223785837",
       "vimeoHash": "ea7ec8d771",
       "title": "Using the Micro II",
-      "thumb": "VID1"
+      "thumb": "images/micro-ii-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "1223785836",
       "vimeoHash": "28770dad07",
       "title": "Cleaning the Micro II",
-      "thumb": "VID2"
+      "thumb": "images/micro-ii-video-cleaning.jpg"
     }
   ]
 }

@@ -3,7 +3,7 @@
     {
       "id": "charge",
       "title": "Charge",
-      "image": "STEP1",
+      "image": "images/510-original-step-01-charge.jpg",
       "imageAlt": "G Pen 510 Original with USB-C charging cable",
       "image2": null,
       "image2Alt": null,
@@ -27,7 +27,7 @@
     {
       "id": "load",
       "title": "Load",
-      "image": "STEP2",
+      "image": "images/510-original-step-02-load.jpg",
       "imageAlt": "510 cartridge being screwed into the 510 Original battery",
       "image2": null,
       "image2Alt": null,
@@ -47,7 +47,7 @@
     {
       "id": "activate",
       "title": "Activate",
-      "image": "STEP3",
+      "image": "images/510-original-step-03-activate.jpg",
       "imageAlt": "510 Original power button being pressed",
       "image2": null,
       "image2Alt": null,
@@ -108,7 +108,7 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "STEP4",
+      "image": "images/510-original-step-04-clean.jpg",
       "imageAlt": "Cotton swab cleaning the 510 cartridge connection point",
       "image2": null,
       "image2Alt": null,
@@ -225,14 +225,14 @@
       "vimeoId": "1149053260",
       "vimeoHash": null,
       "title": "Using the 510 Original",
-      "thumb": "VID1"
+      "thumb": "images/510-original-video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "1198848006",
       "vimeoHash": null,
       "title": "Cleaning the 510 Original",
-      "thumb": "VID2"
+      "thumb": "images/510-original-video-cleaning.jpg"
     }
   ]
 }
