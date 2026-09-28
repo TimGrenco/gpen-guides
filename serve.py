@@ -14,6 +14,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     extensions_map = {
         **http.server.SimpleHTTPRequestHandler.extensions_map,
         ".html": "text/html; charset=utf-8",
+        ".yml": "text/yaml; charset=utf-8",
     }
 
     def end_headers(self):

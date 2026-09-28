@@ -29,37 +29,65 @@ printed codes break. Add products alongside it; don't rename existing ones.
 ## Layout
 
 ```
-src/                       source of truth — edit here
-  index.template.html      portal index
-  hydout.template.html     the Hydout guide, with {{PLACEHOLDER}} slots
-  *.jpg, *.png             master images
-build.py                   renders src/ into the served pages below
+content/<product>.json     steps, specs, FAQ, videos for each guide — edit via the CMS
+src/accessories.json       Upgrades cards (all products) — edit via the CMS
+src/images/                guide images (steps, attachments, video stills)
+src/<product>.template.html  the page shell: CSS, nav, section wrappers, scripts
+sections/                  renderer: content JSON -> HTML (partials/, render.py,
+                           schema.py validation, normalize.py cleanup)
+i18n/<product>.json        translation cache (per-string, keyed by stable IDs)
+admin/                     Decap CMS editor (config.yml defines the forms)
+build.py                   renders everything into the served pages below
 serve.py                   local preview on :8811
 
-index.html                 generated
-hydout/index.html          generated
-hydout/offline.html        generated — all images inlined as data URIs
-hydout/img/                generated — copied from src/
+index.html, <product>/     generated — committed because Pages serves them
 ```
 
-Generated files are committed because Pages serves them directly. Never hand-edit
-a generated file; change the template in `src/` and rebuild.
+Never hand-edit a generated file. Copy lives in `content/*.json`; layout lives in
+the template shells.
+
+## Editing content
+
+The editor is at `/admin/`. Every save is a commit to `content/<product>.json`
+or `src/accessories.json`. Signing in on the live site needs the GitHub OAuth
+proxy (not set up yet); until then, edit locally:
+
+```bash
+npx decap-server        # terminal 1 — lets the editor write to this checkout
+python3 serve.py        # terminal 2
+```
+
+Open <http://localhost:8811/admin/>, click Login (no password locally), edit,
+then rebuild and refresh translations:
+
+```bash
+python3 build.py                      # validates content; fails loudly on bad input
+python3 scripts/gen_i18n.py <product> # translates only strings that changed
+```
+
+`build.py` normalizes what the editor saves: new bullets/steps/rows get a stable
+ID written back to the file (that ID is what keeps a string's translations
+attached to it when things are reordered), and blank optional fields become
+empty. Text fields support `**bold**`.
+
+Locally the step thumbnails in the editor stay blank until you open **Media**
+once — a quirk of the local backend only.
 
 ## Working on it
 
 ```bash
 python3 build.py && python3 serve.py
+python3 scripts/verify_migration.py   # built HTML + translations vs. last commit
 ```
-
-Then open <http://localhost:8811>.
 
 ## Adding a product
 
-1. Copy `src/hydout.template.html` to `src/<product>.template.html` and rewrite
-   the copy, image placeholders, and YouTube links.
-2. Drop the product's images into `src/`.
-3. Add an entry to `PRODUCTS` in `build.py`.
-4. Run `python3 build.py`, check it locally, commit.
+1. Copy an existing `src/<product>.template.html` shell to the new slug and update
+   its name, meta description and Upgrades subtitle.
+2. Add an entry to `PRODUCTS` in `build.py` and a file entry in `admin/config.yml`.
+3. Create `content/<product>.json` (copy one and edit it in the CMS) and add its
+   images to `src/images/`.
+4. `python3 build.py`, `python3 scripts/gen_i18n.py <product>`, check locally, commit.
 
 ## Where the content comes from
 

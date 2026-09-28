@@ -1,0 +1,217 @@
+# Decap CMS — content editor for the G Pen product guides.
+# Every save here is a git commit to content/<slug>.json or src/accessories.json;
+# build.py regenerates the guide pages from those files.
+
+backend:
+  name: github
+  repo: TimGrenco/gpen-guides
+  branch: main
+  # base_url: https://<login-proxy>   # Phase 4: OAuth proxy so editors can sign in on GitHub Pages
+  commit_messages:
+    update: "Content: update {{collection}} “{{slug}}”"
+    uploadMedia: "Content: upload “{{path}}”"
+    deleteMedia: "Content: delete “{{path}}”"
+
+# Lets `npx decap-server` + a local preview edit the working tree with no login.
+local_backend: true
+
+# Guide images (steps, attachments, video stills) live in src/images/. Image fields store
+# "images/<file>", a path relative to src/ — exactly what build.py resolves.
+media_folder: src/images
+public_folder: images
+
+# ── Reusable field definitions ────────────────────────────────────────────────
+x-bold-hint: &bold_hint "To make words bold, wrap them in double asterisks: `**like this**`"
+
+x-id: &id_field { label: "ID", name: id, widget: hidden }
+
+x-bullets: &bullets_field
+  label: Bullets
+  label_singular: bullet
+  name: bullets
+  widget: list
+  required: false
+  summary: "{{fields.text}}"
+  collapsed: false
+  fields:
+    - *id_field
+    - { label: Text, name: text, widget: string, hint: *bold_hint }
+
+x-steps: &steps_field
+  label: Steps
+  label_singular: step
+  name: steps
+  widget: list
+  summary: "{{fields.title}}"
+  collapsed: true
+  hint: "Drag to reorder. Each step's translations follow it when reordered."
+  fields:
+    - *id_field
+    - { label: Title, name: title, widget: string }
+    - { label: Image, name: image, widget: image, choose_url: false, hint: "Square photo; it's cropped to a circle." }
+    - { label: Image description (for screen readers), name: imageAlt, widget: string }
+    - { label: Second image, name: image2, widget: image, required: false, choose_url: false, hint: "Shown as a second circle under the first." }
+    - { label: Second image description, name: image2Alt, widget: string, required: false }
+    - *bullets_field
+    - label: Button presses
+      label_singular: button press
+      name: press
+      widget: list
+      required: false
+      summary: "{{fields.action}}"
+      collapsed: true
+      fields:
+        - *id_field
+        - label: Badge
+          name: badge
+          widget: object
+          collapsed: false
+          hint: "The round/pill marker on the left. Fill in only the field that matches the badge type."
+          fields:
+            - label: Badge type
+              name: kind
+              widget: select
+              default: count
+              options:
+                - { label: "Press count (e.g. 5×)", value: count }
+                - { label: "Word pill (e.g. hold)", value: pill }
+                - { label: "Symbol (e.g. +/−)", value: text }
+                - { label: "Left/right arrows (◀ ▶)", value: arrows }
+            - { label: "Press count — number", name: n, widget: number, value_type: int, min: 1, required: false }
+            - { label: "Word pill — text", name: label, widget: string, required: false, hint: "Hold and Side stay in English in every language; other words get translated." }
+            - { label: "Symbol — text", name: value, widget: string, required: false }
+        - { label: Action, name: action, widget: string, hint: *bold_hint }
+        - { label: Detail, name: sub, widget: string, required: false, hint: *bold_hint }
+    - label: Note
+      name: note
+      widget: object
+      required: false
+      collapsed: true
+      hint: "Leave the text empty for no note."
+      fields:
+        - label: Note type
+          name: type
+          widget: select
+          default: tip
+          required: false
+          options:
+            - { label: "Tip (lightbulb)", value: tip }
+            - { label: "Warning (circle-slash)", value: warning }
+            - { label: "Hazard (red box, e.g. hot surface)", value: hazard }
+        - { label: Text, name: text, widget: string, required: false, hint: *bold_hint }
+    - label: Show "Need help?" contact box instead of a note
+      name: helpWidget
+      widget: boolean
+      default: false
+      required: false
+
+x-attachments: &attachments_field
+  label: Using Attachments
+  label_singular: attachment
+  name: attachments
+  widget: list
+  required: false
+  summary: "{{fields.title}}"
+  collapsed: true
+  fields:
+    - *id_field
+    - { label: Title, name: title, widget: string }
+    - { label: Image, name: image, widget: image, choose_url: false }
+    - { label: Image description (for screen readers), name: imageAlt, widget: string }
+    - *bullets_field
+
+x-specs: &specs_field
+  label: Specs
+  label_singular: spec row
+  name: specs
+  widget: list
+  summary: "{{fields.label}}: {{fields.value}}"
+  collapsed: true
+  fields:
+    - *id_field
+    - { label: Label, name: label, widget: string }
+    - { label: Value, name: value, widget: string }
+
+x-faq: &faq_field
+  label: Common questions
+  label_singular: question
+  name: faq
+  widget: list
+  summary: "{{fields.question}}"
+  collapsed: true
+  fields:
+    - *id_field
+    - { label: Question, name: question, widget: string }
+    - { label: Answer, name: answer, widget: text, hint: *bold_hint }
+
+x-videos: &videos_field
+  label: Videos
+  label_singular: video
+  name: videos
+  widget: list
+  summary: "{{fields.title}}"
+  collapsed: true
+  fields:
+    - *id_field
+    - { label: Title, name: title, widget: string }
+    - { label: Vimeo video ID, name: vimeoId, widget: string, hint: "The number in the Vimeo URL, e.g. 1105906397." }
+    - { label: Vimeo private hash, name: vimeoHash, widget: string, required: false, hint: "Only for unlisted videos — the part after the ID in the share link." }
+    - { label: Thumbnail, name: thumb, widget: image, choose_url: false, hint: "16:9 still from the video." }
+
+x-guide-fields: &guide_fields [*steps_field, *specs_field, *faq_field, *videos_field]
+
+x-accessory: &accessory_list
+  widget: list
+  required: false
+  label_singular: product
+  summary: "{{fields.name}} — {{fields.price}}"
+  collapsed: true
+  fields:
+    - { label: Name, name: name, widget: string }
+    - { label: Price, name: price, widget: string, hint: "As shown, e.g. $19.95" }
+    - { label: Short description, name: note, widget: text }
+    - { label: Store handle, name: handle, widget: string, hint: "The part after gpen.com/products/ in the product URL." }
+    - { label: Image URL, name: image, widget: string, hint: "Shopify CDN image URL." }
+    - { label: Link override, name: url, widget: string, required: false, hint: "Only if the card shouldn't link to gpen.com/products/<handle>." }
+
+# ── Collections ───────────────────────────────────────────────────────────────
+collections:
+  - name: guides
+    label: Product guides
+    label_singular: guide
+    description: "Steps, specs, questions and videos for each product guide."
+    editor: { preview: false }
+    files:
+      - { label: "G Pen Hydout", name: hydout, file: content/hydout.json, fields: *guide_fields }
+      - { label: "G Pen Dash II", name: dash-ii, file: content/dash-ii.json, fields: *guide_fields }
+      - { label: "G Pen 510 Original", name: 510-original, file: content/510-original.json, fields: *guide_fields }
+      - label: "G Pen Micro II"
+        name: micro-ii
+        file: content/micro-ii.json
+        fields: [*steps_field, *attachments_field, *specs_field, *faq_field, *videos_field]
+      - { label: "G Pen Melt", name: melt, file: content/melt.json, fields: *guide_fields }
+      - { label: "G Pen Dash+", name: dash-plus, file: content/dash-plus.json, fields: *guide_fields }
+      - { label: "G Pen Elite II (legacy)", name: elite-ii, file: content/elite-ii.json, fields: *guide_fields }
+      - { label: "G Pen Micro+ (legacy)", name: micro-plus, file: content/micro-plus.json, fields: *guide_fields }
+      - { label: "G Pen Hyer (legacy)", name: hyer, file: content/hyer.json, fields: *guide_fields }
+      - { label: "G Pen Connect (legacy)", name: connect, file: content/connect.json, fields: *guide_fields }
+
+  - name: upgrades
+    label: Upgrades
+    description: "The accessory cards in each guide's Upgrades section."
+    editor: { preview: false }
+    files:
+      - label: "Upgrade cards (all products)"
+        name: accessories
+        file: src/accessories.json
+        fields:
+          - { <<: *accessory_list, label: "G Pen Hydout", name: hydout }
+          - { <<: *accessory_list, label: "G Pen Dash II", name: dash-ii }
+          - { <<: *accessory_list, label: "G Pen 510 Original", name: 510-original }
+          - { <<: *accessory_list, label: "G Pen Micro II", name: micro-ii }
+          - { <<: *accessory_list, label: "G Pen Melt", name: melt }
+          - { <<: *accessory_list, label: "G Pen Dash+", name: dash-plus }
+          - { <<: *accessory_list, label: "G Pen Elite II", name: elite-ii }
+          - { <<: *accessory_list, label: "G Pen Micro+", name: micro-plus }
+          - { <<: *accessory_list, label: "G Pen Hyer", name: hyer }
+          - { <<: *accessory_list, label: "G Pen Connect", name: connect }
