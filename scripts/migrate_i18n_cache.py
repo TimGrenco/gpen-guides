@@ -64,6 +64,8 @@ def migrate_product(content, old_cache):
                 leaves[f"{prefix}.press.{p_en['id']}.action"] = p_tr["action"]
                 if p_en.get("sub") is not None and p_tr.get("sub") is not None:
                     leaves[f"{prefix}.press.{p_en['id']}.sub"] = p_tr["sub"]
+                if p_en["badge"]["kind"] == "pill" and p_tr["badge"].get("kind") == "pill":
+                    leaves[f"{prefix}.press.{p_en['id']}.badge"] = p_tr["badge"]["label"]
             if step.get("note") and parsed.get("note"):
                 leaves[f"{prefix}.note"] = parsed["note"]["text"]
 
@@ -96,7 +98,7 @@ def migrate_product(content, old_cache):
 
 def main():
     args = sys.argv[1:]
-    slugs = args if args else sorted(p.stem for p in I18N_DIR.glob("*.json"))
+    slugs = args if args else sorted(p.stem for p in I18N_DIR.glob("*.json") if not p.name.startswith("._"))
     for slug in slugs:
         content_path = CONTENT_DIR / f"{slug}.json"
         cache_path = I18N_DIR / f"{slug}.json"

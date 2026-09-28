@@ -1,0 +1,257 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Dash+ USB-C charging port",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the charging port on the bottom."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use — takes about **1 hour**."
+        },
+        {
+          "id": "b3",
+          "text": "The LED blinks **8 times** when the battery is low."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "Loading the G Pen Dash+ herb chamber",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Remove the **mouthpiece** by pulling it straight up."
+        },
+        {
+          "id": "b2",
+          "text": "Fill the **titanium chamber** with finely ground dry herb — don't pack it tight."
+        },
+        {
+          "id": "b3",
+          "text": "Replace the mouthpiece before powering on."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**~0.3g capacity.** A fine, even grind gives the best vapor and airflow through the spiral ceramic airpath."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "set-heat",
+      "title": "Set & Heat",
+      "image": "STEP3",
+      "imageAlt": "Setting temperature on the G Pen Dash+",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Hold the power button for 3 seconds** to turn on. The display lights up."
+        },
+        {
+          "id": "b2",
+          "text": "Press **+ / −** to adjust your target temperature."
+        },
+        {
+          "id": "b3",
+          "text": "**Double-click** to start a session. The device vibrates when it reaches temp (~20 sec)."
+        },
+        {
+          "id": "b4",
+          "text": "The session auto-ends when the countdown hits 0:00. Device goes to standby."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "Power on / off",
+          "sub": "Hold the power button for 3 seconds"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "text",
+            "value": "+/−"
+          },
+          "action": "Adjust temperature",
+          "sub": "Right = increase · Left = decrease"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Start / cancel session",
+          "sub": "Double-click the power button"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Settings menu",
+          "sub": "Session timer · Temp unit · Brightness · Haptics"
+        }
+      ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "draw",
+      "title": "Draw",
+      "image": "STEP4",
+      "imageAlt": "Drawing from the G Pen Dash+",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Once the device vibrates, **draw slowly and steadily** through the mouthpiece."
+        },
+        {
+          "id": "b2",
+          "text": "The spiral ceramic airpath cools vapor before it reaches you."
+        },
+        {
+          "id": "b3",
+          "text": "Device powers off automatically after **1 minute** of no activity."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**After your session:** Let the device cool, then remove the mouthpiece and brush out the chamber. Regular cleaning keeps flavor and airflow at their best."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Dry Herb Vaporizer"
+    },
+    {
+      "id": "chamber",
+      "label": "Chamber",
+      "value": "~0.3g titanium"
+    },
+    {
+      "id": "airpath",
+      "label": "Airpath",
+      "value": "Spiral ceramic (hybrid conduction + convection)"
+    },
+    {
+      "id": "heat-up-time",
+      "label": "Heat-up time",
+      "value": "~20 seconds"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "1,800 mAh"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C, ~40 min per charge"
+    },
+    {
+      "id": "auto-shut-off",
+      "label": "Auto shut-off",
+      "value": "1 minute of inactivity"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "4.3\" × 1.6\" × 0.8\""
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "276 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPD-001-AMZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736027489"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "2-year limited (3 years with registration)"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Device won't turn on",
+      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on."
+    },
+    {
+      "id": "f2",
+      "question": "How do I know it's ready to use?",
+      "answer": "After you double-click to start a session, the device vibrates once when it reaches your set temperature. The session countdown then begins on the display."
+    },
+    {
+      "id": "f3",
+      "question": "Vapor is thin or tastes off",
+      "answer": "Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and airpath regularly — residue buildup is the most common cause of reduced vapor and off flavor."
+    },
+    {
+      "id": "f4",
+      "question": "What do the error codes mean?",
+      "answer": "If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment."
+    },
+    {
+      "id": "f5",
+      "question": "What does the warranty cover?",
+      "answer": "The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Register your device at gpen.com to extend it to 3 years. Physical damage is not covered."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "989095151",
+      "vimeoHash": null,
+      "title": "Using the Dash+",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "989096678",
+      "vimeoHash": null,
+      "title": "Cleaning the Dash+",
+      "thumb": "VID2"
+    }
+  ]
+}

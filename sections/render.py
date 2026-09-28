@@ -92,7 +92,14 @@ def render_press(press, id_prefix, leaf_lookup):
         return ""
     rows = []
     for p in press:
-        badge_class, badge_style, badge_content = render_badge(p["badge"])
+        badge = p["badge"]
+        if badge["kind"] == "pill":
+            # pill labels are real words in some products ("draw") and got translated
+            # historically, even though others ("Hold") were pinned by the translator's
+            # own preserve-list — treat all of them as a translatable leaf uniformly.
+            label = _leaf(leaf_lookup, f"{id_prefix}.press.{p['id']}.badge", badge["label"])
+            badge = dict(badge, label=label)
+        badge_class, badge_style, badge_content = render_badge(badge)
         action = _leaf(leaf_lookup, f"{id_prefix}.press.{p['id']}.action", p["action"])
         sub = p.get("sub")
         sub_line = ""
@@ -297,6 +304,8 @@ def extract_content_leaves(content):
             leaves[f"{prefix}.press.{p['id']}.action"] = p["action"]
             if p.get("sub") is not None:
                 leaves[f"{prefix}.press.{p['id']}.sub"] = p["sub"]
+            if p["badge"]["kind"] == "pill":
+                leaves[f"{prefix}.press.{p['id']}.badge"] = p["badge"]["label"]
         if step.get("note"):
             leaves[f"{prefix}.note"] = step["note"]["text"]
     for item in content.get("attachments", []):

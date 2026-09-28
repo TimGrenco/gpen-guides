@@ -1,0 +1,232 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Melt USB-C charging port",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the charging port on the bottom."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use — takes about **1 hour**."
+        },
+        {
+          "id": "b3",
+          "text": "The LED blinks **8 times** when the battery is low."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**Always ready:** Melt supports pass-through charging — you can use it while it's plugged in. USB-C cable not included."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "activate",
+      "title": "Activate",
+      "image": "STEP2",
+      "imageAlt": "G Pen Melt ceramic tip and button",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Click 5 times** quickly to power on. The LED lights to confirm."
+        },
+        {
+          "id": "b2",
+          "text": "**Hold the button** to heat the ceramic tip (heats in seconds)."
+        },
+        {
+          "id": "b3",
+          "text": "Device **auto-shuts off** after 10 minutes of inactivity."
+        },
+        {
+          "id": "b4",
+          "text": "Click 5 times again to power off."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Power on / off",
+          "sub": "Click button 5 times quickly"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "Heat tip",
+          "sub": "Hold to heat, release to stop — 150 °C / 302 °F"
+        }
+      ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "scoop-drop",
+      "title": "Scoop & Drop",
+      "image": "STEP3",
+      "imageAlt": "G Pen Melt scooping concentrate",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Touch the warm tip** to your concentrate to pick it up cleanly."
+        },
+        {
+          "id": "b2",
+          "text": "Hold the button to heat and let it **melt cleanly** into your rig, bowl, or device."
+        },
+        {
+          "id": "b3",
+          "text": "Works with bangers, e-rigs, and G Pen devices like the Micro+, Connect, and Hyer."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "The tip is precisely calibrated — no variable heat needed. Touch, heat, and drop in one clean motion."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "STEP4",
+      "imageAlt": "Cleaning the G Pen Melt tip with a cotton swab",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "While the tip is still **warm**, wipe it with an **ISO-soaked cotton swab**."
+        },
+        {
+          "id": "b2",
+          "text": "Do **not** soak or submerge the device."
+        },
+        {
+          "id": "b3",
+          "text": "Regular cleaning keeps the tip performing at its best."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Electric Hot Knife"
+    },
+    {
+      "id": "tip-material",
+      "label": "Tip material",
+      "value": "Ceramic"
+    },
+    {
+      "id": "heat",
+      "label": "Heat",
+      "value": "150 °C / 302 °F (instant-heat)"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "160 mAh · 40–50 uses per charge"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C, ~1 hour (pass-through capable)"
+    },
+    {
+      "id": "auto-shut-off",
+      "label": "Auto shut-off",
+      "value": "10 minutes"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "3.94\" × 0.5\" × 0.25\""
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "17 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GHK-001-AOZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736029711"
+    },
+    {
+      "id": "in-the-box",
+      "label": "In the box",
+      "value": "Melt hot knife, protective travel cap"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Nothing happens when I press the button",
+      "answer": "Press the button five times quickly to power on. The LED will light up to confirm. If it still doesn't respond, charge the device and try again."
+    },
+    {
+      "id": "f2",
+      "question": "How do I use the Melt?",
+      "answer": "Power it on (5× click), touch the ceramic tip to your concentrate to scoop it up, hold the button to heat, and let it melt cleanly into your device."
+    },
+    {
+      "id": "f3",
+      "question": "Does the Melt have variable heat?",
+      "answer": "No — the Melt uses a precisely tuned heating element optimized for smooth, controlled melting without burning. No settings to adjust."
+    },
+    {
+      "id": "f4",
+      "question": "Can I use Melt while it's charging?",
+      "answer": "Yes. The Melt supports USB-C pass-through charging — plug it in and keep using it without waiting."
+    },
+    {
+      "id": "f5",
+      "question": "Is the Melt safe for travel?",
+      "answer": "Yes. Its compact size (3.94\" tall) and the included protective travel cap make it easy to carry. The 5× click lock prevents accidental activation."
+    },
+    {
+      "id": "f6",
+      "question": "What does the warranty cover?",
+      "answer": "The Melt includes a 90-day limited warranty covering electronics. It does not cover physical damage. Register your device and contact support with your order details."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "1143236451",
+      "vimeoHash": null,
+      "title": "Melt in Action",
+      "thumb": "VID1"
+    }
+  ]
+}

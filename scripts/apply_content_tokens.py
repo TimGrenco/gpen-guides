@@ -21,8 +21,11 @@ REPLACEMENTS = [
     (r'<tbody>.*?\n            </tbody>', '<tbody>\n{{SPECS_ROWS}}\n            </tbody>'),
     (r'<div class="faq" data-i18n-zone="faq_body">.*?\n        </div>',
      '<div class="faq" data-i18n-zone="faq_body">\n{{FAQ_ITEMS}}\n        </div>'),
-    (r'<div class="vids" data-i18n-zone="vids_block">.*?\n    </div>',
-     '<div class="vids" data-i18n-zone="vids_block">\n{{VIDEOS}}\n    </div>'),
+    # the data-i18n-zone attribute is vestigial (that zone is explicitly skipped at
+    # both extraction and runtime) and inconsistently present across products —
+    # preserve whichever opening tag a given product already has.
+    (r'(<div class="vids"(?: data-i18n-zone="vids_block")?>).*?\n    </div>',
+     r'\1\n{{VIDEOS}}\n    </div>'),
 ]
 
 

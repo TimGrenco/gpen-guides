@@ -1,0 +1,253 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Connect Micro USB charging",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug a **Micro USB cable** into the port on the side of the battery housing."
+        },
+        {
+          "id": "b2",
+          "text": "**Red LED** = charging · **Green LED** = fully charged."
+        },
+        {
+          "id": "b3",
+          "text": "LED blinks **8 times** when the battery is low."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "set-up",
+      "title": "Set Up",
+      "image": "STEP2",
+      "imageAlt": "Assembling the G Pen Connect on a water piece",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Twist the **tank** onto the top of the adapter."
+        },
+        {
+          "id": "b2",
+          "text": "Twist the **male glass adapter** onto the bottom of the adapter."
+        },
+        {
+          "id": "b3",
+          "text": "Insert the adapter into the **14mm female joint** of your water piece."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**14mm male adapter** fits standard water pieces. Other adapter sizes available separately."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP3",
+      "imageAlt": "Loading concentrate into the G Pen Connect tank",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Remove the **tank cover** and load concentrate onto the **ceramic plate** inside."
+        },
+        {
+          "id": "b2",
+          "text": "Reattach the tank cover."
+        },
+        {
+          "id": "b3",
+          "text": "Attach the **battery** to the tank to complete the connection."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "heat-draw",
+      "title": "Heat & Draw",
+      "image": "STEP4",
+      "imageAlt": "Heating and drawing through the G Pen Connect",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Click 5 times** to power on. LED lights up in your current voltage color."
+        },
+        {
+          "id": "b2",
+          "text": "Draw through your water piece while heating."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Power on / off",
+          "sub": "5 clicks to power on or off"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 3
+          },
+          "action": "Voltage level",
+          "sub": "Blue 3.1V · Green 3.6V · Red 4.1V"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Auto heat",
+          "sub": "5s heat-up flash, then 10s max solid heat"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "Manual heat",
+          "sub": "Hold button · up to 15 seconds"
+        },
+        {
+          "id": "p5",
+          "badge": {
+            "kind": "pill",
+            "label": "Side"
+          },
+          "action": "Increased airflow",
+          "sub": "Hold the side button during a session"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "**After consecutive max-heat sessions:** Wait at least 2 minutes before touching the tank cover."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Concentrate Vaporizer"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "850 mAh"
+    },
+    {
+      "id": "chamber",
+      "label": "Chamber",
+      "value": "Quartz ceramic plate"
+    },
+    {
+      "id": "voltage",
+      "label": "Voltage",
+      "value": "3.1V / 3.6V / 4.1V"
+    },
+    {
+      "id": "auto-heat-duration",
+      "label": "Auto heat duration",
+      "value": "5s heat-up + 10s max"
+    },
+    {
+      "id": "manual-heat-duration",
+      "label": "Manual heat duration",
+      "value": "Up to 15 seconds"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "Micro USB"
+    },
+    {
+      "id": "glass-connection",
+      "label": "Glass connection",
+      "value": "14mm male adapter (included)"
+    },
+    {
+      "id": "package-dimensions",
+      "label": "Package dimensions",
+      "value": "158 × 117 × 48 mm"
+    },
+    {
+      "id": "package-weight",
+      "label": "Package weight",
+      "value": "362 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPC-100-AJZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736023986"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Device won't turn on",
+      "answer": "Click the button 5 times quickly. Make sure the battery is attached to the tank — the connection must be complete for power to work. If nothing happens, charge the device first."
+    },
+    {
+      "id": "f2",
+      "question": "LED blinks 3 times on startup",
+      "answer": "Three blinks usually means a short circuit or the tank isn't properly connected. Remove the battery, check the tank connection, reattach firmly, and try again."
+    },
+    {
+      "id": "f3",
+      "question": "Vapor is thin or has poor flavor",
+      "answer": "Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly — residue buildup is the most common cause of reduced performance."
+    },
+    {
+      "id": "f4",
+      "question": "Tank cover is too hot to handle",
+      "answer": "This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot — that's how it vaporizes concentrate efficiently."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "989115752",
+      "vimeoHash": null,
+      "title": "Using the Connect",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "989110420",
+      "vimeoHash": null,
+      "title": "Cleaning the Connect",
+      "thumb": "VID2"
+    }
+  ]
+}

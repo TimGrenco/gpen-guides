@@ -1,0 +1,238 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen 510 Original with USB-C charging cable",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the charging port."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "USB-C cable not included — use the one you already carry."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "510 cartridge being screwed into the 510 Original battery",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Screw in** your 510 cartridge — snug, not cranked."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "Fits standard 510-thread cartridges. Cartridge sold separately."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "activate",
+      "title": "Activate",
+      "image": "STEP3",
+      "imageAlt": "510 Original power button being pressed",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn on",
+          "sub": "Five quick presses"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 3
+          },
+          "action": "Adjust voltage",
+          "sub": "Cycles 3.2V → 3.6V → 3.8V"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "10-second preheat",
+          "sub": "Warms oil at 1.8V"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "hold"
+          },
+          "action": "Activate + draw",
+          "sub": "Hold button or breathe in to activate"
+        },
+        {
+          "id": "p5",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn off",
+          "sub": "Auto shut-off after 10 minutes"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "Lower voltage = more flavor. Higher = bigger clouds."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "STEP4",
+      "imageAlt": "Cotton swab cleaning the 510 cartridge connection point",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Use a **cotton swab + isopropyl alcohol (IPA)**."
+        },
+        {
+          "id": "b2",
+          "text": "Clean the **inside of the battery/cartridge connection point**."
+        },
+        {
+          "id": "b3",
+          "text": "Let dry fully before reloading."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Never soak the battery** in alcohol or any liquid."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "510 Cartridge Battery"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "400 mAh"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C"
+    },
+    {
+      "id": "voltage-settings",
+      "label": "Voltage settings",
+      "value": "3 · 3.2V / 3.6V / 3.8V"
+    },
+    {
+      "id": "preheat",
+      "label": "Preheat",
+      "value": "1.8V · 10 seconds"
+    },
+    {
+      "id": "auto-shut-off",
+      "label": "Auto shut-off",
+      "value": "10 minutes"
+    },
+    {
+      "id": "compatibility",
+      "label": "Compatibility",
+      "value": "Standard 510-thread cartridges"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "24 × 21.1 × 56.7 mm"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "30 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GSB-001-AOZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736029742"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Nothing happens when I press the button",
+      "answer": "Press the button five times quickly to power the device on. The LED will light up to confirm it is on. If the LED still doesn't respond, charge the device and try again."
+    },
+    {
+      "id": "f2",
+      "question": "My cart isn't producing vapor",
+      "answer": "Make sure the cartridge is threaded in snugly — not over-tightened. Try double-pressing for a 10-second preheat to loosen thick oil, then hold the button or draw to activate."
+    },
+    {
+      "id": "f3",
+      "question": "Which voltage should I use?",
+      "answer": "Start at 3.2V for the most flavor-forward experience. Step up to 3.6V or 3.8V for bigger, warmer clouds. Press three times to cycle through the three settings."
+    },
+    {
+      "id": "f4",
+      "question": "Will my cartridge fit?",
+      "answer": "The 510 Original accepts standard 510-thread cartridges. Very wide or extra-tall carts may not fit flush."
+    },
+    {
+      "id": "f5",
+      "question": "What does the warranty cover?",
+      "answer": "The 510 Original carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "1149053260",
+      "vimeoHash": null,
+      "title": "Using the 510 Original",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "1198848006",
+      "vimeoHash": null,
+      "title": "Cleaning the 510 Original",
+      "thumb": "VID2"
+    }
+  ]
+}

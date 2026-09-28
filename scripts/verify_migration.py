@@ -5,7 +5,9 @@ Two checks, per product:
   1. HTML diff — the committed index.html/offline.html vs. a fresh build from the new
      content-driven path must be byte-identical, except for the pre-authorized Hydout/
      Micro II Vimeo-hash-attribute normalization (data-hash/data-vimeo-h -> data-vimeo-hash)
-     and Hydout's aria-label/alt case fix (now matches the visible video title exactly).
+     and video aria-label/alt text now always matching the visible <h3> title verbatim —
+     Hydout ("How to Use" -> "How to use") and Melt ("G Pen Melt in action" ->
+     "Melt in Action") each had it hand-authored slightly differently from the title.
   2. Translation fidelity — every language's window._T blob must carry the same actual
      translated text as HEAD's committed version. Compared as normalized text content
      (HTML tags stripped, whitespace collapsed), not raw bytes: the new renderer's zone
@@ -27,8 +29,8 @@ import sys
 ROOT = pathlib.Path(__file__).parent.parent
 CONTENT_DIR = ROOT / "content"
 
-# (product, file) pairs where a byte diff is expected and pre-authorized.
-KNOWN_HTML_DIFFS = {"hydout", "micro-ii"}
+# products where a byte diff is expected and pre-authorized (see module docstring).
+KNOWN_HTML_DIFFS = {"hydout", "micro-ii", "melt"}
 
 TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
@@ -117,7 +119,7 @@ def check_translations(slug):
 
 def main():
     args = sys.argv[1:]
-    slugs = args if args else sorted(p.stem for p in CONTENT_DIR.glob("*.json"))
+    slugs = args if args else sorted(p.stem for p in CONTENT_DIR.glob("*.json") if not p.name.startswith("._"))
 
     total_problems = 0
     for slug in slugs:

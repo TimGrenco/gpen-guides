@@ -1,0 +1,265 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Dash II with USB-C cable",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the port on the device."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "USB-C cable not included — use the one you already carry."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "Dash II mouthpiece removed, chamber open for loading",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Remove the mouthpiece** to access the chamber."
+        },
+        {
+          "id": "b2",
+          "text": "**Fully load** the chamber with dry material."
+        },
+        {
+          "id": "b3",
+          "text": "**Pack lightly** with the included pick tool — do not overpack."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "activate",
+      "title": "Activate",
+      "image": "STEP3",
+      "imageAlt": "Dash II power button and temperature controls",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "pill",
+            "label": "hold"
+          },
+          "action": "Power on",
+          "sub": "Hold button 3 seconds"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "text",
+            "value": "+/−"
+          },
+          "action": "Adjust temperature",
+          "sub": "Use + and − buttons"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Start session",
+          "sub": "Double-tap within 2 seconds"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "draw"
+          },
+          "action": "Inhale from mouthpiece",
+          "sub": "Long, sustained draws work best"
+        },
+        {
+          "id": "p5",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Cancel session",
+          "sub": "Double-tap anytime to stop"
+        },
+        {
+          "id": "p6",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Device settings",
+          "sub": "Five quick presses"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "Lower temperatures preserve flavor. Higher temperatures produce bigger clouds."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "STEP4",
+      "imageAlt": "Cleaning the Dash II mouthpiece filter screen and bowl",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Clean the **mouthpiece filter screen & bowl** after every use with the pick tool."
+        },
+        {
+          "id": "b2",
+          "text": "**Deep clean:** remove the mouthpiece insert, clean with **isopropyl alcohol (IPA)**."
+        },
+        {
+          "id": "b3",
+          "text": "Let all parts **dry completely** before reassembling."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Never soak the battery** in alcohol or any liquid."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Dry Herb Vaporizer"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "1,100 mAh"
+    },
+    {
+      "id": "chamber",
+      "label": "Chamber",
+      "value": "0.4g ceramic"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "value": "Adjustable with + / − buttons"
+    },
+    {
+      "id": "session-mode",
+      "label": "Session mode",
+      "value": "Double-tap to start / cancel · 2 min / 3 min / 4 min"
+    },
+    {
+      "id": "haptic-feedback",
+      "label": "Haptic feedback",
+      "value": "Yes"
+    },
+    {
+      "id": "included",
+      "label": "Included",
+      "value": "Pick tool, mouthpiece insert"
+    },
+    {
+      "id": "package-dimensions",
+      "label": "Package dimensions",
+      "value": "97 × 35 × 21 mm"
+    },
+    {
+      "id": "package-weight",
+      "label": "Package weight",
+      "value": "59.5 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPD-001-APZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "852570004441"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "How do I turn it on?",
+      "answer": "Hold the main button for 3 seconds. The device will vibrate and the display will turn on, indicating it is powered up and ready."
+    },
+    {
+      "id": "f2",
+      "question": "How do I start a session?",
+      "answer": "Once the device is on and at your desired temperature, double-tap the button within 2 seconds to start a session. Double-tap again anytime to cancel it early."
+    },
+    {
+      "id": "f3",
+      "question": "My vapor tastes burnt — what's wrong?",
+      "answer": "You may have the temperature too high, or the bowl may need cleaning. Try a lower temperature setting and clean the screen and bowl with the pick tool after each session."
+    },
+    {
+      "id": "f4",
+      "question": "How tight should I pack the chamber?",
+      "answer": "Pack firmly enough that material won't fall out but loose enough that you can draw air through easily. Overpacking restricts airflow and reduces vapor production."
+    },
+    {
+      "id": "f5",
+      "question": "How do I deep clean the mouthpiece?",
+      "answer": "Remove the mouthpiece insert and soak or wipe it with isopropyl alcohol. Let it dry completely before reassembling and using the device."
+    },
+    {
+      "id": "f6",
+      "question": "What does the warranty cover?",
+      "answer": "The Dash II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "1170864602",
+      "vimeoHash": null,
+      "title": "Using the Dash II",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "1170878031",
+      "vimeoHash": null,
+      "title": "Cleaning the Dash II",
+      "thumb": "VID2"
+    }
+  ]
+}
