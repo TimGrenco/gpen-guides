@@ -21,11 +21,16 @@ import json
 import mimetypes
 import pathlib
 import shutil
+import sys
 
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
 I18N_DIR = ROOT / "i18n"
+CONTENT_DIR = ROOT / "content"
 YEAR = str(datetime.date.today().year)
+
+sys.path.insert(0, str(ROOT))
+from sections.render import render_product_body, compose_translations  # noqa: E402
 
 MANUAL_PDF = ("https://cdn.shopify.com/s/files/1/0185/1576/files/"
               "20250528_GPen_Hydout_Manual.pdf?v=1749240232")
@@ -305,8 +310,16 @@ def accessories_html(slug: str) -> str:
     return "\n".join(out)
 
 
+def load_content(slug: str):
+    """Load structured content/<slug>.json if it exists (steps/attachments/specs/faq/videos)."""
+    path = CONTENT_DIR / f"{slug}.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return None
+
+
 def load_i18n(slug: str):
-    """Load translations from i18n/<slug>.json if it exists."""
+    """Load the translation cache from i18n/<slug>.json if it exists."""
     path = I18N_DIR / f"{slug}.json"
     if path.exists():
         return json.loads(path.read_text())
@@ -388,6 +401,16 @@ def build_product(slug: str, spec: dict) -> None:
     img_dir.mkdir(parents=True)
 
     hosted = offline = template.replace("{{ACCESSORIES}}", accessories_html(slug))
+
+    # Structured content (steps/attachments/specs/faq/videos) — still contains unresolved
+    # {{STEP1}}-style image tokens, resolved by the per-image loop right below.
+    content = load_content(slug)
+    if content:
+        body = render_product_body(slug, content)
+        for key in ("STEPS", "ATTACHMENTS", "SPECS_ROWS", "FAQ_ITEMS", "VIDEOS"):
+            hosted = hosted.replace("{{%s}}" % key, body[key])
+            offline = offline.replace("{{%s}}" % key, body[key])
+
     for key, filename in spec["images"].items():
         src = SRC / filename
         shutil.copy(src, img_dir / filename)
@@ -417,8 +440,9 @@ def build_product(slug: str, spec: dict) -> None:
     offline = offline.replace("{{PRODUCT_SWITCHER}}", switcher)
 
     # Inject translations if available.
-    translations = load_i18n(slug)
-    if translations:
+    cache = load_i18n(slug)
+    if cache:
+        translations = compose_translations(slug, content, cache) if content else cache
         hosted = inject_i18n(hosted, translations)
         offline = inject_i18n(offline, translations)
 

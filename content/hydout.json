@@ -1,0 +1,259 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "USB-C cable plugged into the base of the Hydout",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the port on the base."
+        },
+        {
+          "id": "b2",
+          "text": "The display shows battery level while charging."
+        },
+        {
+          "id": "b3",
+          "text": "Give it a full charge before first use."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "USB-C cable not included — use the one you already carry."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "Magnetic mouthpiece cover removed, 510 cartridge ready to thread in",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Pull off** the magnetic mouthpiece cover."
+        },
+        {
+          "id": "b2",
+          "text": "**Screw in** your 510 cartridge — snug, not cranked."
+        },
+        {
+          "id": "b3",
+          "text": "**Snap the cover** back on."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "Fits most 510-thread cartridges up to **2g**. Cartridge sold separately."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "activate",
+      "title": "Activate",
+      "image": "STEP3",
+      "imageAlt": "Single control button on the side of the Hydout",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn on",
+          "sub": "Five quick presses"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 3
+          },
+          "action": "Adjust voltage",
+          "sub": "Cycles 2.4V → 3.8V"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "10-second preheat",
+          "sub": "Warms oil at 1.8V"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "hold"
+          },
+          "action": "Activate + draw",
+          "sub": "Hold while you inhale"
+        },
+        {
+          "id": "p5",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn off",
+          "sub": "Auto shut-off after 2 min"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "Lower voltage = more flavor. Higher = bigger clouds."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "STEP4",
+      "imageAlt": "Cotton swab cleaning the cartridge connection point",
+      "image2": "STEP4B",
+      "image2Alt": "Cotton swab cleaning inside the mouthpiece cover",
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Use a **cotton swab + isopropyl alcohol**."
+        },
+        {
+          "id": "b2",
+          "text": "Wipe the **inside of the mouthpiece cover**."
+        },
+        {
+          "id": "b3",
+          "text": "Wipe the **cartridge connection point**."
+        },
+        {
+          "id": "b4",
+          "text": "Let dry fully before reloading."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Never soak the battery** in alcohol or any liquid."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "400 mAh"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C"
+    },
+    {
+      "id": "heat-settings",
+      "label": "Heat settings",
+      "value": "5 · 2.4V – 3.8V"
+    },
+    {
+      "id": "preheat",
+      "label": "Preheat",
+      "value": "1.8V · 10 seconds"
+    },
+    {
+      "id": "auto-shut-off",
+      "label": "Auto shut-off",
+      "value": "2 minutes"
+    },
+    {
+      "id": "compatibility",
+      "label": "Compatibility",
+      "value": "510-thread carts up to 2g"
+    },
+    {
+      "id": "display",
+      "label": "Display",
+      "value": "LED · voltage and battery level"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "90 × 37.5 × 18.5 mm"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "50 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GHO-001-AOZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736029254"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Nothing happens when I press the button",
+      "answer": "The device auto-sleeps after 2 minutes. Press five times to wake it. If the display still doesn't light up, charge it and try again."
+    },
+    {
+      "id": "f2",
+      "question": "My cart isn't producing vapor",
+      "answer": "Make sure the cartridge is threaded in snugly — not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then hold the button as you draw."
+    },
+    {
+      "id": "f3",
+      "question": "Which heat setting should I use?",
+      "answer": "Start low. Lower voltages give more flavor and make a cart last longer; higher voltages give bigger, warmer clouds. Press three times to cycle through the five settings."
+    },
+    {
+      "id": "f4",
+      "question": "Will my cartridge fit?",
+      "answer": "The Hydout takes standard 510-thread cartridges up to 2g. Very wide or extra-tall carts may keep the magnetic cover from seating flush."
+    },
+    {
+      "id": "f5",
+      "question": "How do I know when it's fully charged?",
+      "answer": "The LED display shows the battery level. Leave it on the cable until it reads full."
+    },
+    {
+      "id": "f6",
+      "question": "What does the warranty cover?",
+      "answer": "The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "1105906397",
+      "vimeoHash": null,
+      "title": "How to use",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "1105958727",
+      "vimeoHash": "59fe004ad8",
+      "title": "How to clean",
+      "thumb": "VID2"
+    }
+  ]
+}

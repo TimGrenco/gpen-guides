@@ -1,0 +1,245 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Micro+ USB-C charging port",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug a **USB-C cable** into the port on the bottom of the battery."
+        },
+        {
+          "id": "b2",
+          "text": "**Red LED** = charging · **Green LED** = fully charged."
+        },
+        {
+          "id": "b3",
+          "text": "LED flashes **5 times** when the battery is low."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "Loading concentrate into the G Pen Micro+",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Twist off the **mouthpiece assembly**, then twist off the **tank**."
+        },
+        {
+          "id": "b2",
+          "text": "Add your concentrate to the **ceramic chamber** inside the tank."
+        },
+        {
+          "id": "b3",
+          "text": "Reassemble the tank and mouthpiece before use."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**Less is more.** A small, rice-sized amount of concentrate works best. Overfilling the chamber clogs the airpath."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "set-heat",
+      "title": "Set Heat",
+      "image": "STEP3",
+      "imageAlt": "Setting heat level on the G Pen Micro+",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Click 5 times** to power on. The LED lights up."
+        },
+        {
+          "id": "b2",
+          "text": "**Click 3 times** to cycle through heat levels."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Power on / off",
+          "sub": "5 clicks to power on or off"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 3
+          },
+          "action": "Cycle heat level",
+          "sub": "Blue = Low · Green = Medium · Red = High"
+        }
+      ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "heat-draw",
+      "title": "Heat & Draw",
+      "image": "STEP4",
+      "imageAlt": "Heating and drawing from the G Pen Micro+",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "The LED **flashes then goes solid** when the chamber is ready."
+        },
+        {
+          "id": "b2",
+          "text": "Draw steadily through the mouthpiece while the LED is solid."
+        },
+        {
+          "id": "b3",
+          "text": "Device auto powers off after **5 minutes** of inactivity."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "Manual heat",
+          "sub": "Hold button · up to 10 seconds max"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Auto heat",
+          "sub": "Double-click · 10 seconds, then stops automatically"
+        }
+      ],
+      "note": {
+        "type": "hazard",
+        "text": "**Hot surface:** Do not touch the tank or tank cover for at least 5 minutes after use."
+      },
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Concentrate Vaporizer"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "850 mAh"
+    },
+    {
+      "id": "chamber",
+      "label": "Chamber",
+      "value": "Ceramic"
+    },
+    {
+      "id": "heat-levels",
+      "label": "Heat levels",
+      "value": "3 (Low / Medium / High)"
+    },
+    {
+      "id": "max-heat-duration",
+      "label": "Max heat duration",
+      "value": "10 seconds"
+    },
+    {
+      "id": "auto-power-off",
+      "label": "Auto power-off",
+      "value": "5 minutes of inactivity"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C"
+    },
+    {
+      "id": "thread",
+      "label": "Thread",
+      "value": "510-compatible battery"
+    },
+    {
+      "id": "package-dimensions",
+      "label": "Package dimensions",
+      "value": "177 × 69 × 42 mm"
+    },
+    {
+      "id": "package-weight",
+      "label": "Package weight",
+      "value": "190 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPM-001-AKZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736025362"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Device won't turn on",
+      "answer": "Click the button 5 times quickly. If nothing happens, charge the device — the LED will turn red when charging. Make sure the tank is fully twisted onto the battery before trying again."
+    },
+    {
+      "id": "f2",
+      "question": "Vapor is thin or weak",
+      "answer": "Try a higher heat setting. Make sure the concentrate is loaded into the chamber (not on the walls). Clean the tank regularly — residue buildup on the ceramic reduces efficiency."
+    },
+    {
+      "id": "f3",
+      "question": "Airflow feels blocked",
+      "answer": "Remove the mouthpiece assembly and check for buildup. Soak the mouthpiece in isopropyl alcohol and clean the airpath with a cotton swab. Overfilling the chamber is the most common cause."
+    },
+    {
+      "id": "f4",
+      "question": "What does the LED flashing 3 times mean?",
+      "answer": "Three blinks on startup usually indicates a short circuit or improper tank connection. Remove the tank, clean the connection threads, and reattach firmly."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "989157950",
+      "vimeoHash": null,
+      "title": "Using the Micro+",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "989157776",
+      "vimeoHash": null,
+      "title": "Cleaning the Micro+",
+      "thumb": "VID2"
+    }
+  ]
+}

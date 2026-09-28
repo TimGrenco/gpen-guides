@@ -1,0 +1,332 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "STEP1",
+      "imageAlt": "G Pen Micro II with USB-C charging cable",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug **any USB-C cable** into the port on the device."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "USB-C cable not included — use the one you already carry."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "load",
+      "title": "Load",
+      "image": "STEP2",
+      "imageAlt": "Micro II mouthpiece removed, ceramic chamber open for loading",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Remove the mouthpiece** to access the ceramic heating chamber."
+        },
+        {
+          "id": "b2",
+          "text": "**Load** the chamber with your concentrate — do not overfill."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "A small amount of concentrate goes a long way. Overfilling can clog the chamber and reduce airflow."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "activate",
+      "title": "Activate",
+      "image": "STEP3",
+      "imageAlt": "Micro II power button and temperature settings display",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn on",
+          "sub": "Five quick presses"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 3
+          },
+          "action": "Adjust temperature",
+          "sub": "Cycles 296°F → 337°F → 394°F (±15°F)"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Start session mode",
+          "sub": "Double-tap to begin a 20-second cycle"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Cancel session mode",
+          "sub": "Double-tap again to stop early"
+        },
+        {
+          "id": "p5",
+          "badge": {
+            "kind": "pill",
+            "label": "hold"
+          },
+          "action": "Manual heat",
+          "sub": "Hold to heat while you draw, up to 25 seconds"
+        },
+        {
+          "id": "p6",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Turn off",
+          "sub": "Auto shut-off after 5 minutes"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "Lower temperatures preserve flavor terpenes. Higher temperatures produce bigger, more intense vapor."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "STEP4",
+      "imageAlt": "Cleaning the Micro II ceramic heating chamber with a cotton swab",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Allow the device to completely cool** before cleaning."
+        },
+        {
+          "id": "b2",
+          "text": "Use a **cotton swab + isopropyl alcohol (IPA)**."
+        },
+        {
+          "id": "b3",
+          "text": "Clean **inside the ceramic heating chamber** and the mouthpiece — ensure air holes are clear."
+        },
+        {
+          "id": "b4",
+          "text": "Allow the device to **completely dry** before using again."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Never soak the battery** in alcohol or any liquid."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "alerts",
+      "title": "Alerts",
+      "image": "STEP5",
+      "imageAlt": "G Pen Micro II LED indicator light",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**G logo flashing** = No atomizer detected — check that the mouthpiece is fully seated."
+        },
+        {
+          "id": "b2",
+          "text": "**G logo flashing** = Atomizer short circuit — remove and reattach the mouthpiece; contact support if it continues."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": true
+    }
+  ],
+  "attachments": [
+    {
+      "id": "side-car",
+      "title": "Side Car",
+      "image": "ATTACH_SIDECAR",
+      "imageAlt": "Micro II with the Side Car glass attachment lifted off its silicone adapter",
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Remove the mouthpiece and attach via the **included silicone adapter**."
+        },
+        {
+          "id": "b2",
+          "text": "Control airflow with the **built-in carb hole**."
+        },
+        {
+          "id": "b3",
+          "text": "The **showerhead percolator** filters and cools vapor for smoother sessions."
+        }
+      ]
+    },
+    {
+      "id": "rig-adapter",
+      "title": "Rig Adapter",
+      "image": "ATTACH_ADAPTER",
+      "imageAlt": "Micro II with the Rig Adapter and its 14mm glass stem lifted off",
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Remove the mouthpiece and attach the **rig adapter**, then connect 14mm glass to a compatible glass rig."
+        },
+        {
+          "id": "b2",
+          "text": "Control airflow with the **built-in carb hole**."
+        },
+        {
+          "id": "b3",
+          "text": "The **L-shape design** gives maximum flexibility when connected to a rig."
+        }
+      ]
+    }
+  ],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Concentrate Vaporizer"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "1,250 mAh"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "USB-C"
+    },
+    {
+      "id": "heating-element",
+      "label": "Heating element",
+      "value": "Ceramic chamber"
+    },
+    {
+      "id": "temperature-settings",
+      "label": "Temperature settings",
+      "value": "3 · 296°F / 337°F / 394°F (±15°F)"
+    },
+    {
+      "id": "session-mode",
+      "label": "Session mode",
+      "value": "Double-tap to start / cancel"
+    },
+    {
+      "id": "manual-mode",
+      "label": "Manual mode",
+      "value": "Press and hold to activate"
+    },
+    {
+      "id": "auto-shut-off",
+      "label": "Auto shut-off",
+      "value": "5 minutes"
+    },
+    {
+      "id": "compatible-attachments",
+      "label": "Compatible attachments",
+      "value": "Side Car (silicone), Rig Adapter (14mm)"
+    },
+    {
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "98.6 × 24 × 32 mm"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "86 g"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPM-001-APZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736020343"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Nothing happens when I press the button",
+      "answer": "Press the button five times quickly to turn the device on. The LED will light up when it is powered on. If it still doesn't respond, charge the device first."
+    },
+    {
+      "id": "f2",
+      "question": "Which temperature should I use?",
+      "answer": "Start at 296°F for the most flavorful, terpene-rich experience. Step up to 337°F for a balance of flavor and vapor. Use 394°F for maximum vapor production."
+    },
+    {
+      "id": "f3",
+      "question": "The G logo keeps flashing",
+      "answer": "A flashing G logo means either no atomizer is detected or there is an atomizer short circuit. Remove the mouthpiece completely, reattach it firmly, and try again. If it continues flashing, contact G Pen support."
+    },
+    {
+      "id": "f4",
+      "question": "How do I use the device with a glass rig?",
+      "answer": "Remove the mouthpiece from the Micro II and attach the Rig Adapter (sold separately). Connect 14mm glass to your compatible glass rig for water-cooled vapor."
+    },
+    {
+      "id": "f5",
+      "question": "How often should I clean the chamber?",
+      "answer": "Clean the ceramic heating chamber after every few sessions to maintain performance. Let the device cool fully, then use a cotton swab with IPA to wipe the chamber and mouthpiece, and dry completely before use."
+    },
+    {
+      "id": "f6",
+      "question": "What does the warranty cover?",
+      "answer": "The Micro II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "1223785837",
+      "vimeoHash": "ea7ec8d771",
+      "title": "Using the Micro II",
+      "thumb": "VID1"
+    },
+    {
+      "id": "v2",
+      "vimeoId": "1223785836",
+      "vimeoHash": "28770dad07",
+      "title": "Cleaning the Micro II",
+      "thumb": "VID2"
+    }
+  ]
+}
