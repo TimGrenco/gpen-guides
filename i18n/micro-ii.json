@@ -2,7 +2,6 @@
   "EN": {
     "shell": {
       "register_long": "Register your product",
-      "register_short": "Register",
       "all_guides": "All guides",
       "nav_use": "How to use",
       "nav_videos": "Videos",
@@ -145,8 +144,7 @@
       "bn_videos": "Videos",
       "bn_upgrade": "Mejoras",
       "bn_help": "Ayuda",
-      "register_long": "Registra tu producto",
-      "register_short": "Registrar"
+      "register_long": "Registra tu producto"
     },
     "content": {
       "step.charge.title": "Carga",
@@ -257,8 +255,7 @@
       "bn_videos": "Videos",
       "bn_upgrade": "Upgrades",
       "bn_help": "Hilfe",
-      "register_long": "Registriere dein Produkt",
-      "register_short": "Registrieren"
+      "register_long": "Registriere dein Produkt"
     },
     "content": {
       "step.charge.title": "Laden",
@@ -369,8 +366,7 @@
       "bn_videos": "Video",
       "bn_upgrade": "Upgrade",
       "bn_help": "Assistenza",
-      "register_long": "Registra il tuo prodotto",
-      "register_short": "Registra"
+      "register_long": "Registra il tuo prodotto"
     },
     "content": {
       "step.charge.title": "Ricarica",
@@ -481,8 +477,7 @@
       "bn_videos": "Vidéos",
       "bn_upgrade": "Améliorations",
       "bn_help": "Aide",
-      "register_long": "Enregistrez votre produit",
-      "register_short": "Enregistrer"
+      "register_long": "Enregistrez votre produit"
     },
     "content": {
       "step.charge.title": "Recharge",
@@ -593,8 +588,7 @@
       "bn_videos": "Vídeos",
       "bn_upgrade": "Upgrades",
       "bn_help": "Ajuda",
-      "register_long": "Registre seu produto",
-      "register_short": "Registrar"
+      "register_long": "Registre seu produto"
     },
     "content": {
       "step.charge.title": "Carregar",

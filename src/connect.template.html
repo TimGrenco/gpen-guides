@@ -150,24 +150,18 @@ footer .legal{font-size:11.5px; line-height:1.6}
 @media (min-width:480px){ .step-img-wrap{width:150px; height:150px} .step-circle{width:150px; height:150px} .num{width:44px; height:44px; font-size:23px} }
 @media (max-width:420px){ .press-badge{width:36px; height:36px; font-size:11px} .press-hold{font-size:9px; width:auto; min-width:36px; padding:0 3px} .press-row{gap:10px; padding:11px 14px} .press-action{font-size:14px} .press-sub{font-size:12px} }
 .lang-wrap{position:relative; margin-left:auto}
-/* Register-your-product pill (top right, before the language picker) */
-.reg-pill{
-  margin-left:auto; flex:none; display:inline-flex; align-items:center; gap:5px;
+/* Register-your-product button, under the product name — rounded, not a pill,
+   so it reads as an action rather than another nav item */
+.reg-btn{
+  display:inline-flex; align-items:center; gap:8px; margin-top:18px;
   background:var(--accent); color:var(--accent-ink); text-decoration:none;
-  border:1px solid var(--accent); border-radius:999px; padding:5px 10px 5px 8px;
-  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
-  text-transform:uppercase; white-space:nowrap; transition:background .18s, border-color .18s;
+  border:1px solid var(--accent); border-radius:10px; padding:9px 14px 9px 12px;
+  font-family:var(--f-body); font-weight:700; font-size:14px; line-height:1.2;
+  transition:background .18s, border-color .18s, transform .18s;
 }
-.reg-pill:hover{background:var(--accent-soft); border-color:var(--accent-soft)}
-.reg-pill svg{width:14px; height:14px; flex:none}
-.reg-pill ~ .lang-wrap{margin-left:0}
-.reg-short{display:none}
-/* phones: room for the pill — name in the sticky bar truncates, All guides goes icon-only */
-.bar-name{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-@media (max-width:480px){
-  .reg-long{display:none} .reg-short{display:inline}
-  .bar-top .guides-btn{font-size:0; gap:0; padding:6px 8px}
-}
+.reg-btn:hover{background:var(--accent-soft); border-color:var(--accent-soft); transform:translateY(-1px)}
+.reg-btn svg{width:17px; height:17px; flex:none}
+.reg-btn .reg-arrow{font-size:15px; line-height:1; margin-left:2px}
 .lang-btn{ display:flex; align-items:center; gap:5px; background:none; border:1px solid var(--line); border-radius:999px; padding:5px 8px 5px 9px; cursor:pointer; color:var(--ink-2); font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase; transition:border-color .18s, color .18s; white-space:nowrap; user-select:none; }
 .lang-btn svg:first-child{width:14px; height:14px; flex:none} .lang-code{font-weight:700; font-size:11px; letter-spacing:.06em} .lang-chevron{width:10px; height:7px; flex:none; transition:transform .2s ease} .lang-btn[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)} .lang-btn:hover{border-color:var(--ink); color:var(--ink)}
 .lang-drop{ position:absolute; top:calc(100% + 8px); right:0; background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,.14); padding:6px; min-width:220px; list-style:none; margin:0; z-index:300; }
@@ -254,7 +248,6 @@ footer .legal{font-size:11.5px; line-height:1.6}
     <div class="bar-top">
       <a class="glyph" href="{{HOME}}" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <div class="bar-name">Connect</div>
-{{REGISTER_PILL}}
       <div class="lang-wrap" id="lang-wrap">
         <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 2C10 2 7 6 7 10s3 8 3 8M10 2c0 0 3 4 3 8s-3 8-3 8M2 10h16"/></svg>
@@ -288,6 +281,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <header class="page-head wrap">
     <p class="eyebrow" data-i18n="eyebrow">Using your</p>
     <h1 class="d"><svg class="wordmark" viewBox="0 0 214 65" xmlns="http://www.w3.org/2000/svg" aria-label="G Pen" role="img"><path fill="currentColor" d="M11.74,58.69c-4.35-3.58-6.53-8.72-6.53-15.42,0-2.14.24-4.48.73-7.01,1.89-9.24,5.91-16.27,12.05-21.09,6.13-4.81,14.29-7.22,24.46-7.22,6.27,0,11.6.82,15.98,2.45l-3.16,15.46c-3.79-1.69-8.71-2.53-14.76-2.53-4.76,0-8.52,1.01-11.28,3.04s-4.6,5.32-5.52,9.89c-.43,2.25-.65,4.08-.65,5.49,0,2.59.74,4.39,2.23,5.41,1.49,1.01,3.99,1.52,7.5,1.52,2.38,0,4.49-.28,6.33-.84l1.14-5.58h-9.49l2.27-11.07h24.01l-5.68,27.71c-2.54,1.58-5.64,2.83-9.29,3.76s-7.77,1.39-12.37,1.39c-7.63,0-13.62-1.79-17.97-5.37h0ZM66.07,8.79h27.18c5.35,0,9.46,1.48,12.33,4.44,2.87,2.96,4.3,6.8,4.3,11.53,0,1.47-.16,3.01-.49,4.65-1.19,6.48-3.79,11.51-7.79,15.08-4,3.58-9.36,5.37-16.06,5.37h-10.38l-2.68,13.35h-17.44l11.03-54.42ZM84.4,35.75c2.16,0,3.8-.53,4.91-1.61,1.11-1.07,1.88-2.65,2.31-4.73.16-.84.24-1.63.24-2.37,0-2.76-1.51-4.14-4.54-4.14h-6.65l-2.6,12.84h6.33ZM116.77,8.79h40.64l-2.68,13.43h-23.2l-1.46,6.93h20.2l-2.76,13.77h-20.2l-1.46,6.84h23.2l-2.68,13.43h-40.64l11.04-54.4ZM161.47,8.79h14.68l12.09,25.09,5.11-25.09h17.44l-11.03,54.41h-14.85l-12.01-25.01-5.03,25.01h-17.44l11.04-54.41Z"/></svg>Connect</h1>
+{{REGISTER_BUTTON}}
   </header>
 
   <hr class="rule">
