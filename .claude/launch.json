@@ -3,8 +3,7 @@
   "configurations": [
     {
       "name": "gpen-guides",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["serve.py"],
+      "url": "http://localhost:8811",
       "port": 8811
     }
   ]

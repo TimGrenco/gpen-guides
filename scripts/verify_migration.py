@@ -119,7 +119,13 @@ def check_translations(slug):
 
 def main():
     args = sys.argv[1:]
-    slugs = args if args else sorted(p.stem for p in CONTENT_DIR.glob("*.json") if not p.name.startswith("._"))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build", ROOT / "build.py")
+    build = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(build)
+    visible = build.visible_products()
+    slugs = args if args else sorted(p.stem for p in CONTENT_DIR.glob("*.json")
+                                     if not p.name.startswith("._") and p.stem in visible)
 
     total_problems = 0
     for slug in slugs:

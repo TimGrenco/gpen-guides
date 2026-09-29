@@ -191,10 +191,17 @@ collections:
         fields: [*steps_field, *attachments_field, *specs_field, *faq_field, *videos_field]
       - { label: "G Pen Melt", name: melt, file: content/melt.json, fields: *guide_fields }
       - { label: "G Pen Dash+", name: dash-plus, file: content/dash-plus.json, fields: *guide_fields }
-      - { label: "G Pen Elite II (legacy)", name: elite-ii, file: content/elite-ii.json, fields: *guide_fields }
-      - { label: "G Pen Micro+ (legacy)", name: micro-plus, file: content/micro-plus.json, fields: *guide_fields }
-      - { label: "G Pen Hyer (legacy)", name: hyer, file: content/hyer.json, fields: *guide_fields }
-      - { label: "G Pen Connect (legacy)", name: connect, file: content/connect.json, fields: *guide_fields }
+
+  - name: hidden-guides
+    label: Hidden guides
+    label_singular: guide
+    description: "Legacy guides that are off the site for now. Edits are kept but not published until the product is un-hidden in build.py."
+    editor: { preview: false }
+    files:
+      - { label: "G Pen Elite II (hidden)", name: elite-ii, file: content/elite-ii.json, fields: *guide_fields }
+      - { label: "G Pen Micro+ (hidden)", name: micro-plus, file: content/micro-plus.json, fields: *guide_fields }
+      - { label: "G Pen Hyer (hidden)", name: hyer, file: content/hyer.json, fields: *guide_fields }
+      - { label: "G Pen Connect (hidden)", name: connect, file: content/connect.json, fields: *guide_fields }
 
   - name: upgrades
     label: Upgrades
@@ -211,7 +218,7 @@ collections:
           - { <<: *accessory_list, label: "G Pen Micro II", name: micro-ii }
           - { <<: *accessory_list, label: "G Pen Melt", name: melt }
           - { <<: *accessory_list, label: "G Pen Dash+", name: dash-plus }
-          - { <<: *accessory_list, label: "G Pen Elite II", name: elite-ii }
-          - { <<: *accessory_list, label: "G Pen Micro+", name: micro-plus }
-          - { <<: *accessory_list, label: "G Pen Hyer", name: hyer }
-          - { <<: *accessory_list, label: "G Pen Connect", name: connect }
+          - { <<: *accessory_list, label: "G Pen Elite II (hidden)", name: elite-ii }
+          - { <<: *accessory_list, label: "G Pen Micro+ (hidden)", name: micro-plus }
+          - { <<: *accessory_list, label: "G Pen Hyer (hidden)", name: hyer }
+          - { <<: *accessory_list, label: "G Pen Connect (hidden)", name: connect }

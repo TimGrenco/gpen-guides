@@ -196,7 +196,7 @@ def main():
     args = sys.argv[1:]
     force = '--force' in args
     args = [a for a in args if not a.startswith('--')]
-    slugs = args if args else [s for s, spec in mod.PRODUCTS.items() if spec.get('template')]
+    slugs = args if args else [s for s, spec in mod.visible_products().items() if spec.get('template')]
 
     print(f"Translating {len(slugs)} product(s) …\n")
     for slug in slugs:

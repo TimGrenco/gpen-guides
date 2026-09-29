@@ -114,6 +114,7 @@ PRODUCTS = {
     "elite-ii": {
         "template": "elite-ii.template.html",
         "legacy": True,
+        "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Elite II",
         "category": "Dry Herb Vaporizer",
         "card_image": "elite-ii-card.png",
@@ -123,6 +124,7 @@ PRODUCTS = {
     "micro-plus": {
         "template": "micro-plus.template.html",
         "legacy": True,
+        "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Micro+",
         "category": "Concentrate Vaporizer",
         "card_image": "micro-plus-card.png",
@@ -132,6 +134,7 @@ PRODUCTS = {
     "hyer": {
         "template": "hyer.template.html",
         "legacy": True,
+        "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Hyer",
         "category": "Concentrate Vaporizer",
         "card_image": "hyer-card.png",
@@ -141,6 +144,7 @@ PRODUCTS = {
     "connect": {
         "template": "connect.template.html",
         "legacy": True,
+        "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Connect",
         "category": "Concentrate Vaporizer",
         "card_image": "connect-card.png",
@@ -153,6 +157,7 @@ PRODUCTS = {
     "roam": {
         "template": None,
         "legacy": True,
+        "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Roam",
         "category": "Portable E-Rig",
         "card_image": _CDN + "Roam_thumb_01.png?v=1768241512",
@@ -309,6 +314,12 @@ def write(path: pathlib.Path, content: str) -> None:
 LEGACY_LABEL = "Legacy products"
 
 
+def visible_products() -> dict:
+    """PRODUCTS minus anything flagged hidden. Hidden products keep their source
+    (template, content, translations, images) but aren't built, listed or linked."""
+    return {s: spec for s, spec in PRODUCTS.items() if not spec.get("hidden")}
+
+
 def build_switcher(current_slug: str) -> str:
     """Generate the product-switcher card HTML for a given guide page.
 
@@ -316,7 +327,7 @@ def build_switcher(current_slug: str) -> str:
     opens by default when the visitor is already on a legacy guide.
     """
     featured, legacy = [], []
-    for s, spec in PRODUCTS.items():
+    for s, spec in visible_products().items():
         current_attr = 'aria-current="true"' if s == current_slug else ""
         href, extattr = _card_href(s, spec)
         # Switcher links are relative to the guide subfolder; adjust local guides.
@@ -419,7 +430,7 @@ def build_product(slug: str, spec: dict) -> None:
 def build_index() -> None:
     template = (SRC / "index.template.html").read_text()
     cards_html, legacy_html = [], []
-    for slug, spec in PRODUCTS.items():
+    for slug, spec in visible_products().items():
         href, extattr = _card_href(slug, spec)
         (legacy_html if spec.get("legacy") else cards_html).append(CARD.format(
             slug=slug,
@@ -429,9 +440,16 @@ def build_index() -> None:
             href=href,
             extattr=extattr,
         ))
+    legacy_section = ""
+    if legacy_html:
+        legacy_section = (
+            '\n    <details class="legacy">\n'
+            f'      <summary>{LEGACY_LABEL}</summary>\n'
+            '      <div class="grid">\n' + "\n".join(legacy_html) + "\n      </div>\n"
+            "    </details>"
+        )
     page = (template.replace("{{CARDS}}", "\n".join(cards_html))
-                    .replace("{{LEGACY_CARDS}}", "\n".join(legacy_html))
-                    .replace("{{LEGACY_LABEL}}", LEGACY_LABEL)
+                    .replace("{{LEGACY_SECTION}}", legacy_section)
                     .replace("{{YEAR}}", YEAR))
     write(ROOT / "index.html", page)
 
@@ -439,7 +457,7 @@ def build_index() -> None:
 if __name__ == "__main__":
     print("Building G Pen product guides\n")
     failed = []
-    for slug, spec in PRODUCTS.items():
+    for slug, spec in visible_products().items():
         if spec.get("template"):          # only build products with a local template
             try:
                 build_product(slug, spec)
@@ -448,6 +466,12 @@ if __name__ == "__main__":
                 failed.append(slug)
                 print(f"\n  ✗ {e}\n")
     build_index()
+
+    for slug, spec in PRODUCTS.items():
+        if spec.get("hidden") and spec.get("template") and (ROOT / slug).is_dir():
+            # ignore_errors: macOS ._ sidecars on network volumes vanish mid-walk
+            shutil.rmtree(ROOT / slug, ignore_errors=True)
+            print(f"  removed {slug}/ (hidden — source kept in src/, content/, i18n/)")
 
     stale = [p for p in ("hydout.html", "hydout-standalone.html") if (ROOT / p).exists()]
     if stale:
