@@ -369,7 +369,9 @@ def build_product(slug: str, spec: dict) -> None:
         shutil.rmtree(img_dir, ignore_errors=True)
     img_dir.mkdir(parents=True)
 
-    hosted = offline = template.replace("{{ACCESSORIES}}", accessories_html(slug))
+    register_pill = (ROOT / "sections" / "partials" / "register-pill.html").read_text().rstrip("\n")
+    hosted = offline = (template.replace("{{ACCESSORIES}}", accessories_html(slug))
+                                .replace("{{REGISTER_PILL}}", register_pill))
 
     # Structured content (steps/attachments/specs/faq/videos) — still contains unresolved
     # {{STEP1}}-style image tokens, resolved by the per-image loop right below.

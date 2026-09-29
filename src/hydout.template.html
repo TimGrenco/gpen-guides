@@ -410,6 +410,24 @@ footer .legal{font-size:11.5px; line-height:1.6}
    LANGUAGE SELECTOR
    ============================================================ */
 .lang-wrap{position:relative; margin-left:auto}
+/* Register-your-product pill (top right, before the language picker) */
+.reg-pill{
+  margin-left:auto; flex:none; display:inline-flex; align-items:center; gap:5px;
+  background:var(--accent); color:var(--accent-ink); text-decoration:none;
+  border:1px solid var(--accent); border-radius:999px; padding:5px 10px 5px 8px;
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; white-space:nowrap; transition:background .18s, border-color .18s;
+}
+.reg-pill:hover{background:var(--accent-soft); border-color:var(--accent-soft)}
+.reg-pill svg{width:14px; height:14px; flex:none}
+.reg-pill ~ .lang-wrap{margin-left:0}
+.reg-short{display:none}
+/* phones: room for the pill — name in the sticky bar truncates, All guides goes icon-only */
+.bar-name{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+@media (max-width:480px){
+  .reg-long{display:none} .reg-short{display:inline}
+  .bar-top .guides-btn{font-size:0; gap:0; padding:6px 8px}
+}
 .lang-btn{
   display:flex; align-items:center; gap:5px;
   background:none; border:1px solid var(--line); border-radius:999px;
@@ -558,6 +576,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
       <a class="glyph" href="{{HOME}}" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <div class="bar-name">Hydout</div>
       <!-- Language selector -->
+{{REGISTER_PILL}}
       <div class="lang-wrap" id="lang-wrap">
         <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

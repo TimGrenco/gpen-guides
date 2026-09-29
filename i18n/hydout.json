@@ -1,6 +1,8 @@
 {
   "EN": {
     "shell": {
+      "register_long": "Register your product",
+      "register_short": "Register",
       "all_guides": "All guides",
       "nav_use": "How to use",
       "nav_videos": "Videos",
@@ -22,7 +24,6 @@
       "sum_faq": "Common questions",
       "still_stuck": "Still stuck?",
       "guides_title": "G Pen Guides",
-      "legacy_title": "Legacy products",
       "bn_steps": "Steps",
       "bn_videos": "Videos",
       "bn_upgrade": "Upgrades",
@@ -119,11 +120,12 @@
       "sum_faq": "Preguntas frecuentes",
       "still_stuck": "¿Sigues con problemas?",
       "guides_title": "Guías de G Pen",
-      "legacy_title": "Productos anteriores",
       "bn_steps": "Pasos",
       "bn_videos": "Videos",
       "bn_upgrade": "Mejoras",
-      "bn_help": "Ayuda"
+      "bn_help": "Ayuda",
+      "register_long": "Registra tu producto",
+      "register_short": "Registrar"
     },
     "content": {
       "step.charge.title": "Carga",
@@ -216,11 +218,12 @@
       "sum_faq": "Häufige Fragen",
       "still_stuck": "Noch Probleme?",
       "guides_title": "G Pen Anleitungen",
-      "legacy_title": "Ältere Produkte",
       "bn_steps": "Schritte",
       "bn_videos": "Videos",
       "bn_upgrade": "Upgrades",
-      "bn_help": "Hilfe"
+      "bn_help": "Hilfe",
+      "register_long": "Registriere dein Produkt",
+      "register_short": "Registrieren"
     },
     "content": {
       "step.charge.title": "Laden",
@@ -313,11 +316,12 @@
       "sum_faq": "Domande frequenti",
       "still_stuck": "Hai ancora dei problemi?",
       "guides_title": "Guide G Pen",
-      "legacy_title": "Prodotti precedenti",
       "bn_steps": "Passaggi",
       "bn_videos": "Video",
       "bn_upgrade": "Upgrade",
-      "bn_help": "Aiuto"
+      "bn_help": "Aiuto",
+      "register_long": "Registra il tuo prodotto",
+      "register_short": "Registra"
     },
     "content": {
       "step.charge.title": "Ricarica",
@@ -410,11 +414,12 @@
       "sum_faq": "Questions fréquentes",
       "still_stuck": "Toujours besoin d'aide ?",
       "guides_title": "Guides G Pen",
-      "legacy_title": "Anciens produits",
       "bn_steps": "Étapes",
       "bn_videos": "Vidéos",
       "bn_upgrade": "Upgrades",
-      "bn_help": "Aide"
+      "bn_help": "Aide",
+      "register_long": "Enregistrez votre produit",
+      "register_short": "Enregistrer"
     },
     "content": {
       "step.charge.title": "Recharger",
@@ -507,11 +512,12 @@
       "sum_faq": "Perguntas frequentes",
       "still_stuck": "Ainda com dificuldades?",
       "guides_title": "Guias G Pen",
-      "legacy_title": "Produtos anteriores",
       "bn_steps": "Etapas",
       "bn_videos": "Vídeos",
       "bn_upgrade": "Upgrades",
-      "bn_help": "Ajuda"
+      "bn_help": "Ajuda",
+      "register_long": "Registre seu produto",
+      "register_short": "Registrar"
     },
     "content": {
       "step.charge.title": "Carregar",
