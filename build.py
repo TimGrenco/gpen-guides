@@ -211,9 +211,8 @@ SWITCHER_CARD = """      <a class="guide-card" href="{href}" {extattr} {current}
 
 
 ACCESSORIES_URL = "https://www.gpen.com/collections/accessories"
-ARROW_SVG = ('<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
-             'stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="10" x2="16" y2="10"/>'
-             '<polyline points="11,5 16,10 11,15"/></svg>')
+ARROW_SVG = ('<svg viewBox="0 0 20 20" aria-hidden="true">'
+             '<path d="M7 4.5 15.5 10 7 15.5Z" fill="currentColor"/></svg>')
 
 
 def accessories_html(slug: str) -> str:
@@ -243,7 +242,7 @@ def accessories_html(slug: str) -> str:
                 f'          <span class="acc-card-name" data-i18n="acc{i}_name">{name}</span>\n'
                 f'          <span class="acc-card-price">{price}</span>\n'
                 f'          <span class="acc-card-note" data-i18n="acc{i}_note">{note}</span>\n'
-                '          <span class="acc-shop" data-i18n="acc_shop">Shop →</span>\n'
+                '          <span class="acc-shop" data-i18n="acc_shop">Shop</span>\n'
                 '        </div>\n'
                 '      </a>'
             )
