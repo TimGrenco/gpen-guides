@@ -34,7 +34,7 @@
     },
     "content": {
       "step.charge.title": "Charge",
-      "step.charge.bullet.b1": "Plug **any USB-C cable** into the charging port on the bottom.",
+      "step.charge.bullet.b1": "Plug **any USB-C cable** into the charging port on the side.",
       "step.charge.bullet.b2": "Give it a full charge before first use — takes about **1 hour**.",
       "step.charge.bullet.b3": "The LED blinks **8 times** when the battery is low.",
       "step.load.title": "Load",
@@ -134,7 +134,7 @@
     },
     "content": {
       "step.charge.title": "Carga",
-      "step.charge.bullet.b1": "Conecta **cualquier cable USB-C** al puerto de carga en la parte inferior.",
+      "step.charge.bullet.b1": "Conecta **cualquier cable USB-C** al puerto de carga que está en el costado.",
       "step.charge.bullet.b2": "Cárgalo por completo antes del primer uso — toma aproximadamente **1 hora**.",
       "step.charge.bullet.b3": "El LED parpadea **8 veces** cuando la batería está baja.",
       "step.load.title": "Llena",
@@ -234,7 +234,7 @@
     },
     "content": {
       "step.charge.title": "Laden",
-      "step.charge.bullet.b1": "Stecke **ein beliebiges USB-C-Kabel** in den Ladeanschluss an der Unterseite.",
+      "step.charge.bullet.b1": "Stecke **ein beliebiges USB-C-Kabel** in den Ladeanschluss an der Seite.",
       "step.charge.bullet.b2": "Lade das Gerät vor dem ersten Gebrauch vollständig auf — das dauert etwa **1 Stunde**.",
       "step.charge.bullet.b3": "Die LED blinkt **8-mal**, wenn der Akku schwach ist.",
       "step.load.title": "Befüllen",
@@ -334,7 +334,7 @@
     },
     "content": {
       "step.charge.title": "Ricarica",
-      "step.charge.bullet.b1": "Collega **un qualsiasi cavo USB-C** alla porta di ricarica sul fondo.",
+      "step.charge.bullet.b1": "Collega **un qualsiasi cavo USB-C** alla porta di ricarica sul lato.",
       "step.charge.bullet.b2": "Caricalo completamente prima del primo utilizzo — ci vuole circa **1 ora**.",
       "step.charge.bullet.b3": "Il LED lampeggia **8 volte** quando la batteria è scarica.",
       "step.load.title": "Riempimento",
@@ -434,7 +434,7 @@
     },
     "content": {
       "step.charge.title": "Recharge",
-      "step.charge.bullet.b1": "Branchez **n'importe quel câble USB-C** sur le port de charge situé en dessous.",
+      "step.charge.bullet.b1": "Branchez **n'importe quel câble USB-C** dans le port de charge situé sur le côté.",
       "step.charge.bullet.b2": "Chargez-le complètement avant la première utilisation — cela prend environ **1 heure**.",
       "step.charge.bullet.b3": "La LED clignote **8 fois** lorsque la batterie est faible.",
       "step.load.title": "Remplissage",
@@ -534,7 +534,7 @@
     },
     "content": {
       "step.charge.title": "Carregar",
-      "step.charge.bullet.b1": "Conecte **qualquer cabo USB-C** à porta de carregamento na parte inferior.",
+      "step.charge.bullet.b1": "Conecte **qualquer cabo USB-C** na porta de carregamento na lateral.",
       "step.charge.bullet.b2": "Faça uma carga completa antes do primeiro uso — leva cerca de **1 hora**.",
       "step.charge.bullet.b3": "O LED pisca **8 vezes** quando a bateria está fraca.",
       "step.load.title": "Encher",
