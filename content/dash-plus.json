@@ -55,7 +55,7 @@
     },
     {
       "id": "set-heat",
-      "title": "Set & Heat",
+      "title": "Activate",
       "image": "images/dash-plus-step-03-heat.jpg",
       "imageAlt": "Setting temperature on the G Pen Dash+",
       "image2": null,
@@ -67,7 +67,7 @@
         },
         {
           "id": "b2",
-          "text": "Press **+ / −** to adjust your target temperature."
+          "text": "Press **Left / Right** to adjust your target temperature."
         },
         {
           "id": "b3",
@@ -91,8 +91,7 @@
         {
           "id": "p2",
           "badge": {
-            "kind": "text",
-            "value": "+/−"
+            "kind": "arrows"
           },
           "action": "Adjust temperature",
           "sub": "Right = increase · Left = decrease"
