@@ -13,7 +13,8 @@ root as-is. Nothing builds on push.
 Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
 `.nojekyll` is already in the repo so Pages serves every file untouched.
 
-Base URL: <https://timgrenco.github.io/gpen-guides/>
+Live at <https://help.gpen.com/> (custom domain, since 2026-09-30). The old
+<https://timgrenco.github.io/gpen-guides/> address redirects there.
 
 | Guide | Path |
 |---|---|
@@ -37,9 +38,8 @@ ship on packaging a path can never move. The site is going to live at
 **help.gpen.com** — set that up **before** anything goes to print:
 
 1. DNS: a CNAME record `howto` → `timgrenco.github.io`.
-2. In `build.py`, set `BASE_URL = "https://help.gpen.com/"` (canonical links, share
-   previews, sitemap and the offline copies all hang off it), add a `CNAME` file at the
-   repo root containing `help.gpen.com`, rebuild, push.
+2. `BASE_URL = "https://help.gpen.com/"` in `build.py` (canonical links, share previews,
+   sitemap and the offline copies all hang off it) and the `CNAME` file at the repo root.
 3. Settings → Pages → Custom domain `help.gpen.com`, then tick "Enforce HTTPS".
 
 Any guide can be linked in a specific language with `?lang=es` (es, de, it, fr, pt, en);

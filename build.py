@@ -40,7 +40,7 @@ YEAR = str(datetime.date.today().year)
 # The public address of the site. Canonical links, share previews (og:), the sitemap and
 # the offline copies' links all hang off this one value. When help.gpen.com goes live:
 # set it to "https://help.gpen.com/", add a CNAME file containing help.gpen.com, rebuild.
-BASE_URL = "https://timgrenco.github.io/gpen-guides/"
+BASE_URL = "https://help.gpen.com/"
 
 sys.path.insert(0, str(ROOT))
 from sections.render import render_product_body, compose_translations, IMG_REF_RE  # noqa: E402
