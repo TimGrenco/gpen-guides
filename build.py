@@ -132,6 +132,7 @@ PRODUCTS = {
         "images": {},
         "text": {},
         "shop_button": ("Shop dry herb vaporizers", "https://www.gpen.com/collections/dry-herb-vaporizers"),
+        "register": False,  # no warranty, so nothing to register (Tim, 2026-09-30)
     },
     "elite-ii": {
         "template": "elite-ii.template.html",
@@ -557,7 +558,8 @@ def build_product(slug: str, spec: dict) -> None:
         shutil.rmtree(img_dir, ignore_errors=True)
     img_dir.mkdir(parents=True)
 
-    register_button = (ROOT / "sections" / "partials" / "register-button.html").read_text().rstrip("\n")
+    register_button = ("" if spec.get("register") is False else
+                       (ROOT / "sections" / "partials" / "register-button.html").read_text().rstrip("\n"))
     hosted = offline = (template.replace("{{ACCESSORIES}}", accessories_html(slug))
                                 .replace("{{REGISTER_BUTTON}}", register_button))
 

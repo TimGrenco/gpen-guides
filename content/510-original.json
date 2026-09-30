@@ -73,7 +73,7 @@
             "n": 3
           },
           "action": "Adjust voltage",
-          "sub": "Cycles 3.2V → 3.6V → 3.8V"
+          "sub": "1 cloud = 3.2V (low) · 2 = 3.6V (medium) · 3 = 3.8V (high)"
         },
         {
           "id": "p3",

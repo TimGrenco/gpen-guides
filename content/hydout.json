@@ -85,7 +85,7 @@
             "n": 3
           },
           "action": "Adjust voltage",
-          "sub": "Cycles 2.4V → 3.8V"
+          "sub": "Cycles 2.4V → 2.8V → 3.2V → 3.6V → 3.8V"
         },
         {
           "id": "p3",
@@ -173,7 +173,7 @@
     {
       "id": "heat-settings",
       "label": "Heat settings",
-      "value": "5 · 2.4V – 3.8V"
+      "value": "5 · 2.4V / 2.8V / 3.2V / 3.6V / 3.8V"
     },
     {
       "id": "preheat",

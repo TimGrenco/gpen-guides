@@ -19,7 +19,8 @@
     "idx_help": "Need help?",
     "doc_title_index": "G Pen Product Guides",
     "nf_text": "We couldn't find that page. Pick your device below to get to its guide.",
-    "doc_title_404": "Page not found — G Pen Product Guides"
+    "doc_title_404": "Page not found — G Pen Product Guides",
+    "legal_notice": "For adults 21 and over only. This product is not for use with tobacco, nicotine-containing e-liquids, or any synthetic nicotine or nicotine substitute."
   },
   "ES": {
     "cat_hydout": "Batería para cartuchos 510",
@@ -40,7 +41,8 @@
     "idx_help": "¿Necesitas ayuda?",
     "doc_title_index": "Guías de productos G Pen",
     "nf_text": "No encontramos esa página. Elige tu dispositivo a continuación para ir a su guía.",
-    "doc_title_404": "Página no encontrada — Guías de productos G Pen"
+    "doc_title_404": "Página no encontrada — Guías de productos G Pen",
+    "legal_notice": "Solo para adultos mayores de 21 años. Este producto no es para usarse con tabaco, e-líquidos que contengan nicotina ni ninguna nicotina sintética o sustituto de la nicotina."
   },
   "DE": {
     "cat_hydout": "510-Cartridge-Akku",
@@ -61,7 +63,8 @@
     "idx_help": "Brauchst du Hilfe?",
     "doc_title_index": "G Pen Produktanleitungen",
     "nf_text": "Diese Seite haben wir nicht gefunden. Wähle unten dein Gerät aus, um zur Anleitung zu gelangen.",
-    "doc_title_404": "Seite nicht gefunden — G Pen Produktanleitungen"
+    "doc_title_404": "Seite nicht gefunden — G Pen Produktanleitungen",
+    "legal_notice": "Nur für Erwachsene ab 21 Jahren. Dieses Produkt ist nicht zur Verwendung mit Tabak, nikotinhaltigen E-Liquids oder synthetischem Nikotin bzw. Nikotinersatzstoffen bestimmt."
   },
   "IT": {
     "cat_hydout": "Batteria per cartucce 510",
@@ -82,7 +85,8 @@
     "idx_help": "Hai bisogno di aiuto?",
     "doc_title_index": "Guide ai prodotti G Pen",
     "nf_text": "Non abbiamo trovato questa pagina. Scegli il tuo dispositivo qui sotto per andare alla sua guida.",
-    "doc_title_404": "Pagina non trovata — Guide ai prodotti G Pen"
+    "doc_title_404": "Pagina non trovata — Guide ai prodotti G Pen",
+    "legal_notice": "Solo per adulti dai 21 anni in su. Questo prodotto non è destinato all'uso con tabacco, e-liquid contenenti nicotina o qualsiasi nicotina sintetica o sostituto della nicotina."
   },
   "FR": {
     "cat_hydout": "Batterie pour cartouches 510",
@@ -103,7 +107,8 @@
     "idx_help": "Besoin d'aide ?",
     "doc_title_index": "Guides produits G Pen",
     "nf_text": "Nous n'avons pas trouvé cette page. Choisissez votre appareil ci-dessous pour accéder à son guide.",
-    "doc_title_404": "Page introuvable — Guides produits G Pen"
+    "doc_title_404": "Page introuvable — Guides produits G Pen",
+    "legal_notice": "Réservé aux adultes de 21 ans et plus. Ce produit n'est pas destiné à être utilisé avec du tabac, des e-liquides contenant de la nicotine, ni de la nicotine synthétique ou un substitut de nicotine."
   },
   "PT": {
     "cat_hydout": "Bateria para cartuchos 510",
@@ -124,6 +129,7 @@
     "idx_help": "Precisa de ajuda?",
     "doc_title_index": "Guias de produtos G Pen",
     "nf_text": "Não encontramos essa página. Escolha seu dispositivo abaixo para ir ao guia dele.",
-    "doc_title_404": "Página não encontrada — Guias de produtos G Pen"
+    "doc_title_404": "Página não encontrada — Guias de produtos G Pen",
+    "legal_notice": "Somente para maiores de 21 anos. Este produto não deve ser usado com tabaco, e-líquidos com nicotina ou qualquer nicotina sintética ou substituto de nicotina."
   }
 }

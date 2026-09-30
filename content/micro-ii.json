@@ -73,7 +73,7 @@
             "n": 3
           },
           "action": "Adjust temperature",
-          "sub": "Cycles ~295°F → ~340°F → ~395°F"
+          "sub": "1 cloud = ~295°F (low) · 2 = ~340°F (medium) · 3 = ~395°F (high)"
         },
         {
           "id": "p3",
@@ -160,11 +160,7 @@
       "bullets": [
         {
           "id": "b1",
-          "text": "**G logo flashing** = No atomizer detected — check that the mouthpiece is fully seated."
-        },
-        {
-          "id": "b2",
-          "text": "**G logo flashing** = Atomizer short circuit — remove and reattach the mouthpiece; contact support if it continues."
+          "text": "**G logo flashing** = the tank isn't screwed in all the way, or the battery is dead. Screw the tank in firmly; if it keeps flashing, charge the device."
         }
       ],
       "press": [],
@@ -300,7 +296,7 @@
     {
       "id": "f3",
       "question": "The G logo keeps flashing",
-      "answer": "A flashing G logo means either no atomizer is detected or there is an atomizer short circuit. Remove the mouthpiece completely, reattach it firmly, and try again. If it continues flashing, contact G Pen support."
+      "answer": "A flashing G logo means the tank isn't screwed in all the way, or the battery is dead. Remove the mouthpiece, screw the tank in firmly, and try again. If it keeps flashing, charge the device. If it still flashes after charging, contact G Pen support."
     },
     {
       "id": "f4",
