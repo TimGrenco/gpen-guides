@@ -198,6 +198,11 @@
       "id": "upc",
       "label": "UPC",
       "value": "811736029742"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "90-Day Limited Warranty"
     }
   ],
   "faq": [
@@ -224,7 +229,7 @@
     {
       "id": "f5",
       "question": "What does the warranty cover?",
-      "answer": "The 510 Original carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+      "answer": "The 510 Original comes with a **90-Day Limited Warranty**. Register your device and read the full terms on gpen.com, or contact support with your order details."
     }
   ],
   "videos": [

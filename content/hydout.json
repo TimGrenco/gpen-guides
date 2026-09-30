@@ -214,6 +214,11 @@
       "id": "upc",
       "label": "UPC",
       "value": "811736029254"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "90-Day Limited Warranty"
     }
   ],
   "faq": [
@@ -245,7 +250,7 @@
     {
       "id": "f6",
       "question": "What does the warranty cover?",
-      "answer": "The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+      "answer": "The Hydout comes with a **90-Day Limited Warranty**. Register your device and read the full terms on gpen.com, or contact support with your order details."
     }
   ],
   "videos": [

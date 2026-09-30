@@ -85,11 +85,13 @@
       "faq.f4.question": "Will my cartridge fit?",
       "faq.f4.answer": "The 510 Original accepts standard 510-thread cartridges. Very wide or extra-tall carts may not fit flush.",
       "faq.f5.question": "What does the warranty cover?",
-      "faq.f5.answer": "The 510 Original carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.",
+      "faq.f5.answer": "The 510 Original comes with a **90-Day Limited Warranty**. Register your device and read the full terms on gpen.com, or contact support with your order details.",
       "video.v1.title": "Using the 510 Original",
       "video.v2.title": "Cleaning the 510 Original",
       "step.charge.bullet.b3": "**Pass-through charging:** you can use it while it charges.",
-      "step.clean.bullet.b4": "**Turn it off** and remove the cartridge first."
+      "step.clean.bullet.b4": "**Turn it off** and remove the cartridge first.",
+      "specs.warranty.label": "Warranty",
+      "specs.warranty.value": "90-Day Limited Warranty"
     }
   },
   "ES": {
@@ -178,11 +180,13 @@
       "faq.f4.question": "¿Mi cartucho es compatible?",
       "faq.f4.answer": "El 510 Original acepta cartuchos de rosca 510 estándar. Es posible que los cartuchos muy anchos o extra altos no queden a ras.",
       "faq.f5.question": "¿Qué cubre la garantía?",
-      "faq.f5.answer": "El 510 Original cuenta con una garantía limitada. Registra tu dispositivo y lee los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
+      "faq.f5.answer": "El 510 Original incluye una **garantía limitada de 90 días**. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Cómo usar el 510 Original",
       "video.v2.title": "Cómo limpiar el 510 Original",
       "step.charge.bullet.b3": "**Carga pasante:** puedes usarlo mientras se carga.",
-      "step.clean.bullet.b4": "**Apágalo** y retira primero el cartucho."
+      "step.clean.bullet.b4": "**Apágalo** y retira primero el cartucho.",
+      "specs.warranty.label": "Garantía",
+      "specs.warranty.value": "Garantía limitada de 90 días"
     }
   },
   "DE": {
@@ -271,11 +275,13 @@
       "faq.f4.question": "Passt meine Cartridge?",
       "faq.f4.answer": "Der 510 Original nimmt Standard-Cartridges mit 510-Gewinde auf. Sehr breite oder extra hohe Cartridges schließen möglicherweise nicht bündig ab.",
       "faq.f5.question": "Was deckt die Garantie ab?",
-      "faq.f5.answer": "Auf den 510 Original gilt eine eingeschränkte Garantie. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com, oder wende dich mit deinen Bestelldaten an den Support.",
+      "faq.f5.answer": "Für den 510 Original gilt eine **eingeschränkte Garantie von 90 Tagen**. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Den 510 Original verwenden",
       "video.v2.title": "Den 510 Original reinigen",
       "step.charge.bullet.b3": "**Pass-through-Laden:** Du kannst das Gerät benutzen, während es lädt.",
-      "step.clean.bullet.b4": "**Schalte das Gerät aus** und nimm zuerst die Cartridge heraus."
+      "step.clean.bullet.b4": "**Schalte das Gerät aus** und nimm zuerst die Cartridge heraus.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Eingeschränkte Garantie: 90 Tage"
     }
   },
   "IT": {
@@ -364,11 +370,13 @@
       "faq.f4.question": "La mia cartuccia è compatibile?",
       "faq.f4.answer": "Il 510 Original accetta le cartucce standard con filettatura 510. Le cartucce molto larghe o extra alte potrebbero non combaciare perfettamente.",
       "faq.f5.question": "Cosa copre la garanzia?",
-      "faq.f5.answer": "Il 510 Original è coperto da una garanzia limitata. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
+      "faq.f5.answer": "Il 510 Original è coperto da una **garanzia limitata di 90 giorni**. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
       "video.v1.title": "Come usare il 510 Original",
       "video.v2.title": "Come pulire il 510 Original",
       "step.charge.bullet.b3": "**Ricarica pass-through:** puoi usarlo mentre è in carica.",
-      "step.clean.bullet.b4": "**Spegnilo** e rimuovi prima la cartuccia."
+      "step.clean.bullet.b4": "**Spegnilo** e rimuovi prima la cartuccia.",
+      "specs.warranty.label": "Garanzia",
+      "specs.warranty.value": "Garanzia limitata di 90 giorni"
     }
   },
   "FR": {
@@ -457,11 +465,13 @@
       "faq.f4.question": "Ma cartouche sera-t-elle compatible ?",
       "faq.f4.answer": "Le 510 Original accepte les cartouches standard à filetage 510. Les cartouches très larges ou extra-hautes peuvent ne pas s'ajuster parfaitement.",
       "faq.f5.question": "Que couvre la garantie ?",
-      "faq.f5.answer": "Le 510 Original bénéficie d'une garantie limitée. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance en indiquant les détails de votre commande.",
+      "faq.f5.answer": "Le 510 Original bénéficie d'une **garantie limitée de 90 jours**. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance avec les détails de votre commande.",
       "video.v1.title": "Utiliser le 510 Original",
       "video.v2.title": "Nettoyer le 510 Original",
       "step.charge.bullet.b3": "**Recharge pass-through :** vous pouvez l'utiliser pendant qu'il se recharge.",
-      "step.clean.bullet.b4": "**Éteignez-le** et retirez d'abord la cartouche."
+      "step.clean.bullet.b4": "**Éteignez-le** et retirez d'abord la cartouche.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Garantie limitée de 90 jours"
     }
   },
   "PT": {
@@ -550,11 +560,13 @@
       "faq.f4.question": "Meu cartucho vai servir?",
       "faq.f4.answer": "O 510 Original aceita cartuchos padrão de rosca 510. Cartuchos muito largos ou extra altos podem não encaixar rente.",
       "faq.f5.question": "O que a garantia cobre?",
-      "faq.f5.answer": "O 510 Original possui garantia limitada. Registre o seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os detalhes do seu pedido.",
+      "faq.f5.answer": "O 510 Original tem **garantia limitada de 90 dias**. Registre seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Como usar o 510 Original",
       "video.v2.title": "Como limpar o 510 Original",
       "step.charge.bullet.b3": "**Carregamento pass-through:** você pode usar o dispositivo enquanto ele carrega.",
-      "step.clean.bullet.b4": "**Desligue o dispositivo** e remova o cartucho primeiro."
+      "step.clean.bullet.b4": "**Desligue o dispositivo** e remova o cartucho primeiro.",
+      "specs.warranty.label": "Garantia",
+      "specs.warranty.value": "Garantia limitada de 90 dias"
     }
   }
 }

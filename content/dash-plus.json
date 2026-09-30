@@ -18,7 +18,10 @@
         }
       ],
       "press": [],
-      "note": null,
+      "note": {
+        "type": "tip",
+        "text": "USB-C cable included."
+      },
       "helpWidget": false
     },
     {
@@ -63,7 +66,7 @@
       "bullets": [
         {
           "id": "b1",
-          "text": "**Hold the power button for 3 seconds** to turn on. The display lights up."
+          "text": "**Hold the power button for 4 seconds** to turn on. The display lights up."
         },
         {
           "id": "b2",
@@ -86,7 +89,7 @@
             "label": "Hold"
           },
           "action": "Power on / off",
-          "sub": "Hold the power button for 3 seconds"
+          "sub": "Hold 4 seconds to turn on · 2 seconds to turn off"
         },
         {
           "id": "p2",
@@ -143,6 +146,42 @@
       "note": {
         "type": "tip",
         "text": "**After your session:** Let the device cool, then remove the mouthpiece and brush out the chamber and mouthpiece filter screen. Regular cleaning keeps flavor and airflow at their best."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "images/dash-plus-step-05-clean.jpg",
+      "imageAlt": "Dash+ with its magnetic mouthpiece removed for cleaning",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Power it off** and let it **cool completely** first."
+        },
+        {
+          "id": "b2",
+          "text": "Dip a **cotton swab** in **isopropyl alcohol (ISO)** and squeeze out the excess."
+        },
+        {
+          "id": "b3",
+          "text": "Swab around the **silicone insert**, over the **screen**, and above and **inside the heating chamber**."
+        },
+        {
+          "id": "b4",
+          "text": "For resin buildup, remove the **filter screen** and **ceramic spiral air path** and soak them in ISO."
+        },
+        {
+          "id": "b5",
+          "text": "Wipe them with a **dry swab** and let them **air dry** before putting them back in the mouthpiece."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Never soak the device** in alcohol or any liquid."
       },
       "helpWidget": false
     }
@@ -207,14 +246,14 @@
     {
       "id": "warranty",
       "label": "Warranty",
-      "value": "2-year limited"
+      "value": "2-Year Limited Warranty"
     }
   ],
   "faq": [
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on."
+      "answer": "Hold the power button for a full 4 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on."
     },
     {
       "id": "f2",
@@ -234,7 +273,7 @@
     {
       "id": "f5",
       "question": "What does the warranty cover?",
-      "answer": "The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Physical damage is not covered."
+      "answer": "The Dash+ comes with a **2-Year Limited Warranty** covering electronics and manufacturing defects. Physical damage is not covered."
     }
   ],
   "videos": [

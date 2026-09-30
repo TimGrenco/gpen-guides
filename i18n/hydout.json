@@ -91,11 +91,13 @@
       "faq.f5.question": "How do I know when it's fully charged?",
       "faq.f5.answer": "The LED display shows the battery level. Leave it on the cable until it reads full.",
       "faq.f6.question": "What does the warranty cover?",
-      "faq.f6.answer": "The Hydout carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.",
+      "faq.f6.answer": "The Hydout comes with a **90-Day Limited Warranty**. Register your device and read the full terms on gpen.com, or contact support with your order details.",
       "video.v1.title": "Using the Hydout",
       "video.v2.title": "Cleaning the Hydout",
       "step.charge.bullet.b4": "**Pass-through charging:** you can use it while it charges.",
-      "step.clean.bullet.b5": "**Turn it off** and remove the cartridge first."
+      "step.clean.bullet.b5": "**Turn it off** and remove the cartridge first.",
+      "specs.warranty.label": "Warranty",
+      "specs.warranty.value": "90-Day Limited Warranty"
     }
   },
   "ES": {
@@ -190,11 +192,13 @@
       "faq.f5.question": "¿Cómo sé cuándo está completamente cargado?",
       "faq.f5.answer": "La pantalla LED muestra el nivel de batería. Déjalo conectado al cable hasta que indique carga completa.",
       "faq.f6.question": "¿Qué cubre la garantía?",
-      "faq.f6.answer": "El Hydout cuenta con una garantía limitada. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
+      "faq.f6.answer": "El Hydout incluye una **garantía limitada de 90 días**. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Cómo usar el Hydout",
       "video.v2.title": "Cómo limpiar el Hydout",
       "step.charge.bullet.b4": "**Carga pasante:** puedes usarlo mientras se carga.",
-      "step.clean.bullet.b5": "**Apágalo** y retira primero el cartucho."
+      "step.clean.bullet.b5": "**Apágalo** y retira primero el cartucho.",
+      "specs.warranty.label": "Garantía",
+      "specs.warranty.value": "Garantía limitada de 90 días"
     }
   },
   "DE": {
@@ -289,11 +293,13 @@
       "faq.f5.question": "Woran erkenne ich, dass er vollständig geladen ist?",
       "faq.f5.answer": "Das LED-Display zeigt den Akkustand an. Lass das Gerät am Kabel, bis es voll anzeigt.",
       "faq.f6.question": "Was deckt die Garantie ab?",
-      "faq.f6.answer": "Der Hydout hat eine eingeschränkte Garantie. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com, oder wende dich mit deinen Bestelldaten an den Support.",
+      "faq.f6.answer": "Für den Hydout gilt eine **eingeschränkte Garantie von 90 Tagen**. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Den Hydout verwenden",
       "video.v2.title": "Den Hydout reinigen",
       "step.charge.bullet.b4": "**Pass-through-Laden:** Du kannst das Gerät benutzen, während es lädt.",
-      "step.clean.bullet.b5": "**Schalte das Gerät aus** und nimm zuerst die Cartridge heraus."
+      "step.clean.bullet.b5": "**Schalte das Gerät aus** und nimm zuerst die Cartridge heraus.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Eingeschränkte Garantie: 90 Tage"
     }
   },
   "IT": {
@@ -388,11 +394,13 @@
       "faq.f5.question": "Come faccio a sapere quando è completamente carico?",
       "faq.f5.answer": "Il display LED mostra il livello della batteria. Lascialo collegato al cavo finché non indica carica completa.",
       "faq.f6.question": "Cosa copre la garanzia?",
-      "faq.f6.answer": "L'Hydout è coperto da una garanzia limitata. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
+      "faq.f6.answer": "L'Hydout è coperto da una **garanzia limitata di 90 giorni**. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
       "video.v1.title": "Come usare l'Hydout",
       "video.v2.title": "Come pulire l'Hydout",
       "step.charge.bullet.b4": "**Ricarica pass-through:** puoi usarlo mentre è in carica.",
-      "step.clean.bullet.b5": "**Spegnilo** e rimuovi prima la cartuccia."
+      "step.clean.bullet.b5": "**Spegnilo** e rimuovi prima la cartuccia.",
+      "specs.warranty.label": "Garanzia",
+      "specs.warranty.value": "Garanzia limitata di 90 giorni"
     }
   },
   "FR": {
@@ -487,11 +495,13 @@
       "faq.f5.question": "Comment savoir quand il est complètement chargé ?",
       "faq.f5.answer": "L'écran LED affiche le niveau de batterie. Laissez-le branché au câble jusqu'à ce qu'il indique une charge complète.",
       "faq.f6.question": "Que couvre la garantie ?",
-      "faq.f6.answer": "Le Hydout est couvert par une garantie limitée. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance avec les informations de votre commande.",
+      "faq.f6.answer": "Le Hydout bénéficie d'une **garantie limitée de 90 jours**. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance avec les détails de votre commande.",
       "video.v1.title": "Utiliser le Hydout",
       "video.v2.title": "Nettoyer le Hydout",
       "step.charge.bullet.b4": "**Recharge pass-through :** vous pouvez l'utiliser pendant qu'il se recharge.",
-      "step.clean.bullet.b5": "**Éteignez-le** et retirez d'abord la cartouche."
+      "step.clean.bullet.b5": "**Éteignez-le** et retirez d'abord la cartouche.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Garantie limitée de 90 jours"
     }
   },
   "PT": {
@@ -586,11 +596,13 @@
       "faq.f5.question": "Como sei quando está totalmente carregado?",
       "faq.f5.answer": "O visor LED mostra o nível da bateria. Deixe-o no cabo até indicar carga completa.",
       "faq.f6.question": "O que a garantia cobre?",
-      "faq.f6.answer": "O Hydout tem garantia limitada. Registre seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
+      "faq.f6.answer": "O Hydout tem **garantia limitada de 90 dias**. Registre seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Como usar o Hydout",
       "video.v2.title": "Como limpar o Hydout",
       "step.charge.bullet.b4": "**Carregamento pass-through:** você pode usar o dispositivo enquanto ele carrega.",
-      "step.clean.bullet.b5": "**Desligue o dispositivo** e remova o cartucho primeiro."
+      "step.clean.bullet.b5": "**Desligue o dispositivo** e remova o cartucho primeiro.",
+      "specs.warranty.label": "Garantia",
+      "specs.warranty.value": "Garantia limitada de 90 dias"
     }
   }
 }

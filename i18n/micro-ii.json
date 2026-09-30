@@ -106,7 +106,7 @@
       "faq.f5.question": "How often should I clean the chamber?",
       "faq.f5.answer": "Clean the ceramic heating chamber after every few sessions to maintain performance. Let the device cool fully, then use a cotton swab with ISO to wipe the chamber and mouthpiece, and dry completely before use.",
       "faq.f6.question": "What does the warranty cover?",
-      "faq.f6.answer": "The Micro II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.",
+      "faq.f6.answer": "The Micro II comes with a **6-Month Limited Warranty**, or a **1-Year Limited Warranty** when you register your device at gpen.com. Read the full terms on gpen.com, or contact support with your order details.",
       "video.v1.title": "Using the Micro II",
       "video.v2.title": "Cleaning the Micro II",
       "attach.side-car.title": "Sidecar",
@@ -116,7 +116,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Remove the mouthpiece and attach the **Rig Adapter**, then connect 14 mm glass to a compatible glass rig.",
       "attach.rig-adapter.bullet.b2": "Control airflow with the **built-in carb hole**.",
-      "attach.rig-adapter.bullet.b3": "The **L-shape design** gives maximum flexibility when connected to a rig."
+      "attach.rig-adapter.bullet.b3": "The **L-shape design** gives maximum flexibility when connected to a rig.",
+      "specs.warranty.label": "Warranty",
+      "specs.warranty.value": "6-Month Limited Warranty (1 year with registration)"
     }
   },
   "ES": {
@@ -226,7 +228,7 @@
       "faq.f5.question": "¿Con qué frecuencia debo limpiar la cámara?",
       "faq.f5.answer": "Limpia la cámara de calentamiento de cerámica cada pocas sesiones para mantener el rendimiento. Deja que el dispositivo se enfríe por completo, luego usa un hisopo con ISO para limpiar la cámara y la boquilla, y sécalo por completo antes de usarlo.",
       "faq.f6.question": "¿Qué cubre la garantía?",
-      "faq.f6.answer": "El Micro II cuenta con una garantía limitada. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
+      "faq.f6.answer": "El Micro II incluye una **garantía limitada de 6 meses**, o una **garantía limitada de 1 año** si registras tu dispositivo en gpen.com. Consulta los términos completos en gpen.com o comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Cómo usar el Micro II",
       "video.v2.title": "Cómo limpiar el Micro II",
       "attach.side-car.title": "Sidecar",
@@ -236,7 +238,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Retira la boquilla y coloca el **Rig Adapter**; luego conecta vidrio de 14 mm a un rig de vidrio compatible.",
       "attach.rig-adapter.bullet.b2": "Controla el flujo de aire con el **orificio de carburación integrado**.",
-      "attach.rig-adapter.bullet.b3": "El **diseño en forma de L** ofrece la máxima flexibilidad al conectarlo a un rig."
+      "attach.rig-adapter.bullet.b3": "El **diseño en forma de L** ofrece la máxima flexibilidad al conectarlo a un rig.",
+      "specs.warranty.label": "Garantía",
+      "specs.warranty.value": "Garantía limitada de 6 meses (1 año con registro)"
     }
   },
   "DE": {
@@ -346,7 +350,7 @@
       "faq.f5.question": "Wie oft sollte ich die Kammer reinigen?",
       "faq.f5.answer": "Reinige die Keramik-Heizkammer alle paar Sessions, um die Leistung zu erhalten. Lass das Gerät vollständig abkühlen, wische dann Kammer und Mundstück mit einem in ISO getränkten Wattestäbchen aus und lass alles vor der Verwendung vollständig trocknen.",
       "faq.f6.question": "Was deckt die Garantie ab?",
-      "faq.f6.answer": "Der Micro II hat eine eingeschränkte Garantie. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
+      "faq.f6.answer": "Für den Micro II gilt eine **eingeschränkte Garantie von 6 Monaten** oder eine **eingeschränkte Garantie von 1 Jahr**, wenn du dein Gerät auf gpen.com registrierst. Lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Den Micro II verwenden",
       "video.v2.title": "Den Micro II reinigen",
       "attach.side-car.title": "Sidecar",
@@ -356,7 +360,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Nimm das Mundstück ab, setze den **Rig Adapter** auf und verbinde das 14-mm-Glas mit einem kompatiblen Glas-Rig.",
       "attach.rig-adapter.bullet.b2": "Reguliere den Luftstrom über das **integrierte Carb-Loch**.",
-      "attach.rig-adapter.bullet.b3": "Das **L-förmige Design** sorgt für maximale Flexibilität, wenn der Adapter mit einem Rig verbunden ist."
+      "attach.rig-adapter.bullet.b3": "Das **L-förmige Design** sorgt für maximale Flexibilität, wenn der Adapter mit einem Rig verbunden ist.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Eingeschränkte Garantie: 6 Monate (1 Jahr mit Registrierung)"
     }
   },
   "IT": {
@@ -466,7 +472,7 @@
       "faq.f5.question": "Ogni quanto devo pulire la camera?",
       "faq.f5.answer": "Pulisci la camera di riscaldamento in ceramica ogni poche sessioni per mantenere le prestazioni. Lascia raffreddare completamente il dispositivo, poi usa un cotton fioc con ISO per pulire la camera e il bocchino, e lascia asciugare del tutto prima dell'uso.",
       "faq.f6.question": "Cosa copre la garanzia?",
-      "faq.f6.answer": "Il Micro II è coperto da una garanzia limitata. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
+      "faq.f6.answer": "Il Micro II è coperto da una **garanzia limitata di 6 mesi**, oppure da una **garanzia limitata di 1 anno** se registri il dispositivo su gpen.com. Leggi i termini completi su gpen.com oppure contatta l'assistenza con i dati del tuo ordine.",
       "video.v1.title": "Come usare il Micro II",
       "video.v2.title": "Come pulire il Micro II",
       "attach.side-car.title": "Sidecar",
@@ -476,7 +482,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Rimuovi il bocchino e collega il **Rig Adapter**, poi inserisci il vetro da 14 mm in un rig in vetro compatibile.",
       "attach.rig-adapter.bullet.b2": "Regola il flusso d'aria con il **foro carb integrato**.",
-      "attach.rig-adapter.bullet.b3": "Il **design a L** offre la massima flessibilità quando è collegato a un rig."
+      "attach.rig-adapter.bullet.b3": "Il **design a L** offre la massima flessibilità quando è collegato a un rig.",
+      "specs.warranty.label": "Garanzia",
+      "specs.warranty.value": "Garanzia limitata di 6 mesi (1 anno con registrazione)"
     }
   },
   "FR": {
@@ -586,7 +594,7 @@
       "faq.f5.question": "À quelle fréquence dois-je nettoyer la chambre ?",
       "faq.f5.answer": "Nettoyez la chambre de chauffe en céramique toutes les quelques sessions pour maintenir les performances. Laissez l'appareil refroidir complètement, puis utilisez un coton-tige imbibé d'ISO pour essuyer la chambre et l'embout, et laissez sécher complètement avant utilisation.",
       "faq.f6.question": "Que couvre la garantie ?",
-      "faq.f6.answer": "Le Micro II bénéficie d'une garantie limitée. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance avec les détails de votre commande.",
+      "faq.f6.answer": "Le Micro II bénéficie d'une **garantie limitée de 6 mois**, ou d'une **garantie limitée de 1 an** si vous enregistrez votre appareil sur gpen.com. Consultez les conditions complètes sur gpen.com ou contactez l'assistance avec les détails de votre commande.",
       "video.v1.title": "Utiliser le Micro II",
       "video.v2.title": "Nettoyer le Micro II",
       "attach.side-car.title": "Sidecar",
@@ -596,7 +604,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Retirez l'embout et fixez le **Rig Adapter**, puis raccordez le verre de 14 mm à un rig en verre compatible.",
       "attach.rig-adapter.bullet.b2": "Réglez le flux d'air grâce à l'**orifice de carb intégré**.",
-      "attach.rig-adapter.bullet.b3": "La **forme en L** offre une flexibilité maximale une fois l'adaptateur raccordé à un rig."
+      "attach.rig-adapter.bullet.b3": "La **forme en L** offre une flexibilité maximale une fois l'adaptateur raccordé à un rig.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Garantie limitée de 6 mois (1 an avec enregistrement)"
     }
   },
   "PT": {
@@ -706,7 +716,7 @@
       "faq.f5.question": "Com que frequência devo limpar a câmara?",
       "faq.f5.answer": "Limpe a câmara de aquecimento de cerâmica a cada poucas sessões para manter o desempenho. Deixe o dispositivo esfriar completamente, depois use um cotonete com ISO para limpar a câmara e o bocal, e deixe secar por completo antes de usar.",
       "faq.f6.question": "O que a garantia cobre?",
-      "faq.f6.answer": "O Micro II possui garantia limitada. Registre o seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
+      "faq.f6.answer": "O Micro II tem **garantia limitada de 6 meses**, ou **garantia limitada de 1 ano** se você registrar o dispositivo em gpen.com. Leia os termos completos em gpen.com ou entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Como usar o Micro II",
       "video.v2.title": "Como limpar o Micro II",
       "attach.side-car.title": "Sidecar",
@@ -716,7 +726,9 @@
       "attach.rig-adapter.title": "Rig Adapter",
       "attach.rig-adapter.bullet.b1": "Remova o bocal e encaixe o **Rig Adapter**; depois, conecte o vidro de 14 mm a um rig de vidro compatível.",
       "attach.rig-adapter.bullet.b2": "Controle o fluxo de ar com o **orifício de carb integrado**.",
-      "attach.rig-adapter.bullet.b3": "O **formato em L** oferece máxima flexibilidade quando conectado a um rig."
+      "attach.rig-adapter.bullet.b3": "O **formato em L** oferece máxima flexibilidade quando conectado a um rig.",
+      "specs.warranty.label": "Garantia",
+      "specs.warranty.value": "Garantia limitada de 6 meses (1 ano com registro)"
     }
   }
 }

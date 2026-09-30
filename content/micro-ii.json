@@ -279,6 +279,11 @@
       "id": "upc",
       "label": "UPC",
       "value": "811736020343"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "6-Month Limited Warranty (1 year with registration)"
     }
   ],
   "faq": [
@@ -310,7 +315,7 @@
     {
       "id": "f6",
       "question": "What does the warranty cover?",
-      "answer": "The Micro II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+      "answer": "The Micro II comes with a **6-Month Limited Warranty**, or a **1-Year Limited Warranty** when you register your device at gpen.com. Read the full terms on gpen.com, or contact support with your order details."
     }
   ],
   "videos": [

@@ -196,6 +196,11 @@
       "id": "in-the-box",
       "label": "In the box",
       "value": "Melt hot knife, protective travel cap"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "90-Day Limited Warranty"
     }
   ],
   "faq": [
@@ -227,7 +232,7 @@
     {
       "id": "f6",
       "question": "What does the warranty cover?",
-      "answer": "The Melt includes a 90-day limited warranty covering electronics. It does not cover physical damage. Register your device and contact support with your order details."
+      "answer": "The Melt comes with a **90-Day Limited Warranty** covering electronics. It does not cover physical damage. Register your device and contact support with your order details."
     }
   ],
   "videos": [

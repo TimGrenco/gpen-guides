@@ -95,9 +95,11 @@
       "faq.f5.question": "How do I deep clean the mouthpiece?",
       "faq.f5.answer": "Remove the mouthpiece insert and soak or wipe it with isopropyl alcohol (ISO). Let it dry completely before reassembling and using the device.",
       "faq.f6.question": "What does the warranty cover?",
-      "faq.f6.answer": "The Dash II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details.",
+      "faq.f6.answer": "The Dash II comes with a **6-Month Limited Warranty**, or a **1-Year Limited Warranty** when you register your device at gpen.com. Read the full terms on gpen.com, or contact support with your order details.",
       "video.v1.title": "Using the Dash II",
-      "video.v2.title": "Cleaning the Dash II"
+      "video.v2.title": "Cleaning the Dash II",
+      "specs.warranty.label": "Warranty",
+      "specs.warranty.value": "6-Month Limited Warranty (1 year with registration)"
     }
   },
   "ES": {
@@ -195,10 +197,12 @@
       "faq.f5.question": "¿Cómo hago una limpieza profunda de la boquilla?",
       "faq.f5.answer": "Retira el inserto de la boquilla y remójalo o límpialo con alcohol isopropílico (ISO). Déjalo secar por completo antes de volver a armar y usar el dispositivo.",
       "faq.f6.question": "¿Qué cubre la garantía?",
-      "faq.f6.answer": "El Dash II cuenta con una garantía limitada. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
+      "faq.f6.answer": "El Dash II incluye una **garantía limitada de 6 meses**, o una **garantía limitada de 1 año** si registras tu dispositivo en gpen.com. Consulta los términos completos en gpen.com o comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Cómo usar el Dash II",
       "video.v2.title": "Cómo limpiar el Dash II",
-      "step.load.bullet.b4": "**Vuelve a colocar** la boquilla antes de encender."
+      "step.load.bullet.b4": "**Vuelve a colocar** la boquilla antes de encender.",
+      "specs.warranty.label": "Garantía",
+      "specs.warranty.value": "Garantía limitada de 6 meses (1 año con registro)"
     }
   },
   "DE": {
@@ -296,10 +300,12 @@
       "faq.f5.question": "Wie reinige ich das Mundstück gründlich?",
       "faq.f5.answer": "Entferne den Mundstückeinsatz und weiche ihn in Isopropylalkohol (ISO) ein oder wische ihn damit ab. Lass ihn vollständig trocknen, bevor du das Gerät wieder zusammensetzt und verwendest.",
       "faq.f6.question": "Was deckt die Garantie ab?",
-      "faq.f6.answer": "Für den Dash II gilt eine eingeschränkte Garantie. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
+      "faq.f6.answer": "Für den Dash II gilt eine **eingeschränkte Garantie von 6 Monaten** oder eine **eingeschränkte Garantie von 1 Jahr**, wenn du dein Gerät auf gpen.com registrierst. Lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Den Dash II verwenden",
       "video.v2.title": "Den Dash II reinigen",
-      "step.load.bullet.b4": "**Setze das Mundstück wieder auf**, bevor du das Gerät einschaltest."
+      "step.load.bullet.b4": "**Setze das Mundstück wieder auf**, bevor du das Gerät einschaltest.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Eingeschränkte Garantie: 6 Monate (1 Jahr mit Registrierung)"
     }
   },
   "IT": {
@@ -397,10 +403,12 @@
       "faq.f5.question": "Come si pulisce a fondo il bocchino?",
       "faq.f5.answer": "Rimuovi l'inserto del bocchino e immergilo o puliscilo con alcol isopropilico (ISO). Lascialo asciugare completamente prima di rimontare e utilizzare il dispositivo.",
       "faq.f6.question": "Cosa copre la garanzia?",
-      "faq.f6.answer": "Il Dash II è coperto da una garanzia limitata. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dati del tuo ordine.",
+      "faq.f6.answer": "Il Dash II è coperto da una **garanzia limitata di 6 mesi**, oppure da una **garanzia limitata di 1 anno** se registri il dispositivo su gpen.com. Leggi i termini completi su gpen.com oppure contatta l'assistenza con i dati del tuo ordine.",
       "video.v1.title": "Come usare il Dash II",
       "video.v2.title": "Come pulire il Dash II",
-      "step.load.bullet.b4": "**Riattacca** il bocchino prima di accendere il dispositivo."
+      "step.load.bullet.b4": "**Riattacca** il bocchino prima di accendere il dispositivo.",
+      "specs.warranty.label": "Garanzia",
+      "specs.warranty.value": "Garanzia limitata di 6 mesi (1 anno con registrazione)"
     }
   },
   "FR": {
@@ -498,10 +506,12 @@
       "faq.f5.question": "Comment nettoyer l'embout en profondeur ?",
       "faq.f5.answer": "Retirez l'insert de l'embout et faites-le tremper ou essuyez-le avec de l'alcool isopropylique (ISO). Laissez-le sécher complètement avant de remonter et d'utiliser l'appareil.",
       "faq.f6.question": "Que couvre la garantie ?",
-      "faq.f6.answer": "Le Dash II est couvert par une garantie limitée. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance en vous munissant des détails de votre commande.",
+      "faq.f6.answer": "Le Dash II bénéficie d'une **garantie limitée de 6 mois**, ou d'une **garantie limitée de 1 an** si vous enregistrez votre appareil sur gpen.com. Consultez les conditions complètes sur gpen.com ou contactez l'assistance avec les détails de votre commande.",
       "video.v1.title": "Utiliser le Dash II",
       "video.v2.title": "Nettoyer le Dash II",
-      "step.load.bullet.b4": "**Remettez** l'embout en place avant d'allumer l'appareil."
+      "step.load.bullet.b4": "**Remettez** l'embout en place avant d'allumer l'appareil.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Garantie limitée de 6 mois (1 an avec enregistrement)"
     }
   },
   "PT": {
@@ -599,10 +609,12 @@
       "faq.f5.question": "Como faço a limpeza profunda do bocal?",
       "faq.f5.answer": "Remova o inserto do bocal e deixe de molho ou limpe-o com álcool isopropílico (ISO). Deixe secar completamente antes de remontar e usar o dispositivo.",
       "faq.f6.question": "O que a garantia cobre?",
-      "faq.f6.answer": "O Dash II tem garantia limitada. Registre seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
+      "faq.f6.answer": "O Dash II tem **garantia limitada de 6 meses**, ou **garantia limitada de 1 ano** se você registrar o dispositivo em gpen.com. Leia os termos completos em gpen.com ou entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Como usar o Dash II",
       "video.v2.title": "Como limpar o Dash II",
-      "step.load.bullet.b4": "**Recoloque** o bocal antes de ligar o dispositivo."
+      "step.load.bullet.b4": "**Recoloque** o bocal antes de ligar o dispositivo.",
+      "specs.warranty.label": "Garantia",
+      "specs.warranty.value": "Garantia limitada de 6 meses (1 ano com registro)"
     }
   }
 }

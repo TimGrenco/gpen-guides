@@ -86,10 +86,12 @@
       "faq.f5.question": "Is the Melt easy to carry?",
       "faq.f5.answer": "Its compact size (3.94\" tall) and the included protective travel cap make it easy to carry, and the 5× click lock prevents accidental activation. Check local laws and airline rules before you travel with it.",
       "faq.f6.question": "What does the warranty cover?",
-      "faq.f6.answer": "The Melt includes a 90-day limited warranty covering electronics. It does not cover physical damage. Register your device and contact support with your order details.",
+      "faq.f6.answer": "The Melt comes with a **90-Day Limited Warranty** covering electronics. It does not cover physical damage. Register your device and contact support with your order details.",
       "video.v1.title": "Melt in Action",
       "step.scoop-drop.bullet.b1": "The tip stays hot for a moment after you let go — **don't touch it**.",
-      "step.clean.bullet.b5": "**Power it off** and let the tip **cool completely** first."
+      "step.clean.bullet.b5": "**Power it off** and let the tip **cool completely** first.",
+      "specs.warranty.label": "Warranty",
+      "specs.warranty.value": "90-Day Limited Warranty"
     }
   },
   "ES": {
@@ -173,7 +175,7 @@
       "faq.f5.question": "¿El Melt es fácil de llevar?",
       "faq.f5.answer": "Su tamaño compacto (3.94\" de alto) y la tapa protectora de viaje incluida facilitan llevarlo contigo, y el bloqueo de 5 pulsaciones evita activaciones accidentales. Consulta las leyes locales y las normas de la aerolínea antes de viajar con él.",
       "faq.f6.question": "¿Qué cubre la garantía?",
-      "faq.f6.answer": "El Melt incluye una garantía limitada de 90 días que cubre los componentes electrónicos. No cubre daños físicos. Registra tu dispositivo y comunícate con soporte con los datos de tu pedido.",
+      "faq.f6.answer": "El Melt incluye una **garantía limitada de 90 días** que cubre los componentes electrónicos. No cubre daños físicos. Registra tu dispositivo y comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Melt en acción",
       "step.scoop-drop.press.p1.action": "Calentar la punta",
       "step.scoop-drop.press.p1.sub": "Mantén presionado para calentar, suelta para detener — 150 °C / 302 °F",
@@ -182,7 +184,9 @@
       "step.scoop-drop.bullet.b4": "**Mantén presionado el botón** para calentar la punta de cerámica: se calienta hasta **5 segundos** cada vez que lo mantienes presionado.",
       "step.clean.bullet.b4": "Limpia los **puntos de conexión de plástico** en la tapa y en la base de la punta.",
       "step.scoop-drop.bullet.b1": "La punta sigue caliente unos instantes después de soltar el botón: **no la toques**.",
-      "step.clean.bullet.b5": "**Apágalo** y deja que la punta se **enfríe por completo** primero."
+      "step.clean.bullet.b5": "**Apágalo** y deja que la punta se **enfríe por completo** primero.",
+      "specs.warranty.label": "Garantía",
+      "specs.warranty.value": "Garantía limitada de 90 días"
     }
   },
   "DE": {
@@ -266,7 +270,7 @@
       "faq.f5.question": "Lässt sich der Melt leicht mitnehmen?",
       "faq.f5.answer": "Dank seiner kompakten Größe (3,94\" hoch) und der mitgelieferten Schutzkappe lässt er sich leicht mitnehmen, und die Sperre (5× drücken) verhindert ein versehentliches Einschalten. Informiere dich vor Reisen über die örtlichen Gesetze und die Bestimmungen der Fluggesellschaft.",
       "faq.f6.question": "Was deckt die Garantie ab?",
-      "faq.f6.answer": "Der Melt hat eine eingeschränkte 90-Tage-Garantie auf die Elektronik. Physische Schäden sind nicht abgedeckt. Registriere dein Gerät und wende dich mit deinen Bestelldaten an den Support.",
+      "faq.f6.answer": "Für den Melt gilt eine **eingeschränkte Garantie von 90 Tagen** auf die Elektronik. Physische Schäden sind nicht abgedeckt. Registriere dein Gerät und wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Melt in Aktion",
       "step.scoop-drop.press.p1.action": "Spitze erhitzen",
       "step.scoop-drop.press.p1.sub": "Zum Erhitzen gedrückt halten, zum Stoppen loslassen — 150 °C / 302 °F",
@@ -275,7 +279,9 @@
       "step.scoop-drop.bullet.b4": "**Halte die Taste gedrückt**, um die Keramikspitze zu erhitzen – sie heizt bei jedem Halten bis zu **5 Sekunden** lang.",
       "step.clean.bullet.b4": "Reinige die **Kunststoff-Verbindungspunkte** an der Kappe und am Ansatz der Spitze.",
       "step.scoop-drop.bullet.b1": "Die Spitze bleibt nach dem Loslassen noch kurz heiß – **fass sie nicht an**.",
-      "step.clean.bullet.b5": "**Schalte das Gerät aus** und lass die Spitze zuerst **vollständig abkühlen**."
+      "step.clean.bullet.b5": "**Schalte das Gerät aus** und lass die Spitze zuerst **vollständig abkühlen**.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Eingeschränkte Garantie: 90 Tage"
     }
   },
   "IT": {
@@ -359,7 +365,7 @@
       "faq.f5.question": "Il Melt è facile da portare con sé?",
       "faq.f5.answer": "Le dimensioni compatte (3,94\" di altezza) e il cappuccio protettivo da viaggio incluso lo rendono facile da portare con sé, e il blocco a 5 pressioni evita attivazioni accidentali. Prima di viaggiare, verifica le leggi locali e le regole della compagnia aerea.",
       "faq.f6.question": "Cosa copre la garanzia?",
-      "faq.f6.answer": "Il Melt include una garanzia limitata di 90 giorni che copre la parte elettronica. Non copre i danni fisici. Registra il tuo dispositivo e contatta l'assistenza con i dati del tuo ordine.",
+      "faq.f6.answer": "Il Melt è coperto da una **garanzia limitata di 90 giorni** sulla parte elettronica. Non copre i danni fisici. Registra il tuo dispositivo e contatta l'assistenza con i dati del tuo ordine.",
       "video.v1.title": "Melt in azione",
       "step.scoop-drop.press.p1.action": "Riscalda la punta",
       "step.scoop-drop.press.p1.sub": "Tieni premuto per riscaldare, rilascia per fermare — 150 °C / 302 °F",
@@ -368,7 +374,9 @@
       "step.scoop-drop.bullet.b4": "**Tieni premuto il pulsante** per riscaldare la punta in ceramica: si riscalda per un massimo di **5 secondi** ogni volta che lo tieni premuto.",
       "step.clean.bullet.b4": "Pulisci i **punti di collegamento in plastica** sul cappuccio e sulla base della punta.",
       "step.scoop-drop.bullet.b1": "La punta resta calda per qualche istante dopo che rilasci il pulsante: **non toccarla**.",
-      "step.clean.bullet.b5": "**Spegnilo** e lascia prima **raffreddare completamente** la punta."
+      "step.clean.bullet.b5": "**Spegnilo** e lascia prima **raffreddare completamente** la punta.",
+      "specs.warranty.label": "Garanzia",
+      "specs.warranty.value": "Garanzia limitata di 90 giorni"
     }
   },
   "FR": {
@@ -452,7 +460,7 @@
       "faq.f5.question": "Le Melt est-il facile à transporter ?",
       "faq.f5.answer": "Son format compact (3,94\" de hauteur) et le capuchon de protection fourni le rendent facile à transporter, et le verrouillage par 5 pressions empêche toute activation accidentelle. Vérifiez la législation locale et les règles des compagnies aériennes avant de voyager avec.",
       "faq.f6.question": "Que couvre la garantie ?",
-      "faq.f6.answer": "Le Melt bénéficie d'une garantie limitée de 90 jours couvrant l'électronique. Elle ne couvre pas les dommages physiques. Enregistrez votre appareil et contactez l'assistance avec les détails de votre commande.",
+      "faq.f6.answer": "Le Melt bénéficie d'une **garantie limitée de 90 jours** couvrant l'électronique. Elle ne couvre pas les dommages physiques. Enregistrez votre appareil et contactez l'assistance avec les détails de votre commande.",
       "video.v1.title": "Le Melt en action",
       "step.scoop-drop.press.p1.action": "Chauffer la pointe",
       "step.scoop-drop.press.p1.sub": "Maintenez pour chauffer, relâchez pour arrêter — 150 °C / 302 °F",
@@ -461,7 +469,9 @@
       "step.scoop-drop.bullet.b4": "**Maintenez le bouton enfoncé** pour chauffer la pointe en céramique : elle chauffe pendant **5 secondes** maximum à chaque pression prolongée.",
       "step.clean.bullet.b4": "Nettoyez les **points de connexion en plastique** du capuchon et de la base de la pointe.",
       "step.scoop-drop.bullet.b1": "La pointe reste chaude quelques instants après que vous avez relâché le bouton — **ne la touchez pas**.",
-      "step.clean.bullet.b5": "**Éteignez-le** et laissez d'abord la pointe **refroidir complètement**."
+      "step.clean.bullet.b5": "**Éteignez-le** et laissez d'abord la pointe **refroidir complètement**.",
+      "specs.warranty.label": "Garantie",
+      "specs.warranty.value": "Garantie limitée de 90 jours"
     }
   },
   "PT": {
@@ -545,7 +555,7 @@
       "faq.f5.question": "O Melt é fácil de transportar?",
       "faq.f5.answer": "O tamanho compacto (3,94\" de altura) e a tampa protetora de viagem incluída facilitam o transporte, e o bloqueio de 5 pressões evita ativações acidentais. Consulte as leis locais e as regras da companhia aérea antes de viajar com ele.",
       "faq.f6.question": "O que a garantia cobre?",
-      "faq.f6.answer": "O Melt inclui uma garantia limitada de 90 dias que cobre a parte eletrônica. Ela não cobre danos físicos. Registre seu dispositivo e entre em contato com o suporte com os dados do seu pedido.",
+      "faq.f6.answer": "O Melt tem **garantia limitada de 90 dias** que cobre a parte eletrônica. Ela não cobre danos físicos. Registre seu dispositivo e entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Melt em ação",
       "step.scoop-drop.press.p1.action": "Aquecer a ponta",
       "step.scoop-drop.press.p1.sub": "Segure para aquecer, solte para parar — 150 °C / 302 °F",
@@ -554,7 +564,9 @@
       "step.scoop-drop.bullet.b4": "**Segure o botão** para aquecer a ponta de cerâmica — ela aquece por até **5 segundos** a cada vez.",
       "step.clean.bullet.b4": "Limpe os **pontos de conexão de plástico** na tampa e na base da ponta.",
       "step.scoop-drop.bullet.b1": "A ponta continua quente por alguns instantes depois que você solta o botão — **não toque nela**.",
-      "step.clean.bullet.b5": "**Desligue o dispositivo** e deixe a ponta **esfriar completamente** antes."
+      "step.clean.bullet.b5": "**Desligue o dispositivo** e deixe a ponta **esfriar completamente** antes.",
+      "specs.warranty.label": "Garantia",
+      "specs.warranty.value": "Garantia limitada de 90 dias"
     }
   }
 }

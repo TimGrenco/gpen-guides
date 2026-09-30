@@ -216,6 +216,11 @@
       "id": "upc",
       "label": "UPC",
       "value": "852570004441"
+    },
+    {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "6-Month Limited Warranty (1 year with registration)"
     }
   ],
   "faq": [
@@ -247,7 +252,7 @@
     {
       "id": "f6",
       "question": "What does the warranty cover?",
-      "answer": "The Dash II carries a limited warranty. Register your device and read the full terms on gpen.com, or contact support with your order details."
+      "answer": "The Dash II comes with a **6-Month Limited Warranty**, or a **1-Year Limited Warranty** when you register your device at gpen.com. Read the full terms on gpen.com, or contact support with your order details."
     }
   ],
   "videos": [
