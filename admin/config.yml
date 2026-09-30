@@ -191,6 +191,7 @@ collections:
         fields: [*steps_field, *attachments_field, *specs_field, *faq_field, *videos_field]
       - { label: "G Pen Melt", name: melt, file: content/melt.json, fields: *guide_fields }
       - { label: "G Pen Dash+", name: dash-plus, file: content/dash-plus.json, fields: *guide_fields }
+      - { label: "G Pen Grinder", name: grinder, file: content/grinder.json, fields: [*steps_field, *specs_field, *faq_field] }
 
   - name: hidden-guides
     label: Hidden guides
@@ -218,6 +219,7 @@ collections:
           - { <<: *accessory_list, label: "G Pen Micro II", name: micro-ii }
           - { <<: *accessory_list, label: "G Pen Melt", name: melt }
           - { <<: *accessory_list, label: "G Pen Dash+", name: dash-plus }
+          - { <<: *accessory_list, label: "G Pen Grinder", name: grinder }
           - { <<: *accessory_list, label: "G Pen Elite II (hidden)", name: elite-ii }
           - { <<: *accessory_list, label: "G Pen Micro+ (hidden)", name: micro-plus }
           - { <<: *accessory_list, label: "G Pen Hyer (hidden)", name: hyer }

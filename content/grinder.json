@@ -1,0 +1,189 @@
+{
+  "steps": [
+    {
+      "id": "open-load",
+      "title": "Open & Load",
+      "image": "images/grinder-step-01-open-load.jpg",
+      "imageAlt": "G Pen Grinder with the magnetic lid off, showing the micro-rounded teeth",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Pull off the **magnetic lid**."
+        },
+        {
+          "id": "b2",
+          "text": "Break up large buds by hand and place them **on the teeth** in the grinding chamber."
+        },
+        {
+          "id": "b3",
+          "text": "**Don't overfill** — leave room for the lid to turn freely."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "grind",
+      "title": "Grind",
+      "image": "images/grinder-step-02-grind.jpg",
+      "imageAlt": "Hand holding the closed G Pen Grinder",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Replace the lid and **twist back and forth** about **10 times**."
+        },
+        {
+          "id": "b2",
+          "text": "**Tap** the grinder a few times so ground material falls through to the collection chamber."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "The **micro-rounded teeth** gently separate flower instead of shredding it, helping preserve terpenes and trichomes."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "collect",
+      "title": "Collect",
+      "image": "images/grinder-step-03-collect.jpg",
+      "imageAlt": "The G Pen Grinder's bottom collection chamber",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Unscrew the **bottom chamber** to reach your ground material."
+        },
+        {
+          "id": "b2",
+          "text": "**No kief screen** — trichomes and kief stay mixed in with your flower."
+        },
+        {
+          "id": "b3",
+          "text": "Load it straight into your **Dash II** or **Dash+**."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "images/grinder-step-04-clean.jpg",
+      "imageAlt": "Close-up of the G Pen Grinder's micro-rounded teeth",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Brush leftover material out of the **teeth** and **chambers**."
+        },
+        {
+          "id": "b2",
+          "text": "For a deeper clean, soak the pieces in **isopropyl alcohol (IPA)**, then rinse."
+        },
+        {
+          "id": "b3",
+          "text": "Let every piece **dry completely** before reassembling."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "3-piece dry herb grinder"
+    },
+    {
+      "id": "teeth",
+      "label": "Teeth",
+      "value": "Patented micro-rounded teeth"
+    },
+    {
+      "id": "material",
+      "label": "Material",
+      "value": "6063 aircraft-grade anodized aluminum"
+    },
+    {
+      "id": "kief-screen",
+      "label": "Kief screen",
+      "value": "None — screenless design"
+    },
+    {
+      "id": "lid",
+      "label": "Lid",
+      "value": "Magnetic"
+    },
+    {
+      "id": "size",
+      "label": "Size",
+      "value": "64 mm diameter"
+    },
+    {
+      "id": "pairs-with",
+      "label": "Pairs with",
+      "value": "G Pen Dash II, Dash+"
+    },
+    {
+      "id": "package-dimensions",
+      "label": "Package dimensions",
+      "value": "65 × 65 × 31 mm"
+    },
+    {
+      "id": "package-weight",
+      "label": "Package weight",
+      "value": "110 g"
+    },
+    {
+      "id": "patent",
+      "label": "Patent",
+      "value": "No. 11,690,480"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPA-001-APSC"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736020688"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "Why doesn't it have a kief screen?",
+      "answer": "The screenless 3-piece design keeps trichomes and kief mixed in with your ground flower instead of separating them away, so you get all of your flower in every session."
+    },
+    {
+      "id": "f2",
+      "question": "What makes micro-rounded teeth different?",
+      "answer": "Instead of cutting and shredding like sharp teeth, the rounded teeth gently separate flower into a consistent grind. In independent testing by Orange Photonics, the micro-rounded design showed the highest post-grind THC retention of the grinder styles tested."
+    },
+    {
+      "id": "f3",
+      "question": "The lid is hard to turn",
+      "answer": "The chamber is probably overfilled. Remove some flower, break up large buds by hand, and try again. If it still sticks, brush out any buildup around the teeth and threads."
+    },
+    {
+      "id": "f4",
+      "question": "What grind works best in my Dash II or Dash+?",
+      "answer": "An even, consistent grind. About 10 twists and a few taps gives you material that loads and heats evenly in the Dash II and Dash+."
+    }
+  ],
+  "videos": []
+}

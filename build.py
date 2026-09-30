@@ -111,6 +111,15 @@ PRODUCTS = {
         "images": {},
         "text": {},
     },
+    "grinder": {
+        "template": "grinder.template.html",
+        "name": "G Pen Grinder",
+        "category": "3-Piece Dry Herb Grinder",
+        "card_image": "grinder-card.png",
+        "images": {},
+        "text": {},
+        "shop_button": ("Shop dry herb vaporizers", "https://www.gpen.com/collections/dry-herb-vaporizers"),
+    },
     "elite-ii": {
         "template": "elite-ii.template.html",
         "legacy": True,

@@ -235,5 +235,21 @@
       "image": "{{UPG_MICRO_PLUS}}",
       "price": "From $49.95"
     }
+  ],
+  "grinder": [
+    {
+      "handle": "g-pen-dash-ii-vaporizer",
+      "name": "G Pen Dash II",
+      "note": "Pocket-sized dry herb vaporizer with faster heat-up, improved airflow, and refined temperature control.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/files/Dash2_thumb_01.png?v=1782936076",
+      "price": "$49.95"
+    },
+    {
+      "handle": "g-pen-dash-plus-vaporizer",
+      "name": "G Pen Dash+",
+      "note": "Portable dry herb vaporizer with hybrid convection-conduction heating in a titanium chamber.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/files/dash__vape_thumb_5e14bcb4-a63a-4cc3-8078-e57fc572e4da.png?v=1729247649",
+      "price": "$99.95"
+    }
   ]
 }
