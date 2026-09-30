@@ -15,10 +15,6 @@
         {
           "id": "b2",
           "text": "Give it a full charge before first use — takes about **1 hour**."
-        },
-        {
-          "id": "b3",
-          "text": "The LED blinks **8 times** when the battery is low."
         }
       ],
       "press": [],
