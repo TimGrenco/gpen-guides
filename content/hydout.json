@@ -13,6 +13,10 @@
           "text": "Plug **any USB-C cable** into the port on the base."
         },
         {
+          "id": "b4",
+          "text": "**Pass-through charging:** you can use it while it charges."
+        },
+        {
           "id": "b2",
           "text": "The display shows battery level while charging."
         },
@@ -99,7 +103,7 @@
             "label": "hold"
           },
           "action": "Activate + draw",
-          "sub": "Hold while you inhale"
+          "sub": "Hold the button or just inhale"
         },
         {
           "id": "p5",
@@ -125,6 +129,10 @@
       "image2": "images/step-04b-clean.jpg",
       "image2Alt": "Cotton swab cleaning inside the mouthpiece cover",
       "bullets": [
+        {
+          "id": "b5",
+          "text": "**Turn it off** and remove the cartridge first."
+        },
         {
           "id": "b1",
           "text": "Use a **cotton swab + isopropyl alcohol (ISO)**."
@@ -217,7 +225,7 @@
     {
       "id": "f2",
       "question": "My cart isn't producing vapor",
-      "answer": "Make sure the cartridge is threaded in snugly — not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then hold the button as you draw."
+      "answer": "Make sure the cartridge is threaded in snugly — not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then draw again — hold the button or just inhale."
     },
     {
       "id": "f3",
@@ -245,14 +253,14 @@
       "id": "v1",
       "vimeoId": "1105906397",
       "vimeoHash": null,
-      "title": "How to use",
+      "title": "Using the Hydout",
       "thumb": "images/video-how-to-use.jpg"
     },
     {
       "id": "v2",
       "vimeoId": "1105958727",
       "vimeoHash": "59fe004ad8",
-      "title": "How to clean",
+      "title": "Cleaning the Hydout",
       "thumb": "images/video-how-to-clean.jpg"
     }
   ]

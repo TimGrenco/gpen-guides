@@ -13,6 +13,10 @@
           "text": "Plug **any USB-C cable** into the charging port."
         },
         {
+          "id": "b3",
+          "text": "**Pass-through charging:** you can use it while it charges."
+        },
+        {
           "id": "b2",
           "text": "Give it a full charge before first use."
         }
@@ -113,6 +117,10 @@
       "image2": null,
       "image2Alt": null,
       "bullets": [
+        {
+          "id": "b4",
+          "text": "**Turn it off** and remove the cartridge first."
+        },
         {
           "id": "b1",
           "text": "Use a **cotton swab + isopropyl alcohol (ISO)**."

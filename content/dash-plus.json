@@ -177,7 +177,7 @@
     {
       "id": "charging",
       "label": "Charging",
-      "value": "USB-C, ~40 min per charge"
+      "value": "USB-C (about 40 minutes of heating per full charge)"
     },
     {
       "id": "auto-shut-off",
@@ -207,7 +207,7 @@
     {
       "id": "warranty",
       "label": "Warranty",
-      "value": "2-year limited (3 years with registration)"
+      "value": "2-year limited"
     }
   ],
   "faq": [
@@ -228,13 +228,13 @@
     },
     {
       "id": "f4",
-      "question": "What do the error codes mean?",
+      "question": "The display shows an error",
       "answer": "If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment."
     },
     {
       "id": "f5",
       "question": "What does the warranty cover?",
-      "answer": "The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Register your device at gpen.com to extend it to 3 years. Physical damage is not covered."
+      "answer": "The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Physical damage is not covered."
     }
   ],
   "videos": [

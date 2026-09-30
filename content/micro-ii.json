@@ -73,7 +73,7 @@
             "n": 3
           },
           "action": "Adjust temperature",
-          "sub": "Cycles 296°F → 337°F → 394°F (±15°F)"
+          "sub": "Cycles ~295°F → ~340°F → ~395°F"
         },
         {
           "id": "p3",
@@ -109,7 +109,7 @@
             "n": 5
           },
           "action": "Turn off",
-          "sub": "Auto shut-off after 5 minutes"
+          "sub": "Auto shut-off after 10 minutes"
         }
       ],
       "note": {
@@ -175,9 +175,9 @@
   "attachments": [
     {
       "id": "side-car",
-      "title": "Side Car",
+      "title": "Sidecar",
       "image": "images/micro-ii-attach-sidecar.jpg",
-      "imageAlt": "Micro II with the Side Car glass attachment lifted off its silicone adapter",
+      "imageAlt": "Micro II with the Sidecar glass attachment lifted off its silicone adapter",
       "bullets": [
         {
           "id": "b1",
@@ -201,7 +201,7 @@
       "bullets": [
         {
           "id": "b1",
-          "text": "Remove the mouthpiece and attach the **rig adapter**, then connect 14mm glass to a compatible glass rig."
+          "text": "Remove the mouthpiece and attach the **Rig Adapter**, then connect 14 mm glass to a compatible glass rig."
         },
         {
           "id": "b2",
@@ -238,7 +238,7 @@
     {
       "id": "temperature-settings",
       "label": "Temperature settings",
-      "value": "3 · 296°F / 337°F / 394°F (±15°F)"
+      "value": "3 · ~295°F / ~340°F / ~395°F"
     },
     {
       "id": "session-mode",
@@ -253,12 +253,12 @@
     {
       "id": "auto-shut-off",
       "label": "Auto shut-off",
-      "value": "5 minutes"
+      "value": "10 minutes"
     },
     {
       "id": "compatible-attachments",
       "label": "Compatible attachments",
-      "value": "Side Car (silicone), Rig Adapter (14mm)"
+      "value": "Sidecar, Rig Adapter (14 mm) — sold separately"
     },
     {
       "id": "dimensions",
@@ -290,7 +290,7 @@
     {
       "id": "f2",
       "question": "Which temperature should I use?",
-      "answer": "Start at 296°F for the most flavorful, terpene-rich experience. Step up to 337°F for a balance of flavor and vapor. Use 394°F for maximum vapor production."
+      "answer": "Start at ~295°F for the most flavorful, terpene-rich experience. Step up to ~340°F for a balance of flavor and vapor. Use ~395°F for maximum vapor production."
     },
     {
       "id": "f3",

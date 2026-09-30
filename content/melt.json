@@ -80,6 +80,10 @@
           "text": "**Hold the button** to heat the ceramic tip — it heats for up to **5 seconds** per hold."
         },
         {
+          "id": "b1",
+          "text": "The tip stays hot for a moment after you let go — **don't touch it**."
+        },
+        {
           "id": "b2",
           "text": "Let your concentrate **melt cleanly** into your rig, bowl, or device."
         },
@@ -111,12 +115,16 @@
       "image2Alt": null,
       "bullets": [
         {
+          "id": "b5",
+          "text": "**Power it off** and let the tip **cool completely** first."
+        },
+        {
           "id": "b1",
-          "text": "Clean the **blade** and **plastic housing** by wiping them with a **clean cloth**."
+          "text": "Clean the **tip** and **plastic housing** by wiping them with a **clean cloth**."
         },
         {
           "id": "b4",
-          "text": "Clean the **plastic connection points** on the cap and the base of the blade."
+          "text": "Clean the **plastic connection points** on the cap and the base of the tip."
         },
         {
           "id": "b2",
@@ -124,7 +132,7 @@
         },
         {
           "id": "b3",
-          "text": "Excess reclaim should be removed with an **ISO-soaked cotton swab**."
+          "text": "Remove excess reclaim with a cotton swab soaked in **isopropyl alcohol (ISO)**."
         }
       ],
       "press": [],
@@ -213,8 +221,8 @@
     },
     {
       "id": "f5",
-      "question": "Is the Melt safe for travel?",
-      "answer": "Yes. Its compact size (3.94\" tall) and the included protective travel cap make it easy to carry. The 5× click lock prevents accidental activation."
+      "question": "Is the Melt easy to carry?",
+      "answer": "Its compact size (3.94\" tall) and the included protective travel cap make it easy to carry, and the 5× click lock prevents accidental activation. Check local laws and airline rules before you travel with it."
     },
     {
       "id": "f6",
