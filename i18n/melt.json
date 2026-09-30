@@ -42,7 +42,7 @@
       "step.activate.press.p1.action": "Power on / off",
       "step.activate.press.p1.sub": "Click button 5 times quickly",
       "step.scoop-drop.title": "Heat & Drop",
-      "step.scoop-drop.bullet.b4": "**Hold the button** to heat the ceramic tip — it heats in seconds.",
+      "step.scoop-drop.bullet.b4": "**Hold the button** to heat the ceramic tip — it heats for up to **5 seconds** per hold.",
       "step.scoop-drop.bullet.b2": "Let your concentrate **melt cleanly** into your rig, bowl, or device.",
       "step.scoop-drop.bullet.b3": "Works with bangers, e-rigs, and G Pen devices like the Micro+, Connect, and Hyer.",
       "step.scoop-drop.press.p1.action": "Heat tip",
@@ -176,7 +176,7 @@
       "step.scoop-drop.press.p1.sub": "Mantén presionado para calentar, suelta para detener — 150 °C / 302 °F",
       "step.scoop-drop.press.p1.badge": "Hold",
       "step.activate.bullet.b5": "**Toca la punta** en tu concentrado para recoger una pequeña cantidad.",
-      "step.scoop-drop.bullet.b4": "**Mantén presionado el botón** para calentar la punta de cerámica; se calienta en segundos."
+      "step.scoop-drop.bullet.b4": "**Mantén presionado el botón** para calentar la punta de cerámica: se calienta durante hasta **5 segundos** por cada pulsación."
     }
   },
   "DE": {
@@ -266,7 +266,7 @@
       "step.scoop-drop.press.p1.sub": "Zum Erhitzen gedrückt halten, zum Stoppen loslassen — 150 °C / 302 °F",
       "step.scoop-drop.press.p1.badge": "Hold",
       "step.activate.bullet.b5": "**Berühre die Spitze** mit deinem Konzentrat, um eine kleine Menge aufzunehmen.",
-      "step.scoop-drop.bullet.b4": "**Halte den Knopf gedrückt**, um die Keramikspitze zu erhitzen – sie erhitzt sich in wenigen Sekunden."
+      "step.scoop-drop.bullet.b4": "**Halte die Taste gedrückt**, um die Keramikspitze zu erhitzen – sie heizt bei jedem Halten bis zu **5 Sekunden** lang."
     }
   },
   "IT": {
@@ -356,7 +356,7 @@
       "step.scoop-drop.press.p1.sub": "Tieni premuto per riscaldare, rilascia per fermare — 150 °C / 302 °F",
       "step.scoop-drop.press.p1.badge": "Hold",
       "step.activate.bullet.b5": "**Tocca la punta** sul tuo concentrato per prelevarne una piccola quantità.",
-      "step.scoop-drop.bullet.b4": "**Tieni premuto il pulsante** per riscaldare la punta in ceramica: si riscalda in pochi secondi."
+      "step.scoop-drop.bullet.b4": "**Tieni premuto il pulsante** per riscaldare la punta in ceramica: si riscalda per un massimo di **5 secondi** ogni volta che lo tieni premuto."
     }
   },
   "FR": {
@@ -446,7 +446,7 @@
       "step.scoop-drop.press.p1.sub": "Maintenez pour chauffer, relâchez pour arrêter — 150 °C / 302 °F",
       "step.scoop-drop.press.p1.badge": "Hold",
       "step.activate.bullet.b5": "**Touchez la pointe** à votre concentré pour en prélever une petite quantité.",
-      "step.scoop-drop.bullet.b4": "**Maintenez le bouton enfoncé** pour chauffer la pointe en céramique – elle chauffe en quelques secondes."
+      "step.scoop-drop.bullet.b4": "**Maintenez le bouton enfoncé** pour chauffer l'embout en céramique : il chauffe pendant **5 secondes** maximum à chaque pression prolongée."
     }
   },
   "PT": {
@@ -536,7 +536,7 @@
       "step.scoop-drop.press.p1.sub": "Mantenha pressionado para aquecer, solte para parar — 150 °C / 302 °F",
       "step.scoop-drop.press.p1.badge": "Hold",
       "step.activate.bullet.b5": "**Toque a ponta** no seu concentrado para coletar uma pequena quantidade.",
-      "step.scoop-drop.bullet.b4": "**Mantenha o botão pressionado** para aquecer a ponta de cerâmica — ela esquenta em segundos."
+      "step.scoop-drop.bullet.b4": "**Mantenha o botão pressionado** para aquecer a ponta de cerâmica — ela aquece por até **5 segundos** a cada vez que for mantida pressionada."
     }
   }
 }
