@@ -112,7 +112,7 @@
             "n": 5
           },
           "action": "Turn off",
-          "sub": "Auto shut-off after 2 min"
+          "sub": "Auto shut-off after 10 min"
         }
       ],
       "note": {
@@ -183,7 +183,7 @@
     {
       "id": "auto-shut-off",
       "label": "Auto shut-off",
-      "value": "2 minutes"
+      "value": "10 minutes"
     },
     {
       "id": "compatibility",
@@ -225,7 +225,7 @@
     {
       "id": "f1",
       "question": "Nothing happens when I press the button",
-      "answer": "The device auto-sleeps after 2 minutes. Press five times to wake it. If the display still doesn't light up, charge it and try again."
+      "answer": "The device auto-sleeps after 10 minutes. Press five times to wake it. If the display still doesn't light up, charge it and try again."
     },
     {
       "id": "f2",

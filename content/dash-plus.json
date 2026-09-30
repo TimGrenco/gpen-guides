@@ -267,8 +267,8 @@
     },
     {
       "id": "f4",
-      "question": "The display shows an error",
-      "answer": "If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment."
+      "question": "What do the error codes mean?",
+      "answer": "The Dash+ shows a code when something needs attention. **Overheating:** turn it off, wait five minutes, and turn it back on. **E02** (temperature sensor problem) or **E08** (heating coil not connected): contact G Pen support. If the overheating message keeps coming back, contact support too."
     },
     {
       "id": "f5",

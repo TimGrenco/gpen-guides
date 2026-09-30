@@ -126,8 +126,8 @@ PRODUCTS = {
     },
     "grinder": {
         "template": "grinder.template.html",
-        "name": "G Pen Grinder",
-        "category": "3-Piece Dry Herb Grinder",
+        "name": "G Pen 3-Piece Slim Grinder",
+        "category": "Dry Herb Grinder",
         "card_image": "grinder-card.png",
         "images": {},
         "text": {},
