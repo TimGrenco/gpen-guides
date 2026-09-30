@@ -6,4 +6,4 @@ Disallow: /sections/
 Disallow: /scripts/
 Disallow: /*/offline.html
 
-Sitemap: https://timgrenco.github.io/gpen-guides/sitemap.xml
+Sitemap: https://help.gpen.com/sitemap.xml
