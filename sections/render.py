@@ -138,7 +138,7 @@ def render_note(note, id_prefix, leaf_lookup):
 def img_ref(filename):
     """Placeholder build.py resolves per output: img/<basename> (hosted) or a data: URI
     (offline). filename is relative to src/ — e.g. "dash-ii-step-01-charge.jpg" or a
-    CMS upload like "uploads/new-step.jpg"."""
+    newly added image like "images/new-step.jpg"."""
     return "{{img:%s}}" % filename
 
 

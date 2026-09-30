@@ -45,9 +45,8 @@ src/<product>.template.html  page shell: CSS, header/nav, section wrappers, scri
 src/*-card.png, *-hero.*     index / switcher thumbnails
 sections/                    renderer: content JSON -> HTML
   render.py                    partials/ fragments, translations, text polish
-  schema.py / normalize.py     validation + cleanup of what the editor saves
+  schema.py / normalize.py     content validation + cleanup (mints IDs for new items)
 i18n/<product>.json          translation cache, one entry per string (stable IDs)
-admin/                       Decap CMS content editor (config.yml = the forms)
 build.py                     renders everything into the served pages
 serve.py                     local preview on :8811
 
@@ -64,17 +63,9 @@ python3 serve.py        # then open http://localhost:8811
 
 ## Editing content
 
-**Content editor (Decap CMS) at `/admin/`.** Each save is a commit to
-`content/<product>.json` or `src/accessories.json`. Signing in on the live site
-needs a GitHub OAuth proxy, which isn't set up yet (see *Not done yet*); until then
-the editor runs locally against this checkout:
-
-```bash
-npx decap-server        # terminal 1 — lets the editor write to this checkout
-python3 serve.py        # terminal 2 — then open http://localhost:8811/admin/ and click Login
-```
-
-Or edit the JSON directly. Text fields support `**bold**`.
+Edit `content/<product>.json` (steps, specs, FAQ, videos) or `src/accessories.json`
+(Upgrades cards) directly. Text fields support `**bold**`. Upgrades prices follow
+the live gpen.com store price.
 
 **After any content change:**
 
@@ -88,16 +79,13 @@ python3 build.py                        # pick up the new translations
 sends strings whose English changed, keyed by each item's stable ID, so editing or
 reordering one bullet re-translates just that bullet.
 
-Locally the step thumbnails in the editor stay blank until you open **Media** once
-— a quirk of the local backend only.
-
 ## Adding a product
 
 1. Copy an existing shell to `src/<product>.template.html` — e.g.
    `src/melt.template.html`, or `src/grinder.template.html` for a guide without
    videos — and change the title, meta description, bar name, product name and
    Upgrades subtitle.
-2. Add the product to `PRODUCTS` in `build.py` and a file entry in `admin/config.yml`.
+2. Add the product to `PRODUCTS` in `build.py`.
 3. Create `content/<product>.json` (copy one and edit), add its step images to
    `src/images/` and its card image to `src/`, and its Upgrades cards to
    `src/accessories.json`.
@@ -126,13 +114,11 @@ picked from the browser's time zone.
 The Grinder has no print manual; its guide was written from its one-sheet, box
 and store listing.
 
-## Not done yet
+## Publishing
 
-- **Live editor sign-in:** Decap's GitHub login needs a small OAuth proxy
-  (e.g. a free Cloudflare Worker); then set `backend.base_url` in `admin/config.yml`.
-- **Auto-publish on save:** a GitHub Action that runs `build.py` +
-  `gen_i18n.py` on push (translation in CI needs an Anthropic API key as a secret).
-  Until then someone runs the three commands above and commits.
+Nothing builds on push: run the three commands above, commit (including the
+regenerated pages), and push to `main`. GitHub Pages republishes within a minute
+or two.
 
 ## One-time migration scripts
 

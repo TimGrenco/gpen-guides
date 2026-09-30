@@ -1,7 +1,7 @@
-"""Clean up content/<slug>.json as saved by the CMS before it's validated and rendered.
+"""Clean up content/<slug>.json before it's validated and rendered.
 
-The CMS form writes blank optional fields as "" (or drops them), and a newly added
-list item arrives with no stable ID. Normalizing fixes both deterministically, so an
+Hand edits often leave blank optional fields as "" (or drop them), and a newly added
+list item has no stable ID yet. Normalizing fixes both deterministically, so an
 ID is minted once and then written back to the file — it never changes afterwards,
 which is what keeps its cached translations attached to it.
 """

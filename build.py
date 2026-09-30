@@ -273,7 +273,7 @@ def content_images(content: dict) -> list[str]:
 def load_content(slug: str):
     """Load, normalize and validate content/<slug>.json (steps/attachments/specs/faq/videos).
 
-    Normalizing writes back any freshly minted IDs (e.g. a bullet just added in the CMS),
+    Normalizing writes back any freshly minted IDs (e.g. a bullet just added by hand),
     so they stay stable from then on. Bad content fails the build loudly rather than
     publishing a half-broken guide.
     """
@@ -396,7 +396,7 @@ def build_product(slug: str, spec: dict) -> None:
         offline = offline.replace("{{%s}}" % key, data_uri(src))
 
     # Images referenced from content/<slug>.json by filename (relative to src/, e.g. a
-    # CMS upload under src/uploads/) — published flat into <product>/img/.
+    # guide image under src/images/) — published flat into <product>/img/.
     for ref in sorted(set(IMG_REF_RE.findall(hosted))):
         src = SRC / ref
         name = pathlib.PurePosixPath(ref).name
