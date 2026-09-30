@@ -8,7 +8,6 @@
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 <title>G Pen Dash+ — How to Use</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,800&family=Lato:wght@300;400;700;900&display=swap');
 /* ============================================================
    TOKENS
    ============================================================ */
@@ -519,10 +518,220 @@ footer .legal{font-size:11.5px; line-height:1.6}
 .legacy-grid{display:grid; gap:10px; grid-template-columns:1fr 1fr}
 @media (min-width:480px){.legacy-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
+<link rel="preload" href="../core/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../core/fonts/kanit-800i-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../core/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../core/apple-touch-icon.png">
+<link rel="canonical" href="https://timgrenco.github.io/gpen-guides/dash-plus/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G Pen">
+<meta property="og:title" content="G Pen Dash+ — How to Use">
+<meta property="og:description" content="How to charge, load, and use the G Pen Dash+ dry herb vaporizer.">
+<meta property="og:url" content="https://timgrenco.github.io/gpen-guides/dash-plus/">
+<meta property="og:image" content="https://timgrenco.github.io/gpen-guides/dash-plus/img/dash-plus-card.png">
+<meta name="twitter:card" content="summary">
+<style>
+/* G Pen Core fonts — self-hosted woff2 (SIL Open Font License), latin + latin-ext only.
+   Kanit ExtraBold Italic for display type, Lato 400/700/900 for body. ../core/fonts/ is
+   filled in by build.py: a relative path on hosted pages, the site URL in offline copies. */
+@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../core/fonts/kanit-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../core/fonts/kanit-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(../core/fonts/lato-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(../core/fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../core/fonts/lato-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../core/fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../core/fonts/lato-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../core/fonts/lato-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* G Pen Core — shared layer for every guide page and the index.
+   build.py inlines this AFTER each template's own <style>, so a rule here wins over the
+   template's rule of equal specificity. Fixes that apply to every page live here once,
+   instead of seven times in seven diverging template copies. */
+
+/* ---------- tokens: small grey text passes WCAG AA (4.5:1) on every surface ----------
+   --ink-3 was #787E86 in both themes: 4.1:1 on white and 3.8:1 on the light grey cards;
+   4.4:1 on the dark cards. It carries 11–13px labels (eyebrows, spec headings, press
+   sub-lines, bottom-nav labels), so it needs the full 4.5:1. */
+:root{ --ink-3:#686E76; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --ink-3:#868C94; } }
+:root[data-theme="dark"]{ --ink-3:#868C94; }
+
+/* ---------- screen-reader-only text ---------- */
+.sr-only{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+/* ---------- header controls: bigger touch area without changing the look ----------
+   The glyph, language pill and All-guides pill draw 26px tall. The invisible ::after
+   grows each hit area to ~42px so a thumb doesn't miss. */
+.glyph, .lang-btn, .guides-btn{position:relative}
+.glyph::after, .lang-btn::after, .guides-btn::after{content:""; position:absolute; inset:-8px -4px}
+
+/* ---------- language selector component (same markup on every page) ---------- */
+.lang-wrap{position:relative; margin-left:auto}
+.lang-btn{
+  display:flex; align-items:center; gap:5px;
+  background:none; border:1px solid var(--line); border-radius:999px;
+  padding:5px 8px 5px 9px; cursor:pointer; color:var(--ink-2);
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; transition:border-color .18s, color .18s;
+  white-space:nowrap; user-select:none;
+}
+.lang-btn svg:first-child{width:14px; height:14px; flex:none}
+.lang-code{font-weight:700; font-size:11px; letter-spacing:.06em}
+.lang-chevron{width:10px; height:7px; flex:none; transition:transform .2s ease}
+.lang-btn[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)}
+.lang-btn:hover{border-color:var(--ink); color:var(--ink)}
+
+.lang-drop{
+  position:absolute; top:calc(100% + 8px); right:0;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,.14);
+  padding:6px; min-width:220px; list-style:none; margin:0;
+  z-index:300;
+}
+.lang-opt{
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:9px; cursor:pointer;
+  transition:background .14s ease;
+  border:1.5px solid transparent;
+}
+.lang-opt:hover{background:var(--surface-2)}
+.lang-opt.active{border-color:var(--ink); background:transparent}
+.lc{
+  font-family:var(--f-body); font-size:10.5px; font-weight:700;
+  letter-spacing:.06em; color:var(--ink-3); width:22px; flex:none;
+}
+.lang-opt.active .lc{color:var(--ink)}
+.ll{flex:1; font-size:15px; font-weight:600; color:var(--ink)}
+.lcheck{width:14px; height:10px; flex:none; color:var(--ink)}
+
+/* ---------- language menu ----------
+   On a phone the menu is anchored to the header's right edge instead of the language
+   pill; the pill sits left of "All guides", so a right-aligned 220px menu ran off the
+   left edge of a 320px screen. */
+.lang-opt:focus{outline:none}
+.lang-opt:focus-visible{outline:2px solid var(--ink); outline-offset:-2px; box-shadow:inset 0 0 0 4px var(--accent)}
+.lang-drop{max-width:calc(100vw - 24px)}
+@media (max-width:560px){
+  .bar-top{position:relative}
+  .lang-wrap{position:static}
+  .lang-drop{top:calc(100% - 4px); right:0}
+}
+
+/* ---------- mobile type floor ---------- */
+.bottom-nav a{font-size:10.5px}
+.press-hold{font-size:10px}
+@media (max-width:420px){ .press-hold{font-size:10px} }
+
+/* ---------- video modal: always fits, close button always on screen ----------
+   The frame was up to 860px wide at 16:9 with the close button 42px above it, so on a
+   phone held sideways (844x390) the video overflowed the screen and the close button
+   sat above the top edge. Cap the width by the available height. */
+.vm-frame{max-width:min(860px, calc((100vh - 120px) * 16 / 9))}
+@supports (height:100dvh){ .vm-frame{max-width:min(860px, calc((100dvh - 120px) * 16 / 9))} }
+.vm-close{width:40px; height:40px; top:-48px}
+.vm-player iframe{display:block}
+
+/* ---------- product switcher sheet ---------- */
+.sheet:focus{outline:none}
+.sheet-close{min-width:40px; min-height:40px}
+.sheet-body{overscroll-behavior:contain}
+
+/* ---------- misc polish ---------- */
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+button{touch-action:manipulation}
+.bottom-nav a, .guide-card, .vid, .acc-card, .card-link{touch-action:manipulation}
+
+/* ---------- focus ring that shows on both themes ----------
+   The accent gold alone is ~1.6:1 against a white page (WCAG 1.4.11 wants 3:1), so the
+   ring is ink with a gold halo: one of the two always contrasts. */
+:focus-visible{outline:2px solid var(--ink); outline-offset:2px; box-shadow:0 0 0 4px var(--accent)}
+nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
+
+/* ---------- video cards: no block elements inside the <button> any more ---------- */
+.vid-thumb, .vid-meta, .vid-title{display:block}
+.vid-meta .vid-title{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; font-size:15px; margin:0; line-height:1.3}
+/* Two videos sit side by side from 560px on every guide (three templates had drifted to
+   one column); a lone video stays full width. */
+@media (min-width:560px){ .vids:has(> :nth-child(2)){grid-template-columns:1fr 1fr} }
+
+/* ---------- shared components ----------
+   These lived only in the one or two templates that happened to use them, while the
+   partials that emit the markup are shared by every guide. Here once, so an attachment,
+   a "need help" drop-down or a second step image renders styled on any product. */
+.note-help{margin:12px 0 0; padding:10px 12px; border-radius:10px;
+  background:var(--accent-wash); border:1px solid var(--line-2)}
+.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+  font-size:13.5px; font-weight:600; color:var(--ink); user-select:none}
+.note-help > summary .note-icon{color:var(--ink-3); margin-top:0}
+.note-help > summary::-webkit-details-marker{display:none}
+.note-help > summary::after{content:""; width:8px; height:8px; margin-left:auto; flex:none;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .2s ease}
+.note-help[open] > summary::after{transform:rotate(225deg); margin-top:-4px}
+.note-help[open] > summary{margin-bottom:10px}
+.note-help .support{gap:8px}
+.attach-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.attach-item{display:flex; gap:20px; align-items:flex-start; padding:26px 0; border-bottom:1px solid var(--line-2)}
+.attach-item:last-child{border-bottom:0}
+.attach-text{min-width:0; padding-top:2px}
+.attach-name{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:0 0 8px}
+.attach-note{margin:0; color:var(--ink-2); font-size:15px}
+.attach-note b{color:var(--ink); font-weight:600}
+.step-img-wrap.step-img-stack{height:auto; display:flex; flex-direction:column; gap:14px}
+.step-img-main{position:relative; width:130px; height:130px}
+@media (min-width:480px){ .step-img-main{width:150px; height:150px} }
+
+/* ---------- index page ---------- */
+.card .thumb img{aspect-ratio:1; object-fit:contain}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important; transition-duration:.001ms!important}
+}
+
+/* ---------- narrow phones: nothing may be wider than the screen ----------
+   Measured before this block: at 320px every guide was wider than the screen in at least
+   one language (the Micro II was, in English, at 390px), which makes a phone zoom the page
+   out or let it slide sideways. Causes, each fixed below:
+   - the header row: the hidden-until-scrolled product name still took its full width,
+     pushing "All guides" off the right edge in ES/DE/IT/FR/PT;
+   - the step text column is only 134px wide at 320px, so long words (German compounds,
+     "help@gpen.com") could not fit, and flex/grid children refused to shrink below them;
+   - the "Need help?" call/email buttons inside a step were as wide as their text. */
+.bar-name{flex:0 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding-right:.12em}
+.lang-btn, .guides-btn{flex:none}
+.step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row{overflow-wrap:break-word}
+/* Hyphenate only where it's needed: long German compounds, and any language on the
+   narrowest phones. English at normal widths wraps on whole words as before. */
+:lang(de) :is(.step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row){hyphens:auto; -webkit-hyphens:auto}
+@media (max-width:374px){ :is(.step-body, .attach-text, .note, .press-row){hyphens:auto; -webkit-hyphens:auto} }
+.note > span, .press-row > div:last-child, .step-body > *{min-width:0}
+.support{grid-template-columns:minmax(0,1fr)}
+@media (min-width:560px){ .support{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} }
+.note-help .support{grid-template-columns:minmax(0,1fr)}
+.note-help .card-link{padding:10px 12px; gap:10px}
+.note-help .card-link .v{font-size:14.5px; min-width:0; overflow-wrap:anywhere}
+.note-help .card-icon{width:28px; height:28px}
+.card-link .v{min-width:0; overflow-wrap:anywhere}
+@media (max-width:374px){
+  .step, .attach-item{gap:14px}
+  .step-img-wrap, .step-img-main, .step-circle{width:100px; height:100px}
+  .step-img-wrap.step-img-stack{height:auto}
+  .num{width:34px; height:34px; font-size:18px; bottom:-4px; left:-4px}
+  .step h3{font-size:18px}
+  .guides-btn{letter-spacing:.03em; padding-inline:8px 9px}
+}
+
+/* 404 page notice */
+.notfound{margin:0 0 18px; padding:12px 14px; border-radius:10px; background:var(--accent-wash);
+  border:1px solid var(--line-2); color:var(--ink); font-size:15px}
+</style>
 </head>
 <body>
 
-<div class="bar" id="bar">
+<header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
       <a class="glyph" href="../" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
@@ -545,7 +754,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
           <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
         </ul>
       </div>
-      <button class="guides-btn" id="guides-btn" aria-label="All product guides" aria-expanded="false" data-i18n="all_guides">
+      <button class="guides-btn" id="guides-btn" aria-haspopup="dialog" aria-controls="product-sheet" aria-expanded="false" data-i18n="all_guides">
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <rect x="2"  y="2"  width="7" height="7" rx="1.5"/>
           <rect x="11" y="2"  width="7" height="7" rx="1.5"/>
@@ -562,7 +771,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
       <a href="#help" data-i18n="nav_help">Help</a>
     </nav>
   </div>
-</div>
+</header>
 
 <main>
   <header class="page-head wrap">
@@ -596,11 +805,12 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
   <!-- ===================== HOW TO USE ===================== -->
   <section id="use" class="wrap">
+    <h2 class="sr-only" data-i18n="nav_use">How to use</h2>
     <ol class="steps">
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="img/dash-plus-step-01-charge.jpg" alt="G Pen Dash+ USB-C charging port" loading="lazy"></div>
+          <div class="step-circle"><img src="img/dash-plus-step-01-charge.jpg" srcset="img/dash-plus-step-01-charge-300.webp 300w, img/dash-plus-step-01-charge-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Dash+ USB-C charging port" loading="lazy"></div>
           <div class="num">1</div>
         </div>
         <div class="step-body" data-i18n-zone="step1_body">
@@ -614,7 +824,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="img/dash-plus-step-02-load.jpg" alt="Loading the G Pen Dash+ herb chamber" loading="lazy"></div>
+          <div class="step-circle"><img src="img/dash-plus-step-02-load.jpg" srcset="img/dash-plus-step-02-load-300.webp 300w, img/dash-plus-step-02-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Loading the G Pen Dash+ herb chamber" loading="lazy"></div>
           <div class="num">2</div>
         </div>
         <div class="step-body" data-i18n-zone="step2_body">
@@ -631,7 +841,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="img/dash-plus-step-03-heat.jpg" alt="Setting temperature on the G Pen Dash+" loading="lazy"></div>
+          <div class="step-circle"><img src="img/dash-plus-step-03-heat.jpg" srcset="img/dash-plus-step-03-heat-300.webp 300w, img/dash-plus-step-03-heat-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Setting temperature on the G Pen Dash+" loading="lazy"></div>
           <div class="num">3</div>
         </div>
         <div class="step-body" data-i18n-zone="step3_body">
@@ -677,7 +887,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="img/dash-plus-step-04-draw.jpg" alt="Drawing from the G Pen Dash+" loading="lazy"></div>
+          <div class="step-circle"><img src="img/dash-plus-step-04-draw.jpg" srcset="img/dash-plus-step-04-draw-300.webp 300w, img/dash-plus-step-04-draw-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Drawing from the G Pen Dash+" loading="lazy"></div>
           <div class="num">4</div>
         </div>
         <div class="step-body" data-i18n-zone="step4_body">
@@ -700,19 +910,19 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <section id="videos" class="wrap">
     <div class="sec-head"><h2 class="d" data-i18n="sec_videos">Videos</h2></div>
     <div class="vids" data-i18n-zone="vids_block">
-      <button class="vid" data-vimeo="989095151" aria-label="Play Using the Dash+ video">
-        <div class="vid-thumb">
-          <img src="img/dash-plus-video-how-to-use.jpg" alt="Still from the Using the Dash+ video" loading="lazy">
+      <button type="button" class="vid" data-vimeo="989095151">
+        <span class="vid-thumb">
+          <img src="img/dash-plus-video-how-to-use.jpg" srcset="img/dash-plus-video-how-to-use-480.webp 480w, img/dash-plus-video-how-to-use-960.webp 960w" sizes="(min-width:680px) 322px, (min-width:560px) 46vw, calc(100vw - 36px)" width="960" height="540" alt="" loading="lazy">
           <span class="play" aria-hidden="true"></span>
-        </div>
-        <div class="vid-meta"><h3 data-i18n="vid1_title">Using the Dash+</h3></div>
+        </span>
+        <span class="vid-meta"><span class="vid-title" data-i18n="vid1_title">Using the Dash+</span></span>
       </button>
-      <button class="vid" data-vimeo="989096678" aria-label="Play Cleaning the Dash+ video">
-        <div class="vid-thumb">
-          <img src="img/dash-plus-video-cleaning.jpg" alt="Still from the Cleaning the Dash+ video" loading="lazy">
+      <button type="button" class="vid" data-vimeo="989096678">
+        <span class="vid-thumb">
+          <img src="img/dash-plus-video-cleaning.jpg" srcset="img/dash-plus-video-cleaning-480.webp 480w, img/dash-plus-video-cleaning-960.webp 960w" sizes="(min-width:680px) 322px, (min-width:560px) 46vw, calc(100vw - 36px)" width="960" height="540" alt="" loading="lazy">
           <span class="play" aria-hidden="true"></span>
-        </div>
-        <div class="vid-meta"><h3 data-i18n="vid2_title">Cleaning the Dash+</h3></div>
+        </span>
+        <span class="vid-meta"><span class="vid-title" data-i18n="vid2_title">Cleaning the Dash+</span></span>
       </button>
     </div>
   </section>
@@ -729,7 +939,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
         <div class="acc-card-body">
           <span class="acc-card-name" data-i18n="acc1_name">3-Piece Slim Grinder</span>
           <span class="acc-card-price">$24.95</span>
-          <span class="acc-card-note" data-i18n="acc1_note">Micro-rounded teeth for a consistent grind that preserves terpenes and cannabinoids.</span>
+          <span class="acc-card-note" data-i18n="acc1_note">Micro-rounded teeth for a consistent grind that helps preserve terpenes and cannabinoids.</span>
           <span class="acc-shop" data-i18n="acc_shop">Shop</span>
         </div>
       </a>
@@ -785,13 +995,13 @@ footer .legal{font-size:11.5px; line-height:1.6}
               <tr><th scope="row">Airpath</th><td>Spiral ceramic (hybrid conduction + convection)</td></tr>
               <tr><th scope="row">Heat-up time</th><td>~20 seconds</td></tr>
               <tr><th scope="row">Battery</th><td>1,800 mAh</td></tr>
-              <tr><th scope="row">Charging</th><td>USB-C, ~40 min per charge</td></tr>
+              <tr><th scope="row">Charging</th><td>USB-C (about 40 minutes of heating per full charge)</td></tr>
               <tr><th scope="row">Auto shut-off</th><td>1 minute of inactivity</td></tr>
               <tr><th scope="row">Dimensions</th><td>4.3" × 1.6" × 0.8"</td></tr>
               <tr><th scope="row">Weight</th><td>276 g</td></tr>
               <tr><th scope="row">SKU</th><td>GPD-001-AMZZ</td></tr>
               <tr><th scope="row">UPC</th><td>811736027489</td></tr>
-              <tr><th scope="row">Warranty</th><td>2-year limited (3 years with registration)</td></tr>
+              <tr><th scope="row">Warranty</th><td>2-year limited</td></tr>
             </tbody>
           </table>
         </div>
@@ -821,12 +1031,12 @@ footer .legal{font-size:11.5px; line-height:1.6}
             <p>Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and airpath regularly — residue buildup is the most common cause of reduced vapor and off flavor.</p>
           </details>
           <details>
-            <summary>What do the error codes mean?</summary>
+            <summary>The display shows an error</summary>
             <p>If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment.</p>
           </details>
           <details>
             <summary>What does the warranty cover?</summary>
-            <p>The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Register your device at gpen.com to extend it to 3 years. Physical damage is not covered.</p>
+            <p>The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Physical damage is not covered.</p>
           </details>
         </div>
       </div>
@@ -864,10 +1074,10 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
 <!-- ========== PRODUCT SWITCHER SHEET ========== -->
 <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
-<div class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-label="All G Pen guides" hidden>
+<div class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1" hidden>
   <div class="sheet-handle"></div>
   <div class="sheet-head">
-    <span class="sheet-title" data-i18n="guides_title">G Pen Guides</span>
+    <span class="sheet-title" id="sheet-title" data-i18n="guides_title">G Pen Guides</span>
     <button class="sheet-close" id="sheet-close" aria-label="Close">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
     </button>
@@ -875,52 +1085,52 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <div class="sheet-body">
     <div class="sheet-grid">
       <a class="guide-card" href="../hydout/"  >
-        <div class="gc-img"><img src="../hydout/img/hero.png" alt="G Pen Hydout" loading="lazy"></div>
+        <div class="gc-img"><img src="../hydout/img/hero.png" srcset="../hydout/img/hero-160.webp 160w, ../hydout/img/hero-320.webp 320w, ../hydout/img/hero-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="720" height="720" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Hydout</span>
-          <span class="gc-cat">510 Cartridge Battery</span>
+          <span class="gc-cat" data-i18n="cat_hydout">510 Cartridge Battery</span>
         </div>
       </a>
       <a class="guide-card" href="../dash-ii/"  >
-        <div class="gc-img"><img src="../dash-ii/img/dash-ii-card.png" alt="G Pen Dash II" loading="lazy"></div>
+        <div class="gc-img"><img src="../dash-ii/img/dash-ii-card.png" srcset="../dash-ii/img/dash-ii-card-160.webp 160w, ../dash-ii/img/dash-ii-card-320.webp 320w, ../dash-ii/img/dash-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1448" height="1448" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Dash II</span>
-          <span class="gc-cat">Dry Herb Vaporizer</span>
+          <span class="gc-cat" data-i18n="cat_dash-ii">Dry Herb Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../510-original/"  >
-        <div class="gc-img"><img src="../510-original/img/510-original-card.png" alt="G Pen 510 Original" loading="lazy"></div>
+        <div class="gc-img"><img src="../510-original/img/510-original-card.png" srcset="../510-original/img/510-original-card-160.webp 160w, ../510-original/img/510-original-card-320.webp 320w, ../510-original/img/510-original-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1448" height="1448" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen 510 Original</span>
-          <span class="gc-cat">510 Cartridge Battery</span>
+          <span class="gc-cat" data-i18n="cat_510-original">510 Cartridge Battery</span>
         </div>
       </a>
       <a class="guide-card" href="../micro-ii/"  >
-        <div class="gc-img"><img src="../micro-ii/img/micro-ii-card.png" alt="G Pen Micro II" loading="lazy"></div>
+        <div class="gc-img"><img src="../micro-ii/img/micro-ii-card.png" srcset="../micro-ii/img/micro-ii-card-160.webp 160w, ../micro-ii/img/micro-ii-card-320.webp 320w, ../micro-ii/img/micro-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1448" height="1448" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Micro II</span>
-          <span class="gc-cat">Concentrate Vaporizer</span>
+          <span class="gc-cat" data-i18n="cat_micro-ii">Concentrate Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../melt/"  >
-        <div class="gc-img"><img src="../melt/img/melt-card.png" alt="G Pen Melt" loading="lazy"></div>
+        <div class="gc-img"><img src="../melt/img/melt-card.png" srcset="../melt/img/melt-card-160.webp 160w, ../melt/img/melt-card-320.webp 320w, ../melt/img/melt-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1448" height="1448" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Melt</span>
-          <span class="gc-cat">Hot Knife / Dab Tool</span>
+          <span class="gc-cat" data-i18n="cat_melt">Hot Knife / Dab Tool</span>
         </div>
       </a>
       <a class="guide-card" href="./"  aria-current="true">
-        <div class="gc-img"><img src="../dash-plus/img/dash-plus-card.png" alt="G Pen Dash+" loading="lazy"></div>
+        <div class="gc-img"><img src="../dash-plus/img/dash-plus-card.png" srcset="../dash-plus/img/dash-plus-card-160.webp 160w, ../dash-plus/img/dash-plus-card-320.webp 320w, ../dash-plus/img/dash-plus-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1448" height="1448" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Dash+</span>
-          <span class="gc-cat">Dry Herb Vaporizer</span>
+          <span class="gc-cat" data-i18n="cat_dash-plus">Dry Herb Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../grinder/"  >
-        <div class="gc-img"><img src="../grinder/img/grinder-card.png" alt="G Pen Grinder" loading="lazy"></div>
+        <div class="gc-img"><img src="../grinder/img/grinder-card.png" srcset="../grinder/img/grinder-card-160.webp 160w, ../grinder/img/grinder-card-320.webp 320w, ../grinder/img/grinder-card-640.webp 560w" sizes="(min-width:480px) 190px, 44vw" alt="" width="560" height="560" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Grinder</span>
-          <span class="gc-cat">3-Piece Dry Herb Grinder</span>
+          <span class="gc-cat" data-i18n="cat_grinder">3-Piece Dry Herb Grinder</span>
         </div>
       </a>
     </div>
@@ -933,7 +1143,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <div class="vm-frame">
     <button class="vm-close" id="vm-close" aria-label="Close video">&#x2715;</button>
     <div class="vm-player">
-      <iframe id="vm-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <iframe id="vm-iframe" title="Video player" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -974,120 +1184,8 @@ footer .legal{font-size:11.5px; line-height:1.6}
   </a>
 </nav>
 
-<script>
-(function(){
-  var bar = document.getElementById('bar');
-  var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
-  var HREFS = ['#use','#videos','#upgrade','#help'];
-  var topLinks    = HREFS.map(function(h){ return document.querySelector('nav.jump a[href="'+h+'"]'); });
-  var bottomLinks = HREFS.map(function(h){ return document.querySelector('.bottom-nav a[href="'+h+'"]'); });
-  var targets     = HREFS.map(function(h){ return document.querySelector(h); });
-
-  function setActive(i){
-    [topLinks, bottomLinks].forEach(function(group){
-      group.forEach(function(a, j){
-        if (a) a.setAttribute('aria-current', j === i ? 'true' : 'false');
-      });
-    });
-  }
-
-  var NAV_H = 108;
-  function spy(){
-    var active = 0;
-    for (var i = 0; i < targets.length; i++){
-      if (!targets[i]) continue;
-      if (targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
-    }
-    setActive(active);
-  }
-  spy();
-  window.addEventListener('scroll', spy, {passive:true});
-
-  // Invisible spacer ensures the last nav target can always scroll to its position on short pages.
-  var _sp = document.createElement('div');
-  document.querySelector('main').appendChild(_sp);
-  function _adj(){ var last = targets[targets.length-1]; if(!last) return; var gap = last.offsetTop - NAV_H + window.innerHeight - document.documentElement.scrollHeight; _sp.style.height = (gap > 0 ? gap : 0) + 'px'; }
-  _adj();
-  window.addEventListener('resize', _adj);
-})();
-
-(function(){
-  var btn  = document.getElementById('lang-btn');
-  var drop = document.getElementById('lang-drop');
-  var code = document.getElementById('lang-code');
-  if (!btn || !drop) return;
-  function openDrop(){ drop.hidden = false; btn.setAttribute('aria-expanded','true'); }
-  function closeDrop(){ drop.hidden = true; btn.setAttribute('aria-expanded','false'); }
-  btn.addEventListener('click', function(e){ e.stopPropagation(); drop.hidden ? openDrop() : closeDrop(); });
-  drop.addEventListener('click', function(e){
-    var opt = e.target.closest('.lang-opt');
-    if (!opt) return;
-    drop.querySelectorAll('.lang-opt').forEach(function(o){
-      o.classList.remove('active'); o.setAttribute('aria-selected','false');
-      var chk = o.querySelector('.lcheck'); if (chk) chk.remove();
-    });
-    opt.classList.add('active'); opt.setAttribute('aria-selected','true');
-    var chk = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    chk.setAttribute('viewBox','0 0 14 10'); chk.setAttribute('fill','none');
-    chk.setAttribute('stroke','currentColor'); chk.setAttribute('stroke-width','2');
-    chk.setAttribute('stroke-linecap','round'); chk.setAttribute('stroke-linejoin','round');
-    chk.setAttribute('class','lcheck'); chk.innerHTML = '<polyline points="1,5 5,9 13,1"/>';
-    opt.appendChild(chk); code.textContent = opt.dataset.lang; if(window._i18n) window._i18n(opt.dataset.lang); closeDrop();
-  });
-  document.addEventListener('click', closeDrop);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDrop(); });
-})();
-
-(function(){
-  var btn      = document.getElementById('guides-btn');
-  var sheet    = document.getElementById('product-sheet');
-  var backdrop = document.getElementById('sheet-backdrop');
-  var closeBtn = document.getElementById('sheet-close');
-  if (!btn || !sheet) return;
-  function open(){
-    sheet.hidden = false; backdrop.hidden = false;
-    requestAnimationFrame(function(){ sheet.classList.add('open'); backdrop.classList.add('open'); });
-    btn.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden';
-  }
-  function close(){
-    sheet.classList.remove('open'); backdrop.classList.remove('open');
-    btn.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
-    setTimeout(function(){ sheet.hidden = true; backdrop.hidden = true; }, 320);
-  }
-  btn.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
-  backdrop.addEventListener('click', close);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
-  var startY = 0;
-  sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; }, {passive:true});
-  sheet.addEventListener('touchend', function(e){ if (e.changedTouches[0].clientY - startY > 60) close(); }, {passive:true});
-})();
-
-(function(){
-  var backdrop = document.getElementById('vm-backdrop');
-  var modal    = document.getElementById('vm');
-  var iframe   = document.getElementById('vm-iframe');
-  var closeBtn = document.getElementById('vm-close');
-  if (!modal) return;
-  function openVid(vimeoId){
-    iframe.src = 'https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&dnt=1';
-    backdrop.hidden = false; modal.hidden = false; document.body.style.overflow = 'hidden';
-  }
-  function closeVid(){
-    iframe.src = ''; backdrop.hidden = true; modal.hidden = true; document.body.style.overflow = '';
-  }
-  document.querySelectorAll('.vid[data-vimeo]').forEach(function(btn){
-    btn.addEventListener('click', function(){ openVid(btn.dataset.vimeo); });
-  });
-  closeBtn.addEventListener('click', closeVid);
-  backdrop.addEventListener('click', closeVid);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) closeVid(); });
-})();
-</script>
-
-<script>window._T={"EN": {"all_guides": "All guides", "nav_use": "How to use", "nav_videos": "Videos", "nav_upgrade": "Upgrades", "nav_help": "Help", "eyebrow": "Using your", "register_long": "Register your product", "sec_videos": "Videos", "upgrade_title": "Upgrades", "upgrade_sub": "Accessories & replacement parts for your Dash+.", "acc1_name": "3-Piece Slim Grinder", "acc1_note": "Micro-rounded teeth for a consistent grind that preserves terpenes and cannabinoids.", "acc_shop": "Shop", "acc2_name": "Mouthpiece Assembly", "acc2_note": "Complete replacement mouthpiece with silicone insert, ceramic spiral air path and filter screen.", "acc3_name": "Filter Screens, 5-Pack", "acc3_note": "Replacement filter screens for the Dash+ mouthpiece silicone insert.", "acc4_name": "Mouthpiece Insert", "acc4_note": "Replacement silicone insert with filter screen and ceramic spiral air path.", "upgrade_btn": "Shop all accessories", "sec_specs": "Specs", "sum_specs": "View Product Details", "sec_help": "Help", "sum_faq": "Common questions", "still_stuck": "Still stuck?", "guides_title": "G Pen Guides", "bn_steps": "Steps", "bn_videos": "Videos", "bn_upgrade": "Upgrades", "bn_help": "Help", "step1_body": "<h3>Charge</h3>\n          <ul class=\"do\">\n            <li>Plug <b>any USB-C cable</b> into the charging port on the side.</li>\n            <li>Give it a full charge before first use — takes about <b>1 hour</b>.</li>\n          </ul>", "step2_body": "<h3>Load</h3>\n          <ul class=\"do\">\n            <li>Remove the <b>magnetic mouthpiece</b>.</li>\n            <li><b>Fully load</b> the <b>titanium chamber</b> with ground dry herb.</li>\n            <li><b>Pack lightly</b> with the included pick tool — do not overpack.</li>\n            <li><b>Re-attach</b> the mouthpiece before powering on.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>~0.3g capacity.</b> A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.</span></p>", "step3_body": "<h3>Activate</h3>\n          <ul class=\"do\">\n            <li><b>Hold the power button for 3 seconds</b> to turn on. The display lights up.</li>\n            <li>Press <b>Left / Right</b> to adjust your target temperature.</li>\n            <li><b>Double-click</b> to start a session. The device vibrates when it reaches temp (~20 sec).</li>\n            <li>The session auto-ends when the countdown hits 0:00. Device goes to standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Power on / off</span>\n                <span class=\"press-sub\">Hold the power button for 3 seconds</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Adjust temperature</span>\n                <span class=\"press-sub\">Right = increase · Left = decrease</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Start / cancel session</span>\n                <span class=\"press-sub\">Double-click the power button</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Settings menu</span>\n                <span class=\"press-sub\">Session timer · Temp unit · Brightness · Haptics</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Draw</h3>\n          <ul class=\"do\">\n            <li>Once the device vibrates, wait <b>30 seconds</b> for your material to bake, then <b>draw slowly and steadily</b> through the mouthpiece.</li>\n            <li>The spiral ceramic airpath cools vapor before it reaches you.</li>\n            <li>Device powers off automatically after <b>1 minute</b> of no activity.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>After your session:</b> Let the device cool, then remove the mouthpiece and brush out the chamber and mouthpiece filter screen. Regular cleaning keeps flavor and airflow at their best.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Type</th><td>Dry Herb Vaporizer</td></tr>\n              <tr><th scope=\"row\">Chamber</th><td>~0.3g titanium</td></tr>\n              <tr><th scope=\"row\">Airpath</th><td>Spiral ceramic (hybrid conduction + convection)</td></tr>\n              <tr><th scope=\"row\">Heat-up time</th><td>~20 seconds</td></tr>\n              <tr><th scope=\"row\">Battery</th><td>1,800 mAh</td></tr>\n              <tr><th scope=\"row\">Charging</th><td>USB-C, ~40 min per charge</td></tr>\n              <tr><th scope=\"row\">Auto shut-off</th><td>1 minute of inactivity</td></tr>\n              <tr><th scope=\"row\">Dimensions</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Weight</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Warranty</th><td>2-year limited (3 years with registration)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Device won't turn on</summary>\n            <p>Hold the power button for a full 3 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on.</p>\n          </details>\n          <details>\n            <summary>How do I know it's ready to use?</summary>\n            <p>After you double-click to start a session, the device vibrates once when it reaches your set temperature. The session countdown then begins on the display.</p>\n          </details>\n          <details>\n            <summary>Vapor is thin or tastes off</summary>\n            <p>Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and airpath regularly — residue buildup is the most common cause of reduced vapor and off flavor.</p>\n          </details>\n          <details>\n            <summary>What do the error codes mean?</summary>\n            <p>If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment.</p>\n          </details>\n          <details>\n            <summary>What does the warranty cover?</summary>\n            <p>The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Register your device at gpen.com to extend it to 3 years. Physical damage is not covered.</p>\n          </details>", "vid1_title": "Using the Dash+", "vid2_title": "Cleaning the Dash+"}, "ES": {"all_guides": "Todas las guías", "nav_use": "Cómo usar", "nav_videos": "Videos", "nav_upgrade": "Mejoras", "nav_help": "Ayuda", "eyebrow": "Cómo usar tu", "sec_videos": "Videos", "upgrade_title": "Mejoras", "upgrade_sub": "Accesorios y repuestos para tu Dash+.", "acc1_name": "Grinder delgado de 3 piezas", "acc1_note": "Dientes micro-redondeados para una molienda uniforme que preserva los terpenos y cannabinoides.", "acc_shop": "Comprar", "acc2_name": "Boquilla completa", "acc2_note": "Boquilla de repuesto completa con inserto de silicona, trayecto de aire de cerámica en espiral y malla filtrante.", "acc3_name": "Mallas filtrantes, paquete de 5", "acc3_note": "Mallas filtrantes de repuesto para el inserto de silicona de la boquilla del Dash+.", "acc4_name": "Inserto de boquilla", "acc4_note": "Inserto de silicona de repuesto con malla filtrante y trayecto de aire de cerámica en espiral.", "upgrade_btn": "Ver todos los accesorios", "sec_specs": "Especificaciones", "sum_specs": "Ver detalles del producto", "sec_help": "Ayuda", "sum_faq": "Preguntas frecuentes", "still_stuck": "¿Sigues con problemas?", "guides_title": "Guías de G Pen", "bn_steps": "Pasos", "bn_videos": "Videos", "bn_upgrade": "Mejoras", "bn_help": "Ayuda", "register_long": "Registra tu producto", "step1_body": "<h3>Carga</h3>\n          <ul class=\"do\">\n            <li>Conecta <b>cualquier cable USB-C</b> al puerto de carga que está en el costado.</li>\n            <li>Cárgalo por completo antes del primer uso — toma aproximadamente <b>1 hora</b>.</li>\n          </ul>", "step2_body": "<h3>Llena</h3>\n          <ul class=\"do\">\n            <li>Retira la <b>boquilla magnética</b>.</li>\n            <li><b>Llena por completo</b> la <b>cámara de titanio</b> con hierba seca molida.</li>\n            <li><b>Compacta ligeramente</b> con la herramienta incluida; no lo aprietes demasiado.</li>\n            <li><b>Vuelve a colocar</b> la boquilla antes de encender.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacidad de ~0.3g.</b> Un llenado adecuado permite el flujo de aire — llenar de más restringe las caladas y reduce la calidad del vapor.</span></p>", "step3_body": "<h3>Activar</h3>\n          <ul class=\"do\">\n            <li><b>Mantén presionado el botón de encendido durante 3 segundos</b> para encender. La pantalla se ilumina.</li>\n            <li>Presiona <b>Izquierda / Derecha</b> para ajustar la temperatura deseada.</li>\n            <li><b>Haz doble clic</b> para iniciar una sesión. El dispositivo vibra al alcanzar la temperatura (~20 seg).</li>\n            <li>La sesión termina automáticamente cuando la cuenta regresiva llega a 0:00. El dispositivo pasa a modo de espera.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Encender / apagar</span>\n                <span class=\"press-sub\">Mantén presionado el botón de encendido durante 3 segundos</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Ajustar la temperatura</span>\n                <span class=\"press-sub\">Derecha = aumentar · Izquierda = disminuir</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Iniciar / cancelar sesión</span>\n                <span class=\"press-sub\">Haz doble clic en el botón de encendido</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menú de configuración</span>\n                <span class=\"press-sub\">Temporizador de sesión · Unidad de temperatura · Brillo · Vibración</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Inhala</h3>\n          <ul class=\"do\">\n            <li>Una vez que el dispositivo vibre, espera <b>30 segundos</b> para que tu material se caliente, luego <b>da una calada lenta y constante</b> por la boquilla.</li>\n            <li>El trayecto de aire de cerámica en espiral enfría el vapor antes de que llegue a ti.</li>\n            <li>El dispositivo se apaga automáticamente después de <b>1 minuto</b> sin actividad.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Después de tu sesión:</b> Deja que el dispositivo se enfríe, luego retira la boquilla y cepilla la cámara y la rejilla filtrante de la boquilla. La limpieza regular mantiene el sabor y el flujo de aire en su mejor punto.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizador de hierbas secas</td></tr>\n              <tr><th scope=\"row\">Cámara</th><td>Titanio de ~0.3 g</td></tr>\n              <tr><th scope=\"row\">Trayecto de aire</th><td>Cerámica en espiral (conducción + convección híbridas)</td></tr>\n              <tr><th scope=\"row\">Tiempo de calentamiento</th><td>~20 segundos</td></tr>\n              <tr><th scope=\"row\">Batería</th><td>1,800 mAh</td></tr>\n              <tr><th scope=\"row\">Carga</th><td>USB-C, ~40 min por carga</td></tr>\n              <tr><th scope=\"row\">Apagado automático</th><td>1 minuto de inactividad</td></tr>\n              <tr><th scope=\"row\">Dimensiones</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantía</th><td>Limitada de 2 años (3 años con registro)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>El dispositivo no enciende</summary>\n            <p>Mantén presionado el botón de encendido durante 3 segundos completos. Si no sucede nada, carga el dispositivo — es posible que la batería esté agotada. La pantalla LED se ilumina cuando está encendido.</p>\n          </details>\n          <details>\n            <summary>¿Cómo sé que está listo para usarse?</summary>\n            <p>Después de hacer doble clic para iniciar una sesión, el dispositivo vibra una vez cuando alcanza la temperatura configurada. Luego, la cuenta regresiva de la sesión comienza en la pantalla.</p>\n          </details>\n          <details>\n            <summary>El vapor es escaso o tiene mal sabor</summary>\n            <p>Prueba con una molienda más fina y asegúrate de que la cámara no esté demasiado llena. Limpia la boquilla y el trayecto de aire con regularidad — la acumulación de residuos es la causa más común de menos vapor y sabor desagradable.</p>\n          </details>\n          <details>\n            <summary>¿Qué significan los códigos de error?</summary>\n            <p>Si la pantalla muestra un error, apaga el dispositivo y vuelve a encenderlo. Si el error persiste después de cargarlo y reiniciarlo, comunícate con el soporte de G Pen para una evaluación de garantía.</p>\n          </details>\n          <details>\n            <summary>¿Qué cubre la garantía?</summary>\n            <p>El Dash+ incluye una garantía limitada de 2 años que cubre los componentes electrónicos y defectos de fabricación. Registra tu dispositivo en gpen.com para extenderla a 3 años. Los daños físicos no están cubiertos.</p>\n          </details>", "vid1_title": "Cómo usar el Dash+", "vid2_title": "Cómo limpiar el Dash+"}, "DE": {"all_guides": "Alle Anleitungen", "nav_use": "Anwendung", "nav_videos": "Videos", "nav_upgrade": "Upgrades", "nav_help": "Hilfe", "eyebrow": "So verwendest du dein", "sec_videos": "Videos", "upgrade_title": "Upgrades", "upgrade_sub": "Zubehör & Ersatzteile für deinen Dash+.", "acc1_name": "3-teiliger Slim Grinder", "acc1_note": "Mikro-abgerundete Zähne für ein gleichmäßiges Mahlgut, das Terpene und Cannabinoide bewahrt.", "acc_shop": "Kaufen", "acc2_name": "Mundstück komplett", "acc2_note": "Komplettes Ersatz-Mundstück mit Silikoneinsatz, spiralförmigem Keramik-Luftweg und Filtersieb.", "acc3_name": "Filtersiebe, 5er-Pack", "acc3_note": "Ersatz-Filtersiebe für den Silikoneinsatz des Dash+ Mundstücks.", "acc4_name": "Mundstückeinsatz", "acc4_note": "Ersatz-Silikoneinsatz mit Filtersieb und spiralförmigem Keramik-Luftweg.", "upgrade_btn": "Alle Zubehörteile ansehen", "sec_specs": "Technische Daten", "sum_specs": "Produktdetails ansehen", "sec_help": "Hilfe", "sum_faq": "Häufige Fragen", "still_stuck": "Immer noch nicht weitergekommen?", "guides_title": "G Pen Anleitungen", "bn_steps": "Schritte", "bn_videos": "Videos", "bn_upgrade": "Upgrades", "bn_help": "Hilfe", "register_long": "Registriere dein Produkt", "step1_body": "<h3>Laden</h3>\n          <ul class=\"do\">\n            <li>Stecke <b>ein beliebiges USB-C-Kabel</b> in den Ladeanschluss an der Seite.</li>\n            <li>Lade das Gerät vor dem ersten Gebrauch vollständig auf — das dauert etwa <b>1 Stunde</b>.</li>\n          </ul>", "step2_body": "<h3>Befüllen</h3>\n          <ul class=\"do\">\n            <li>Entferne das <b>magnetische Mundstück</b>.</li>\n            <li><b>Fülle die Titankammer vollständig</b> mit gemahlenem Trockenkraut.</li>\n            <li><b>Drücke es leicht an</b> – mit dem mitgelieferten Stopfer, aber nicht zu fest.</li>\n            <li><b>Setze das Mundstück wieder auf</b>, bevor du das Gerät einschaltest.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Kapazität von ~0.3g.</b> Eine richtige Befüllung ermöglicht Luftstrom — Überfüllung schränkt die Züge ein und verringert die Dampfqualität.</span></p>", "step3_body": "<h3>Aktivieren</h3>\n          <ul class=\"do\">\n            <li><b>Halte die Ein/Aus-Taste 3 Sekunden lang gedrückt</b>, um das Gerät einzuschalten. Das Display leuchtet auf.</li>\n            <li>Drücke <b>Links / Rechts</b>, um deine gewünschte Temperatur einzustellen.</li>\n            <li><b>Doppelklicke</b>, um eine Session zu starten. Das Gerät vibriert, sobald die Temperatur erreicht ist (ca. 20 Sek.).</li>\n            <li>Die Session endet automatisch, wenn der Countdown 0:00 erreicht. Das Gerät wechselt in den Standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Ein- / Ausschalten</span>\n                <span class=\"press-sub\">Ein/Aus-Taste 3 Sekunden lang gedrückt halten</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Temperatur einstellen</span>\n                <span class=\"press-sub\">Rechts = erhöhen · Links = verringern</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Session starten / abbrechen</span>\n                <span class=\"press-sub\">Doppelklick auf die Ein/Aus-Taste</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Einstellungsmenü</span>\n                <span class=\"press-sub\">Session-Timer · Temperatureinheit · Helligkeit · Haptik</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Ziehen</h3>\n          <ul class=\"do\">\n            <li>Sobald das Gerät vibriert, warte <b>30 Sekunden</b>, damit dein Material erhitzt wird, und ziehe dann <b>langsam und gleichmäßig</b> am Mundstück.</li>\n            <li>Der spiralförmige Keramik-Luftweg kühlt den Dampf, bevor er dich erreicht.</li>\n            <li>Das Gerät schaltet sich nach <b>1 Minute</b> Inaktivität automatisch aus.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Nach der Anwendung:</b> Lass das Gerät abkühlen, entferne dann das Mundstück und bürste die Kammer und das Filtersieb des Mundstücks aus. Regelmäßige Reinigung sorgt für optimalen Geschmack und Luftstrom.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Typ</th><td>Kräuter-Vaporizer</td></tr>\n              <tr><th scope=\"row\">Kammer</th><td>~0,3 g Titan</td></tr>\n              <tr><th scope=\"row\">Luftweg</th><td>Spiralförmige Keramik (hybride Konduktion + Konvektion)</td></tr>\n              <tr><th scope=\"row\">Aufheizzeit</th><td>~20 Sekunden</td></tr>\n              <tr><th scope=\"row\">Akku</th><td>1.800 mAh</td></tr>\n              <tr><th scope=\"row\">Laden</th><td>USB-C, ~40 Min. pro Ladung</td></tr>\n              <tr><th scope=\"row\">Automatische Abschaltung</th><td>1 Minute Inaktivität</td></tr>\n              <tr><th scope=\"row\">Abmessungen</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Gewicht</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantie</th><td>2 Jahre beschränkt (3 Jahre mit Registrierung)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Das Gerät lässt sich nicht einschalten</summary>\n            <p>Halte die Ein/Aus-Taste volle 3 Sekunden lang gedrückt. Passiert nichts, lade das Gerät auf — möglicherweise ist der Akku leer. Das LED-Display leuchtet, wenn das Gerät eingeschaltet ist.</p>\n          </details>\n          <details>\n            <summary>Woran erkenne ich, dass das Gerät bereit ist?</summary>\n            <p>Nachdem du per Doppelklick eine Session gestartet hast, vibriert das Gerät einmal, sobald deine eingestellte Temperatur erreicht ist. Anschließend beginnt der Session-Countdown auf dem Display.</p>\n          </details>\n          <details>\n            <summary>Der Dampf ist dünn oder schmeckt komisch</summary>\n            <p>Probiere ein feineres Mahlgut und achte darauf, dass die Kammer nicht zu voll ist. Reinige Mundstück und Luftweg regelmäßig — Ablagerungen sind die häufigste Ursache für weniger Dampf und einen unangenehmen Geschmack.</p>\n          </details>\n          <details>\n            <summary>Was bedeuten die Fehlercodes?</summary>\n            <p>Wenn das Display einen Fehler anzeigt, schalte das Gerät aus und wieder ein. Besteht der Fehler nach dem Laden und Neustart weiterhin, wende dich für eine Garantieprüfung an den G Pen Support.</p>\n          </details>\n          <details>\n            <summary>Was deckt die Garantie ab?</summary>\n            <p>Der Dash+ verfügt über eine beschränkte 2-Jahres-Garantie, die Elektronik und Herstellungsfehler abdeckt. Registriere dein Gerät auf gpen.com, um sie auf 3 Jahre zu verlängern. Physische Schäden sind nicht abgedeckt.</p>\n          </details>", "vid1_title": "Den Dash+ verwenden", "vid2_title": "Den Dash+ reinigen"}, "IT": {"all_guides": "Tutte le guide", "nav_use": "Come si usa", "nav_videos": "Video", "nav_upgrade": "Upgrade", "nav_help": "Assistenza", "eyebrow": "Come usare il tuo", "sec_videos": "Video", "upgrade_title": "Upgrade", "upgrade_sub": "Accessori e parti di ricambio per il tuo Dash+.", "acc1_name": "Grinder slim a 3 pezzi", "acc1_note": "Denti micro-arrotondati per una macinatura uniforme che preserva terpeni e cannabinoidi.", "acc_shop": "Acquista", "acc2_name": "Boccaglio completo", "acc2_note": "Boccaglio di ricambio completo con inserto in silicone, percorso dell'aria a spirale in ceramica e filtro a rete.", "acc3_name": "Filtri a rete, confezione da 5", "acc3_note": "Filtri a rete di ricambio per l'inserto in silicone del boccaglio del Dash+.", "acc4_name": "Inserto del boccaglio", "acc4_note": "Inserto in silicone di ricambio con filtro a rete e percorso dell'aria a spirale in ceramica.", "upgrade_btn": "Scopri tutti gli accessori", "sec_specs": "Specifiche", "sum_specs": "Vedi i dettagli del prodotto", "sec_help": "Assistenza", "sum_faq": "Domande frequenti", "still_stuck": "Hai ancora dei problemi?", "guides_title": "Guide G Pen", "bn_steps": "Passaggi", "bn_videos": "Video", "bn_upgrade": "Upgrade", "bn_help": "Assistenza", "register_long": "Registra il tuo prodotto", "step1_body": "<h3>Ricarica</h3>\n          <ul class=\"do\">\n            <li>Collega <b>un qualsiasi cavo USB-C</b> alla porta di ricarica sul lato.</li>\n            <li>Caricalo completamente prima del primo utilizzo — ci vuole circa <b>1 ora</b>.</li>\n          </ul>", "step2_body": "<h3>Riempimento</h3>\n          <ul class=\"do\">\n            <li>Rimuovi il <b>bocchino magnetico</b>.</li>\n            <li><b>Carica completamente</b> la <b>camera in titanio</b> con erba secca macinata.</li>\n            <li><b>Pressa leggermente</b> con lo strumento in dotazione, senza esagerare.</li>\n            <li><b>Riattacca</b> il bocchino prima di accendere il dispositivo.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacità di ~0.3g.</b> Un caricamento corretto consente il passaggio dell'aria — un caricamento eccessivo limita i tiri e riduce la qualità del vapore.</span></p>", "step3_body": "<h3>Attiva</h3>\n          <ul class=\"do\">\n            <li><b>Tieni premuto il pulsante di accensione per 3 secondi</b> per accendere. Il display si illumina.</li>\n            <li>Premi <b>Sinistra / Destra</b> per regolare la temperatura desiderata.</li>\n            <li><b>Fai doppio clic</b> per avviare una sessione. Il dispositivo vibra quando raggiunge la temperatura (~20 sec).</li>\n            <li>La sessione termina automaticamente quando il conto alla rovescia arriva a 0:00. Il dispositivo passa in standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Accensione / spegnimento</span>\n                <span class=\"press-sub\">Tieni premuto il pulsante di accensione per 3 secondi</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Regola la temperatura</span>\n                <span class=\"press-sub\">Destra = aumenta · Sinistra = diminuisci</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Avvia / annulla sessione</span>\n                <span class=\"press-sub\">Fai doppio clic sul pulsante di accensione</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu impostazioni</span>\n                <span class=\"press-sub\">Timer sessione · Unità di temperatura · Luminosità · Feedback aptico</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Inspira</h3>\n          <ul class=\"do\">\n            <li>Una volta che il dispositivo vibra, attendi <b>30 secondi</b> affinché il materiale si scaldi, poi <b>inala lentamente e in modo costante</b> dal boccaglio.</li>\n            <li>Il percorso dell'aria a spirale in ceramica raffredda il vapore prima che ti raggiunga.</li>\n            <li>Il dispositivo si spegne automaticamente dopo <b>1 minuto</b> di inattività.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Dopo la sessione:</b> Lascia raffreddare il dispositivo, poi rimuovi il boccaglio e spazzola la camera e il filtro a rete del boccaglio. Una pulizia regolare mantiene al meglio il sapore e il flusso d'aria.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizzatore per erbe secche</td></tr>\n              <tr><th scope=\"row\">Camera</th><td>Titanio da ~0,3 g</td></tr>\n              <tr><th scope=\"row\">Percorso dell'aria</th><td>Spirale in ceramica (conduzione + convezione ibride)</td></tr>\n              <tr><th scope=\"row\">Tempo di riscaldamento</th><td>~20 secondi</td></tr>\n              <tr><th scope=\"row\">Batteria</th><td>1.800 mAh</td></tr>\n              <tr><th scope=\"row\">Ricarica</th><td>USB-C, ~40 min per carica</td></tr>\n              <tr><th scope=\"row\">Spegnimento automatico</th><td>1 minuto di inattività</td></tr>\n              <tr><th scope=\"row\">Dimensioni</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garanzia</th><td>Limitata di 2 anni (3 anni con registrazione)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Il dispositivo non si accende</summary>\n            <p>Tieni premuto il pulsante di accensione per 3 secondi interi. Se non succede nulla, ricarica il dispositivo — la batteria potrebbe essere scarica. Il display LED si illumina quando il dispositivo è acceso.</p>\n          </details>\n          <details>\n            <summary>Come faccio a sapere che è pronto all'uso?</summary>\n            <p>Dopo aver fatto doppio clic per avviare una sessione, il dispositivo vibra una volta quando raggiunge la temperatura impostata. Poi sul display parte il conto alla rovescia della sessione.</p>\n          </details>\n          <details>\n            <summary>Il vapore è scarso o ha un sapore strano</summary>\n            <p>Prova con una macinatura più fine e assicurati che la camera non sia troppo piena. Pulisci regolarmente il boccaglio e il percorso dell'aria — l'accumulo di residui è la causa più comune di vapore ridotto e sapore sgradevole.</p>\n          </details>\n          <details>\n            <summary>Cosa significano i codici di errore?</summary>\n            <p>Se il display mostra un errore, spegni il dispositivo e riaccendilo. Se l'errore persiste dopo la ricarica e il riavvio, contatta l'assistenza G Pen per una valutazione della garanzia.</p>\n          </details>\n          <details>\n            <summary>Cosa copre la garanzia?</summary>\n            <p>Il Dash+ include una garanzia limitata di 2 anni che copre l'elettronica e i difetti di fabbricazione. Registra il tuo dispositivo su gpen.com per estenderla a 3 anni. I danni fisici non sono coperti.</p>\n          </details>", "vid1_title": "Come usare il Dash+", "vid2_title": "Come pulire il Dash+"}, "FR": {"all_guides": "Tous les guides", "nav_use": "Utilisation", "nav_videos": "Vidéos", "nav_upgrade": "Améliorations", "nav_help": "Aide", "eyebrow": "Utiliser votre", "sec_videos": "Vidéos", "upgrade_title": "Améliorations", "upgrade_sub": "Accessoires et pièces de rechange pour votre Dash+.", "acc1_name": "Grinder slim 3 pièces", "acc1_note": "Dents micro-arrondies pour une mouture régulière qui préserve les terpènes et les cannabinoïdes.", "acc_shop": "Acheter", "acc2_name": "Embout complet", "acc2_note": "Embout de rechange complet avec insert en silicone, circuit d'air en céramique en spirale et filtre grillagé.", "acc3_name": "Filtres grillagés, lot de 5", "acc3_note": "Filtres grillagés de rechange pour l'insert en silicone de l'embout du Dash+.", "acc4_name": "Insert d'embout", "acc4_note": "Insert en silicone de rechange avec filtre grillagé et circuit d'air en céramique en spirale.", "upgrade_btn": "Voir tous les accessoires", "sec_specs": "Caractéristiques", "sum_specs": "Voir les détails du produit", "sec_help": "Aide", "sum_faq": "Questions fréquentes", "still_stuck": "Toujours bloqué ?", "guides_title": "Guides G Pen", "bn_steps": "Étapes", "bn_videos": "Vidéos", "bn_upgrade": "Améliorations", "bn_help": "Aide", "register_long": "Enregistrez votre produit", "step1_body": "<h3>Recharge</h3>\n          <ul class=\"do\">\n            <li>Branchez <b>n'importe quel câble USB-C</b> dans le port de charge situé sur le côté.</li>\n            <li>Chargez-le complètement avant la première utilisation — cela prend environ <b>1 heure</b>.</li>\n          </ul>", "step2_body": "<h3>Remplissage</h3>\n          <ul class=\"do\">\n            <li>Retirez l'<b>embout magnétique</b>.</li>\n            <li><b>Remplissez entièrement</b> la <b>chambre en titane</b> avec de l'herbe sèche moulue.</li>\n            <li><b>Tassez légèrement</b> avec l'outil fourni, sans trop serrer.</li>\n            <li><b>Remettez</b> l'embout en place avant d'allumer l'appareil.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacité de ~0.3g.</b> Un remplissage correct permet la circulation de l'air — un remplissage excessif restreint les bouffées et réduit la qualité de la vapeur.</span></p>", "step3_body": "<h3>Activer</h3>\n          <ul class=\"do\">\n            <li><b>Maintenez le bouton d'alimentation enfoncé pendant 3 secondes</b> pour allumer l'appareil. L'écran s'illumine.</li>\n            <li>Appuyez sur <b>Gauche / Droite</b> pour régler la température souhaitée.</li>\n            <li><b>Double-cliquez</b> pour démarrer une session. L'appareil vibre lorsqu'il atteint la température (~20 s).</li>\n            <li>La session se termine automatiquement lorsque le compte à rebours atteint 0:00. L'appareil passe en veille.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Allumer / éteindre</span>\n                <span class=\"press-sub\">Maintenez le bouton d'alimentation enfoncé pendant 3 secondes</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Régler la température</span>\n                <span class=\"press-sub\">Droite = augmenter · Gauche = diminuer</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Démarrer / annuler la session</span>\n                <span class=\"press-sub\">Double-cliquez sur le bouton d'alimentation</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu des paramètres</span>\n                <span class=\"press-sub\">Minuteur de session · Unité de température · Luminosité · Retour haptique</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Inhalation</h3>\n          <ul class=\"do\">\n            <li>Une fois que l'appareil vibre, attendez <b>30 secondes</b> pour que votre matière chauffe, puis <b>inspirez lentement et de façon régulière</b> par l'embout buccal.</li>\n            <li>Le circuit d'air en céramique en spirale refroidit la vapeur avant qu'elle ne vous parvienne.</li>\n            <li>L'appareil s'éteint automatiquement après <b>1 minute</b> d'inactivité.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Après votre session :</b> Laissez l'appareil refroidir, puis retirez l'embout buccal et brossez la chambre et la grille filtrante de l'embout buccal. Un nettoyage régulier préserve une saveur et un flux d'air optimaux.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Type</th><td>Vaporisateur d'herbes sèches</td></tr>\n              <tr><th scope=\"row\">Chambre</th><td>Titane d'environ 0,3 g</td></tr>\n              <tr><th scope=\"row\">Circuit d'air</th><td>Céramique en spirale (conduction + convection hybrides)</td></tr>\n              <tr><th scope=\"row\">Temps de chauffe</th><td>~20 secondes</td></tr>\n              <tr><th scope=\"row\">Batterie</th><td>1 800 mAh</td></tr>\n              <tr><th scope=\"row\">Recharge</th><td>USB-C, ~40 min par charge</td></tr>\n              <tr><th scope=\"row\">Arrêt automatique</th><td>1 minute d'inactivité</td></tr>\n              <tr><th scope=\"row\">Dimensions</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Poids</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantie</th><td>Limitée à 2 ans (3 ans avec enregistrement)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>L'appareil ne s'allume pas</summary>\n            <p>Maintenez le bouton d'alimentation enfoncé pendant 3 secondes complètes. Si rien ne se passe, rechargez l'appareil — la batterie est peut-être déchargée. L'écran LED s'illumine lorsque l'appareil est allumé.</p>\n          </details>\n          <details>\n            <summary>Comment savoir s'il est prêt à l'emploi ?</summary>\n            <p>Après avoir double-cliqué pour démarrer une session, l'appareil vibre une fois lorsqu'il atteint la température réglée. Le compte à rebours de la session démarre alors à l'écran.</p>\n          </details>\n          <details>\n            <summary>La vapeur est faible ou a un mauvais goût</summary>\n            <p>Essayez une mouture plus fine et assurez-vous que la chambre n'est pas trop remplie. Nettoyez régulièrement l'embout et le circuit d'air — l'accumulation de résidus est la cause la plus fréquente d'une vapeur réduite et d'un mauvais goût.</p>\n          </details>\n          <details>\n            <summary>Que signifient les codes d'erreur ?</summary>\n            <p>Si l'écran affiche une erreur, éteignez puis rallumez l'appareil. Si l'erreur persiste après la recharge et le redémarrage, contactez l'assistance G Pen pour une évaluation de la garantie.</p>\n          </details>\n          <details>\n            <summary>Que couvre la garantie ?</summary>\n            <p>Le Dash+ est fourni avec une garantie limitée de 2 ans couvrant l'électronique et les défauts de fabrication. Enregistrez votre appareil sur gpen.com pour la prolonger à 3 ans. Les dommages physiques ne sont pas couverts.</p>\n          </details>", "vid1_title": "Utiliser le Dash+", "vid2_title": "Nettoyer le Dash+"}, "PT": {"all_guides": "Todos os guias", "nav_use": "Como usar", "nav_videos": "Vídeos", "nav_upgrade": "Upgrades", "nav_help": "Ajuda", "eyebrow": "Como usar o seu", "sec_videos": "Vídeos", "upgrade_title": "Upgrades", "upgrade_sub": "Acessórios e peças de reposição para o seu Dash+.", "acc1_name": "Grinder slim de 3 peças", "acc1_note": "Dentes micro-arredondados para uma moagem uniforme que preserva os terpenos e canabinoides.", "acc_shop": "Comprar", "acc2_name": "Bocal completo", "acc2_note": "Bocal de reposição completo com inserto de silicone, caminho de ar em cerâmica espiral e tela de filtro.", "acc3_name": "Telas de filtro, pacote com 5", "acc3_note": "Telas de filtro de reposição para o inserto de silicone do bocal do Dash+.", "acc4_name": "Inserto do bocal", "acc4_note": "Inserto de silicone de reposição com tela de filtro e caminho de ar em cerâmica espiral.", "upgrade_btn": "Ver todos os acessórios", "sec_specs": "Especificações", "sum_specs": "Ver detalhes do produto", "sec_help": "Ajuda", "sum_faq": "Perguntas frequentes", "still_stuck": "Ainda com dificuldades?", "guides_title": "Guias G Pen", "bn_steps": "Passos", "bn_videos": "Vídeos", "bn_upgrade": "Upgrades", "bn_help": "Ajuda", "register_long": "Registre seu produto", "step1_body": "<h3>Carregar</h3>\n          <ul class=\"do\">\n            <li>Conecte <b>qualquer cabo USB-C</b> na porta de carregamento na lateral.</li>\n            <li>Faça uma carga completa antes do primeiro uso — leva cerca de <b>1 hora</b>.</li>\n          </ul>", "step2_body": "<h3>Encher</h3>\n          <ul class=\"do\">\n            <li>Remova o <b>bocal magnético</b>.</li>\n            <li><b>Carregue totalmente</b> a <b>câmara de titânio</b> com a erva seca moída.</li>\n            <li><b>Compacte de leve</b> com a ferramenta incluída — não aperte demais.</li>\n            <li><b>Recoloque</b> o bocal antes de ligar o dispositivo.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacidade de ~0.3g.</b> Um carregamento adequado permite a passagem do ar — carregar demais restringe as tragadas e reduz a qualidade do vapor.</span></p>", "step3_body": "<h3>Ativar</h3>\n          <ul class=\"do\">\n            <li><b>Mantenha o botão liga/desliga pressionado por 3 segundos</b> para ligar. O visor se acende.</li>\n            <li>Pressione <b>Esquerda / Direita</b> para ajustar a temperatura desejada.</li>\n            <li><b>Clique duas vezes</b> para iniciar uma sessão. O dispositivo vibra ao atingir a temperatura (~20 seg).</li>\n            <li>A sessão termina automaticamente quando a contagem regressiva chega a 0:00. O dispositivo entra em modo de espera.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Ligar / desligar</span>\n                <span class=\"press-sub\">Mantenha o botão liga/desliga pressionado por 3 segundos</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Ajustar a temperatura</span>\n                <span class=\"press-sub\">Direita = aumentar · Esquerda = diminuir</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Iniciar / cancelar sessão</span>\n                <span class=\"press-sub\">Clique duas vezes no botão liga/desliga</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu de configurações</span>\n                <span class=\"press-sub\">Timer da sessão · Unidade de temperatura · Brilho · Vibração</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Tragar</h3>\n          <ul class=\"do\">\n            <li>Assim que o dispositivo vibrar, aguarde <b>30 segundos</b> para que seu material aqueça, depois <b>puxe devagar e de forma constante</b> pelo bocal.</li>\n            <li>O caminho de ar em cerâmica espiral resfria o vapor antes que ele chegue até você.</li>\n            <li>O dispositivo desliga automaticamente após <b>1 minuto</b> sem atividade.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Após a sessão:</b> Deixe o dispositivo esfriar, depois remova o bocal e limpe com a escovinha a câmara e a tela filtrante do bocal. A limpeza regular mantém o sabor e o fluxo de ar sempre no melhor nível.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizador de ervas secas</td></tr>\n              <tr><th scope=\"row\">Câmara</th><td>Titânio de ~0,3 g</td></tr>\n              <tr><th scope=\"row\">Caminho de ar</th><td>Cerâmica espiral (condução + convecção híbridas)</td></tr>\n              <tr><th scope=\"row\">Tempo de aquecimento</th><td>~20 segundos</td></tr>\n              <tr><th scope=\"row\">Bateria</th><td>1.800 mAh</td></tr>\n              <tr><th scope=\"row\">Carregamento</th><td>USB-C, ~40 min por carga</td></tr>\n              <tr><th scope=\"row\">Desligamento automático</th><td>1 minuto de inatividade</td></tr>\n              <tr><th scope=\"row\">Dimensões</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantia</th><td>Limitada de 2 anos (3 anos com registro)</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>O dispositivo não liga</summary>\n            <p>Mantenha o botão liga/desliga pressionado por 3 segundos completos. Se nada acontecer, carregue o dispositivo — a bateria pode estar descarregada. O visor LED se acende quando o dispositivo está ligado.</p>\n          </details>\n          <details>\n            <summary>Como sei que está pronto para usar?</summary>\n            <p>Depois de clicar duas vezes para iniciar uma sessão, o dispositivo vibra uma vez ao atingir a temperatura definida. Em seguida, a contagem regressiva da sessão começa no visor.</p>\n          </details>\n          <details>\n            <summary>O vapor está fraco ou com gosto estranho</summary>\n            <p>Experimente uma moagem mais fina e verifique se a câmara não está cheia demais. Limpe o bocal e o caminho de ar regularmente — o acúmulo de resíduos é a causa mais comum de menos vapor e sabor desagradável.</p>\n          </details>\n          <details>\n            <summary>O que significam os códigos de erro?</summary>\n            <p>Se o visor mostrar um erro, desligue o dispositivo e ligue-o novamente. Se o erro persistir após carregar e reiniciar, entre em contato com o suporte da G Pen para uma avaliação de garantia.</p>\n          </details>\n          <details>\n            <summary>O que a garantia cobre?</summary>\n            <p>O Dash+ inclui uma garantia limitada de 2 anos que cobre a parte eletrônica e defeitos de fabricação. Registre seu dispositivo em gpen.com para estendê-la para 3 anos. Danos físicos não são cobertos.</p>\n          </details>", "vid1_title": "Como usar o Dash+", "vid2_title": "Como limpar o Dash+"}};</script>
+<script>window._T={"EN": {"cat_hydout": "510 Cartridge Battery", "cat_510-original": "510 Cartridge Battery", "cat_dash-ii": "Dry Herb Vaporizer", "cat_dash-plus": "Dry Herb Vaporizer", "cat_micro-ii": "Concentrate Vaporizer", "cat_melt": "Hot Knife / Dab Tool", "cat_grinder": "3-Piece Dry Herb Grinder", "cat_elite-ii": "Dry Herb Vaporizer", "cat_micro-plus": "Concentrate Vaporizer", "cat_hyer": "Concentrate Vaporizer", "cat_connect": "Concentrate Vaporizer", "cat_roam": "Portable E-Rig", "legacy_title": "Legacy products", "idx_title": "Product Guides", "idx_intro": "Pick your device below. Next time, scan the code on your device or its box to jump straight to its guide — how to charge it, load it, use it, and keep it clean.", "idx_help": "Need help?", "doc_title_index": "G Pen Product Guides", "nf_text": "We couldn't find that page. Pick your device below to get to its guide.", "doc_title_404": "Page not found — G Pen Product Guides", "all_guides": "All guides", "nav_use": "How to use", "nav_videos": "Videos", "nav_upgrade": "Upgrades", "nav_help": "Help", "eyebrow": "Using your", "register_long": "Register your product", "sec_videos": "Videos", "upgrade_title": "Upgrades", "upgrade_sub": "Accessories & replacement parts for your Dash+.", "acc1_name": "3-Piece Slim Grinder", "acc1_note": "Micro-rounded teeth for a consistent grind that preserves terpenes and cannabinoids.", "acc_shop": "Shop", "acc2_name": "Mouthpiece Assembly", "acc2_note": "Complete replacement mouthpiece with silicone insert, ceramic spiral air path and filter screen.", "acc3_name": "Filter Screens, 5-Pack", "acc3_note": "Replacement filter screens for the Dash+ mouthpiece silicone insert.", "acc4_name": "Mouthpiece Insert", "acc4_note": "Replacement silicone insert with filter screen and ceramic spiral air path.", "upgrade_btn": "Shop all accessories", "sec_specs": "Specs", "sum_specs": "View Product Details", "sec_help": "Help", "sum_faq": "Common questions", "still_stuck": "Still stuck?", "guides_title": "G Pen Guides", "bn_steps": "Steps", "bn_videos": "Videos", "bn_upgrade": "Upgrades", "bn_help": "Help", "step1_body": "<h3>Charge</h3>\n          <ul class=\"do\">\n            <li>Plug <b>any USB-C cable</b> into the charging port on the side.</li>\n            <li>Give it a full charge before first use — takes about <b>1 hour</b>.</li>\n          </ul>", "step2_body": "<h3>Load</h3>\n          <ul class=\"do\">\n            <li>Remove the <b>magnetic mouthpiece</b>.</li>\n            <li><b>Fully load</b> the <b>titanium chamber</b> with ground dry herb.</li>\n            <li><b>Pack lightly</b> with the included pick tool — do not overpack.</li>\n            <li><b>Re-attach</b> the mouthpiece before powering on.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>~0.3g capacity.</b> A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.</span></p>", "step3_body": "<h3>Activate</h3>\n          <ul class=\"do\">\n            <li><b>Hold the power button for 3 seconds</b> to turn on. The display lights up.</li>\n            <li>Press <b>Left / Right</b> to adjust your target temperature.</li>\n            <li><b>Double-click</b> to start a session. The device vibrates when it reaches temp (~20 sec).</li>\n            <li>The session auto-ends when the countdown hits 0:00. Device goes to standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Hold</div>\n              <div>\n                <span class=\"press-action\">Power on / off</span>\n                <span class=\"press-sub\">Hold the power button for 3 seconds</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Adjust temperature</span>\n                <span class=\"press-sub\">Right = increase · Left = decrease</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Start / cancel session</span>\n                <span class=\"press-sub\">Double-click the power button</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Settings menu</span>\n                <span class=\"press-sub\">Session timer · Temp unit · Brightness · Haptics</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Draw</h3>\n          <ul class=\"do\">\n            <li>Once the device vibrates, wait <b>30 seconds</b> for your material to bake, then <b>draw slowly and steadily</b> through the mouthpiece.</li>\n            <li>The spiral ceramic airpath cools vapor before it reaches you.</li>\n            <li>Device powers off automatically after <b>1 minute</b> of no activity.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>After your session:</b> Let the device cool, then remove the mouthpiece and brush out the chamber and mouthpiece filter screen. Regular cleaning keeps flavor and airflow at their best.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Type</th><td>Dry Herb Vaporizer</td></tr>\n              <tr><th scope=\"row\">Chamber</th><td>~0.3g titanium</td></tr>\n              <tr><th scope=\"row\">Airpath</th><td>Spiral ceramic (hybrid conduction + convection)</td></tr>\n              <tr><th scope=\"row\">Heat-up time</th><td>~20 seconds</td></tr>\n              <tr><th scope=\"row\">Battery</th><td>1,800 mAh</td></tr>\n              <tr><th scope=\"row\">Charging</th><td>USB-C (about 40 minutes of heating per full charge)</td></tr>\n              <tr><th scope=\"row\">Auto shut-off</th><td>1 minute of inactivity</td></tr>\n              <tr><th scope=\"row\">Dimensions</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Weight</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Warranty</th><td>2-year limited</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Device won't turn on</summary>\n            <p>Hold the power button for a full 3 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on.</p>\n          </details>\n          <details>\n            <summary>How do I know it's ready to use?</summary>\n            <p>After you double-click to start a session, the device vibrates once when it reaches your set temperature. The session countdown then begins on the display.</p>\n          </details>\n          <details>\n            <summary>Vapor is thin or tastes off</summary>\n            <p>Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and airpath regularly — residue buildup is the most common cause of reduced vapor and off flavor.</p>\n          </details>\n          <details>\n            <summary>The display shows an error</summary>\n            <p>If the display shows an error, power the device off and back on. If the error persists after charging and restarting, contact G Pen support for a warranty assessment.</p>\n          </details>\n          <details>\n            <summary>What does the warranty cover?</summary>\n            <p>The Dash+ includes a 2-year limited warranty covering electronics and manufacturing defects. Physical damage is not covered.</p>\n          </details>", "vid1_title": "Using the Dash+", "vid2_title": "Cleaning the Dash+"}, "ES": {"cat_hydout": "Batería para cartuchos 510", "cat_510-original": "Batería para cartuchos 510", "cat_dash-ii": "Vaporizador de hierba seca", "cat_dash-plus": "Vaporizador de hierba seca", "cat_micro-ii": "Vaporizador de concentrados", "cat_melt": "Cuchillo caliente / herramienta para dab", "cat_grinder": "Molinillo de hierba seca de 3 piezas", "cat_elite-ii": "Vaporizador de hierba seca", "cat_micro-plus": "Vaporizador de concentrados", "cat_hyer": "Vaporizador de concentrados", "cat_connect": "Vaporizador de concentrados", "cat_roam": "E-rig portátil", "legacy_title": "Productos anteriores", "idx_title": "Guías de productos", "idx_intro": "Elige tu dispositivo a continuación. La próxima vez, escanea el código de tu dispositivo o de su caja para ir directo a su guía: cómo cargarlo, llenarlo, usarlo y mantenerlo limpio.", "idx_help": "¿Necesitas ayuda?", "doc_title_index": "Guías de productos G Pen", "nf_text": "No encontramos esa página. Elige tu dispositivo a continuación para ir a su guía.", "doc_title_404": "Página no encontrada — Guías de productos G Pen", "all_guides": "Todas las guías", "nav_use": "Cómo usar", "nav_videos": "Videos", "nav_upgrade": "Mejoras", "nav_help": "Ayuda", "eyebrow": "Cómo usar tu", "sec_videos": "Videos", "upgrade_title": "Mejoras", "upgrade_sub": "Accesorios y repuestos para tu Dash+.", "acc1_name": "Grinder delgado de 3 piezas", "acc1_note": "Dientes microrredondeados para una molienda uniforme que conserva los terpenos y cannabinoides.", "acc_shop": "Comprar", "acc2_name": "Boquilla completa", "acc2_note": "Boquilla de repuesto completa con inserto de silicona, trayecto de aire de cerámica en espiral y malla filtrante.", "acc3_name": "Mallas filtrantes, paquete de 5", "acc3_note": "Mallas filtrantes de repuesto para el inserto de silicona de la boquilla del Dash+.", "acc4_name": "Inserto de boquilla", "acc4_note": "Inserto de silicona de repuesto con malla filtrante y trayecto de aire de cerámica en espiral.", "upgrade_btn": "Ver todos los accesorios", "sec_specs": "Especificaciones", "sum_specs": "Ver detalles del producto", "sec_help": "Ayuda", "sum_faq": "Preguntas frecuentes", "still_stuck": "¿Sigues con problemas?", "guides_title": "Guías de G Pen", "bn_steps": "Pasos", "bn_videos": "Videos", "bn_upgrade": "Mejoras", "bn_help": "Ayuda", "register_long": "Registra tu producto", "step1_body": "<h3>Carga</h3>\n          <ul class=\"do\">\n            <li>Conecta <b>cualquier cable USB-C</b> al puerto de carga que está en el costado.</li>\n            <li>Cárgalo por completo antes del primer uso — toma aproximadamente <b>1 hora</b>.</li>\n          </ul>", "step2_body": "<h3>Llena</h3>\n          <ul class=\"do\">\n            <li>Retira la <b>boquilla magnética</b>.</li>\n            <li><b>Llena por completo</b> la <b>cámara de titanio</b> con hierba seca molida.</li>\n            <li><b>Compacta ligeramente</b> con la herramienta incluida; no la compactes de más.</li>\n            <li><b>Vuelve a colocar</b> la boquilla antes de encender.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacidad de ~0.3g.</b> Un llenado adecuado permite el flujo de aire — llenar de más restringe las inhalaciones y reduce la calidad del vapor.</span></p>", "step3_body": "<h3>Activa</h3>\n          <ul class=\"do\">\n            <li><b>Mantén presionado el botón de encendido durante 3 segundos</b> para encender. La pantalla se ilumina.</li>\n            <li>Presiona <b>Izquierda / Derecha</b> para ajustar la temperatura deseada.</li>\n            <li><b>Presiona dos veces</b> para iniciar una sesión. El dispositivo vibra al alcanzar la temperatura (~20 seg).</li>\n            <li>La sesión termina automáticamente cuando la cuenta regresiva llega a 0:00. El dispositivo pasa a modo de espera.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Mantén</div>\n              <div>\n                <span class=\"press-action\">Encender / apagar</span>\n                <span class=\"press-sub\">Mantén presionado el botón de encendido durante 3 segundos</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Ajustar la temperatura</span>\n                <span class=\"press-sub\">Derecha = aumentar · Izquierda = disminuir</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Iniciar / cancelar sesión</span>\n                <span class=\"press-sub\">Presiona dos veces el botón de encendido</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menú de configuración</span>\n                <span class=\"press-sub\">Temporizador de sesión · Unidad de temperatura · Brillo · Vibración</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Inhala</h3>\n          <ul class=\"do\">\n            <li>Una vez que el dispositivo vibre, espera <b>30 segundos</b> para que tu material se caliente y luego <b>inhala de forma lenta y constante</b> por la boquilla.</li>\n            <li>El trayecto de aire de cerámica en espiral enfría el vapor antes de que llegue a ti.</li>\n            <li>El dispositivo se apaga automáticamente después de <b>1 minuto</b> sin actividad.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Después de tu sesión:</b> Deja que el dispositivo se enfríe, luego retira la boquilla y cepilla la cámara y la malla filtrante de la boquilla. La limpieza regular mantiene el sabor y el flujo de aire en su mejor punto.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizador de hierba seca</td></tr>\n              <tr><th scope=\"row\">Cámara</th><td>Titanio de ~0.3 g</td></tr>\n              <tr><th scope=\"row\">Trayecto de aire</th><td>Cerámica en espiral (conducción + convección híbridas)</td></tr>\n              <tr><th scope=\"row\">Tiempo de calentamiento</th><td>~20 segundos</td></tr>\n              <tr><th scope=\"row\">Batería</th><td>1,800 mAh</td></tr>\n              <tr><th scope=\"row\">Carga</th><td>USB-C (aproximadamente 40 minutos de calentamiento por carga completa)</td></tr>\n              <tr><th scope=\"row\">Apagado automático</th><td>1 minuto de inactividad</td></tr>\n              <tr><th scope=\"row\">Dimensiones</th><td>4.3\" × 1.6\" × 0.8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantía</th><td>Limitada de 2 años</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>El dispositivo no enciende</summary>\n            <p>Mantén presionado el botón de encendido durante 3 segundos completos. Si no sucede nada, carga el dispositivo — es posible que la batería esté agotada. La pantalla LED se ilumina cuando está encendido.</p>\n          </details>\n          <details>\n            <summary>¿Cómo sé que está listo para usarse?</summary>\n            <p>Después de presionar dos veces para iniciar una sesión, el dispositivo vibra una vez cuando alcanza la temperatura configurada. Luego, la cuenta regresiva de la sesión comienza en la pantalla.</p>\n          </details>\n          <details>\n            <summary>El vapor es escaso o tiene mal sabor</summary>\n            <p>Prueba con una molienda más fina y asegúrate de que la cámara no esté demasiado llena. Limpia la boquilla y el trayecto de aire con regularidad — la acumulación de residuos es la causa más común de menos vapor y sabor desagradable.</p>\n          </details>\n          <details>\n            <summary>La pantalla muestra un error</summary>\n            <p>Si la pantalla muestra un error, apaga el dispositivo y vuelve a encenderlo. Si el error persiste después de cargarlo y reiniciarlo, comunícate con el soporte de G Pen para una evaluación de garantía.</p>\n          </details>\n          <details>\n            <summary>¿Qué cubre la garantía?</summary>\n            <p>El Dash+ incluye una garantía limitada de 2 años que cubre los componentes electrónicos y defectos de fabricación. Los daños físicos no están cubiertos.</p>\n          </details>", "vid1_title": "Cómo usar el Dash+", "vid2_title": "Cómo limpiar el Dash+"}, "DE": {"cat_hydout": "510-Cartridge-Akku", "cat_510-original": "510-Cartridge-Akku", "cat_dash-ii": "Kräuter-Vaporizer", "cat_dash-plus": "Kräuter-Vaporizer", "cat_micro-ii": "Konzentrat-Vaporizer", "cat_melt": "Heißmesser / Dab-Werkzeug", "cat_grinder": "3-teiliger Kräuter-Grinder", "cat_elite-ii": "Kräuter-Vaporizer", "cat_micro-plus": "Konzentrat-Vaporizer", "cat_hyer": "Konzentrat-Vaporizer", "cat_connect": "Konzentrat-Vaporizer", "cat_roam": "Tragbares E-Rig", "legacy_title": "Ältere Produkte", "idx_title": "Produktanleitungen", "idx_intro": "Wähle unten dein Gerät aus. Beim nächsten Mal scanne einfach den Code auf deinem Gerät oder der Verpackung, um direkt zur Anleitung zu gelangen: Aufladen, Befüllen, Benutzen und Reinigen.", "idx_help": "Brauchst du Hilfe?", "doc_title_index": "G Pen Produktanleitungen", "nf_text": "Diese Seite haben wir nicht gefunden. Wähle unten dein Gerät aus, um zur Anleitung zu gelangen.", "doc_title_404": "Seite nicht gefunden — G Pen Produktanleitungen", "all_guides": "Alle Anleitungen", "nav_use": "Anwendung", "nav_videos": "Videos", "nav_upgrade": "Upgrades", "nav_help": "Hilfe", "eyebrow": "So verwendest du deinen", "sec_videos": "Videos", "upgrade_title": "Upgrades", "upgrade_sub": "Zubehör und Ersatzteile für deinen Dash+.", "acc1_name": "3-teiliger Slim Grinder", "acc1_note": "Mikroabgerundete Zähne für ein gleichmäßiges Mahlgut, das Terpene und Cannabinoide bewahrt.", "acc_shop": "Kaufen", "acc2_name": "Mundstück komplett", "acc2_note": "Komplettes Ersatz-Mundstück mit Silikoneinsatz, spiralförmigem Keramik-Luftweg und Filtersieb.", "acc3_name": "Filtersiebe, 5er-Pack", "acc3_note": "Ersatz-Filtersiebe für den Silikoneinsatz des Dash+ Mundstücks.", "acc4_name": "Mundstückeinsatz", "acc4_note": "Ersatz-Silikoneinsatz mit Filtersieb und spiralförmigem Keramik-Luftweg.", "upgrade_btn": "Alles Zubehör ansehen", "sec_specs": "Technische Daten", "sum_specs": "Produktdetails ansehen", "sec_help": "Hilfe", "sum_faq": "Häufige Fragen", "still_stuck": "Noch Probleme?", "guides_title": "G Pen Anleitungen", "bn_steps": "Schritte", "bn_videos": "Videos", "bn_upgrade": "Upgrades", "bn_help": "Hilfe", "register_long": "Registriere dein Produkt", "step1_body": "<h3>Aufladen</h3>\n          <ul class=\"do\">\n            <li>Stecke <b>ein beliebiges USB-C-Kabel</b> in den Ladeanschluss an der Seite.</li>\n            <li>Lade das Gerät vor dem ersten Gebrauch vollständig auf — das dauert etwa <b>1 Stunde</b>.</li>\n          </ul>", "step2_body": "<h3>Befüllen</h3>\n          <ul class=\"do\">\n            <li>Entferne das <b>magnetische Mundstück</b>.</li>\n            <li><b>Befülle</b> die <b>Titankammer</b> vollständig mit gemahlenen Kräutern.</li>\n            <li><b>Drücke das Material leicht an</b> – mit dem mitgelieferten Stopfer; stopfe es nicht zu fest.</li>\n            <li><b>Setze das Mundstück wieder auf</b>, bevor du das Gerät einschaltest.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Kapazität: ~0,3 g.</b> Richtig befüllt bleibt genug Luftstrom – zu festes Stopfen erschwert das Ziehen und verringert die Dampfqualität.</span></p>", "step3_body": "<h3>Aktivieren</h3>\n          <ul class=\"do\">\n            <li><b>Halte die Ein/Aus-Taste 3 Sekunden lang gedrückt</b>, um das Gerät einzuschalten. Das Display leuchtet auf.</li>\n            <li>Drücke <b>Links / Rechts</b>, um deine gewünschte Temperatur einzustellen.</li>\n            <li><b>Drücke zweimal</b>, um eine Session zu starten. Das Gerät vibriert, sobald die Temperatur erreicht ist (ca. 20 Sek.).</li>\n            <li>Die Session endet automatisch, wenn der Countdown 0:00 erreicht. Das Gerät wechselt in den Standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Halten</div>\n              <div>\n                <span class=\"press-action\">Ein- / Ausschalten</span>\n                <span class=\"press-sub\">Ein/Aus-Taste 3 Sekunden lang gedrückt halten</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Temperatur einstellen</span>\n                <span class=\"press-sub\">Rechts = erhöhen · Links = verringern</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Session starten / abbrechen</span>\n                <span class=\"press-sub\">Ein/Aus-Taste zweimal drücken</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Einstellungsmenü</span>\n                <span class=\"press-sub\">Session-Timer · Temperatureinheit · Helligkeit · Haptik</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Ziehen</h3>\n          <ul class=\"do\">\n            <li>Sobald das Gerät vibriert, warte <b>30 Sekunden</b>, damit dein Material erhitzt wird, und ziehe dann <b>langsam und gleichmäßig</b> am Mundstück.</li>\n            <li>Der spiralförmige Keramik-Luftweg kühlt den Dampf, bevor er dich erreicht.</li>\n            <li>Das Gerät schaltet sich nach <b>1 Minute</b> Inaktivität automatisch aus.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Nach der Session:</b> Lass das Gerät abkühlen, entferne dann das Mundstück und bürste die Kammer und das Filtersieb des Mundstücks aus. Regelmäßige Reinigung sorgt für optimalen Geschmack und Luftstrom.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Typ</th><td>Kräuter-Vaporizer</td></tr>\n              <tr><th scope=\"row\">Kammer</th><td>~0,3 g Titan</td></tr>\n              <tr><th scope=\"row\">Luftweg</th><td>Spiralförmige Keramik (hybride Konduktion + Konvektion)</td></tr>\n              <tr><th scope=\"row\">Aufheizzeit</th><td>~20 Sekunden</td></tr>\n              <tr><th scope=\"row\">Akku</th><td>1.800 mAh</td></tr>\n              <tr><th scope=\"row\">Aufladen</th><td>USB-C (etwa 40 Minuten Heizbetrieb pro voller Akkuladung)</td></tr>\n              <tr><th scope=\"row\">Automatische Abschaltung</th><td>1 Minute Inaktivität</td></tr>\n              <tr><th scope=\"row\">Abmessungen</th><td>4,3\" × 1,6\" × 0,8\"</td></tr>\n              <tr><th scope=\"row\">Gewicht</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantie</th><td>2 Jahre, eingeschränkt</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Das Gerät lässt sich nicht einschalten</summary>\n            <p>Halte die Ein/Aus-Taste volle 3 Sekunden lang gedrückt. Passiert nichts, lade das Gerät auf — möglicherweise ist der Akku leer. Das LED-Display leuchtet, wenn das Gerät eingeschaltet ist.</p>\n          </details>\n          <details>\n            <summary>Woran erkenne ich, dass das Gerät bereit ist?</summary>\n            <p>Nachdem du durch zweimaliges Drücken eine Session gestartet hast, vibriert das Gerät einmal, sobald deine eingestellte Temperatur erreicht ist. Anschließend beginnt der Session-Countdown auf dem Display.</p>\n          </details>\n          <details>\n            <summary>Der Dampf ist dünn oder schmeckt komisch</summary>\n            <p>Probiere ein feineres Mahlgut und achte darauf, dass die Kammer nicht zu voll ist. Reinige Mundstück und Luftweg regelmäßig — Ablagerungen sind die häufigste Ursache für weniger Dampf und einen unangenehmen Geschmack.</p>\n          </details>\n          <details>\n            <summary>Das Display zeigt einen Fehler an</summary>\n            <p>Wenn das Display einen Fehler anzeigt, schalte das Gerät aus und wieder ein. Besteht der Fehler nach dem Aufladen und Neustart weiterhin, wende dich für eine Garantieprüfung an den G Pen Support.</p>\n          </details>\n          <details>\n            <summary>Was deckt die Garantie ab?</summary>\n            <p>Der Dash+ hat eine eingeschränkte 2-Jahres-Garantie, die Elektronik und Herstellungsfehler abdeckt. Physische Schäden sind nicht abgedeckt.</p>\n          </details>", "vid1_title": "Den Dash+ verwenden", "vid2_title": "Den Dash+ reinigen"}, "IT": {"cat_hydout": "Batteria per cartucce 510", "cat_510-original": "Batteria per cartucce 510", "cat_dash-ii": "Vaporizzatore per erbe secche", "cat_dash-plus": "Vaporizzatore per erbe secche", "cat_micro-ii": "Vaporizzatore per concentrati", "cat_melt": "Coltello caldo / strumento per dab", "cat_grinder": "Grinder per erbe secche a 3 pezzi", "cat_elite-ii": "Vaporizzatore per erbe secche", "cat_micro-plus": "Vaporizzatore per concentrati", "cat_hyer": "Vaporizzatore per concentrati", "cat_connect": "Vaporizzatore per concentrati", "cat_roam": "E-rig portatile", "legacy_title": "Prodotti precedenti", "idx_title": "Guide ai prodotti", "idx_intro": "Scegli il tuo dispositivo qui sotto. La prossima volta, scansiona il codice sul dispositivo o sulla confezione per andare direttamente alla sua guida: come ricaricarlo, caricarlo, usarlo e pulirlo.", "idx_help": "Hai bisogno di aiuto?", "doc_title_index": "Guide ai prodotti G Pen", "nf_text": "Non abbiamo trovato questa pagina. Scegli il tuo dispositivo qui sotto per andare alla sua guida.", "doc_title_404": "Pagina non trovata — Guide ai prodotti G Pen", "all_guides": "Tutte le guide", "nav_use": "Come si usa", "nav_videos": "Video", "nav_upgrade": "Upgrade", "nav_help": "Aiuto", "eyebrow": "Come usare il tuo", "sec_videos": "Video", "upgrade_title": "Upgrade", "upgrade_sub": "Accessori e ricambi per il tuo Dash+.", "acc1_name": "Grinder slim a 3 pezzi", "acc1_note": "Denti micro-arrotondati per una macinatura uniforme che preserva terpeni e cannabinoidi.", "acc_shop": "Acquista", "acc2_name": "Bocchino completo", "acc2_note": "Bocchino di ricambio completo con inserto in silicone, percorso dell'aria a spirale in ceramica e retino.", "acc3_name": "Retini, confezione da 5", "acc3_note": "Retini di ricambio per l'inserto in silicone del bocchino del Dash+.", "acc4_name": "Inserto del bocchino", "acc4_note": "Inserto in silicone di ricambio con retino e percorso dell'aria a spirale in ceramica.", "upgrade_btn": "Scopri tutti gli accessori", "sec_specs": "Specifiche", "sum_specs": "Vedi i dettagli del prodotto", "sec_help": "Aiuto", "sum_faq": "Domande frequenti", "still_stuck": "Hai ancora problemi?", "guides_title": "Guide G Pen", "bn_steps": "Passaggi", "bn_videos": "Video", "bn_upgrade": "Upgrade", "bn_help": "Aiuto", "register_long": "Registra il tuo prodotto", "step1_body": "<h3>Ricarica</h3>\n          <ul class=\"do\">\n            <li>Collega <b>un qualsiasi cavo USB-C</b> alla porta di ricarica sul lato.</li>\n            <li>Effettua una ricarica completa prima del primo utilizzo: serve circa <b>1 ora</b>.</li>\n          </ul>", "step2_body": "<h3>Carica la camera</h3>\n          <ul class=\"do\">\n            <li>Rimuovi il <b>bocchino magnetico</b>.</li>\n            <li><b>Carica completamente</b> la <b>camera in titanio</b> con erba secca macinata.</li>\n            <li><b>Pressa leggermente</b> con lo strumento in dotazione, senza esagerare.</li>\n            <li><b>Riattacca</b> il bocchino prima di accendere il dispositivo.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacità di ~0,3 g.</b> Un caricamento corretto consente il passaggio dell'aria — un caricamento eccessivo limita i tiri e riduce la qualità del vapore.</span></p>", "step3_body": "<h3>Attiva</h3>\n          <ul class=\"do\">\n            <li><b>Tieni premuto il pulsante di accensione per 3 secondi</b> per accendere. Il display si illumina.</li>\n            <li>Premi <b>Sinistra / Destra</b> per regolare la temperatura desiderata.</li>\n            <li><b>Premi due volte</b> per avviare una sessione. Il dispositivo vibra quando raggiunge la temperatura (~20 sec).</li>\n            <li>La sessione termina automaticamente quando il conto alla rovescia arriva a 0:00. Il dispositivo passa in standby.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Tieni</div>\n              <div>\n                <span class=\"press-action\">Accendi / spegni</span>\n                <span class=\"press-sub\">Tieni premuto il pulsante di accensione per 3 secondi</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Regola la temperatura</span>\n                <span class=\"press-sub\">Destra = aumenta · Sinistra = diminuisci</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Avvia / annulla sessione</span>\n                <span class=\"press-sub\">Premi due volte il pulsante di accensione</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu impostazioni</span>\n                <span class=\"press-sub\">Timer sessione · Unità di temperatura · Luminosità · Feedback aptico</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Aspira</h3>\n          <ul class=\"do\">\n            <li>Una volta che il dispositivo vibra, attendi <b>30 secondi</b> affinché il materiale si scaldi, poi <b>aspira lentamente e in modo costante</b> dal bocchino.</li>\n            <li>Il percorso dell'aria a spirale in ceramica raffredda il vapore prima che ti raggiunga.</li>\n            <li>Il dispositivo si spegne automaticamente dopo <b>1 minuto</b> di inattività.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Dopo la sessione:</b> lascia raffreddare il dispositivo, poi rimuovi il bocchino e spazzola la camera e il retino del bocchino. Una pulizia regolare mantiene al meglio il sapore e il flusso d'aria.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizzatore per erbe secche</td></tr>\n              <tr><th scope=\"row\">Camera</th><td>Titanio da ~0,3 g</td></tr>\n              <tr><th scope=\"row\">Percorso dell'aria</th><td>Spirale in ceramica (conduzione + convezione ibride)</td></tr>\n              <tr><th scope=\"row\">Tempo di riscaldamento</th><td>~20 secondi</td></tr>\n              <tr><th scope=\"row\">Batteria</th><td>1800 mAh</td></tr>\n              <tr><th scope=\"row\">Ricarica</th><td>USB-C (circa 40 minuti di riscaldamento per ricarica completa)</td></tr>\n              <tr><th scope=\"row\">Spegnimento automatico</th><td>1 minuto di inattività</td></tr>\n              <tr><th scope=\"row\">Dimensioni</th><td>4,3\" × 1,6\" × 0,8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garanzia</th><td>Limitata di 2 anni</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>Il dispositivo non si accende</summary>\n            <p>Tieni premuto il pulsante di accensione per 3 secondi interi. Se non succede nulla, ricarica il dispositivo — la batteria potrebbe essere scarica. Il display LED si illumina quando il dispositivo è acceso.</p>\n          </details>\n          <details>\n            <summary>Come faccio a sapere che è pronto all'uso?</summary>\n            <p>Dopo aver premuto due volte per avviare una sessione, il dispositivo vibra una volta quando raggiunge la temperatura impostata. Poi sul display parte il conto alla rovescia della sessione.</p>\n          </details>\n          <details>\n            <summary>Il vapore è scarso o ha un sapore strano</summary>\n            <p>Prova con una macinatura più fine e assicurati che la camera non sia troppo piena. Pulisci regolarmente il bocchino e il percorso dell'aria — l'accumulo di residui è la causa più comune di vapore ridotto e sapore sgradevole.</p>\n          </details>\n          <details>\n            <summary>Il display mostra un errore</summary>\n            <p>Se il display mostra un errore, spegni il dispositivo e riaccendilo. Se l'errore persiste dopo la ricarica e il riavvio, contatta l'assistenza G Pen per una valutazione della garanzia.</p>\n          </details>\n          <details>\n            <summary>Cosa copre la garanzia?</summary>\n            <p>Il Dash+ include una garanzia limitata di 2 anni che copre l'elettronica e i difetti di fabbricazione. I danni fisici non sono coperti.</p>\n          </details>", "vid1_title": "Come usare il Dash+", "vid2_title": "Come pulire il Dash+"}, "FR": {"cat_hydout": "Batterie pour cartouches 510", "cat_510-original": "Batterie pour cartouches 510", "cat_dash-ii": "Vaporisateur d'herbes sèches", "cat_dash-plus": "Vaporisateur d'herbes sèches", "cat_micro-ii": "Vaporisateur de concentrés", "cat_melt": "Couteau chauffant / outil à dab", "cat_grinder": "Grinder 3 pièces pour herbes sèches", "cat_elite-ii": "Vaporisateur d'herbes sèches", "cat_micro-plus": "Vaporisateur de concentrés", "cat_hyer": "Vaporisateur de concentrés", "cat_connect": "Vaporisateur de concentrés", "cat_roam": "E-rig portable", "legacy_title": "Anciens produits", "idx_title": "Guides produits", "idx_intro": "Choisissez votre appareil ci-dessous. La prochaine fois, scannez le code sur votre appareil ou sa boîte pour accéder directement à son guide : comment le recharger, le remplir, l'utiliser et le nettoyer.", "idx_help": "Besoin d'aide ?", "doc_title_index": "Guides produits G Pen", "nf_text": "Nous n'avons pas trouvé cette page. Choisissez votre appareil ci-dessous pour accéder à son guide.", "doc_title_404": "Page introuvable — Guides produits G Pen", "all_guides": "Tous les guides", "nav_use": "Utilisation", "nav_videos": "Vidéos", "nav_upgrade": "Boutique", "nav_help": "Aide", "eyebrow": "Utiliser votre", "sec_videos": "Vidéos", "upgrade_title": "Boutique", "upgrade_sub": "Accessoires et pièces de rechange pour votre Dash+.", "acc1_name": "Grinder fin 3 pièces", "acc1_note": "Dents micro-arrondies pour une mouture régulière qui préserve les terpènes et les cannabinoïdes.", "acc_shop": "Acheter", "acc2_name": "Embout complet", "acc2_note": "Embout de rechange complet avec insert en silicone, circuit d'air en céramique en spirale et grille filtrante.", "acc3_name": "Grilles filtrantes, lot de 5", "acc3_note": "Grilles filtrantes de rechange pour l'insert en silicone de l'embout du Dash+.", "acc4_name": "Insert d'embout", "acc4_note": "Insert en silicone de rechange avec grille filtrante et circuit d'air en céramique en spirale.", "upgrade_btn": "Voir tous les accessoires", "sec_specs": "Caractéristiques", "sum_specs": "Voir les détails du produit", "sec_help": "Aide", "sum_faq": "Questions fréquentes", "still_stuck": "Toujours besoin d'aide ?", "guides_title": "Guides G Pen", "bn_steps": "Étapes", "bn_videos": "Vidéos", "bn_upgrade": "Boutique", "bn_help": "Aide", "register_long": "Enregistrez votre produit", "step1_body": "<h3>Recharger</h3>\n          <ul class=\"do\">\n            <li>Branchez <b>n'importe quel câble USB-C</b> dans le port de charge situé sur le côté.</li>\n            <li>Chargez-le complètement avant la première utilisation — cela prend environ <b>1 heure</b>.</li>\n          </ul>", "step2_body": "<h3>Remplir</h3>\n          <ul class=\"do\">\n            <li>Retirez l'<b>embout magnétique</b>.</li>\n            <li><b>Remplissez entièrement</b> la <b>chambre en titane</b> avec de l'herbe sèche moulue.</li>\n            <li><b>Tassez légèrement</b> avec l'outil fourni, sans trop tasser.</li>\n            <li><b>Remettez</b> l'embout en place avant d'allumer l'appareil.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacité de ~0,3 g.</b> Un remplissage correct permet la circulation de l'air — un remplissage excessif restreint les bouffées et réduit la qualité de la vapeur.</span></p>", "step3_body": "<h3>Activer</h3>\n          <ul class=\"do\">\n            <li><b>Maintenez le bouton d'alimentation enfoncé pendant 3 secondes</b> pour allumer l'appareil. L'écran s'illumine.</li>\n            <li>Appuyez sur <b>Gauche / Droite</b> pour régler la température souhaitée.</li>\n            <li><b>Appuyez deux fois</b> pour démarrer une session. L'appareil vibre lorsqu'il atteint la température (~20 s).</li>\n            <li>La session se termine automatiquement lorsque le compte à rebours atteint 0:00. L'appareil passe en veille.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Maintenir</div>\n              <div>\n                <span class=\"press-action\">Allumer / éteindre</span>\n                <span class=\"press-sub\">Maintenez le bouton d'alimentation enfoncé pendant 3 secondes</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Régler la température</span>\n                <span class=\"press-sub\">Droite = augmenter · Gauche = diminuer</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Démarrer / annuler la session</span>\n                <span class=\"press-sub\">Appuyez deux fois sur le bouton d'alimentation</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu des paramètres</span>\n                <span class=\"press-sub\">Minuteur de session · Unité de température · Luminosité · Retour haptique</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Inhaler</h3>\n          <ul class=\"do\">\n            <li>Une fois que l'appareil vibre, attendez <b>30 secondes</b> pour que votre matière chauffe, puis <b>inhalez lentement et régulièrement</b> par l'embout.</li>\n            <li>Le circuit d'air en céramique en spirale refroidit la vapeur avant qu'elle ne vous parvienne.</li>\n            <li>L'appareil s'éteint automatiquement après <b>1 minute</b> d'inactivité.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Après votre session :</b> laissez l'appareil refroidir, puis retirez l'embout et brossez la chambre et la grille filtrante de l'embout. Un nettoyage régulier préserve une saveur et un flux d'air optimaux.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Type</th><td>Vaporisateur d'herbes sèches</td></tr>\n              <tr><th scope=\"row\">Chambre</th><td>Titane, ~0,3 g</td></tr>\n              <tr><th scope=\"row\">Circuit d'air</th><td>Céramique en spirale (conduction + convection hybrides)</td></tr>\n              <tr><th scope=\"row\">Temps de chauffe</th><td>~20 secondes</td></tr>\n              <tr><th scope=\"row\">Batterie</th><td>1 800 mAh</td></tr>\n              <tr><th scope=\"row\">Recharge</th><td>USB-C (environ 40 minutes de chauffe par charge complète)</td></tr>\n              <tr><th scope=\"row\">Arrêt automatique</th><td>1 minute d'inactivité</td></tr>\n              <tr><th scope=\"row\">Dimensions</th><td>4,3\" × 1,6\" × 0,8\"</td></tr>\n              <tr><th scope=\"row\">Poids</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantie</th><td>Limitée à 2 ans</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>L'appareil ne s'allume pas</summary>\n            <p>Maintenez le bouton d'alimentation enfoncé pendant 3 secondes complètes. Si rien ne se passe, rechargez l'appareil — la batterie est peut-être déchargée. L'écran LED s'illumine lorsque l'appareil est allumé.</p>\n          </details>\n          <details>\n            <summary>Comment savoir s'il est prêt à l'emploi ?</summary>\n            <p>Après avoir appuyé deux fois pour démarrer une session, l'appareil vibre une fois lorsqu'il atteint la température réglée. Le compte à rebours de la session démarre alors à l'écran.</p>\n          </details>\n          <details>\n            <summary>La vapeur est faible ou a un mauvais goût</summary>\n            <p>Essayez une mouture plus fine et assurez-vous que la chambre n'est pas trop remplie. Nettoyez régulièrement l'embout et le circuit d'air — l'accumulation de résidus est la cause la plus fréquente d'une vapeur réduite et d'un mauvais goût.</p>\n          </details>\n          <details>\n            <summary>L'écran affiche une erreur</summary>\n            <p>Si l'écran affiche une erreur, éteignez puis rallumez l'appareil. Si l'erreur persiste après la recharge et le redémarrage, contactez l'assistance G Pen pour une évaluation de la garantie.</p>\n          </details>\n          <details>\n            <summary>Que couvre la garantie ?</summary>\n            <p>Le Dash+ est fourni avec une garantie limitée de 2 ans couvrant l'électronique et les défauts de fabrication. Les dommages physiques ne sont pas couverts.</p>\n          </details>", "vid1_title": "Utiliser le Dash+", "vid2_title": "Nettoyer le Dash+"}, "PT": {"cat_hydout": "Bateria para cartuchos 510", "cat_510-original": "Bateria para cartuchos 510", "cat_dash-ii": "Vaporizador de ervas secas", "cat_dash-plus": "Vaporizador de ervas secas", "cat_micro-ii": "Vaporizador de concentrados", "cat_melt": "Faca quente / ferramenta para dab", "cat_grinder": "Dichavador de ervas secas de 3 peças", "cat_elite-ii": "Vaporizador de ervas secas", "cat_micro-plus": "Vaporizador de concentrados", "cat_hyer": "Vaporizador de concentrados", "cat_connect": "Vaporizador de concentrados", "cat_roam": "E-rig portátil", "legacy_title": "Produtos anteriores", "idx_title": "Guias de produtos", "idx_intro": "Escolha seu dispositivo abaixo. Da próxima vez, escaneie o código no dispositivo ou na caixa para ir direto ao guia dele: como carregar a bateria, abastecer, usar e manter limpo.", "idx_help": "Precisa de ajuda?", "doc_title_index": "Guias de produtos G Pen", "nf_text": "Não encontramos essa página. Escolha seu dispositivo abaixo para ir ao guia dele.", "doc_title_404": "Página não encontrada — Guias de produtos G Pen", "all_guides": "Todos os guias", "nav_use": "Como usar", "nav_videos": "Vídeos", "nav_upgrade": "Upgrades", "nav_help": "Ajuda", "eyebrow": "Como usar o seu", "sec_videos": "Vídeos", "upgrade_title": "Upgrades", "upgrade_sub": "Acessórios e peças de reposição para o seu Dash+.", "acc1_name": "Dichavador slim de 3 peças", "acc1_note": "Dentes microarredondados para uma moagem uniforme que preserva os terpenos e canabinoides.", "acc_shop": "Comprar", "acc2_name": "Bocal completo", "acc2_note": "Bocal de reposição completo com inserto de silicone, caminho de ar em cerâmica espiral e tela de filtro.", "acc3_name": "Telas de filtro, pacote com 5", "acc3_note": "Telas de filtro de reposição para o inserto de silicone do bocal do Dash+.", "acc4_name": "Inserto do bocal", "acc4_note": "Inserto de silicone de reposição com tela de filtro e caminho de ar em cerâmica espiral.", "upgrade_btn": "Comprar todos os acessórios", "sec_specs": "Especificações", "sum_specs": "Ver detalhes do produto", "sec_help": "Ajuda", "sum_faq": "Perguntas frequentes", "still_stuck": "Ainda com dificuldades?", "guides_title": "Guias G Pen", "bn_steps": "Passos", "bn_videos": "Vídeos", "bn_upgrade": "Upgrades", "bn_help": "Ajuda", "register_long": "Registre seu produto", "step1_body": "<h3>Carregar</h3>\n          <ul class=\"do\">\n            <li>Conecte <b>qualquer cabo USB-C</b> na porta de carregamento na lateral.</li>\n            <li>Faça uma carga completa antes do primeiro uso — leva cerca de <b>1 hora</b>.</li>\n          </ul>", "step2_body": "<h3>Abastecer</h3>\n          <ul class=\"do\">\n            <li>Remova o <b>bocal magnético</b>.</li>\n            <li><b>Encha totalmente</b> a <b>câmara de titânio</b> com erva seca moída.</li>\n            <li><b>Compacte de leve</b> com a ferramenta incluída — não compacte demais.</li>\n            <li><b>Recoloque</b> o bocal antes de ligar o dispositivo.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Capacidade de ~0,3 g.</b> Compactar na medida certa permite a passagem do ar — compactar demais restringe as tragadas e reduz a qualidade do vapor.</span></p>", "step3_body": "<h3>Ativar</h3>\n          <ul class=\"do\">\n            <li><b>Segure o botão liga/desliga por 3 segundos</b> para ligar. O visor acende.</li>\n            <li>Pressione <b>Esquerda / Direita</b> para ajustar a temperatura desejada.</li>\n            <li><b>Pressione duas vezes</b> para iniciar uma sessão. O dispositivo vibra ao atingir a temperatura (~20 s).</li>\n            <li>A sessão termina automaticamente quando a contagem regressiva chega a 0:00. O dispositivo entra em modo de espera.</li>\n          </ul>\n          <div class=\"press-list\">\n            <div class=\"press-row\">\n              <div class=\"press-badge press-hold\">Segure</div>\n              <div>\n                <span class=\"press-action\">Ligar / desligar</span>\n                <span class=\"press-sub\">Segure o botão liga/desliga por 3 segundos</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\" style=\"display:flex;align-items:center;justify-content:center;gap:3px\"><span>◀</span><span>▶</span></div>\n              <div>\n                <span class=\"press-action\">Ajustar a temperatura</span>\n                <span class=\"press-sub\">Direita = aumentar · Esquerda = diminuir</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">2×</div>\n              <div>\n                <span class=\"press-action\">Iniciar / cancelar sessão</span>\n                <span class=\"press-sub\">Pressione duas vezes o botão liga/desliga</span>\n              </div>\n            </div>\n            <div class=\"press-row\">\n              <div class=\"press-badge\">5×</div>\n              <div>\n                <span class=\"press-action\">Menu de configurações</span>\n                <span class=\"press-sub\">Timer da sessão · Unidade de temperatura · Brilho · Vibração</span>\n              </div>\n            </div>\n          </div>", "step4_body": "<h3>Tragar</h3>\n          <ul class=\"do\">\n            <li>Assim que o dispositivo vibrar, aguarde <b>30 segundos</b> para que seu material aqueça e depois <b>trague devagar e de forma constante</b> pelo bocal.</li>\n            <li>O caminho de ar em cerâmica espiral resfria o vapor antes que ele chegue até você.</li>\n            <li>O dispositivo desliga automaticamente após <b>1 minuto</b> sem atividade.</li>\n          </ul>\n          <p class=\"note\"><svg class=\"note-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18h6\"/><path d=\"M10 22h4\"/><path d=\"M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z\"/></svg><span><b>Após a sessão:</b> deixe o dispositivo esfriar, depois remova o bocal e limpe com a escovinha a câmara e a tela de filtro do bocal. A limpeza regular mantém o sabor e o fluxo de ar sempre no melhor nível.</span></p>", "specs_body": "<div class=\"table-scroll\">\n          <table class=\"specs\">\n            <tbody>\n              <tr><th scope=\"row\">Tipo</th><td>Vaporizador de ervas secas</td></tr>\n              <tr><th scope=\"row\">Câmara</th><td>Titânio de ~0,3 g</td></tr>\n              <tr><th scope=\"row\">Caminho de ar</th><td>Cerâmica espiral (condução + convecção híbridas)</td></tr>\n              <tr><th scope=\"row\">Tempo de aquecimento</th><td>~20 segundos</td></tr>\n              <tr><th scope=\"row\">Bateria</th><td>1.800 mAh</td></tr>\n              <tr><th scope=\"row\">Carregamento</th><td>USB-C (cerca de 40 minutos de aquecimento por carga completa)</td></tr>\n              <tr><th scope=\"row\">Desligamento automático</th><td>1 minuto de inatividade</td></tr>\n              <tr><th scope=\"row\">Dimensões</th><td>4,3\" × 1,6\" × 0,8\"</td></tr>\n              <tr><th scope=\"row\">Peso</th><td>276 g</td></tr>\n              <tr><th scope=\"row\">SKU</th><td>GPD-001-AMZZ</td></tr>\n              <tr><th scope=\"row\">UPC</th><td>811736027489</td></tr>\n              <tr><th scope=\"row\">Garantia</th><td>Limitada de 2 anos</td></tr>\n            </tbody>\n          </table>\n        </div>", "faq_body": "          <details>\n            <summary>O dispositivo não liga</summary>\n            <p>Segure o botão liga/desliga por 3 segundos completos. Se nada acontecer, carregue o dispositivo — a bateria pode estar descarregada. O visor LED acende quando o dispositivo está ligado.</p>\n          </details>\n          <details>\n            <summary>Como sei que está pronto para usar?</summary>\n            <p>Depois de pressionar duas vezes para iniciar uma sessão, o dispositivo vibra uma vez ao atingir a temperatura definida. Em seguida, a contagem regressiva da sessão começa no visor.</p>\n          </details>\n          <details>\n            <summary>O vapor está fraco ou com gosto estranho</summary>\n            <p>Experimente uma moagem mais fina e verifique se a câmara não está cheia demais. Limpe o bocal e o caminho de ar regularmente — o acúmulo de resíduos é a causa mais comum de menos vapor e sabor desagradável.</p>\n          </details>\n          <details>\n            <summary>O visor mostra um erro</summary>\n            <p>Se o visor mostrar um erro, desligue o dispositivo e ligue-o novamente. Se o erro persistir após carregar e reiniciar, entre em contato com o suporte da G Pen para uma avaliação de garantia.</p>\n          </details>\n          <details>\n            <summary>O que a garantia cobre?</summary>\n            <p>O Dash+ inclui uma garantia limitada de 2 anos que cobre a parte eletrônica e defeitos de fabricação. Danos físicos não são cobertos.</p>\n          </details>", "vid1_title": "Como usar o Dash+", "vid2_title": "Como limpar o Dash+"}};</script>
 <script>/* i18n runtime — injected by build.py after the window._T data block */
 (function(){
   var T = window._T;
@@ -1095,6 +1193,9 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
   var LANG_CODES = {EN:'en',ES:'es',DE:'de',IT:'it',FR:'fr',PT:'pt-BR'};
   var SUPPORTED = ['EN','ES','DE','IT','FR','PT'];
+  var ORIGINAL_TITLE = document.title;
+  var barName = document.querySelector('.bar-name');
+  var PRODUCT_NAME = barName ? barName.textContent.trim() : '';
 
   /* keep the lang-switcher pill + dropdown checkmark in sync with the applied
      language — the dropdown's own click handler only updates itself when the
@@ -1157,8 +1258,11 @@ footer .legal{font-size:11.5px; line-height:1.6}
       if (s[key]) el.innerHTML = s[key];
     });
 
-    /* ── <html lang> attribute ─────────────────────────────────────────── */
+    /* ── <html lang> attribute + tab title ─────────────────────────────── */
     document.documentElement.lang = LANG_CODES[lang] || 'en';
+    if (lang === 'EN') document.title = ORIGINAL_TITLE;
+    else if (s.doc_title) document.title = s.doc_title;
+    else if (s.nav_use && PRODUCT_NAME) document.title = 'G Pen ' + PRODUCT_NAME + ' — ' + s.nav_use;
 
     syncLangUI(lang);
   }
@@ -1166,12 +1270,19 @@ footer .legal{font-size:11.5px; line-height:1.6}
   /* expose so the dropdown handler can call it */
   window._i18n = applyLang;
 
-  /* ── on load: pick language from localStorage > navigator ────────────── */
+  /* ── on load: pick language from ?lang= > localStorage > navigator ───── */
+  /* A ?lang=es link wins and sticks (same rule as the brand portal at assets.gpen.com),
+     so a translated link sent to someone stays translated after a refresh. */
   var saved = null;
-  try { saved = localStorage.getItem('gpen-lang'); } catch(e){}
+  var q = (location.search.match(/[?&]lang=([a-z]{2})\b/i) || [])[1];
+  if (q && SUPPORTED.indexOf(q.toUpperCase()) >= 0) {
+    saved = q.toUpperCase();
+    try { localStorage.setItem('gpen-lang', saved); } catch(e){}
+  } else {
+    try { saved = localStorage.getItem('gpen-lang'); } catch(e){}
+  }
+  /* navigator.language "pt-BR" -> "PT"; anything unsupported (or empty) -> EN */
   var navLang = ((navigator.language || navigator.userLanguage || '').slice(0,2)).toUpperCase();
-  /* pt-BR → PT */
-  if (!navLang || navLang === 'PT') navLang = 'PT';
   var initLang = (saved && SUPPORTED.indexOf(saved) >= 0) ? saved :
                  (SUPPORTED.indexOf(navLang) >= 0 ? navLang : 'EN');
 
@@ -1183,6 +1294,236 @@ footer .legal{font-size:11.5px; line-height:1.6}
     _orig(lang);
     try { localStorage.setItem('gpen-lang', lang); } catch(e){}
   };
+})();
+</script>
+<script>
+/* G Pen Core — guide page behavior.
+   One copy, shared by every guide page (build.py inlines it before </body>, after the
+   i18n runtime, so offline.html keeps working from file://). Every block looks up its
+   own elements and quietly does nothing when a page doesn't have them: the Grinder has
+   no videos, the index page has no sections or sheet.
+
+   Owns: sticky header state, section scroll-spy (top pills + mobile bottom nav), the
+   language menu, the product-switcher sheet and the video modal. Dialogs trap focus,
+   return it on close, make the rest of the page inert, and share one scroll lock so
+   closing one can't unlock the page while the other is still open. */
+(function(){
+  var d = document;
+  function $(id){ return d.getElementById(id); }
+  function arr(list){ return Array.prototype.slice.call(list); }
+
+  /* ---------- shared: scroll lock, inert background, focus trap ---------- */
+  var locks = 0;
+  function lock(){ if (locks++ === 0) d.body.style.overflow = 'hidden'; }
+  function unlock(){ if (locks > 0 && --locks === 0) d.body.style.overflow = ''; }
+
+  function setInert(on, keep){
+    arr(d.body.children).forEach(function(el){
+      if (el.tagName === 'SCRIPT' || keep.indexOf(el) >= 0) return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
+  function focusables(root){
+    return arr(root.querySelectorAll('a[href], button:not([disabled]), summary, iframe, [tabindex]:not([tabindex="-1"])'))
+      .filter(function(el){ return el.getClientRects().length > 0; });
+  }
+  function trapTab(root, e){
+    var f = focusables(root); if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && d.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && d.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+  function refocus(el){ if (el && el.focus && d.contains(el)) { try { el.focus({ preventScroll: true }); } catch (x) { el.focus(); } } }
+
+  /* ---------- sticky header ---------- */
+  var bar = $('bar');
+  if (bar){
+    var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------- scroll spy: the bottom nav's own links define the sections ---------- */
+  var bottomLinks = arr(d.querySelectorAll('.bottom-nav a[href^="#"]'));
+  if (bottomLinks.length){
+    var hrefs   = bottomLinks.map(function(a){ return a.getAttribute('href'); });
+    var topLinks = hrefs.map(function(h){ return d.querySelector('nav.jump a[href="' + h + '"]'); });
+    var targets = hrefs.map(function(h){ return d.querySelector(h); });
+    var NAV_H = 108, current = -1, ticking = false, pinned = -1;
+
+    var setActive = function(i){
+      if (i === current) return; current = i;
+      [topLinks, bottomLinks].forEach(function(group){
+        group.forEach(function(a, j){
+          if (!a) return;
+          if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      });
+    };
+    /* The last section whose top has crossed the sticky header wins. More reliable than
+       IntersectionObserver when two short sections are on screen at once. At the very
+       bottom of the page the last section wins outright: it may be too short to ever reach
+       the header. (This replaces an invisible spacer that padded the page so it could,
+       which left up to ~450px of empty space under the footer.) */
+    var spy = function(){
+      ticking = false;
+      if (pinned >= 0){ setActive(pinned); return; }
+      var active = 0;
+      for (var i = 0; i < targets.length; i++){
+        if (targets[i] && targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
+      }
+      var root = d.documentElement;
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) active = targets.length - 1;
+      setActive(active);
+    };
+    spy();
+    var queue = function(){ if (!ticking){ ticking = true; requestAnimationFrame(spy); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    /* A tapped nav item is the reader's stated intent: keep it active through the smooth
+       scroll it starts (and after, even if its section is too short to reach the header),
+       until the reader scrolls on their own again. */
+    bottomLinks.concat(topLinks).forEach(function(a){
+      if (!a) return;
+      a.addEventListener('click', function(){
+        var i = hrefs.indexOf(a.getAttribute('href'));
+        if (i >= 0){ pinned = i; setActive(i); }
+      });
+    });
+    ['wheel', 'touchstart', 'keydown'].forEach(function(type){
+      window.addEventListener(type, function(){ if (pinned >= 0){ pinned = -1; queue(); } }, { passive: true });
+    });
+  }
+
+  /* ---------- language menu (a listbox: arrows, Home/End, Enter/Space, Escape) ---------- */
+  var langBtn = $('lang-btn'), drop = $('lang-drop');
+  var closeDrop = function(){};
+  if (langBtn && drop){
+    var opts = arr(drop.querySelectorAll('.lang-opt'));
+    opts.forEach(function(o){ o.tabIndex = -1; });
+    var activeOpt = function(){ return drop.querySelector('.lang-opt.active') || opts[0]; };
+    var openDrop = function(focusList){
+      drop.hidden = false; langBtn.setAttribute('aria-expanded', 'true');
+      if (focusList) activeOpt().focus();
+    };
+    closeDrop = function(returnFocus){
+      if (drop.hidden) return;
+      drop.hidden = true; langBtn.setAttribute('aria-expanded', 'false');
+      if (returnFocus) langBtn.focus();
+    };
+    var choose = function(o){
+      if (window._i18n) window._i18n(o.getAttribute('data-lang'));
+      closeDrop(true);
+    };
+    langBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      /* detail 0 = activated from the keyboard: move focus into the list */
+      if (drop.hidden) openDrop(e.detail === 0); else closeDrop(false);
+    });
+    langBtn.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp'){ e.preventDefault(); openDrop(true); }
+    });
+    drop.addEventListener('click', function(e){
+      var o = e.target.closest('.lang-opt'); if (!o) return;
+      e.stopPropagation(); choose(o);
+    });
+    drop.addEventListener('keydown', function(e){
+      var i = opts.indexOf(d.activeElement), n = opts.length;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); opts[(i + 1) % n].focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); opts[(i - 1 + n) % n].focus(); }
+      else if (e.key === 'Home'){ e.preventDefault(); opts[0].focus(); }
+      else if (e.key === 'End'){ e.preventDefault(); opts[n - 1].focus(); }
+      else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (i >= 0) choose(opts[i]); }
+      else if (e.key === 'Tab'){ closeDrop(false); }
+    });
+    d.addEventListener('click', function(e){ if (!drop.contains(e.target)) closeDrop(false); });
+  }
+
+  /* ---------- product switcher sheet ---------- */
+  var guidesBtn = $('guides-btn'), sheet = $('product-sheet');
+  var sheetBackdrop = $('sheet-backdrop'), sheetClose = $('sheet-close');
+  var sheetOpen = false, closeSheet = function(){};
+  if (guidesBtn && sheet && sheetBackdrop){
+    var hideTimer = 0, sheetReturn = null;
+    var openSheet = function(){
+      if (sheetOpen) return;
+      sheetOpen = true; clearTimeout(hideTimer);
+      sheetReturn = d.activeElement;
+      sheet.hidden = false; sheetBackdrop.hidden = false;
+      sheet.getBoundingClientRect();            /* commit the closed position so it animates */
+      sheet.classList.add('open'); sheetBackdrop.classList.add('open');
+      guidesBtn.setAttribute('aria-expanded', 'true');
+      lock(); setInert(true, [sheet, sheetBackdrop]);
+      refocus(sheetClose || sheet);
+    };
+    closeSheet = function(){
+      if (!sheetOpen) return;
+      sheetOpen = false;
+      sheet.classList.remove('open'); sheetBackdrop.classList.remove('open');
+      guidesBtn.setAttribute('aria-expanded', 'false');
+      setInert(false, []); unlock();
+      hideTimer = setTimeout(function(){ sheet.hidden = true; sheetBackdrop.hidden = true; }, 320);
+      refocus(sheetReturn || guidesBtn);
+    };
+    guidesBtn.addEventListener('click', openSheet);
+    if (sheetClose) sheetClose.addEventListener('click', closeSheet);
+    sheetBackdrop.addEventListener('click', closeSheet);
+
+    /* Swipe down to close — only when the list is scrolled to its top, so scrolling the
+       product list back up doesn't dismiss the sheet. */
+    var sheetBody = sheet.querySelector('.sheet-body') || sheet;
+    var startY = 0, startTop = 0;
+    sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; startTop = sheetBody.scrollTop; }, { passive: true });
+    sheet.addEventListener('touchend', function(e){
+      if (e.changedTouches[0].clientY - startY > 60 && startTop <= 0) closeSheet();
+    }, { passive: true });
+  }
+
+  /* ---------- video modal (Vimeo) ---------- */
+  var vm = $('vm'), vmBackdrop = $('vm-backdrop'), vmFrame = $('vm-iframe'), vmClose = $('vm-close');
+  var vmOpen = false, closeVideo = function(){};
+  if (vm && vmFrame && vmBackdrop){
+    var vmReturn = null;
+    var openVideo = function(card){
+      var id = card.getAttribute('data-vimeo'); if (!id) return;
+      var hash = card.getAttribute('data-vimeo-hash');
+      vmFrame.src = 'https://player.vimeo.com/video/' + encodeURIComponent(id) +
+                    '?autoplay=1&dnt=1' + (hash ? '&h=' + encodeURIComponent(hash) : '');
+      var title = card.querySelector('.vid-title');
+      vmFrame.title = title ? title.textContent.trim() : 'Video';
+      vmReturn = card;
+      vmBackdrop.hidden = false; vm.hidden = false; vmOpen = true;
+      lock(); setInert(true, [vm, vmBackdrop]);
+      refocus(vmClose || vm);
+    };
+    closeVideo = function(){
+      if (!vmOpen) return;
+      vmOpen = false;
+      vmFrame.src = 'about:blank';   /* stops playback */
+      vmBackdrop.hidden = true; vm.hidden = true;
+      setInert(false, []); unlock();
+      refocus(vmReturn);
+    };
+    /* Delegated, so it survives a language switch re-rendering the video cards. */
+    d.addEventListener('click', function(e){
+      var card = e.target.closest && e.target.closest('.vid[data-vimeo]');
+      if (card){ e.preventDefault(); openVideo(card); }
+    });
+    if (vmClose) vmClose.addEventListener('click', closeVideo);
+    vmBackdrop.addEventListener('click', closeVideo);
+    vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
+  }
+
+  /* ---------- one keyboard handler, innermost layer first ---------- */
+  d.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+      if (drop && !drop.hidden){ e.preventDefault(); closeDrop(true); return; }
+      if (vmOpen){ e.preventDefault(); closeVideo(); return; }
+      if (sheetOpen){ e.preventDefault(); closeSheet(); return; }
+    } else if (e.key === 'Tab'){
+      if (vmOpen) trapTab(vm, e);
+      else if (sheetOpen) trapTab(sheet, e);
+    }
+  });
 })();
 </script>
 </body>
