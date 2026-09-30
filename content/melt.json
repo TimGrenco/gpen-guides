@@ -30,7 +30,7 @@
     },
     {
       "id": "activate",
-      "title": "Activate",
+      "title": "Power On & Scoop",
       "image": "images/melt-step-02-activate.jpg",
       "imageAlt": "G Pen Melt ceramic tip and button",
       "image2": null,
@@ -41,8 +41,8 @@
           "text": "**Click 5 times** quickly to power on. The LED lights to confirm."
         },
         {
-          "id": "b2",
-          "text": "**Hold the button** to heat the ceramic tip (heats in seconds)."
+          "id": "b5",
+          "text": "**Touch the tip** to your concentrate to scoop up a small amount."
         },
         {
           "id": "b3",
@@ -62,9 +62,35 @@
           },
           "action": "Power on / off",
           "sub": "Click button 5 times quickly"
+        }
+      ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "scoop-drop",
+      "title": "Heat & Drop",
+      "image": "images/melt-step-03-scoop.jpg",
+      "imageAlt": "G Pen Melt scooping concentrate",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b4",
+          "text": "**Hold the button** to heat the ceramic tip — it heats in seconds."
         },
         {
-          "id": "p2",
+          "id": "b2",
+          "text": "Let your concentrate **melt cleanly** into your rig, bowl, or device."
+        },
+        {
+          "id": "b3",
+          "text": "Works with bangers, e-rigs, and G Pen devices like the Micro+, Connect, and Hyer."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
           "badge": {
             "kind": "pill",
             "label": "Hold"
@@ -74,34 +100,6 @@
         }
       ],
       "note": null,
-      "helpWidget": false
-    },
-    {
-      "id": "scoop-drop",
-      "title": "Scoop & Drop",
-      "image": "images/melt-step-03-scoop.jpg",
-      "imageAlt": "G Pen Melt scooping concentrate",
-      "image2": null,
-      "image2Alt": null,
-      "bullets": [
-        {
-          "id": "b1",
-          "text": "**Touch the warm tip** to your concentrate to pick it up cleanly."
-        },
-        {
-          "id": "b2",
-          "text": "Hold the button to heat and let it **melt cleanly** into your rig, bowl, or device."
-        },
-        {
-          "id": "b3",
-          "text": "Works with bangers, e-rigs, and G Pen devices like the Micro+, Connect, and Hyer."
-        }
-      ],
-      "press": [],
-      "note": {
-        "type": "tip",
-        "text": "The tip is precisely calibrated — no variable heat needed. Touch, heat, and drop in one clean motion."
-      },
       "helpWidget": false
     },
     {
