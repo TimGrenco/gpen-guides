@@ -34,10 +34,11 @@
       "step.charge.bullet.b2": "Give it a full charge before first use.",
       "step.charge.note": "USB-C cable not included.",
       "step.load.title": "Load",
-      "step.load.bullet.b1": "**Remove the mouthpiece** to access the chamber.",
-      "step.load.bullet.b2": "**Fully load** the chamber with dry material.",
+      "step.load.bullet.b1": "Remove the **magnetic mouthpiece**.",
+      "step.load.bullet.b2": "**Fully load** the chamber with ground dry herb.",
       "step.load.bullet.b3": "**Pack lightly** with the included pick tool — do not overpack.",
-      "step.load.note": "A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality.",
+      "step.load.bullet.b4": "**Re-attach** the mouthpiece before powering on.",
+      "step.load.note": "**~0.4g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.",
       "step.activate.title": "Activate",
       "step.activate.press.p1.action": "Power on",
       "step.activate.press.p1.sub": "Hold button 3 seconds",
@@ -134,10 +135,10 @@
       "step.charge.bullet.b2": "Cárgalo por completo antes del primer uso.",
       "step.charge.note": "Cable USB-C no incluido.",
       "step.load.title": "Llenar",
-      "step.load.bullet.b1": "**Quita la boquilla** para acceder a la cámara.",
-      "step.load.bullet.b2": "**Llena por completo** la cámara con material seco.",
+      "step.load.bullet.b1": "Retira la **boquilla magnética**.",
+      "step.load.bullet.b2": "**Llena por completo** la cámara con hierba seca molida.",
       "step.load.bullet.b3": "**Compacta ligeramente** con la herramienta incluida; no lo aprietes demasiado.",
-      "step.load.note": "Una compactación adecuada permite el paso del aire. Si aprietas demasiado, las caladas se dificultan y disminuye la calidad del vapor.",
+      "step.load.note": "**Capacidad de ~0.4g.** Un llenado adecuado permite el flujo de aire — llenar de más restringe las caladas y reduce la calidad del vapor.",
       "step.activate.title": "Activar",
       "step.activate.press.p1.action": "Encender",
       "step.activate.press.p1.sub": "Mantén presionado el botón 3 segundos",
@@ -196,7 +197,8 @@
       "faq.f6.question": "¿Qué cubre la garantía?",
       "faq.f6.answer": "El Dash II cuenta con una garantía limitada. Registra tu dispositivo y consulta los términos completos en gpen.com, o comunícate con soporte con los datos de tu pedido.",
       "video.v1.title": "Cómo usar el Dash II",
-      "video.v2.title": "Cómo limpiar el Dash II"
+      "video.v2.title": "Cómo limpiar el Dash II",
+      "step.load.bullet.b4": "**Vuelve a colocar** la boquilla antes de encender."
     }
   },
   "DE": {
@@ -234,10 +236,10 @@
       "step.charge.bullet.b2": "Lade es vor der ersten Nutzung vollständig auf.",
       "step.charge.note": "USB-C-Kabel nicht im Lieferumfang enthalten.",
       "step.load.title": "Befüllen",
-      "step.load.bullet.b1": "**Nimm das Mundstück ab**, um an die Kammer zu gelangen.",
-      "step.load.bullet.b2": "**Fülle die Kammer vollständig** mit trockenem Material.",
+      "step.load.bullet.b1": "Entferne das **magnetische Mundstück**.",
+      "step.load.bullet.b2": "**Fülle die Kammer vollständig** mit gemahlenem Trockenkraut.",
       "step.load.bullet.b3": "**Drücke es leicht an** – mit dem mitgelieferten Stopfer, aber nicht zu fest.",
-      "step.load.note": "Richtig gestopft lässt die Luft gut durch. Zu festes Stopfen erschwert das Ziehen und mindert die Dampfqualität.",
+      "step.load.note": "**Kapazität von ~0.4g.** Eine richtige Befüllung ermöglicht Luftstrom — Überfüllung schränkt die Züge ein und verringert die Dampfqualität.",
       "step.activate.title": "Aktivieren",
       "step.activate.press.p1.action": "Einschalten",
       "step.activate.press.p1.sub": "Taste 3 Sekunden gedrückt halten",
@@ -296,7 +298,8 @@
       "faq.f6.question": "Was deckt die Garantie ab?",
       "faq.f6.answer": "Für den Dash II gilt eine eingeschränkte Garantie. Registriere dein Gerät und lies die vollständigen Bedingungen auf gpen.com oder wende dich mit deinen Bestelldaten an den Support.",
       "video.v1.title": "Den Dash II verwenden",
-      "video.v2.title": "Den Dash II reinigen"
+      "video.v2.title": "Den Dash II reinigen",
+      "step.load.bullet.b4": "**Setze das Mundstück wieder auf**, bevor du das Gerät einschaltest."
     }
   },
   "IT": {
@@ -334,10 +337,10 @@
       "step.charge.bullet.b2": "Effettua una ricarica completa prima del primo utilizzo.",
       "step.charge.note": "Cavo USB-C non incluso.",
       "step.load.title": "Caricamento",
-      "step.load.bullet.b1": "**Rimuovi il bocchino** per accedere alla camera.",
-      "step.load.bullet.b2": "**Riempi completamente** la camera con materiale secco.",
+      "step.load.bullet.b1": "Rimuovi il **bocchino magnetico**.",
+      "step.load.bullet.b2": "**Carica completamente** la camera con erba secca macinata.",
       "step.load.bullet.b3": "**Pressa leggermente** con lo strumento in dotazione, senza esagerare.",
-      "step.load.note": "Una pressatura corretta lascia passare l'aria. Se pressi troppo, le boccate diventano difficili e la qualità del vapore peggiora.",
+      "step.load.note": "**Capacità di ~0.4g.** Un caricamento corretto consente il passaggio dell'aria — un caricamento eccessivo limita i tiri e riduce la qualità del vapore.",
       "step.activate.title": "Attivazione",
       "step.activate.press.p1.action": "Accensione",
       "step.activate.press.p1.sub": "Tieni premuto il pulsante per 3 secondi",
@@ -396,7 +399,8 @@
       "faq.f6.question": "Cosa copre la garanzia?",
       "faq.f6.answer": "Il Dash II è coperto da una garanzia limitata. Registra il tuo dispositivo e leggi i termini completi su gpen.com, oppure contatta l'assistenza con i dettagli del tuo ordine.",
       "video.v1.title": "Come usare il Dash II",
-      "video.v2.title": "Come pulire il Dash II"
+      "video.v2.title": "Come pulire il Dash II",
+      "step.load.bullet.b4": "**Riattacca** il bocchino prima di accendere il dispositivo."
     }
   },
   "FR": {
@@ -434,10 +438,10 @@
       "step.charge.bullet.b2": "Effectuez une charge complète avant la première utilisation.",
       "step.charge.note": "Câble USB-C non inclus.",
       "step.load.title": "Remplissage",
-      "step.load.bullet.b1": "**Retirez l'embout buccal** pour accéder à la chambre.",
-      "step.load.bullet.b2": "**Remplissez entièrement** la chambre de matière sèche.",
+      "step.load.bullet.b1": "Retirez l'**embout magnétique**.",
+      "step.load.bullet.b2": "**Remplissez entièrement** la chambre avec de l'herbe sèche moulue.",
       "step.load.bullet.b3": "**Tassez légèrement** avec l'outil fourni, sans trop serrer.",
-      "step.load.note": "Un bon tassage laisse passer l'air. Un tassage trop serré gêne les inspirations et réduit la qualité de la vapeur.",
+      "step.load.note": "**Capacité de ~0.4g.** Un remplissage correct permet la circulation de l'air — un remplissage excessif restreint les bouffées et réduit la qualité de la vapeur.",
       "step.activate.title": "Activation",
       "step.activate.press.p1.action": "Allumer",
       "step.activate.press.p1.sub": "Maintenez le bouton enfoncé pendant 3 secondes",
@@ -496,7 +500,8 @@
       "faq.f6.question": "Que couvre la garantie ?",
       "faq.f6.answer": "Le Dash II est couvert par une garantie limitée. Enregistrez votre appareil et consultez les conditions complètes sur gpen.com, ou contactez l'assistance en vous munissant des détails de votre commande.",
       "video.v1.title": "Utiliser le Dash II",
-      "video.v2.title": "Nettoyer le Dash II"
+      "video.v2.title": "Nettoyer le Dash II",
+      "step.load.bullet.b4": "**Remettez** l'embout en place avant d'allumer l'appareil."
     }
   },
   "PT": {
@@ -534,10 +539,10 @@
       "step.charge.bullet.b2": "Faça uma carga completa antes do primeiro uso.",
       "step.charge.note": "Cabo USB-C não incluído.",
       "step.load.title": "Abastecer",
-      "step.load.bullet.b1": "**Remova a piteira** para acessar a câmara.",
-      "step.load.bullet.b2": "**Encha totalmente** a câmara com material seco.",
+      "step.load.bullet.b1": "Remova o **bocal magnético**.",
+      "step.load.bullet.b2": "**Carregue totalmente** a câmara com a erva seca moída.",
       "step.load.bullet.b3": "**Compacte de leve** com a ferramenta incluída — não aperte demais.",
-      "step.load.note": "Um empacotamento adequado permite a passagem de ar. Apertar demais dificulta as tragadas e reduz a qualidade do vapor.",
+      "step.load.note": "**Capacidade de ~0.4g.** Um carregamento adequado permite a passagem do ar — carregar demais restringe as tragadas e reduz a qualidade do vapor.",
       "step.activate.title": "Ativar",
       "step.activate.press.p1.action": "Ligar",
       "step.activate.press.p1.sub": "Mantenha o botão pressionado por 3 segundos",
@@ -596,7 +601,8 @@
       "faq.f6.question": "O que a garantia cobre?",
       "faq.f6.answer": "O Dash II tem garantia limitada. Registre seu dispositivo e leia os termos completos em gpen.com, ou entre em contato com o suporte com os dados do seu pedido.",
       "video.v1.title": "Como usar o Dash II",
-      "video.v2.title": "Como limpar o Dash II"
+      "video.v2.title": "Como limpar o Dash II",
+      "step.load.bullet.b4": "**Recoloque** o bocal antes de ligar o dispositivo."
     }
   }
 }

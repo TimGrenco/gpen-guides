@@ -34,21 +34,25 @@
       "bullets": [
         {
           "id": "b1",
-          "text": "**Remove the mouthpiece** to access the chamber."
+          "text": "Remove the **magnetic mouthpiece**."
         },
         {
           "id": "b2",
-          "text": "**Fully load** the chamber with dry material."
+          "text": "**Fully load** the chamber with ground dry herb."
         },
         {
           "id": "b3",
           "text": "**Pack lightly** with the included pick tool — do not overpack."
+        },
+        {
+          "id": "b4",
+          "text": "**Re-attach** the mouthpiece before powering on."
         }
       ],
       "press": [],
       "note": {
         "type": "tip",
-        "text": "A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality."
+        "text": "**~0.4g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
       },
       "helpWidget": false
     },

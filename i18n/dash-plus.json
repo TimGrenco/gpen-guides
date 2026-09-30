@@ -38,9 +38,10 @@
       "step.charge.bullet.b2": "Give it a full charge before first use — takes about **1 hour**.",
       "step.load.title": "Load",
       "step.load.bullet.b1": "Remove the **magnetic mouthpiece**.",
-      "step.load.bullet.b2": "Fill the **titanium chamber** with ground dry herb — don't pack it tight.",
-      "step.load.bullet.b3": "Replace the mouthpiece before powering on.",
-      "step.load.note": "**~0.3g capacity.** A fine, even grind gives the best vapor and airflow through the spiral ceramic airpath.",
+      "step.load.bullet.b2": "**Fully load** the **titanium chamber** with ground dry herb.",
+      "step.load.bullet.b3": "**Pack lightly** with the included pick tool — do not overpack.",
+      "step.load.bullet.b4": "**Re-attach** the mouthpiece before powering on.",
+      "step.load.note": "**~0.3g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.",
       "step.set-heat.title": "Activate",
       "step.set-heat.bullet.b1": "**Hold the power button for 3 seconds** to turn on. The display lights up.",
       "step.set-heat.bullet.b2": "Press **Left / Right** to adjust your target temperature.",
@@ -137,9 +138,9 @@
       "step.charge.bullet.b2": "Cárgalo por completo antes del primer uso — toma aproximadamente **1 hora**.",
       "step.load.title": "Llena",
       "step.load.bullet.b1": "Retira la **boquilla magnética**.",
-      "step.load.bullet.b2": "Llena la **cámara de titanio** con hierba seca molida — no la compactes.",
-      "step.load.bullet.b3": "Vuelve a colocar la boquilla antes de encender.",
-      "step.load.note": "**Capacidad de ~0.3 g.** Una molienda fina y uniforme ofrece el mejor vapor y flujo de aire a través del trayecto de aire de cerámica en espiral.",
+      "step.load.bullet.b2": "**Llena por completo** la **cámara de titanio** con hierba seca molida.",
+      "step.load.bullet.b3": "**Compacta ligeramente** con la herramienta incluida; no lo aprietes demasiado.",
+      "step.load.note": "**Capacidad de ~0.3g.** Un llenado adecuado permite el flujo de aire — llenar de más restringe las caladas y reduce la calidad del vapor.",
       "step.set-heat.title": "Activar",
       "step.set-heat.bullet.b1": "**Mantén presionado el botón de encendido durante 3 segundos** para encender. La pantalla se ilumina.",
       "step.set-heat.bullet.b2": "Presiona **Izquierda / Derecha** para ajustar la temperatura deseada.",
@@ -194,7 +195,8 @@
       "faq.f5.question": "¿Qué cubre la garantía?",
       "faq.f5.answer": "El Dash+ incluye una garantía limitada de 2 años que cubre los componentes electrónicos y defectos de fabricación. Registra tu dispositivo en gpen.com para extenderla a 3 años. Los daños físicos no están cubiertos.",
       "video.v1.title": "Cómo usar el Dash+",
-      "video.v2.title": "Cómo limpiar el Dash+"
+      "video.v2.title": "Cómo limpiar el Dash+",
+      "step.load.bullet.b4": "**Vuelve a colocar** la boquilla antes de encender."
     }
   },
   "DE": {
@@ -236,9 +238,9 @@
       "step.charge.bullet.b2": "Lade das Gerät vor dem ersten Gebrauch vollständig auf — das dauert etwa **1 Stunde**.",
       "step.load.title": "Befüllen",
       "step.load.bullet.b1": "Entferne das **magnetische Mundstück**.",
-      "step.load.bullet.b2": "Fülle die **Titankammer** mit gemahlenem Trockenkraut — nicht fest andrücken.",
-      "step.load.bullet.b3": "Setze das Mundstück wieder auf, bevor du das Gerät einschaltest.",
-      "step.load.note": "**Fassungsvermögen ca. 0,3 g.** Ein feines, gleichmäßiges Mahlgut sorgt für den besten Dampf und optimalen Luftstrom durch den spiralförmigen Keramik-Luftweg.",
+      "step.load.bullet.b2": "**Fülle die Titankammer vollständig** mit gemahlenem Trockenkraut.",
+      "step.load.bullet.b3": "**Drücke es leicht an** – mit dem mitgelieferten Stopfer, aber nicht zu fest.",
+      "step.load.note": "**Kapazität von ~0.3g.** Eine richtige Befüllung ermöglicht Luftstrom — Überfüllung schränkt die Züge ein und verringert die Dampfqualität.",
       "step.set-heat.title": "Aktivieren",
       "step.set-heat.bullet.b1": "**Halte die Ein/Aus-Taste 3 Sekunden lang gedrückt**, um das Gerät einzuschalten. Das Display leuchtet auf.",
       "step.set-heat.bullet.b2": "Drücke **Links / Rechts**, um deine gewünschte Temperatur einzustellen.",
@@ -293,7 +295,8 @@
       "faq.f5.question": "Was deckt die Garantie ab?",
       "faq.f5.answer": "Der Dash+ verfügt über eine beschränkte 2-Jahres-Garantie, die Elektronik und Herstellungsfehler abdeckt. Registriere dein Gerät auf gpen.com, um sie auf 3 Jahre zu verlängern. Physische Schäden sind nicht abgedeckt.",
       "video.v1.title": "Den Dash+ verwenden",
-      "video.v2.title": "Den Dash+ reinigen"
+      "video.v2.title": "Den Dash+ reinigen",
+      "step.load.bullet.b4": "**Setze das Mundstück wieder auf**, bevor du das Gerät einschaltest."
     }
   },
   "IT": {
@@ -335,9 +338,9 @@
       "step.charge.bullet.b2": "Caricalo completamente prima del primo utilizzo — ci vuole circa **1 ora**.",
       "step.load.title": "Riempimento",
       "step.load.bullet.b1": "Rimuovi il **bocchino magnetico**.",
-      "step.load.bullet.b2": "Riempi la **camera in titanio** con erba secca macinata — non comprimerla.",
-      "step.load.bullet.b3": "Rimetti il boccaglio prima di accendere il dispositivo.",
-      "step.load.note": "**Capacità di ~0,3 g.** Una macinatura fine e uniforme garantisce il miglior vapore e il miglior flusso d'aria attraverso il percorso dell'aria a spirale in ceramica.",
+      "step.load.bullet.b2": "**Carica completamente** la **camera in titanio** con erba secca macinata.",
+      "step.load.bullet.b3": "**Pressa leggermente** con lo strumento in dotazione, senza esagerare.",
+      "step.load.note": "**Capacità di ~0.3g.** Un caricamento corretto consente il passaggio dell'aria — un caricamento eccessivo limita i tiri e riduce la qualità del vapore.",
       "step.set-heat.title": "Attiva",
       "step.set-heat.bullet.b1": "**Tieni premuto il pulsante di accensione per 3 secondi** per accendere. Il display si illumina.",
       "step.set-heat.bullet.b2": "Premi **Sinistra / Destra** per regolare la temperatura desiderata.",
@@ -392,7 +395,8 @@
       "faq.f5.question": "Cosa copre la garanzia?",
       "faq.f5.answer": "Il Dash+ include una garanzia limitata di 2 anni che copre l'elettronica e i difetti di fabbricazione. Registra il tuo dispositivo su gpen.com per estenderla a 3 anni. I danni fisici non sono coperti.",
       "video.v1.title": "Come usare il Dash+",
-      "video.v2.title": "Come pulire il Dash+"
+      "video.v2.title": "Come pulire il Dash+",
+      "step.load.bullet.b4": "**Riattacca** il bocchino prima di accendere il dispositivo."
     }
   },
   "FR": {
@@ -434,9 +438,9 @@
       "step.charge.bullet.b2": "Chargez-le complètement avant la première utilisation — cela prend environ **1 heure**.",
       "step.load.title": "Remplissage",
       "step.load.bullet.b1": "Retirez l'**embout magnétique**.",
-      "step.load.bullet.b2": "Remplissez la **chambre en titane** d'herbe sèche moulue — sans la tasser.",
-      "step.load.bullet.b3": "Remettez l'embout en place avant d'allumer l'appareil.",
-      "step.load.note": "**Capacité d'environ 0,3 g.** Une mouture fine et régulière offre la meilleure vapeur et le meilleur flux d'air dans le circuit d'air en céramique en spirale.",
+      "step.load.bullet.b2": "**Remplissez entièrement** la **chambre en titane** avec de l'herbe sèche moulue.",
+      "step.load.bullet.b3": "**Tassez légèrement** avec l'outil fourni, sans trop serrer.",
+      "step.load.note": "**Capacité de ~0.3g.** Un remplissage correct permet la circulation de l'air — un remplissage excessif restreint les bouffées et réduit la qualité de la vapeur.",
       "step.set-heat.title": "Activer",
       "step.set-heat.bullet.b1": "**Maintenez le bouton d'alimentation enfoncé pendant 3 secondes** pour allumer l'appareil. L'écran s'illumine.",
       "step.set-heat.bullet.b2": "Appuyez sur **Gauche / Droite** pour régler la température souhaitée.",
@@ -491,7 +495,8 @@
       "faq.f5.question": "Que couvre la garantie ?",
       "faq.f5.answer": "Le Dash+ est fourni avec une garantie limitée de 2 ans couvrant l'électronique et les défauts de fabrication. Enregistrez votre appareil sur gpen.com pour la prolonger à 3 ans. Les dommages physiques ne sont pas couverts.",
       "video.v1.title": "Utiliser le Dash+",
-      "video.v2.title": "Nettoyer le Dash+"
+      "video.v2.title": "Nettoyer le Dash+",
+      "step.load.bullet.b4": "**Remettez** l'embout en place avant d'allumer l'appareil."
     }
   },
   "PT": {
@@ -533,9 +538,9 @@
       "step.charge.bullet.b2": "Faça uma carga completa antes do primeiro uso — leva cerca de **1 hora**.",
       "step.load.title": "Encher",
       "step.load.bullet.b1": "Remova o **bocal magnético**.",
-      "step.load.bullet.b2": "Encha a **câmara de titânio** com erva seca moída — sem compactar.",
-      "step.load.bullet.b3": "Recoloque o bocal antes de ligar.",
-      "step.load.note": "**Capacidade de ~0,3 g.** Uma moagem fina e uniforme proporciona o melhor vapor e fluxo de ar pelo caminho de ar em cerâmica espiral.",
+      "step.load.bullet.b2": "**Carregue totalmente** a **câmara de titânio** com a erva seca moída.",
+      "step.load.bullet.b3": "**Compacte de leve** com a ferramenta incluída — não aperte demais.",
+      "step.load.note": "**Capacidade de ~0.3g.** Um carregamento adequado permite a passagem do ar — carregar demais restringe as tragadas e reduz a qualidade do vapor.",
       "step.set-heat.title": "Ativar",
       "step.set-heat.bullet.b1": "**Mantenha o botão liga/desliga pressionado por 3 segundos** para ligar. O visor se acende.",
       "step.set-heat.bullet.b2": "Pressione **Esquerda / Direita** para ajustar a temperatura desejada.",
@@ -590,7 +595,8 @@
       "faq.f5.question": "O que a garantia cobre?",
       "faq.f5.answer": "O Dash+ inclui uma garantia limitada de 2 anos que cobre a parte eletrônica e defeitos de fabricação. Registre seu dispositivo em gpen.com para estendê-la para 3 anos. Danos físicos não são cobertos.",
       "video.v1.title": "Como usar o Dash+",
-      "video.v2.title": "Como limpar o Dash+"
+      "video.v2.title": "Como limpar o Dash+",
+      "step.load.bullet.b4": "**Recoloque** o bocal antes de ligar o dispositivo."
     }
   }
 }
