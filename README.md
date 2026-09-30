@@ -1,111 +1,141 @@
 # G Pen Product Guides
 
-Mobile-first how-to guides for G Pen devices. A customer scans a QR code on the
-device or its packaging and lands directly on that product's page: how to charge
-it, load it, use it, and keep it clean.
+Mobile-first how-to guides for G Pen products. A customer scans a QR code on the
+device or its packaging and lands on that product's guide: how to charge it, load
+it, use it and keep it clean — in English, Spanish, German, Italian, French and
+Portuguese (language switcher, top right).
 
-Served as a static site from this repo via GitHub Pages — no build step runs on
-push, the generated HTML is committed.
+A static site: the generated HTML is committed and GitHub Pages serves the repo
+root as-is. Nothing builds on push.
 
-## URLs
+## Hosting (GitHub Pages)
 
-Base: <https://timgrenco.github.io/gpen-guides/>
+Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
+`.nojekyll` is already in the repo so Pages serves every file untouched.
 
-| Page | Path |
+Base URL: <https://timgrenco.github.io/gpen-guides/>
+
+| Guide | Path |
 |---|---|
-| Portal index | `/` |
-| G Pen Hydout guide | `/hydout/` |
-| Hydout, single file | `/hydout/offline.html` |
+| All guides (index) | `/` |
+| G Pen Hydout | `/hydout/` |
+| G Pen Dash II | `/dash-ii/` |
+| G Pen 510 Original | `/510-original/` |
+| G Pen Micro II | `/micro-ii/` |
+| G Pen Melt | `/melt/` |
+| G Pen Dash+ | `/dash-plus/` |
+| G Pen Grinder | `/grinder/` |
 
-If this ever moves to a custom domain such as `guides.gpen.com`, add a `CNAME`
-file at the repo root and point a DNS CNAME record at `timgrenco.github.io`.
-Worth doing **before** any QR code goes to print — a github.io URL is hard to
-migrate away from once it is stamped on packaging.
+Each guide also has a single-file copy at `/<product>/offline.html` (every image
+inlined — for email, trade-show USB sticks, anywhere without a network). QR codes
+should point at the hosted `/<product>/` page.
 
-**The product path is what gets printed inside a QR code, so treat it as
-permanent.** Once codes ship on packaging, `/hydout/` can never move or the
-printed codes break. Add products alongside it; don't rename existing ones.
+**Product paths go inside printed QR codes, so treat them as permanent.** Once codes
+ship on packaging a path can never move. If this should live on a custom domain
+such as `guides.gpen.com`, set that up **before** anything goes to print: add a
+`CNAME` file at the repo root and point a DNS CNAME record at `timgrenco.github.io`.
 
-## Layout
+## How it's built
 
 ```
-content/<product>.json     steps, specs, FAQ, videos for each guide — edit via the CMS
-src/accessories.json       Upgrades cards (all products) — edit via the CMS
-src/images/                guide images (steps, attachments, video stills)
-src/<product>.template.html  the page shell: CSS, nav, section wrappers, scripts
-sections/                  renderer: content JSON -> HTML (partials/, render.py,
-                           schema.py validation, normalize.py cleanup)
-i18n/<product>.json        translation cache (per-string, keyed by stable IDs)
-admin/                     Decap CMS editor (config.yml defines the forms)
-build.py                   renders everything into the served pages below
-serve.py                   local preview on :8811
+content/<product>.json       steps, specs, FAQ, videos for each guide
+src/accessories.json         Upgrades cards (all products)
+src/images/                  guide images (steps, attachments, video stills)
+src/<product>.template.html  page shell: CSS, header/nav, section wrappers, scripts
+src/*-card.png, *-hero.*     index / switcher thumbnails
+sections/                    renderer: content JSON -> HTML
+  render.py                    partials/ fragments, translations, text polish
+  schema.py / normalize.py     validation + cleanup of what the editor saves
+i18n/<product>.json          translation cache, one entry per string (stable IDs)
+admin/                       Decap CMS content editor (config.yml = the forms)
+build.py                     renders everything into the served pages
+serve.py                     local preview on :8811
 
-index.html, <product>/     generated — committed because Pages serves them
+index.html, <product>/       generated — never edit by hand
 ```
 
-Never hand-edit a generated file. Copy lives in `content/*.json`; layout lives in
-the template shells.
+Copy lives in `content/*.json`; layout lives in the template shells. `PRODUCTS` in
+`build.py` lists every guide (name, category, card image, Upgrades button).
+
+```bash
+python3 build.py        # validates content, renders every guide, exits 1 on bad content
+python3 serve.py        # then open http://localhost:8811
+```
 
 ## Editing content
 
-The editor is at `/admin/`. Every save is a commit to `content/<product>.json`
-or `src/accessories.json`. Signing in on the live site needs the GitHub OAuth
-proxy (not set up yet); until then, edit locally:
+**Content editor (Decap CMS) at `/admin/`.** Each save is a commit to
+`content/<product>.json` or `src/accessories.json`. Signing in on the live site
+needs a GitHub OAuth proxy, which isn't set up yet (see *Not done yet*); until then
+the editor runs locally against this checkout:
 
 ```bash
 npx decap-server        # terminal 1 — lets the editor write to this checkout
-python3 serve.py        # terminal 2
+python3 serve.py        # terminal 2 — then open http://localhost:8811/admin/ and click Login
 ```
 
-Open <http://localhost:8811/admin/>, click Login (no password locally), edit,
-then rebuild and refresh translations:
+Or edit the JSON directly. Text fields support `**bold**`.
+
+**After any content change:**
 
 ```bash
-python3 build.py                      # validates content; fails loudly on bad input
-python3 scripts/gen_i18n.py <product> # translates only strings that changed
+python3 build.py                        # re-render (also mints IDs for new items)
+python3 scripts/gen_i18n.py <product>   # translate only the strings that changed
+python3 build.py                        # pick up the new translations
 ```
 
-`build.py` normalizes what the editor saves: new bullets/steps/rows get a stable
-ID written back to the file (that ID is what keeps a string's translations
-attached to it when things are reordered), and blank optional fields become
-empty. Text fields support `**bold**`.
+`gen_i18n.py` needs the `claude` CLI signed in (it translates via Claude). It only
+sends strings whose English changed, keyed by each item's stable ID, so editing or
+reordering one bullet re-translates just that bullet.
 
-Locally the step thumbnails in the editor stay blank until you open **Media**
-once — a quirk of the local backend only.
-
-## Working on it
-
-```bash
-python3 build.py && python3 serve.py
-python3 scripts/verify_migration.py   # built HTML + translations vs. last commit
-```
+Locally the step thumbnails in the editor stay blank until you open **Media** once
+— a quirk of the local backend only.
 
 ## Adding a product
 
-1. Copy an existing `src/<product>.template.html` shell to the new slug and update
-   its name, meta description and Upgrades subtitle.
-2. Add an entry to `PRODUCTS` in `build.py` and a file entry in `admin/config.yml`.
-3. Create `content/<product>.json` (copy one and edit it in the CMS) and add its
-   images to `src/images/`.
-4. `python3 build.py`, `python3 scripts/gen_i18n.py <product>`, check locally, commit.
+1. Copy an existing shell to `src/<product>.template.html` — e.g.
+   `src/melt.template.html`, or `src/grinder.template.html` for a guide without
+   videos — and change the title, meta description, bar name, product name and
+   Upgrades subtitle.
+2. Add the product to `PRODUCTS` in `build.py` and a file entry in `admin/config.yml`.
+3. Create `content/<product>.json` (copy one and edit), add its step images to
+   `src/images/` and its card image to `src/`, and its Upgrades cards to
+   `src/accessories.json`.
+4. `python3 build.py`, `python3 scripts/gen_i18n.py <product>`, `python3 build.py`,
+   check it locally, commit.
+
+Step images are 900×900 squares cropped to a circle by CSS;
+`scripts/compose_step.py` turns a product render or photo into one.
+
+## Hidden (legacy) products
+
+Elite II, Micro+, Hyer, Connect and the Roam card are `"hidden": True` in
+`PRODUCTS`: not built, not listed, not linked. Their source (templates, content,
+translations, images) is kept on purpose. To bring one back, set `hidden` to
+`False`, run `build.py`, then `gen_i18n.py <product>` (a few strings will need
+translating), then `build.py` again.
 
 ## Where the content comes from
 
-Product copy, spec and SKU tables, manual PDFs, and how-to video links all come
-from the brand assets portal at <https://assets.gpen.com>. Step photos are
-currently cropped from the printed manual PDF; they are placeholders until clean
-individual step photos are available.
+Product copy, specs, SKU/UPC and manual PDFs come from the brand asset portal
+(<https://assets.gpen.com>, whose `assets/data/*.js` files hold the full data) and
+the print manuals on the Grenco drive (`GPEN/Packaging/<product>/Manual/`). The
+Register button sends visitors to `/pages/register` on www, ca or eu.gpen.com,
+picked from the browser's time zone.
 
-### Not yet confirmed
+The Grinder has no print manual; its guide was written from its one-sheet, box
+and store listing.
 
-- **The five heat settings.** Only the 2.4V–3.8V range is documented, not the
-  individual voltages, so the guide shows setting *number* rather than a voltage.
-- **The FAQ answers** were written from the product specs, not from official
-  support documentation. They need a review before customers rely on them.
+## Not done yet
 
-## The single-file build
+- **Live editor sign-in:** Decap's GitHub login needs a small OAuth proxy
+  (e.g. a free Cloudflare Worker); then set `backend.base_url` in `admin/config.yml`.
+- **Auto-publish on save:** a GitHub Action that runs `build.py` +
+  `gen_i18n.py` on push (translation in CI needs an Anthropic API key as a secret).
+  Until then someone runs the three commands above and commits.
 
-`offline.html` is the whole guide — markup, styles, and every image — in one
-file with no external requests. Useful for email, a USB stick at a trade show,
-or anywhere without a network. It is ~440 KB against ~30 KB for the hosted page,
-so the hosted version is what QR codes should point at.
+## One-time migration scripts
+
+`scripts/extract_content.py`, `apply_content_tokens.py`, `migrate_i18n_cache.py`
+and `verify_migration.py` converted the original hand-written HTML guides into
+`content/*.json`. They're kept for reference; day-to-day work doesn't need them.

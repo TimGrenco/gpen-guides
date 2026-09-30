@@ -91,8 +91,10 @@ def check_translations(slug):
     problems = []
     old = git_show(f"{slug}/index.html")
     new_path = ROOT / slug / "index.html"
-    if old is None or not new_path.exists():
-        return [f"{slug}: no committed baseline or no fresh build to compare"]
+    if not new_path.exists():
+        return [f"{slug}: no fresh build to compare"]
+    if old is None:
+        return []  # new product — nothing committed yet to compare against
     old_t = extract_window_t(old)
     new_t = extract_window_t(new_path.read_text())
     if old_t is None:
