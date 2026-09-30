@@ -34,13 +34,13 @@ need a connection; the instructions themselves don't. QR codes should point at t
 hosted `/<product>/` page.
 
 **Product paths go inside printed QR codes, so treat them as permanent.** Once codes
-ship on packaging a path can never move. The site is going to live at
-**help.gpen.com** — set that up **before** anything goes to print:
+ship on packaging a path can never move. The site is live at **help.gpen.com**; how it
+is wired, for reference:
 
-1. DNS: a CNAME record `howto` → `timgrenco.github.io`.
+1. DNS (GoDaddy, gpen.com): CNAME record `help` → `timgrenco.github.io`.
 2. `BASE_URL = "https://help.gpen.com/"` in `build.py` (canonical links, share previews,
    sitemap and the offline copies all hang off it) and the `CNAME` file at the repo root.
-3. Settings → Pages → Custom domain `help.gpen.com`, then tick "Enforce HTTPS".
+3. Settings → Pages → Custom domain `help.gpen.com`, "Enforce HTTPS" on.
 
 Any guide can be linked in a specific language with `?lang=es` (es, de, it, fr, pt, en);
 the choice sticks for that visitor, same as on the brand portal (assets.gpen.com).
