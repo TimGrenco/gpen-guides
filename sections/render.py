@@ -36,6 +36,16 @@ def _fill(template, **tokens):
 _BOLD_RE = re.compile(r'\*\*(.+?)\*\*')
 
 
+def no_widow(text, max_pair=28):
+    """Join the last two words with a non-breaking space so a line never ends with one
+    word stranded on its own. Only for 4+ word copy with a short final pair, so short
+    labels can still wrap in narrow columns."""
+    words = text.split(" ")
+    if len(words) >= 4 and len(words[-2].strip("*")) + len(words[-1].strip("*")) <= max_pair:
+        return " ".join(words[:-2]) + " " + words[-2] + "\u00a0" + words[-1]
+    return text
+
+
 def render_inline(text, quote=False):
     """HTML-escape plain text, then turn **bold** markers into <b> tags."""
     escaped = htmllib.escape(text, quote=quote)
@@ -83,7 +93,7 @@ def render_bullets(bullets, id_prefix, leaf_lookup):
     items = []
     for b in bullets:
         text = _leaf(leaf_lookup, f"{id_prefix}.bullet.{b['id']}", b["text"])
-        items.append(_fill(_partial("bullet-item"), TEXT=render_inline(text)))
+        items.append(_fill(_partial("bullet-item"), TEXT=render_inline(no_widow(text))))
     return _fill(_partial("do-list"), ITEMS="\n".join(items))
 
 
@@ -105,11 +115,11 @@ def render_press(press, id_prefix, leaf_lookup):
         sub_line = ""
         if sub is not None:
             sub_text = _leaf(leaf_lookup, f"{id_prefix}.press.{p['id']}.sub", sub)
-            sub_line = f'                <span class="press-sub">{render_inline(sub_text)}</span>\n'
+            sub_line = f'                <span class="press-sub">{render_inline(no_widow(sub_text, 20))}</span>\n'
         rows.append(_fill(
             _partial("press-row"),
             BADGE_CLASS=badge_class, BADGE_STYLE=badge_style, BADGE_CONTENT=badge_content,
-            ACTION=render_inline(action), SUB_LINE=sub_line,
+            ACTION=render_inline(no_widow(action, 20)), SUB_LINE=sub_line,
         ))
     return _fill(_partial("press-list"), ROWS="\n".join(rows))
 
@@ -118,7 +128,7 @@ def render_note(note, id_prefix, leaf_lookup):
     if note is None:
         return ""
     text = _leaf(leaf_lookup, f"{id_prefix}.note", note["text"])
-    rendered = render_inline(text)
+    rendered = render_inline(no_widow(text))
     if note["type"] == "hazard":
         return _fill(_partial("note-hazard"), TEXT=rendered)
     icon = NOTE_ICON_TIP if note["type"] == "tip" else NOTE_ICON_WARNING
@@ -235,7 +245,7 @@ def render_faq_item(item, leaf_lookup):
     id_prefix = f"faq.{item['id']}"
     q = _leaf(leaf_lookup, f"{id_prefix}.question", item["question"])
     a = _leaf(leaf_lookup, f"{id_prefix}.answer", item["answer"])
-    return _fill(_partial("faq-item"), QUESTION=render_inline(q), ANSWER=render_inline(a))
+    return _fill(_partial("faq-item"), QUESTION=render_inline(q), ANSWER=render_inline(no_widow(a)))
 
 
 def _video_card(video, num, leaf_lookup):
