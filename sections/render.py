@@ -221,17 +221,23 @@ def _step_zone_inner(step, num, leaf_lookup, need_help_text=NEED_HELP_TEXT_EN):
     return "\n".join(lines).strip()
 
 
-def render_attach_item(item, leaf_lookup):
-    id_prefix = f"attach.{item['id']}"
-    title = _leaf(leaf_lookup, f"{id_prefix}.title", item["title"])
-    do_block = render_bullets(item.get("bullets", []), id_prefix, leaf_lookup)
+def render_attach_item(item, num, leaf_lookup):
     return _fill(
         _partial("attach-item"),
         IMG=img_ref(item["image"]),
         IMG_ALT=htmllib.escape(item["imageAlt"], quote=True),
-        TITLE=render_inline(title),
-        DO_BLOCK=do_block,
+        ZONE_KEY=f"attach{num}_body",
+        BODY=_attach_zone_inner(item, leaf_lookup),
     )
+
+
+def _attach_zone_inner(item, leaf_lookup):
+    """The translatable inner HTML of an attachment's text column: <h3> + its bullets.
+    The image sits outside the zone, so no {{img:}} token ever lands in a translation."""
+    id_prefix = f"attach.{item['id']}"
+    title = _leaf(leaf_lookup, f"{id_prefix}.title", item["title"])
+    do_block = render_bullets(item.get("bullets", []), id_prefix, leaf_lookup)
+    return "\n".join(x for x in (f'          <h3 class="attach-name">{render_inline(title)}</h3>', do_block) if x)
 
 
 def render_spec_row(spec, leaf_lookup):
@@ -267,7 +273,7 @@ def _video_card(video, num, leaf_lookup):
 def _render_body(content, leaf_lookup, need_help_text=NEED_HELP_TEXT_EN):
     steps = content.get("steps", [])
     steps_html = [render_step(s, i, leaf_lookup, need_help_text) for i, s in enumerate(steps, start=1)]
-    attach_html = [render_attach_item(a, leaf_lookup) for a in content.get("attachments", [])]
+    attach_html = [render_attach_item(a, i, leaf_lookup) for i, a in enumerate(content.get("attachments", []), start=1)]
     specs_html = [render_spec_row(s, leaf_lookup) for s in content.get("specs", [])]
     faq_html = [render_faq_item(f, leaf_lookup) for f in content.get("faq", [])]
 
@@ -328,9 +334,11 @@ def extract_content_leaves(content):
                 leaves[f"{prefix}.press.{p['id']}.badge"] = p["badge"]["label"]
         if step.get("note"):
             leaves[f"{prefix}.note"] = step["note"]["text"]
-    # Attachments are deliberately excluded: there's no data-i18n-zone wired up for that
-    # section (never has been — it's English-only today, same as before this migration),
-    # so translating it now would just be wasted spend on strings nothing displays.
+    for a in content.get("attachments", []):
+        prefix = f"attach.{a['id']}"
+        leaves[f"{prefix}.title"] = a["title"]
+        for b in a.get("bullets", []):
+            leaves[f"{prefix}.bullet.{b['id']}"] = b["text"]
     for spec in content.get("specs", []):
         prefix = f"specs.{spec['id']}"
         leaves[f"{prefix}.label"] = spec["label"]
@@ -361,6 +369,8 @@ def compose_translations(slug, content, cache):
         flat = dict(shell)
         for i, step in enumerate(steps, start=1):
             flat[f"step{i}_body"] = _step_zone_inner(step, i, leaf_lookup, need_help_text)
+        for i, a in enumerate(content.get("attachments", []), start=1):
+            flat[f"attach{i}_body"] = _attach_zone_inner(a, leaf_lookup).strip()
         if content.get("specs"):
             flat["specs_body"] = _specs_zone_inner(content["specs"], leaf_lookup)
         if content.get("faq"):

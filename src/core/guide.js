@@ -1,0 +1,228 @@
+/* G Pen Core — guide page behavior.
+   One copy, shared by every guide page (build.py inlines it before </body>, after the
+   i18n runtime, so offline.html keeps working from file://). Every block looks up its
+   own elements and quietly does nothing when a page doesn't have them: the Grinder has
+   no videos, the index page has no sections or sheet.
+
+   Owns: sticky header state, section scroll-spy (top pills + mobile bottom nav), the
+   language menu, the product-switcher sheet and the video modal. Dialogs trap focus,
+   return it on close, make the rest of the page inert, and share one scroll lock so
+   closing one can't unlock the page while the other is still open. */
+(function(){
+  var d = document;
+  function $(id){ return d.getElementById(id); }
+  function arr(list){ return Array.prototype.slice.call(list); }
+
+  /* ---------- shared: scroll lock, inert background, focus trap ---------- */
+  var locks = 0;
+  function lock(){ if (locks++ === 0) d.body.style.overflow = 'hidden'; }
+  function unlock(){ if (locks > 0 && --locks === 0) d.body.style.overflow = ''; }
+
+  function setInert(on, keep){
+    arr(d.body.children).forEach(function(el){
+      if (el.tagName === 'SCRIPT' || keep.indexOf(el) >= 0) return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  }
+  function focusables(root){
+    return arr(root.querySelectorAll('a[href], button:not([disabled]), summary, iframe, [tabindex]:not([tabindex="-1"])'))
+      .filter(function(el){ return el.getClientRects().length > 0; });
+  }
+  function trapTab(root, e){
+    var f = focusables(root); if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && d.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && d.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+  function refocus(el){ if (el && el.focus && d.contains(el)) { try { el.focus({ preventScroll: true }); } catch (x) { el.focus(); } } }
+
+  /* ---------- sticky header ---------- */
+  var bar = $('bar');
+  if (bar){
+    var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------- scroll spy: the bottom nav's own links define the sections ---------- */
+  var bottomLinks = arr(d.querySelectorAll('.bottom-nav a[href^="#"]'));
+  if (bottomLinks.length){
+    var hrefs   = bottomLinks.map(function(a){ return a.getAttribute('href'); });
+    var topLinks = hrefs.map(function(h){ return d.querySelector('nav.jump a[href="' + h + '"]'); });
+    var targets = hrefs.map(function(h){ return d.querySelector(h); });
+    var NAV_H = 108, current = -1, ticking = false, pinned = -1;
+
+    var setActive = function(i){
+      if (i === current) return; current = i;
+      [topLinks, bottomLinks].forEach(function(group){
+        group.forEach(function(a, j){
+          if (!a) return;
+          if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      });
+    };
+    /* The last section whose top has crossed the sticky header wins. More reliable than
+       IntersectionObserver when two short sections are on screen at once. At the very
+       bottom of the page the last section wins outright: it may be too short to ever reach
+       the header. (This replaces an invisible spacer that padded the page so it could,
+       which left up to ~450px of empty space under the footer.) */
+    var spy = function(){
+      ticking = false;
+      if (pinned >= 0){ setActive(pinned); return; }
+      var active = 0;
+      for (var i = 0; i < targets.length; i++){
+        if (targets[i] && targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
+      }
+      var root = d.documentElement;
+      if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) active = targets.length - 1;
+      setActive(active);
+    };
+    spy();
+    var queue = function(){ if (!ticking){ ticking = true; requestAnimationFrame(spy); } };
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    /* A tapped nav item is the reader's stated intent: keep it active through the smooth
+       scroll it starts (and after, even if its section is too short to reach the header),
+       until the reader scrolls on their own again. */
+    bottomLinks.concat(topLinks).forEach(function(a){
+      if (!a) return;
+      a.addEventListener('click', function(){
+        var i = hrefs.indexOf(a.getAttribute('href'));
+        if (i >= 0){ pinned = i; setActive(i); }
+      });
+    });
+    ['wheel', 'touchstart', 'keydown'].forEach(function(type){
+      window.addEventListener(type, function(){ if (pinned >= 0){ pinned = -1; queue(); } }, { passive: true });
+    });
+  }
+
+  /* ---------- language menu (a listbox: arrows, Home/End, Enter/Space, Escape) ---------- */
+  var langBtn = $('lang-btn'), drop = $('lang-drop');
+  var closeDrop = function(){};
+  if (langBtn && drop){
+    var opts = arr(drop.querySelectorAll('.lang-opt'));
+    opts.forEach(function(o){ o.tabIndex = -1; });
+    var activeOpt = function(){ return drop.querySelector('.lang-opt.active') || opts[0]; };
+    var openDrop = function(focusList){
+      drop.hidden = false; langBtn.setAttribute('aria-expanded', 'true');
+      if (focusList) activeOpt().focus();
+    };
+    closeDrop = function(returnFocus){
+      if (drop.hidden) return;
+      drop.hidden = true; langBtn.setAttribute('aria-expanded', 'false');
+      if (returnFocus) langBtn.focus();
+    };
+    var choose = function(o){
+      if (window._i18n) window._i18n(o.getAttribute('data-lang'));
+      closeDrop(true);
+    };
+    langBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      /* detail 0 = activated from the keyboard: move focus into the list */
+      if (drop.hidden) openDrop(e.detail === 0); else closeDrop(false);
+    });
+    langBtn.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp'){ e.preventDefault(); openDrop(true); }
+    });
+    drop.addEventListener('click', function(e){
+      var o = e.target.closest('.lang-opt'); if (!o) return;
+      e.stopPropagation(); choose(o);
+    });
+    drop.addEventListener('keydown', function(e){
+      var i = opts.indexOf(d.activeElement), n = opts.length;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); opts[(i + 1) % n].focus(); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); opts[(i - 1 + n) % n].focus(); }
+      else if (e.key === 'Home'){ e.preventDefault(); opts[0].focus(); }
+      else if (e.key === 'End'){ e.preventDefault(); opts[n - 1].focus(); }
+      else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (i >= 0) choose(opts[i]); }
+      else if (e.key === 'Tab'){ closeDrop(false); }
+    });
+    d.addEventListener('click', function(e){ if (!drop.contains(e.target)) closeDrop(false); });
+  }
+
+  /* ---------- product switcher sheet ---------- */
+  var guidesBtn = $('guides-btn'), sheet = $('product-sheet');
+  var sheetBackdrop = $('sheet-backdrop'), sheetClose = $('sheet-close');
+  var sheetOpen = false, closeSheet = function(){};
+  if (guidesBtn && sheet && sheetBackdrop){
+    var hideTimer = 0, sheetReturn = null;
+    var openSheet = function(){
+      if (sheetOpen) return;
+      sheetOpen = true; clearTimeout(hideTimer);
+      sheetReturn = d.activeElement;
+      sheet.hidden = false; sheetBackdrop.hidden = false;
+      sheet.getBoundingClientRect();            /* commit the closed position so it animates */
+      sheet.classList.add('open'); sheetBackdrop.classList.add('open');
+      guidesBtn.setAttribute('aria-expanded', 'true');
+      lock(); setInert(true, [sheet, sheetBackdrop]);
+      refocus(sheetClose || sheet);
+    };
+    closeSheet = function(){
+      if (!sheetOpen) return;
+      sheetOpen = false;
+      sheet.classList.remove('open'); sheetBackdrop.classList.remove('open');
+      guidesBtn.setAttribute('aria-expanded', 'false');
+      setInert(false, []); unlock();
+      hideTimer = setTimeout(function(){ sheet.hidden = true; sheetBackdrop.hidden = true; }, 320);
+      refocus(sheetReturn || guidesBtn);
+    };
+    guidesBtn.addEventListener('click', openSheet);
+    if (sheetClose) sheetClose.addEventListener('click', closeSheet);
+    sheetBackdrop.addEventListener('click', closeSheet);
+
+    /* Swipe down to close — only when the list is scrolled to its top, so scrolling the
+       product list back up doesn't dismiss the sheet. */
+    var sheetBody = sheet.querySelector('.sheet-body') || sheet;
+    var startY = 0, startTop = 0;
+    sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; startTop = sheetBody.scrollTop; }, { passive: true });
+    sheet.addEventListener('touchend', function(e){
+      if (e.changedTouches[0].clientY - startY > 60 && startTop <= 0) closeSheet();
+    }, { passive: true });
+  }
+
+  /* ---------- video modal (Vimeo) ---------- */
+  var vm = $('vm'), vmBackdrop = $('vm-backdrop'), vmFrame = $('vm-iframe'), vmClose = $('vm-close');
+  var vmOpen = false, closeVideo = function(){};
+  if (vm && vmFrame && vmBackdrop){
+    var vmReturn = null;
+    var openVideo = function(card){
+      var id = card.getAttribute('data-vimeo'); if (!id) return;
+      var hash = card.getAttribute('data-vimeo-hash');
+      vmFrame.src = 'https://player.vimeo.com/video/' + encodeURIComponent(id) +
+                    '?autoplay=1&dnt=1' + (hash ? '&h=' + encodeURIComponent(hash) : '');
+      var title = card.querySelector('.vid-title');
+      vmFrame.title = title ? title.textContent.trim() : 'Video';
+      vmReturn = card;
+      vmBackdrop.hidden = false; vm.hidden = false; vmOpen = true;
+      lock(); setInert(true, [vm, vmBackdrop]);
+      refocus(vmClose || vm);
+    };
+    closeVideo = function(){
+      if (!vmOpen) return;
+      vmOpen = false;
+      vmFrame.src = 'about:blank';   /* stops playback */
+      vmBackdrop.hidden = true; vm.hidden = true;
+      setInert(false, []); unlock();
+      refocus(vmReturn);
+    };
+    /* Delegated, so it survives a language switch re-rendering the video cards. */
+    d.addEventListener('click', function(e){
+      var card = e.target.closest && e.target.closest('.vid[data-vimeo]');
+      if (card){ e.preventDefault(); openVideo(card); }
+    });
+    if (vmClose) vmClose.addEventListener('click', closeVideo);
+    vmBackdrop.addEventListener('click', closeVideo);
+    vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
+  }
+
+  /* ---------- one keyboard handler, innermost layer first ---------- */
+  d.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+      if (drop && !drop.hidden){ e.preventDefault(); closeDrop(true); return; }
+      if (vmOpen){ e.preventDefault(); closeVideo(); return; }
+      if (sheetOpen){ e.preventDefault(); closeSheet(); return; }
+    } else if (e.key === 'Tab'){
+      if (vmOpen) trapTab(vm, e);
+      else if (sheetOpen) trapTab(sheet, e);
+    }
+  });
+})();

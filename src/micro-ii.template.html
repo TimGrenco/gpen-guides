@@ -555,7 +555,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 </head>
 <body>
 
-<div class="bar" id="bar">
+<header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
       <a class="glyph" href="{{HOME}}" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
@@ -578,7 +578,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
           <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
         </ul>
       </div>
-      <button class="guides-btn" id="guides-btn" aria-label="All product guides" aria-expanded="false" data-i18n="all_guides">
+      <button class="guides-btn" id="guides-btn" aria-haspopup="dialog" aria-controls="product-sheet" aria-expanded="false" data-i18n="all_guides">
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <rect x="2"  y="2"  width="7" height="7" rx="1.5"/>
           <rect x="11" y="2"  width="7" height="7" rx="1.5"/>
@@ -595,7 +595,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
       <a href="#help" data-i18n="nav_help">Help</a>
     </nav>
   </div>
-</div>
+</header>
 
 <main>
   <header class="page-head wrap">
@@ -608,6 +608,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
   <!-- ===================== HOW TO USE ===================== -->
   <section id="use" class="wrap">
+    <h2 class="sr-only" data-i18n="nav_use">How to use</h2>
     <ol class="steps">
 {{STEPS}}
     </ol>
@@ -628,7 +629,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <!-- ===================== ATTACHMENTS ===================== -->
   <section id="attachments" class="wrap">
     <div class="sec-head">
-      <h2 class="d">Using Attachments</h2>
+      <h2 class="d" data-i18n="sec_attach">Using Attachments</h2>
     </div>
     <ul class="attach-list">
 {{ATTACHMENTS}}
@@ -710,10 +711,10 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
 <!-- ========== PRODUCT SWITCHER SHEET ========== -->
 <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
-<div class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-label="All G Pen guides" hidden>
+<div class="sheet" id="product-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1" hidden>
   <div class="sheet-handle"></div>
   <div class="sheet-head">
-    <span class="sheet-title" data-i18n="guides_title">G Pen Guides</span>
+    <span class="sheet-title" id="sheet-title" data-i18n="guides_title">G Pen Guides</span>
     <button class="sheet-close" id="sheet-close" aria-label="Close">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
     </button>
@@ -731,7 +732,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <div class="vm-frame">
     <button class="vm-close" id="vm-close" aria-label="Close video">&#x2715;</button>
     <div class="vm-player">
-      <iframe id="vm-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <iframe id="vm-iframe" title="Video player" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -772,116 +773,5 @@ footer .legal{font-size:11.5px; line-height:1.6}
   </a>
 </nav>
 
-<script>
-(function(){
-  var bar = document.getElementById('bar');
-  var onScroll = function(){ bar.classList.toggle('stuck', window.scrollY > 12); };
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-
-  var HREFS = ['#use','#videos','#upgrade','#help'];
-  var topLinks    = HREFS.map(function(h){ return document.querySelector('nav.jump a[href="'+h+'"]'); });
-  var bottomLinks = HREFS.map(function(h){ return document.querySelector('.bottom-nav a[href="'+h+'"]'); });
-  var targets     = HREFS.map(function(h){ return document.querySelector(h); });
-
-  function setActive(i){
-    [topLinks, bottomLinks].forEach(function(group){
-      group.forEach(function(a, j){
-        if (a) a.setAttribute('aria-current', j === i ? 'true' : 'false');
-      });
-    });
-  }
-
-  var NAV_H = 108;
-  function spy(){
-    var active = 0;
-    for (var i = 0; i < targets.length; i++){
-      if (!targets[i]) continue;
-      if (targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
-    }
-    setActive(active);
-  }
-  spy();
-  window.addEventListener('scroll', spy, {passive:true});
-
-  var _sp = document.createElement('div');
-  document.querySelector('main').appendChild(_sp);
-  function _adj(){ var last = targets[targets.length-1]; if(!last) return; var gap = last.offsetTop - NAV_H + window.innerHeight - document.documentElement.scrollHeight; _sp.style.height = (gap > 0 ? gap : 0) + 'px'; }
-  _adj();
-  window.addEventListener('resize', _adj);
-})();
-
-(function(){
-  var btn  = document.getElementById('lang-btn');
-  var drop = document.getElementById('lang-drop');
-  var code = document.getElementById('lang-code');
-  if (!btn || !drop) return;
-  function openDrop(){ drop.hidden = false; btn.setAttribute('aria-expanded','true'); }
-  function closeDrop(){ drop.hidden = true; btn.setAttribute('aria-expanded','false'); }
-  btn.addEventListener('click', function(e){ e.stopPropagation(); drop.hidden ? openDrop() : closeDrop(); });
-  drop.addEventListener('click', function(e){
-    var opt = e.target.closest('.lang-opt');
-    if (!opt) return;
-    drop.querySelectorAll('.lang-opt').forEach(function(o){
-      o.classList.remove('active'); o.setAttribute('aria-selected','false');
-      var chk = o.querySelector('.lcheck'); if (chk) chk.remove();
-    });
-    opt.classList.add('active'); opt.setAttribute('aria-selected','true');
-    var chk = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    chk.setAttribute('viewBox','0 0 14 10'); chk.setAttribute('fill','none');
-    chk.setAttribute('stroke','currentColor'); chk.setAttribute('stroke-width','2');
-    chk.setAttribute('stroke-linecap','round'); chk.setAttribute('stroke-linejoin','round');
-    chk.setAttribute('class','lcheck'); chk.innerHTML = '<polyline points="1,5 5,9 13,1"/>';
-    opt.appendChild(chk); code.textContent = opt.dataset.lang; if(window._i18n) window._i18n(opt.dataset.lang); closeDrop();
-  });
-  document.addEventListener('click', closeDrop);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDrop(); });
-})();
-
-(function(){
-  var btn      = document.getElementById('guides-btn');
-  var sheet    = document.getElementById('product-sheet');
-  var backdrop = document.getElementById('sheet-backdrop');
-  var closeBtn = document.getElementById('sheet-close');
-  if (!btn || !sheet) return;
-  function open(){
-    sheet.hidden = false; backdrop.hidden = false;
-    requestAnimationFrame(function(){ sheet.classList.add('open'); backdrop.classList.add('open'); });
-    btn.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden';
-  }
-  function close(){
-    sheet.classList.remove('open'); backdrop.classList.remove('open');
-    btn.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
-    setTimeout(function(){ sheet.hidden = true; backdrop.hidden = true; }, 320);
-  }
-  btn.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
-  backdrop.addEventListener('click', close);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
-  var startY = 0;
-  sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; }, {passive:true});
-  sheet.addEventListener('touchend', function(e){ if (e.changedTouches[0].clientY - startY > 60) close(); }, {passive:true});
-})();
-
-(function(){
-  var backdrop = document.getElementById('vm-backdrop');
-  var modal    = document.getElementById('vm');
-  var iframe   = document.getElementById('vm-iframe');
-  var closeBtn = document.getElementById('vm-close');
-  if (!modal) return;
-  function openVid(vimeoId, hash){
-    iframe.src = 'https://player.vimeo.com/video/' + vimeoId + '?' + (hash ? 'h=' + hash + '&' : '') + 'autoplay=1&dnt=1';
-    backdrop.hidden = false; modal.hidden = false; document.body.style.overflow = 'hidden';
-  }
-  function closeVid(){
-    iframe.src = ''; backdrop.hidden = true; modal.hidden = true; document.body.style.overflow = '';
-  }
-  document.querySelectorAll('.vid[data-vimeo]').forEach(function(btn){
-    btn.addEventListener('click', function(){ openVid(btn.dataset.vimeo, btn.dataset.vimeoHash); });
-  });
-  closeBtn.addEventListener('click', closeVid);
-  backdrop.addEventListener('click', closeVid);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) closeVid(); });
-})();
-</script>
 </body>
 </html>

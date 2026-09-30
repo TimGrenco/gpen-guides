@@ -14,20 +14,33 @@ so it should stay stable once a code has shipped.
 Run:  python3 build.py
 """
 
+from __future__ import annotations
+
 import base64
 import datetime
+import hashlib
 import html as htmllib
 import json
 import mimetypes
 import pathlib
+import re
 import shutil
 import sys
 
+from PIL import Image
+
 ROOT = pathlib.Path(__file__).parent
 SRC = ROOT / "src"
+CORE_SRC = SRC / "core"             # G Pen Core: shared CSS, behavior, fonts, icons
 I18N_DIR = ROOT / "i18n"
 CONTENT_DIR = ROOT / "content"
+CACHE_DIR = ROOT / ".cache"         # resized images, so a rebuild doesn't re-encode them
 YEAR = str(datetime.date.today().year)
+
+# The public address of the site. Canonical links, share previews (og:), the sitemap and
+# the offline copies' links all hang off this one value. When help.gpen.com goes live:
+# set it to "https://help.gpen.com/", add a CNAME file containing help.gpen.com, rebuild.
+BASE_URL = "https://timgrenco.github.io/gpen-guides/"
 
 sys.path.insert(0, str(ROOT))
 from sections.render import render_product_body, compose_translations, IMG_REF_RE  # noqa: E402
@@ -193,21 +206,36 @@ def _card_href(s: str, spec: dict) -> tuple[str, str]:
 
 
 CARD = """      <a class="card" href="{href}" {extattr}>
-        <span class="thumb"><img src="{card_img}" alt="" loading="lazy"></span>
-        <span>
+        <span class="thumb"><img src="{card_img}"{srcset} alt=""{dims}{loading}></span>
+        <div>
           <h2>{name}</h2>
-          <span class="eyebrow">{category}</span>
-        </span>
-      </a>"""
-
-# Card shown inside the product-switcher sheet on each guide page.
-SWITCHER_CARD = """      <a class="guide-card" href="{href}" {extattr} {current}>
-        <div class="gc-img"><img src="{card_img}" alt="{name}" loading="lazy"></div>
-        <div class="gc-body">
-          <span class="gc-name">{name}</span>
-          <span class="gc-cat">{category}</span>
+          <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>
         </div>
       </a>"""
+
+# Card shown inside the product-switcher sheet on each guide page. The product name is
+# right under the picture, so the picture itself is decorative (alt="").
+SWITCHER_CARD = """      <a class="guide-card" href="{href}" {extattr} {current}>
+        <div class="gc-img"><img src="{card_img}"{srcset} alt=""{dims} loading="lazy"></div>
+        <div class="gc-body">
+          <span class="gc-name">{name}</span>
+          <span class="gc-cat" data-i18n="cat_{slug}">{category}</span>
+        </div>
+      </a>"""
+
+
+def card_srcset(slug: str, spec: dict, root_prefix: str, sizes: str) -> tuple[str, str]:
+    """(srcset/sizes attributes, width/height attributes) for a product's card image.
+    The WebP renditions are written by build_product() into <slug>/img/; names are
+    deterministic, so any page can reference them."""
+    ci = spec["card_image"]
+    if ci.startswith("http"):
+        return "", ""
+    with Image.open(SRC / ci) as im:
+        W, H = im.size
+    stem = pathlib.PurePosixPath(ci).stem
+    parts = dict.fromkeys(f"{root_prefix}{slug}/img/{stem}-{w}.webp {min(w, W)}w" for w in WIDTHS_CARD)
+    return f' srcset="{", ".join(parts)}" sizes="{sizes}"', f' width="{W}" height="{H}"'
 
 
 ACCESSORIES_URL = "https://www.gpen.com/collections/accessories"
@@ -307,6 +335,150 @@ def inject_i18n(html: str, translations: dict) -> str:
     return html.replace("</body>", injection + "</body>", 1)
 
 
+# ─────────────────────────────────────────────────────────────────────────────────────
+# G Pen Core — shared layer injected into every page (guides, index, 404)
+# ─────────────────────────────────────────────────────────────────────────────────────
+FONT_IMPORT_RE = re.compile(r"@import url\('https://fonts\.googleapis\.com/[^']*'\);\s*")
+TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
+DESC_RE = re.compile(r'<meta name="description" content="([^"]*)">')
+
+
+def load_core_translations() -> dict:
+    data = json.loads((I18N_DIR / "_core.json").read_text())
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def merge_translations(page: dict | None) -> dict:
+    """Shared strings under each page's own (the page wins on a key both define)."""
+    core = load_core_translations()
+    page = page or {}
+    return {lang: {**core.get(lang, {}), **page.get(lang, {})} for lang in core}
+
+
+def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
+              image: str | None, noindex: bool = False) -> str:
+    """Everything G Pen Core adds to <head>: fonts, the shared stylesheet, icons, share tags.
+    prefix: path from the page to the site root ("" for the index, "../" for a guide)."""
+    asset = (BASE_URL if offline else prefix) + "core/"
+    fonts = (CORE_SRC / "fonts.css").read_text().replace("{{FONT_BASE}}", asset + "fonts/")
+    css = (CORE_SRC / "core.css").read_text()
+    esc = lambda s: htmllib.escape(s, quote=True)
+    out = []
+    if not offline:
+        for f in ("lato-400-latin", "kanit-800i-latin"):
+            out.append(f'<link rel="preload" href="{asset}fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>')
+    out += [
+        f'<link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">',
+        f'<link rel="apple-touch-icon" href="{asset}apple-touch-icon.png">',
+        f'<link rel="canonical" href="{canonical}">',
+    ]
+    if noindex:
+        out.append('<meta name="robots" content="noindex">')
+    out += [
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="G Pen">',
+        f'<meta property="og:title" content="{esc(title)}">',
+        f'<meta property="og:description" content="{esc(desc)}">',
+        f'<meta property="og:url" content="{canonical}">',
+    ]
+    if image:
+        out.append(f'<meta property="og:image" content="{image}">')
+    out.append(f'<meta name="twitter:card" content="{"summary" if image else "summary"}">')
+    out.append(f"<style>\n{fonts}\n{css}</style>")
+    return "\n".join(out) + "\n"
+
+
+def inject_core(html: str, head: str) -> str:
+    """Swap the render-blocking Google Fonts @import for the self-hosted faces, add the
+    core <head> block after the page's own <style> (so core rules win ties), and inline
+    the shared behavior script last, after the i18n runtime it talks to."""
+    html = FONT_IMPORT_RE.sub("", html)
+    html = html.replace("</head>", head + "</head>", 1)
+    js = (CORE_SRC / "guide.js").read_text()
+    return html.replace("</body>", f"<script>\n{js}</script>\n</body>", 1)
+
+
+def page_meta(html: str) -> tuple[str, str]:
+    t = TITLE_RE.search(html)
+    d = DESC_RE.search(html)
+    return (htmllib.unescape(t.group(1).strip()) if t else "G Pen",
+            htmllib.unescape(d.group(1)) if d else "")
+
+
+def publish_core() -> None:
+    """Copy the shared static assets to /core/ (fonts + icons)."""
+    out = ROOT / "core"
+    if out.exists():
+        shutil.rmtree(out, ignore_errors=True)
+    (out / "fonts").mkdir(parents=True)
+    for f in sorted((CORE_SRC / "fonts").glob("*.woff2")):
+        shutil.copy(f, out / "fonts" / f.name)
+    for f in ("favicon.svg", "apple-touch-icon.png"):
+        shutil.copy(CORE_SRC / f, out / f)
+
+
+# ─────────────────────────────────────────────────────────────────────────────────────
+# Responsive images: WebP renditions + srcset/sizes, width/height to stop layout shift
+# ─────────────────────────────────────────────────────────────────────────────────────
+# How wide each kind of image is DRAWN (CSS px). Step/attachment circles are 150px from
+# 480px up, 130px below, 100px under 375px; video stills fill a card; card thumbnails
+# are ~80px on the index and ~150-190px in the All-guides sheet.
+SIZES_CIRCLE = "(min-width:480px) 150px, (min-width:375px) 130px, 100px"
+SIZES_VIDEO = "(min-width:680px) 322px, (min-width:560px) 46vw, calc(100vw - 36px)"
+SIZES_VIDEO_SINGLE = "(min-width:680px) 644px, calc(100vw - 36px)"   # a lone video spans the column
+SIZES_INDEX_CARD = "80px"
+SIZES_SWITCHER_CARD = "(min-width:480px) 190px, 44vw"
+WIDTHS_CIRCLE = (300, 450)     # 150px x DPR 2 / DPR 3
+WIDTHS_VIDEO = (480, 960)
+WIDTHS_CARD = (160, 320, 640)
+
+
+def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path) -> tuple[str, int, int]:
+    """Write <stem>-<width>.webp into out_dir (from a content-hash cache) and return
+    (filename, width, height). Never upscales: a request wider than the source yields a
+    rendition at the source's own width."""
+    data = src.read_bytes()
+    with Image.open(src) as im:
+        W, H = im.size
+        w = min(width, W)
+        h = round(H * w / W)
+        name = f"{src.stem}-{width}.webp"
+        key = hashlib.sha1(data + f"|{w}|q80m6".encode()).hexdigest()[:16]
+        cached = CACHE_DIR / "img" / f"{key}.webp"
+        if not cached.exists():
+            cached.parent.mkdir(parents=True, exist_ok=True)
+            mode = "RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB"
+            im.convert(mode).resize((w, h), Image.LANCZOS).save(cached, "WEBP", quality=80, method=6)
+    shutil.copy(cached, out_dir / name)
+    return name, w, h
+
+
+def srcset_for(src: pathlib.Path, widths, out_dir: pathlib.Path, base: str = "img/") -> tuple[str, int, int]:
+    """Generate renditions and return (srcset, natural_w, natural_h)."""
+    with Image.open(src) as im:
+        W, H = im.size
+    parts = []
+    for width in widths:
+        name, w, _ = webp_variant(src, width, out_dir)
+        parts.append(f"{base}{name} {w}w")
+    return ", ".join(dict.fromkeys(parts)), W, H
+
+
+IMG_TAG_RE = re.compile(r'<img src="img/([^"]+)"([^>]*)>')
+
+
+def responsive_images(html: str, plans: dict) -> str:
+    """Add srcset/sizes/width/height to every <img src="img/NAME"> that has a plan."""
+    def sub(m):
+        name, rest = m.group(1), m.group(2)
+        plan = plans.get(name)
+        if not plan or "srcset=" in rest:
+            return m.group(0)
+        srcset, sizes, w, h = plan
+        return f'<img src="img/{name}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}"{rest}>'
+    return IMG_TAG_RE.sub(sub, html)
+
+
 def data_uri(path: pathlib.Path) -> str:
     mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode()
@@ -328,24 +500,32 @@ def visible_products() -> dict:
     return {s: spec for s, spec in PRODUCTS.items() if not spec.get("hidden")}
 
 
-def build_switcher(current_slug: str) -> str:
+def build_switcher(current_slug: str, offline: bool = False) -> str:
     """Generate the product-switcher card HTML for a given guide page.
 
     Current products come first; legacy products sit in a collapsed fold that
-    opens by default when the visitor is already on a legacy guide.
+    opens by default when the visitor is already on a legacy guide. The offline copy
+    links (and loads card pictures) from the live site, since its siblings aren't on disk.
     """
     featured, legacy = [], []
+    root = BASE_URL if offline else "../"
     for s, spec in visible_products().items():
         current_attr = 'aria-current="true"' if s == current_slug else ""
         href, extattr = _card_href(s, spec)
         # Switcher links are relative to the guide subfolder; adjust local guides.
         if spec.get("template") and s != current_slug:
-            href = f"../{s}/"
+            href = f"{root}{s}/"
         elif spec.get("template") and s == current_slug:
-            href = "./"
+            href = f"{BASE_URL}{s}/" if offline else "./"
+        card_img = _card_img(s, spec, is_switcher=True)
+        srcset, dims = ("", "") if offline else card_srcset(s, spec, "../", SIZES_SWITCHER_CARD)
+        if offline and not card_img.startswith("http"):
+            card_img = BASE_URL + card_img[len("../"):]
         card = SWITCHER_CARD.format(
             slug=s,
-            card_img=_card_img(s, spec, is_switcher=True),
+            card_img=card_img,
+            srcset=srcset,
+            dims=dims,
             category=spec["category"],
             name=spec["name"],
             href=href,
@@ -389,31 +569,50 @@ def build_product(slug: str, spec: dict) -> None:
             hosted = hosted.replace("{{%s}}" % key, body[key])
             offline = offline.replace("{{%s}}" % key, body[key])
 
+    # Template-level images ({{HERO}} etc.): published only if the template uses them.
+    # (Several products list a hero that no page shows — the Dash II one is 3 MB.)
     for key, filename in spec["images"].items():
+        if "{{%s}}" % key not in hosted:
+            continue
         src = SRC / filename
         shutil.copy(src, img_dir / filename)
         hosted = hosted.replace("{{%s}}" % key, f"img/{filename}")
         offline = offline.replace("{{%s}}" % key, data_uri(src))
 
     # Images referenced from content/<slug>.json by filename (relative to src/, e.g. a
-    # guide image under src/images/) — published flat into <product>/img/.
+    # guide image under src/images/) — published flat into <product>/img/, each with WebP
+    # renditions sized for how it is drawn. The offline copy inlines one mid-size rendition
+    # instead of the 900px original, which roughly halves its size.
+    video_refs = {v["thumb"] for v in (content or {}).get("videos", [])}
+    plans = {}
     for ref in sorted(set(IMG_REF_RE.findall(hosted))):
         src = SRC / ref
         name = pathlib.PurePosixPath(ref).name
         shutil.copy(src, img_dir / name)
+        is_video = ref in video_refs
+        video_sizes = SIZES_VIDEO_SINGLE if len(video_refs) == 1 else SIZES_VIDEO
+        widths, sizes = (WIDTHS_VIDEO, video_sizes) if is_video else (WIDTHS_CIRCLE, SIZES_CIRCLE)
+        srcset, w, h = srcset_for(src, widths, img_dir)
+        plans[name] = (srcset, sizes, w, h)
+        inline_name, _, _ = webp_variant(src, widths[-1] if is_video else 450, img_dir)
         hosted = hosted.replace("{{img:%s}}" % ref, f"img/{name}")
-        offline = offline.replace("{{img:%s}}" % ref, data_uri(src))
+        offline = offline.replace("{{img:%s}}" % ref, data_uri(img_dir / inline_name))
+    hosted = responsive_images(hosted, plans)
 
     # The card image (used by the portal index + product switcher) isn't always
-    # one of the template's {{KEY}} images — copy it too if it's a local file.
+    # one of the template's {{KEY}} images — copy it too if it's a local file, plus the
+    # small WebP renditions the index and switchers actually load.
     card_image = spec.get("card_image", "")
-    if card_image and not card_image.startswith("http") and card_image not in spec["images"].values():
-        shutil.copy(SRC / card_image, img_dir / card_image)
+    if card_image and not card_image.startswith("http"):
+        if not (img_dir / card_image).exists():
+            shutil.copy(SRC / card_image, img_dir / card_image)
+        for w in WIDTHS_CARD:
+            webp_variant(SRC / card_image, w, img_dir)
 
     # Brand mark links to the guides home page (relative, so it survives a domain change).
     # The store is reached through each guide's "Upgrade" section instead.
     hosted  = hosted.replace("{{HOME}}", "../")
-    offline = offline.replace("{{HOME}}", "../")
+    offline = offline.replace("{{HOME}}", BASE_URL)
     hosted  = hosted.replace("{{YEAR}}", YEAR)
     offline = offline.replace("{{YEAR}}", YEAR)
 
@@ -422,16 +621,22 @@ def build_product(slug: str, spec: dict) -> None:
         offline = offline.replace("{{%s}}" % key, value)
 
     # Inject the product-switcher cards.
-    switcher = build_switcher(slug)
-    hosted  = hosted.replace("{{PRODUCT_SWITCHER}}", switcher)
-    offline = offline.replace("{{PRODUCT_SWITCHER}}", switcher)
+    hosted  = hosted.replace("{{PRODUCT_SWITCHER}}", build_switcher(slug))
+    offline = offline.replace("{{PRODUCT_SWITCHER}}", build_switcher(slug, offline=True))
 
-    # Inject translations if available.
+    # Inject translations (the page's own, over the shared G Pen Core strings).
     cache = load_i18n(slug)
-    if cache:
-        translations = compose_translations(slug, content, cache) if content else cache
-        hosted = inject_i18n(hosted, translations)
-        offline = inject_i18n(offline, translations)
+    page_t = (compose_translations(slug, content, cache) if content else cache) if cache else None
+    translations = merge_translations(page_t)
+    hosted = inject_i18n(hosted, translations)
+    offline = inject_i18n(offline, translations)
+
+    # G Pen Core: fonts, shared CSS + behavior, icons, canonical + share tags.
+    title, desc = page_meta(hosted)
+    canonical = f"{BASE_URL}{slug}/"
+    og_image = f"{BASE_URL}{slug}/img/{card_image}" if card_image and not card_image.startswith("http") else None
+    hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image))
+    offline = inject_core(offline, core_head("../", True, canonical, title, desc, og_image, noindex=True))
 
     write(out_dir / "index.html", hosted)
     write(out_dir / "offline.html", offline)
@@ -440,11 +645,16 @@ def build_product(slug: str, spec: dict) -> None:
 def build_index() -> None:
     template = (SRC / "index.template.html").read_text()
     cards_html, legacy_html = [], []
-    for slug, spec in visible_products().items():
+    for n, (slug, spec) in enumerate(visible_products().items()):
         href, extattr = _card_href(slug, spec)
+        srcset, dims = card_srcset(slug, spec, "", SIZES_INDEX_CARD)
         (legacy_html if spec.get("legacy") else cards_html).append(CARD.format(
             slug=slug,
             card_img=_card_img(slug, spec, is_switcher=False),
+            srcset=srcset,
+            dims=dims,
+            # the first cards are on screen at load: let the browser fetch them right away
+            loading="" if n < 4 else ' loading="lazy"',
             category=spec["category"],
             name=spec["name"],
             href=href,
@@ -454,14 +664,53 @@ def build_index() -> None:
     if legacy_html:
         legacy_section = (
             '\n    <details class="legacy">\n'
-            f'      <summary>{LEGACY_LABEL}</summary>\n'
+            f'      <summary data-i18n="legacy_title">{LEGACY_LABEL}</summary>\n'
             '      <div class="grid">\n' + "\n".join(legacy_html) + "\n      </div>\n"
             "    </details>"
         )
     page = (template.replace("{{CARDS}}", "\n".join(cards_html))
                     .replace("{{LEGACY_SECTION}}", legacy_section)
                     .replace("{{YEAR}}", YEAR))
-    write(ROOT / "index.html", page)
+    # The shared strings reach every page, so the index's own tab title rides under its own
+    # key and is mapped to doc_title (what the runtime reads) here, for this page only.
+    def titled(key):
+        t = merge_translations(None)
+        return {lang: {**strings, "doc_title": strings.get(key, "")} for lang, strings in t.items()}
+    page_plain = page
+    page = inject_i18n(page_plain, titled("doc_title_index"))
+    title, desc = page_meta(page)
+    first = next(iter(visible_products().items()))
+    og_image = f"{BASE_URL}{first[0]}/img/{first[1]['card_image']}"
+    index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image))
+    write(ROOT / "index.html", index)
+
+    # 404: GitHub Pages serves /404.html for any missing path, at any depth, so every
+    # relative link on it is resolved against the site root with <base>.
+    notice = ('<p class="notfound" data-i18n="nf_text">We couldn\'t find that page. '
+              'Pick your device below to get to its guide.</p>\n')
+    nf = inject_i18n(page_plain, titled("doc_title_404"))
+    nf = nf.replace("<head>", f'<head>\n<base href="{BASE_URL}">', 1)
+    nf = nf.replace("<title>", "<title>Page not found — ", 1)
+    nf = nf.replace('  <div class="wrap list">', f'  <div class="wrap">{notice}  </div>\n  <div class="wrap list">', 1)
+    nf = inject_core(nf, core_head("", False, BASE_URL, "Page not found — G Pen Product Guides", desc, None, noindex=True))
+    write(ROOT / "404.html", nf)
+
+
+def build_seo_files() -> None:
+    urls = [BASE_URL] + [f"{BASE_URL}{s}/" for s, spec in visible_products().items() if spec.get("template")]
+    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    # no <lastmod>: a date that moves on every rebuild would claim every page changed daily
+    sitemap += [f"  <url><loc>{u}</loc></url>" for u in urls]
+    sitemap.append("</urlset>")
+    (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n")
+    # Only honored at a domain's root (i.e. once this is help.gpen.com). Keeps the build
+    # inputs, which GitHub Pages also serves, out of search results.
+    (ROOT / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Disallow: /src/\nDisallow: /content/\nDisallow: /i18n/\nDisallow: /sections/\nDisallow: /scripts/\n"
+        "Disallow: /*/offline.html\n\n"
+        f"Sitemap: {BASE_URL}sitemap.xml\n")
 
 
 if __name__ == "__main__":
@@ -476,6 +725,8 @@ if __name__ == "__main__":
                 failed.append(slug)
                 print(f"\n  ✗ {e}\n")
     build_index()
+    publish_core()
+    build_seo_files()
 
     for slug, spec in PRODUCTS.items():
         if spec.get("hidden") and spec.get("template") and (ROOT / slug).is_dir():

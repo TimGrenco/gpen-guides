@@ -5,6 +5,9 @@
 
   var LANG_CODES = {EN:'en',ES:'es',DE:'de',IT:'it',FR:'fr',PT:'pt-BR'};
   var SUPPORTED = ['EN','ES','DE','IT','FR','PT'];
+  var ORIGINAL_TITLE = document.title;
+  var barName = document.querySelector('.bar-name');
+  var PRODUCT_NAME = barName ? barName.textContent.trim() : '';
 
   /* keep the lang-switcher pill + dropdown checkmark in sync with the applied
      language — the dropdown's own click handler only updates itself when the
@@ -67,8 +70,11 @@
       if (s[key]) el.innerHTML = s[key];
     });
 
-    /* ── <html lang> attribute ─────────────────────────────────────────── */
+    /* ── <html lang> attribute + tab title ─────────────────────────────── */
     document.documentElement.lang = LANG_CODES[lang] || 'en';
+    if (lang === 'EN') document.title = ORIGINAL_TITLE;
+    else if (s.doc_title) document.title = s.doc_title;
+    else if (s.nav_use && PRODUCT_NAME) document.title = 'G Pen ' + PRODUCT_NAME + ' — ' + s.nav_use;
 
     syncLangUI(lang);
   }
@@ -76,12 +82,19 @@
   /* expose so the dropdown handler can call it */
   window._i18n = applyLang;
 
-  /* ── on load: pick language from localStorage > navigator ────────────── */
+  /* ── on load: pick language from ?lang= > localStorage > navigator ───── */
+  /* A ?lang=es link wins and sticks (same rule as the brand portal at assets.gpen.com),
+     so a translated link sent to someone stays translated after a refresh. */
   var saved = null;
-  try { saved = localStorage.getItem('gpen-lang'); } catch(e){}
+  var q = (location.search.match(/[?&]lang=([a-z]{2})\b/i) || [])[1];
+  if (q && SUPPORTED.indexOf(q.toUpperCase()) >= 0) {
+    saved = q.toUpperCase();
+    try { localStorage.setItem('gpen-lang', saved); } catch(e){}
+  } else {
+    try { saved = localStorage.getItem('gpen-lang'); } catch(e){}
+  }
+  /* navigator.language "pt-BR" -> "PT"; anything unsupported (or empty) -> EN */
   var navLang = ((navigator.language || navigator.userLanguage || '').slice(0,2)).toUpperCase();
-  /* pt-BR → PT */
-  if (!navLang || navLang === 'PT') navLang = 'PT';
   var initLang = (saved && SUPPORTED.indexOf(saved) >= 0) ? saved :
                  (SUPPORTED.indexOf(navLang) >= 0 ? navLang : 'EN');
 

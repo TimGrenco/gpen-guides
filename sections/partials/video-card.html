@@ -1,7 +1,7 @@
-      <button class="vid" data-vimeo="{{VIMEO_ID}}"{{HASH_ATTR}} aria-label="Play {{TITLE}} video">
-        <div class="vid-thumb">
-          <img src="{{THUMB}}" alt="Still from the {{TITLE}} video" loading="lazy">
+      <button type="button" class="vid" data-vimeo="{{VIMEO_ID}}"{{HASH_ATTR}}>
+        <span class="vid-thumb">
+          <img src="{{THUMB}}" alt="" loading="lazy">
           <span class="play" aria-hidden="true"></span>
-        </div>
-        <div class="vid-meta"><h3 data-i18n="{{TITLE_KEY}}">{{TITLE}}</h3></div>
+        </span>
+        <span class="vid-meta"><span class="vid-title" data-i18n="{{TITLE_KEY}}">{{TITLE}}</span></span>
       </button>

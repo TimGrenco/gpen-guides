@@ -1,0 +1,184 @@
+/* G Pen Core — shared layer for every guide page and the index.
+   build.py inlines this AFTER each template's own <style>, so a rule here wins over the
+   template's rule of equal specificity. Fixes that apply to every page live here once,
+   instead of seven times in seven diverging template copies. */
+
+/* ---------- tokens: small grey text passes WCAG AA (4.5:1) on every surface ----------
+   --ink-3 was #787E86 in both themes: 4.1:1 on white and 3.8:1 on the light grey cards;
+   4.4:1 on the dark cards. It carries 11–13px labels (eyebrows, spec headings, press
+   sub-lines, bottom-nav labels), so it needs the full 4.5:1. */
+:root{ --ink-3:#686E76; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --ink-3:#868C94; } }
+:root[data-theme="dark"]{ --ink-3:#868C94; }
+
+/* ---------- screen-reader-only text ---------- */
+.sr-only{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+/* ---------- header controls: bigger touch area without changing the look ----------
+   The glyph, language pill and All-guides pill draw 26px tall. The invisible ::after
+   grows each hit area to ~42px so a thumb doesn't miss. */
+.glyph, .lang-btn, .guides-btn{position:relative}
+.glyph::after, .lang-btn::after, .guides-btn::after{content:""; position:absolute; inset:-8px -4px}
+
+/* ---------- language selector component (same markup on every page) ---------- */
+.lang-wrap{position:relative; margin-left:auto}
+.lang-btn{
+  display:flex; align-items:center; gap:5px;
+  background:none; border:1px solid var(--line); border-radius:999px;
+  padding:5px 8px 5px 9px; cursor:pointer; color:var(--ink-2);
+  font-family:var(--f-body); font-weight:700; font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; transition:border-color .18s, color .18s;
+  white-space:nowrap; user-select:none;
+}
+.lang-btn svg:first-child{width:14px; height:14px; flex:none}
+.lang-code{font-weight:700; font-size:11px; letter-spacing:.06em}
+.lang-chevron{width:10px; height:7px; flex:none; transition:transform .2s ease}
+.lang-btn[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)}
+.lang-btn:hover{border-color:var(--ink); color:var(--ink)}
+
+.lang-drop{
+  position:absolute; top:calc(100% + 8px); right:0;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,.14);
+  padding:6px; min-width:220px; list-style:none; margin:0;
+  z-index:300;
+}
+.lang-opt{
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:9px; cursor:pointer;
+  transition:background .14s ease;
+  border:1.5px solid transparent;
+}
+.lang-opt:hover{background:var(--surface-2)}
+.lang-opt.active{border-color:var(--ink); background:transparent}
+.lc{
+  font-family:var(--f-body); font-size:10.5px; font-weight:700;
+  letter-spacing:.06em; color:var(--ink-3); width:22px; flex:none;
+}
+.lang-opt.active .lc{color:var(--ink)}
+.ll{flex:1; font-size:15px; font-weight:600; color:var(--ink)}
+.lcheck{width:14px; height:10px; flex:none; color:var(--ink)}
+
+/* ---------- language menu ----------
+   On a phone the menu is anchored to the header's right edge instead of the language
+   pill; the pill sits left of "All guides", so a right-aligned 220px menu ran off the
+   left edge of a 320px screen. */
+.lang-opt:focus{outline:none}
+.lang-opt:focus-visible{outline:2px solid var(--ink); outline-offset:-2px; box-shadow:inset 0 0 0 4px var(--accent)}
+.lang-drop{max-width:calc(100vw - 24px)}
+@media (max-width:560px){
+  .bar-top{position:relative}
+  .lang-wrap{position:static}
+  .lang-drop{top:calc(100% - 4px); right:0}
+}
+
+/* ---------- mobile type floor ---------- */
+.bottom-nav a{font-size:10.5px}
+.press-hold{font-size:10px}
+@media (max-width:420px){ .press-hold{font-size:10px} }
+
+/* ---------- video modal: always fits, close button always on screen ----------
+   The frame was up to 860px wide at 16:9 with the close button 42px above it, so on a
+   phone held sideways (844x390) the video overflowed the screen and the close button
+   sat above the top edge. Cap the width by the available height. */
+.vm-frame{max-width:min(860px, calc((100vh - 120px) * 16 / 9))}
+@supports (height:100dvh){ .vm-frame{max-width:min(860px, calc((100dvh - 120px) * 16 / 9))} }
+.vm-close{width:40px; height:40px; top:-48px}
+.vm-player iframe{display:block}
+
+/* ---------- product switcher sheet ---------- */
+.sheet:focus{outline:none}
+.sheet-close{min-width:40px; min-height:40px}
+.sheet-body{overscroll-behavior:contain}
+
+/* ---------- misc polish ---------- */
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+button{touch-action:manipulation}
+.bottom-nav a, .guide-card, .vid, .acc-card, .card-link{touch-action:manipulation}
+
+/* ---------- focus ring that shows on both themes ----------
+   The accent gold alone is ~1.6:1 against a white page (WCAG 1.4.11 wants 3:1), so the
+   ring is ink with a gold halo: one of the two always contrasts. */
+:focus-visible{outline:2px solid var(--ink); outline-offset:2px; box-shadow:0 0 0 4px var(--accent)}
+nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
+
+/* ---------- video cards: no block elements inside the <button> any more ---------- */
+.vid-thumb, .vid-meta, .vid-title{display:block}
+.vid-meta .vid-title{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; font-size:15px; margin:0; line-height:1.3}
+/* Two videos sit side by side from 560px on every guide (three templates had drifted to
+   one column); a lone video stays full width. */
+@media (min-width:560px){ .vids:has(> :nth-child(2)){grid-template-columns:1fr 1fr} }
+
+/* ---------- shared components ----------
+   These lived only in the one or two templates that happened to use them, while the
+   partials that emit the markup are shared by every guide. Here once, so an attachment,
+   a "need help" drop-down or a second step image renders styled on any product. */
+.note-help{margin:12px 0 0; padding:10px 12px; border-radius:10px;
+  background:var(--accent-wash); border:1px solid var(--line-2)}
+.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+  font-size:13.5px; font-weight:600; color:var(--ink); user-select:none}
+.note-help > summary .note-icon{color:var(--ink-3); margin-top:0}
+.note-help > summary::-webkit-details-marker{display:none}
+.note-help > summary::after{content:""; width:8px; height:8px; margin-left:auto; flex:none;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .2s ease}
+.note-help[open] > summary::after{transform:rotate(225deg); margin-top:-4px}
+.note-help[open] > summary{margin-bottom:10px}
+.note-help .support{gap:8px}
+.attach-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.attach-item{display:flex; gap:20px; align-items:flex-start; padding:26px 0; border-bottom:1px solid var(--line-2)}
+.attach-item:last-child{border-bottom:0}
+.attach-text{min-width:0; padding-top:2px}
+.attach-name{font-family:var(--f-display); font-weight:800; font-style:italic;
+  text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:0 0 8px}
+.attach-note{margin:0; color:var(--ink-2); font-size:15px}
+.attach-note b{color:var(--ink); font-weight:600}
+.step-img-wrap.step-img-stack{height:auto; display:flex; flex-direction:column; gap:14px}
+.step-img-main{position:relative; width:130px; height:130px}
+@media (min-width:480px){ .step-img-main{width:150px; height:150px} }
+
+/* ---------- index page ---------- */
+.card .thumb img{aspect-ratio:1; object-fit:contain}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important; transition-duration:.001ms!important}
+}
+
+/* ---------- narrow phones: nothing may be wider than the screen ----------
+   Measured before this block: at 320px every guide was wider than the screen in at least
+   one language (the Micro II was, in English, at 390px), which makes a phone zoom the page
+   out or let it slide sideways. Causes, each fixed below:
+   - the header row: the hidden-until-scrolled product name still took its full width,
+     pushing "All guides" off the right edge in ES/DE/IT/FR/PT;
+   - the step text column is only 134px wide at 320px, so long words (German compounds,
+     "help@gpen.com") could not fit, and flex/grid children refused to shrink below them;
+   - the "Need help?" call/email buttons inside a step were as wide as their text. */
+.bar-name{flex:0 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding-right:.12em}
+.lang-btn, .guides-btn{flex:none}
+.step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row{overflow-wrap:break-word}
+/* Hyphenate only where it's needed: long German compounds, and any language on the
+   narrowest phones. English at normal widths wraps on whole words as before. */
+:lang(de) :is(.step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row){hyphens:auto; -webkit-hyphens:auto}
+@media (max-width:374px){ :is(.step-body, .attach-text, .note, .press-row){hyphens:auto; -webkit-hyphens:auto} }
+.note > span, .press-row > div:last-child, .step-body > *{min-width:0}
+.support{grid-template-columns:minmax(0,1fr)}
+@media (min-width:560px){ .support{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} }
+.note-help .support{grid-template-columns:minmax(0,1fr)}
+.note-help .card-link{padding:10px 12px; gap:10px}
+.note-help .card-link .v{font-size:14.5px; min-width:0; overflow-wrap:anywhere}
+.note-help .card-icon{width:28px; height:28px}
+.card-link .v{min-width:0; overflow-wrap:anywhere}
+@media (max-width:374px){
+  .step, .attach-item{gap:14px}
+  .step-img-wrap, .step-img-main, .step-circle{width:100px; height:100px}
+  .step-img-wrap.step-img-stack{height:auto}
+  .num{width:34px; height:34px; font-size:18px; bottom:-4px; left:-4px}
+  .step h3{font-size:18px}
+  .guides-btn{letter-spacing:.03em; padding-inline:8px 9px}
+}
+
+/* 404 page notice */
+.notfound{margin:0 0 18px; padding:12px 14px; border-radius:10px; background:var(--accent-wash);
+  border:1px solid var(--line-2); color:var(--ink); font-size:15px}

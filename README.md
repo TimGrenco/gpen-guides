@@ -26,14 +26,24 @@ Base URL: <https://timgrenco.github.io/gpen-guides/>
 | G Pen Dash+ | `/dash-plus/` |
 | G Pen Grinder | `/grinder/` |
 
-Each guide also has a single-file copy at `/<product>/offline.html` (every image
-inlined — for email, trade-show USB sticks, anywhere without a network). QR codes
-should point at the hosted `/<product>/` page.
+Each guide also has a single-file copy at `/<product>/offline.html` (step and video
+images inlined — for email, trade-show USB sticks, anywhere without a network). Its
+links, the All-guides switcher pictures and the fonts point at the live site, so those
+need a connection; the instructions themselves don't. QR codes should point at the
+hosted `/<product>/` page.
 
 **Product paths go inside printed QR codes, so treat them as permanent.** Once codes
-ship on packaging a path can never move. If this should live on a custom domain
-such as `guides.gpen.com`, set that up **before** anything goes to print: add a
-`CNAME` file at the repo root and point a DNS CNAME record at `timgrenco.github.io`.
+ship on packaging a path can never move. The site is going to live at
+**help.gpen.com** — set that up **before** anything goes to print:
+
+1. DNS: a CNAME record `howto` → `timgrenco.github.io`.
+2. In `build.py`, set `BASE_URL = "https://help.gpen.com/"` (canonical links, share
+   previews, sitemap and the offline copies all hang off it), add a `CNAME` file at the
+   repo root containing `help.gpen.com`, rebuild, push.
+3. Settings → Pages → Custom domain `help.gpen.com`, then tick "Enforce HTTPS".
+
+Any guide can be linked in a specific language with `?lang=es` (es, de, it, fr, pt, en);
+the choice sticks for that visitor, same as on the brand portal (assets.gpen.com).
 
 ## How it's built
 
@@ -47,10 +57,13 @@ sections/                    renderer: content JSON -> HTML
   render.py                    partials/ fragments, translations, text polish
   schema.py / normalize.py     content validation + cleanup (mints IDs for new items)
 i18n/<product>.json          translation cache, one entry per string (stable IDs)
+i18n/_core.json              strings shared by every page (categories, index, 404)
+src/core/                    G Pen Core — the shared layer, see below
 build.py                     renders everything into the served pages
 serve.py                     local preview on :8811
 
-index.html, <product>/       generated — never edit by hand
+index.html, 404.html, <product>/, core/,
+sitemap.xml, robots.txt      generated — never edit by hand
 ```
 
 Copy lives in `content/*.json`; layout lives in the template shells. `PRODUCTS` in
@@ -60,6 +73,28 @@ Copy lives in `content/*.json`; layout lives in the template shells. `PRODUCTS` 
 python3 build.py        # validates content, renders every guide, exits 1 on bad content
 python3 serve.py        # then open http://localhost:8811
 ```
+
+## G Pen Core (`src/core/`)
+
+The shared layer every page gets, and the piece meant to be reused across the G Pen
+sites (gpen.com, assets.gpen.com, training.gpen.com):
+
+```
+src/core/core.css     shared rules + fixes; inlined AFTER each template's own <style>, so it wins ties
+src/core/guide.js     all page behavior: sticky header, section spy, language menu, All-guides
+                      sheet, video player (focus handling, Escape, scroll lock)
+src/core/fonts.css    self-hosted Kanit + Lato (woff2 in src/core/fonts/, published to /core/)
+src/core/favicon.svg, apple-touch-icon.png
+i18n/_core.json       shared translations
+```
+
+The per-product templates still carry their own copy of the page CSS (they drifted apart
+over time; core.css papers over the differences). The next consolidation step is one
+shared template shell with the per-product strings moved into content JSON.
+
+Images: `build.py` writes WebP renditions next to each image (`<name>-300.webp`,
+`-450.webp`, …) with `srcset`/`sizes` and `width`/`height`, cached in `.cache/` by
+content hash. Output is deterministic: rebuilding an unchanged tree changes no file.
 
 ## Editing content
 
@@ -77,7 +112,10 @@ python3 build.py                        # pick up the new translations
 
 `gen_i18n.py` needs the `claude` CLI signed in (it translates via Claude). It only
 sends strings whose English changed, keyed by each item's stable ID, so editing or
-reordering one bullet re-translates just that bullet.
+reordering one bullet re-translates just that bullet. Each language uses one glossary
+across all products (e.g. PT "bocal" for mouthpiece, FR "Boutique" for Upgrades, DE
+"Aufladen" = charge vs "Befüllen" = load); keep new strings consistent with the existing
+ones rather than re-translating a term differently.
 
 ## Adding a product
 
