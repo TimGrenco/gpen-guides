@@ -140,7 +140,7 @@
         },
         {
           "id": "b2",
-          "text": "**Deep clean:** remove the mouthpiece insert, clean with **isopropyl alcohol (IPA)**."
+          "text": "**Deep clean:** remove the mouthpiece insert, clean with **isopropyl alcohol (ISO)**."
         },
         {
           "id": "b3",
@@ -242,7 +242,7 @@
     {
       "id": "f5",
       "question": "How do I deep clean the mouthpiece?",
-      "answer": "Remove the mouthpiece insert and soak or wipe it with isopropyl alcohol. Let it dry completely before reassembling and using the device."
+      "answer": "Remove the mouthpiece insert and soak or wipe it with isopropyl alcohol (ISO). Let it dry completely before reassembling and using the device."
     },
     {
       "id": "f6",

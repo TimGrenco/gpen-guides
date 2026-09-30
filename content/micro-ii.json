@@ -132,7 +132,7 @@
         },
         {
           "id": "b2",
-          "text": "Use a **cotton swab + isopropyl alcohol (IPA)**."
+          "text": "Use a **cotton swab + isopropyl alcohol (ISO)**."
         },
         {
           "id": "b3",
@@ -305,7 +305,7 @@
     {
       "id": "f5",
       "question": "How often should I clean the chamber?",
-      "answer": "Clean the ceramic heating chamber after every few sessions to maintain performance. Let the device cool fully, then use a cotton swab with IPA to wipe the chamber and mouthpiece, and dry completely before use."
+      "answer": "Clean the ceramic heating chamber after every few sessions to maintain performance. Let the device cool fully, then use a cotton swab with ISO to wipe the chamber and mouthpiece, and dry completely before use."
     },
     {
       "id": "f6",
