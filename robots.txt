@@ -4,6 +4,10 @@ Disallow: /content/
 Disallow: /i18n/
 Disallow: /sections/
 Disallow: /scripts/
+Disallow: /.claude/
+Disallow: /build.py
+Disallow: /serve.py
+Disallow: /README.md
 Disallow: /*/offline.html
 
 Sitemap: https://help.gpen.com/sitemap.xml

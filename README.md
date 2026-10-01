@@ -45,10 +45,17 @@ is wired, for reference:
 Every page is also published pre-translated at its own address: `/es/`, `/de/`, `/it/`,
 `/fr/`, `/pt/`, `/sv/`, `/pl/`, `/da/` + the same path (help.gpen.com/es/hydout/). These are what search engines
 index in each language (hreflang links tie the nine versions together); their language menu
-goes to the matching address. The English pages, the ones the QR codes open, still
-translate themselves in place for a visitor whose browser or saved choice is another
-language. A `?lang=es` link still works too (es, de, it, fr, pt, sv, pl, da, en), and the choice sticks
-for that visitor, same as on the brand portal (assets.gpen.com).
+goes to the matching address. The English pages, the ones the QR codes open, carry no
+translations: a small script in their `<head>` sends a visitor whose language is another
+(`?lang=` > saved choice > browser language) to that language's page before anything
+paints, keeping any `?store=` and `#anchor`. Their language menu navigates too (to English
+with `?lang=en`, so the choice holds where storage is blocked). Only the 404 page and the
+offline copies still translate in place (`src/i18n-runtime.js`). No IP/geo detection.
+A `?lang=es` link still works (es, de, it, fr, pt, sv, pl, da, en) and the choice sticks,
+same as on the brand portal (assets.gpen.com).
+
+Every visible string, attribute (`data-i18n-attr="aria-label:key"`, step photo alt text)
+and description must exist in every language: the build lists anything missing and stops.
 
 Search descriptions for the translated pages live in `i18n/_meta.json`; the build stops if
 a page is missing one.
@@ -76,8 +83,25 @@ heading even while their guide is hidden; until it's published their button is "
 support" and their photos are written to `identify/img/`. Every card has an anchor, so support
 can send a direct link: `help.gpen.com/identify/#elite-ii`.
 
-**Style: no em dashes** in any copy, title, description or translation; use a colon,
-comma or new sentence. Code comments may keep them.
+**Style: no em dashes** in any copy, title, description or translation, and no spaced
+en dash used the same way (German and Scandinavian typography); use a colon, comma or new
+sentence. Number ranges (200°F – 430°F, 0–20 %) keep their en dash. Code comments may keep
+dashes.
+
+**Link previews.** Each page's `og:image` is a 1200x630 card from `src/share/<slug>.jpg`
+(home.jpg for the home, identify and 404 pages), published to `/core/share/`. Rebuild them
+with `python3 scripts/make_share_cards.py [slug ...]` (headless Chrome, the site's fonts and
+wordmark) after adding a product or changing its photo. They carry no translated words, so
+one card serves all nine languages.
+
+**Support footer.** Every page ends with the "Talk to our team" band
+(`sections/partials/support-footer.html`, strings `cs_*` in `i18n/_core.json`, styles in
+`src/core/core.css`), in the same voice as assets.gpen.com, with the support hours.
+
+**Build safety.** A guide is rendered completely (English, offline copy, every language,
+images in a staging folder) before anything on disk is replaced; if anything fails, its
+live pages stay as they were, and the sitemap, robots.txt and llms files are not
+regenerated, so the stores never read a sitemap listing pages that didn't build.
 
 ## How it's built
 
@@ -193,8 +217,8 @@ isn't built, listed or linked; to publish one, set `hidden` to `False` and run `
 Product copy, specs, SKU/UPC and manual PDFs come from the brand asset portal
 (<https://assets.gpen.com>, whose `assets/data/*.js` files hold the full data) and
 the print manuals on the Grenco drive (`GPEN/Packaging/<product>/Manual/`). The
-Register button sends visitors to `/pages/register` on www, ca or eu.gpen.com,
-picked from the browser's time zone.
+Register button goes to `www.gpen.com/pages/register`, or to the Canada store's when the
+visitor arrived with `?store=ca` (see "Store region" above); there is no time-zone or IP guess.
 
 The Grinder has no print manual; its guide was written from its one-sheet, box
 and store listing.

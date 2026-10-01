@@ -26,7 +26,10 @@
   }
   function focusables(root){
     return arr(root.querySelectorAll('a[href], button:not([disabled]), summary, iframe, [tabindex]:not([tabindex="-1"])'))
-      .filter(function(el){ return el.getClientRects().length > 0; });
+      .filter(function(el){
+        /* skip what can't be seen, e.g. links inside a closed Legacy products fold */
+        return el.checkVisibility ? el.checkVisibility() : el.getClientRects().length > 0;
+      });
   }
   function trapTab(root, e){
     var f = focusables(root); if (!f.length) return;
@@ -152,10 +155,10 @@
   var sheetBackdrop = $('sheet-backdrop'), sheetClose = $('sheet-close');
   var sheetOpen = false, closeSheet = function(){};
   if (guidesBtn && sheet && sheetBackdrop){
-    var hideTimer = 0, sheetReturn = null;
+    var hideTimer = 0, sheetReturn = null, openedAt = 0;
     var openSheet = function(){
       if (sheetOpen) return;
-      sheetOpen = true; clearTimeout(hideTimer);
+      sheetOpen = true; clearTimeout(hideTimer); openedAt = Date.now();
       sheetReturn = d.activeElement;
       sheet.hidden = false; sheetBackdrop.hidden = false;
       sheet.getBoundingClientRect();            /* commit the closed position so it animates */
@@ -182,15 +185,22 @@
     };
     guidesBtn.addEventListener('click', openSheet);
     if (sheetClose) sheetClose.addEventListener('click', closeSheet);
-    sheetBackdrop.addEventListener('click', closeSheet);
+    /* a quick double tap on "All guides" lands its second tap on the backdrop that just
+       appeared under the finger: don't let that close the sheet again */
+    sheetBackdrop.addEventListener('click', function(){ if (Date.now() - openedAt > 400) closeSheet(); });
 
     /* Swipe down to close — only when the list is scrolled to its top, so scrolling the
        product list back up doesn't dismiss the sheet. */
     var sheetBody = sheet.querySelector('.sheet-body') || sheet;
     var startY = 0, startTop = 0;
-    sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; startTop = sheetBody.scrollTop; }, { passive: true });
+    var fromHead = false;
+    sheet.addEventListener('touchstart', function(e){
+      startY = e.touches[0].clientY; startTop = sheetBody.scrollTop;
+      /* a swipe that starts on the handle or the title bar closes it wherever the list is scrolled */
+      fromHead = !sheetBody.contains(e.target);
+    }, { passive: true });
     sheet.addEventListener('touchend', function(e){
-      if (e.changedTouches[0].clientY - startY > 60 && startTop <= 0) closeSheet();
+      if (e.changedTouches[0].clientY - startY > 60 && (fromHead || startTop <= 0)) closeSheet();
     }, { passive: true });
   }
 
@@ -249,6 +259,8 @@
     else { var saved = localStorage.getItem('gpen-store'); if (STORES[saved]) store = saved; }
   } catch (x) {}
   function applyStore(){
+    /* the Upgrades prices are the US store's: other stores' differ, so they're hidden there */
+    d.documentElement.setAttribute('data-store', store);
     if (store === 'us' && !d.querySelector('a[data-us-href]')) return;
     var cfg = STORES[store];
     var prefix = (cfg.langPrefix || {})[(d.documentElement.lang || 'en').slice(0, 2).toLowerCase()] || '';

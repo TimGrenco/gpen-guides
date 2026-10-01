@@ -245,7 +245,7 @@ Guide: https://help.gpen.com/micro-ii/
     - Allow the device to completely dry before using again.
     - Note: Never soak the battery in alcohol or any liquid.
 5. **Alerts**
-    - G logo flashing = the tank isn't screwed in all the way, or the battery is dead. Screw the tank in firmly; if it keeps flashing, charge the device.
+    - G logo flashing = the tank (the part with the ceramic chamber, under the mouthpiece) isn't screwed onto the battery all the way, or the battery is dead. Screw the tank in firmly; if it keeps flashing, charge the device.
 - Attachment, **Sidecar**: Remove the mouthpiece and attach via the included silicone adapter. Control airflow with the built-in carb hole. The showerhead percolator filters and cools vapor for smoother sessions.
 - Attachment, **Rig Adapter**: Remove the mouthpiece and attach the Rig Adapter, then connect 14 mm glass to a compatible glass rig. Control airflow with the built-in carb hole. The L-shape design gives maximum flexibility when connected to a rig.
 
@@ -318,10 +318,10 @@ Guide: https://help.gpen.com/melt/
     - Heat tip (Hold): Hold to heat, release to stop: 150 °C / 302 °F
 4. **Clean**
     - Power it off and let the tip cool completely first.
-    - Clean the tip and plastic housing by wiping them with a clean cloth.
+    - Clean the tip and housing by wiping them with a clean cloth.
     - Clean the plastic connection points on the cap and the base of the tip.
     - Do not soak or submerge the device.
-    - Remove excess reclaim with a cotton swab soaked in isopropyl alcohol (ISO).
+    - Remove excess reclaim with a cotton swab dampened with isopropyl alcohol (ISO).
 
 ### Specs
 
@@ -426,7 +426,7 @@ Hold the power button for a full 4 seconds. If nothing happens, charge the devic
 
 **How do I know it's ready to use?**
 
-After you double-click to start a session, the device vibrates twice when it reaches your set temperature. The session countdown then begins on the display.
+After you double-click to start a session, the device vibrates twice when it reaches your set temperature. Wait about 30 seconds for your material to heat through, then start drawing. The session countdown shows on the display.
 
 **Vapor is thin or tastes off**
 
@@ -618,9 +618,9 @@ Try a higher heat setting. Make sure the concentrate is loaded into the chamber 
 
 Remove the mouthpiece assembly and check for buildup. Soak the mouthpiece in isopropyl alcohol and clean the airpath with a cotton swab. Overfilling the chamber is the most common cause.
 
-**What does the LED flashing 3 times mean?**
+**The LED flashes red and green**
 
-Three blinks on startup usually indicates a short circuit or improper tank connection. Remove the tank, clean the connection threads, and reattach firmly.
+Red and green flashing five times means a tank connection problem. Twist off the mouthpiece assembly and the tank, clean the connection threads, then screw the tank back on firmly.
 
 
 ## G Pen Hyer (Concentrate Vaporizer)
@@ -650,7 +650,6 @@ Guide: https://help.gpen.com/hyer/
     - Draw through your glass piece while the session runs.
     - Single click or wait for the timer to end the session.
     - Activate session (2x): Double-click to start
-    - Increased airflow (Hold): Hold the side button during a session
     - Note: After your session: Wait at least 1 minute, then wipe the quartz chamber with a cotton swab while still warm.
 
 ### Specs
@@ -687,6 +686,10 @@ Clean the quartz chamber regularly with a cotton swab after sessions while still
 
 While the device is on, hold the Left and Right buttons simultaneously for 2 seconds. Each press cycles through 15, 30, 45, 60, or 75 seconds. The concentrate timer applies to the Concentrates Tank. The dry herb timer cycles separately if you have the dry herb tank attachment.
 
+**The light flashes five times**
+
+Blue flashing five times means a bad connection with the tank: check that it's screwed in properly and clean the connection points, and if that doesn't help, change the tank. Yellow flashing five times means a short circuit or a faulty tank: contact G Pen support.
+
 
 ## G Pen Connect (Concentrate Vaporizer)
 
@@ -721,7 +724,7 @@ Guide: https://help.gpen.com/connect/
 
 - Type: Concentrate Vaporizer
 - Battery: 850 mAh
-- Chamber: Quartz ceramic plate
+- Chamber: Ceramic plate
 - Voltage: 3.1V / 3.6V / 4.1V
 - Auto heat duration: 5s heat-up + 10s max
 - Manual heat duration: Up to 15 seconds

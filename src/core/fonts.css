@@ -1,5 +1,5 @@
 /* G Pen Core fonts — self-hosted woff2 (SIL Open Font License), latin + latin-ext only.
-   Kanit ExtraBold Italic for display type, Lato 400/700/900 for body. {{FONT_BASE}} is
+   Kanit ExtraBold Italic for display type, Lato 400/700 for body. {{FONT_BASE}} is
    filled in by build.py: a relative path on hosted pages, the site URL in offline copies. */
 @font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url({{FONT_BASE}}kanit-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url({{FONT_BASE}}kanit-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
@@ -7,5 +7,9 @@
 @font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url({{FONT_BASE}}lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url({{FONT_BASE}}lato-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url({{FONT_BASE}}lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url({{FONT_BASE}}lato-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url({{FONT_BASE}}lato-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+/* Size-matched stand-ins (Helvetica Neue / Arial scaled to Lato's and Kanit's widths) for
+   the moment before the web fonts arrive, so text doesn't reflow and push step 1 down when
+   they swap in (measured: layout shift 0.089 -> 0). */
+@font-face{font-family:'Lato-fb';font-weight:400;src:local('Helvetica Neue'),local('HelveticaNeue'),local('Arial');size-adjust:96%}
+@font-face{font-family:'Lato-fb';font-weight:700;src:local('Helvetica Neue Bold'),local('HelveticaNeue-Bold'),local('Arial Bold'),local('Arial-BoldMT');size-adjust:92.5%}
+@font-face{font-family:'Kanit-fb';font-style:italic;font-weight:800;src:local('Arial Bold Italic'),local('Arial-BoldItalicMT');size-adjust:97.5%}

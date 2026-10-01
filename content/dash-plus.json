@@ -258,7 +258,7 @@
     {
       "id": "f2",
       "question": "How do I know it's ready to use?",
-      "answer": "After you double-click to start a session, the device vibrates twice when it reaches your set temperature. The session countdown then begins on the display."
+      "answer": "After you double-click to start a session, the device vibrates twice when it reaches your set temperature. Wait about **30 seconds** for your material to heat through, then start drawing. The session countdown shows on the display."
     },
     {
       "id": "f3",

@@ -18,8 +18,8 @@
   --plate:#E4E5E7;
   --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
   --radius:14px;
-  --f-display:'Kanit','Arial Black',Arial,sans-serif;
-  --f-body:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --f-display:'Kanit','Kanit-fb','Arial Black',Arial,sans-serif;
+  --f-body:'Lato','Lato-fb','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -95,7 +95,7 @@ section{scroll-margin-top:104px; padding-top:56px; padding-bottom:56px}
 .press-list{ margin:12px 0 0; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); overflow:hidden; box-shadow:var(--shadow); }
 .press-row{ display:flex; align-items:center; gap:14px; padding:12px 16px; border-bottom:1px solid var(--line-2); }
 .press-row:last-child{border-bottom:0}
-.press-badge{ flex:none; width:42px; height:42px; border-radius:50%; background:var(--accent); color:var(--accent-ink); font-family:var(--f-body); font-weight:900; font-size:13px; letter-spacing:.02em; display:grid; place-items:center; }
+.press-badge{ flex:none; width:42px; height:42px; border-radius:50%; background:var(--accent); color:var(--accent-ink); font-family:var(--f-body); font-weight:700; font-size:13px; letter-spacing:.02em; display:grid; place-items:center; }
 .press-hold{font-size:10px; letter-spacing:.08em; text-transform:uppercase; width:auto; min-width:42px; padding:0 5px; border-radius:999px; white-space:nowrap}
 .press-action{display:block; font-size:15px; font-weight:600; color:var(--ink)}
 .press-sub{display:block; font-size:13px; color:var(--ink-3); margin-top:2px}
@@ -257,24 +257,25 @@ footer .legal{font-size:11.5px; line-height:1.6}
 <header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="{{HOME}}" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
+      <a class="glyph" href="{{HOME}}" aria-label="G Pen guides home" data-i18n-attr="aria-label:a11y_home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <div class="bar-name">Hyer</div>
       <div class="lang-wrap" id="lang-wrap">
-        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 2C10 2 7 6 7 10s3 8 3 8M10 2c0 0 3 4 3 8s-3 8-3 8M2 10h16"/></svg>
+          <span class="sr-only" data-i18n="a11y_language">Language:</span>
           <span class="lang-code" id="lang-code">EN</span>
           <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg>
         </button>
-        <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Language" hidden>
-          <li role="option" data-lang="EN" data-label="English"      aria-selected="true"  class="lang-opt active"><span class="lc">EN</span><span class="ll">English</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
-          <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll">Español</span></li>
-          <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="false" class="lang-opt"><span class="lc">DE</span><span class="ll">Deutsch</span></li>
-          <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll">Italiano</span></li>
-          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll">Français</span></li>
-          <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
-          <li role="option" data-lang="SV" data-label="Svenska" aria-selected="false" class="lang-opt"><span class="lc">SV</span><span class="ll">Svenska</span></li>
-          <li role="option" data-lang="PL" data-label="Polski" aria-selected="false" class="lang-opt"><span class="lc">PL</span><span class="ll">Polski</span></li>
-          <li role="option" data-lang="DA" data-label="Dansk" aria-selected="false" class="lang-opt"><span class="lc">DA</span><span class="ll">Dansk</span></li>
+        <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Language" data-i18n-attr="aria-label:a11y_language_list" hidden>
+          <li role="option" data-lang="EN" data-label="English"      aria-selected="true"  class="lang-opt active"><span class="lc">EN</span><span class="ll" lang="en">English</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
+          <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll" lang="es">Español</span></li>
+          <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="false" class="lang-opt"><span class="lc">DE</span><span class="ll" lang="de">Deutsch</span></li>
+          <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll" lang="it">Italiano</span></li>
+          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll" lang="fr">Français</span></li>
+          <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll" lang="pt-BR">Português (Brasil)</span></li>
+          <li role="option" data-lang="SV" data-label="Svenska" aria-selected="false" class="lang-opt"><span class="lc">SV</span><span class="ll" lang="sv">Svenska</span></li>
+          <li role="option" data-lang="PL" data-label="Polski" aria-selected="false" class="lang-opt"><span class="lc">PL</span><span class="ll" lang="pl">Polski</span></li>
+          <li role="option" data-lang="DA" data-label="Dansk" aria-selected="false" class="lang-opt"><span class="lc">DA</span><span class="ll" lang="da">Dansk</span></li>
         </ul>
       </div>
       <button class="guides-btn" id="guides-btn" aria-haspopup="dialog" aria-controls="product-sheet" aria-expanded="false" data-i18n="all_guides">
@@ -282,7 +283,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
         All guides
       </button>
     </div>
-    <nav class="jump" aria-label="Sections">
+    <nav class="jump" aria-label="Sections" data-i18n-attr="aria-label:a11y_sections">
       <a href="#use" data-i18n="nav_use">How to use</a>
       <a href="#videos" data-i18n="nav_videos">Videos</a>
       <a href="#upgrade" data-i18n="nav_upgrade">Upgrades</a>
@@ -355,21 +356,9 @@ footer .legal{font-size:11.5px; line-height:1.6}
         </div>
       </div>
     </details>
-    <h3 style="font-size:16px; font-weight:600; color:var(--ink-2); margin:32px 0 12px" data-i18n="still_stuck">Still stuck?</h3>
-    <div class="support">
-      <a class="card-link" href="tel:+18336913224">
-        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="30"/><path d="M39.5 40.5c-1.5 1.5-3 2-4.5 2-8 0-13.5-5.5-13.5-13.5 0-1.5.5-3 2-4.5l3-3c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5l-1.5 1.5c-.5.5-.5 1 0 1.5 1 1.5 2.5 3 4 4 .5.5 1 .5 1.5 0l1.5-1.5c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5z"/></svg></span>
-        <span class="v">+1 833-691-3224</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="card-link" href="mailto:help@gpen.com">
-        <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="30"/><path d="M20 24h24v16H20z" rx="2"/><path d="M20 24l12 10 12-10"/></svg></span>
-        <span class="v">help@gpen.com</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
   </section>
 
+  {{SUPPORT_FOOTER}}
   <footer class="wrap">
     <p class="legal" data-i18n="legal_notice">For adults 21 and over only. This product is not for use with tobacco, nicotine-containing e-liquids, or any synthetic nicotine or nicotine substitute.</p>
     <p class="legal">© {{YEAR}} G Pen</p>
@@ -381,7 +370,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   <div class="sheet-handle"></div>
   <div class="sheet-head">
     <span class="sheet-title" id="sheet-title" data-i18n="guides_title">G Pen Guides</span>
-    <button class="sheet-close" id="sheet-close" aria-label="Close">
+    <button class="sheet-close" id="sheet-close" aria-label="Close" data-i18n-attr="aria-label:a11y_close">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
     </button>
   </div>
@@ -389,14 +378,14 @@ footer .legal{font-size:11.5px; line-height:1.6}
 </div>
 
 <div class="vm-backdrop" id="vm-backdrop" hidden></div>
-<div class="vm" id="vm" hidden aria-modal="true" role="dialog" aria-label="Video player">
+<div class="vm" id="vm" hidden aria-modal="true" role="dialog" aria-label="Video player" data-i18n-attr="aria-label:a11y_video">
   <div class="vm-frame">
-    <button class="vm-close" id="vm-close" aria-label="Close video">&#x2715;</button>
+    <button class="vm-close" id="vm-close" aria-label="Close video" data-i18n-attr="aria-label:a11y_close_video">&#x2715;</button>
     <div class="vm-player"><iframe id="vm-iframe" title="Video player" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
   </div>
 </div>
 
-<nav class="bottom-nav" aria-label="Sections">
+<nav class="bottom-nav" aria-label="Sections" data-i18n-attr="aria-label:a11y_sections">
   <a href="#use" data-i18n="bn_steps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="7" r="1.4" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="5" cy="17" r="1.4" fill="currentColor" stroke="none"/><line x1="9" y1="7" x2="20" y2="7"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="17" x2="20" y2="17"/></svg>Steps</a>
   <a href="#videos" data-i18n="bn_videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="9"/>

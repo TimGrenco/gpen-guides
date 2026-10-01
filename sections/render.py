@@ -183,11 +183,13 @@ def img_ref(filename):
 IMG_REF_RE = re.compile(r"\{\{img:([^}]+)\}\}")
 
 
-def _img_tag(token, alt, indent, num=99):
+def _img_tag(token, alt, indent, num=99, alt_key=None):
     # Steps 1 and 2 are on screen when a phone opens the page (step 2's photo is usually the
     # largest paint), so they load right away; step 1 gets download priority. The rest stay lazy.
     load = ' fetchpriority="high"' if num == 1 else ('' if num == 2 else ' loading="lazy"')
-    return f'{indent}<div class="step-circle"><img src="{img_ref(token)}" alt="{alt}"{load}></div>'
+    # alt_key: the i18n key that translates the alt text (screen readers read it)
+    tr = f' data-i18n-attr="alt:{alt_key}"' if alt_key else ""
+    return f'{indent}<div class="step-circle"><img src="{img_ref(token)}" alt="{alt}"{tr}{load}></div>'
 
 
 def render_step_image(step, num):
@@ -199,15 +201,15 @@ def render_step_image(step, num):
         return (
             '        <div class="step-img-wrap step-img-stack">\n'
             '          <div class="step-img-main">\n'
-            f'{_img_tag(token, alt, "            ", num)}\n'
+            f'{_img_tag(token, alt, "            ", num, f"step{num}_alt")}\n'
             f'            <div class="num">{num}</div>\n'
             '          </div>\n'
-            f'{_img_tag(token2, alt2, "          ")}\n'
+            f'{_img_tag(token2, alt2, "          ", alt_key=f"step{num}_alt2")}\n'
             '        </div>'
         )
     return (
         '        <div class="step-img-wrap">\n'
-        f'{_img_tag(token, alt, "          ", num)}\n'
+        f'{_img_tag(token, alt, "          ", num, f"step{num}_alt")}\n'
         f'          <div class="num">{num}</div>\n'
         '        </div>'
     )
@@ -268,6 +270,7 @@ def render_attach_item(item, num, leaf_lookup):
         IMG=img_ref(item["image"]),
         IMG_ALT=htmllib.escape(item["imageAlt"], quote=True),
         ZONE_KEY=f"attach{num}_body",
+        ALT_KEY=f"attach{num}_alt",
         BODY=_attach_zone_inner(item, leaf_lookup),
     )
 
@@ -365,6 +368,10 @@ def extract_content_leaves(content):
     for step in content.get("steps", []):
         prefix = f"step.{step['id']}"
         leaves[f"{prefix}.title"] = step["title"]
+        if step.get("imageAlt"):
+            leaves[f"{prefix}.imageAlt"] = step["imageAlt"]
+        if step.get("image2Alt"):
+            leaves[f"{prefix}.image2Alt"] = step["image2Alt"]
         for b in step.get("bullets", []):
             leaves[f"{prefix}.bullet.{b['id']}"] = b["text"]
         for p in step.get("press", []):
@@ -378,6 +385,8 @@ def extract_content_leaves(content):
     for a in content.get("attachments", []):
         prefix = f"attach.{a['id']}"
         leaves[f"{prefix}.title"] = a["title"]
+        if a.get("imageAlt"):
+            leaves[f"{prefix}.imageAlt"] = a["imageAlt"]
         for b in a.get("bullets", []):
             leaves[f"{prefix}.bullet.{b['id']}"] = b["text"]
     for spec in content.get("specs", []):
@@ -410,8 +419,12 @@ def compose_translations(slug, content, cache):
         flat = dict(shell)
         for i, step in enumerate(steps, start=1):
             flat[f"step{i}_body"] = _step_zone_inner(step, i, leaf_lookup, need_help_text)
+            flat[f"step{i}_alt"] = _leaf(leaf_lookup, f"step.{step['id']}.imageAlt", step.get("imageAlt", ""))
+            if step.get("image2Alt"):
+                flat[f"step{i}_alt2"] = _leaf(leaf_lookup, f"step.{step['id']}.image2Alt", step["image2Alt"])
         for i, a in enumerate(content.get("attachments", []), start=1):
             flat[f"attach{i}_body"] = _attach_zone_inner(a, leaf_lookup).strip()
+            flat[f"attach{i}_alt"] = _leaf(leaf_lookup, f"attach.{a['id']}.imageAlt", a.get("imageAlt", ""))
         if content.get("specs"):
             flat["specs_body"] = _specs_zone_inner(content["specs"], leaf_lookup)
         if content.get("faq"):

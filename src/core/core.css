@@ -118,7 +118,7 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
    a "need help" drop-down or a second step image renders styled on any product. */
 .note-help{margin:12px 0 0; padding:10px 12px; border-radius:10px;
   background:var(--accent-wash); border:1px solid var(--line-2)}
-.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; min-height:44px;
   font-size:13.5px; font-weight:600; color:var(--ink); user-select:none}
 .note-help > summary .note-icon{color:var(--ink-3); margin-top:0}
 .note-help > summary::-webkit-details-marker{display:none}
@@ -198,8 +198,13 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
 
 /* Tapping a section in the nav lands its heading just under the header (the 104px offset
    was sized for the desktop header and left a ~107px gap on a phone). */
-section{scroll-margin-top:64px}
-@media (max-width:639px){ section{scroll-margin-top:24px} }
+/* Keyboard focus and in-page jumps stay clear of the sticky header (56px) and, on phones,
+   the bottom nav: the page reserves that room, and each section's own offset is reduced by
+   the same 56px so a tap on a nav pill lands exactly where it did before. */
+html{scroll-padding-top:56px}
+@media (max-width:639px){ html{scroll-padding-bottom:72px} }
+section{scroll-margin-top:8px}
+@media (max-width:639px){ section{scroll-margin-top:-32px} }
 
 /* color-mix() needs iOS 16.2 / Chrome 111. Older phones dropped the whole background and
    showed a see-through header and bottom nav. */
@@ -251,7 +256,7 @@ section{scroll-margin-top:64px}
   .step:last-child{padding-bottom:4px}
   /* a step with no bullets (e.g. Activate): its heading sits level with the photo */
   .step:not(:has(.do)) .step-body > h3{display:flex; align-items:center; min-height:var(--circle,130px); margin-bottom:0}
-}}
+}
 @media (max-width:374px){ .step-img-wrap{margin-right:14px} :root{--circle:100px} }
 @media (max-width:359px){ :root{--circle:88px} .step-img-wrap, .step-img-main, .step-circle{width:88px; height:88px} .num{width:30px; height:30px; font-size:16px} }
 
@@ -290,7 +295,7 @@ section{scroll-margin-top:64px}
 /* Sections breathe less on a phone (there was ~150px between them). */
 @media (max-width:639px){
   section{padding-top:40px; padding-bottom:40px}
-  section#use{padding-top:20px; scroll-margin-top:44px}
+  section#use{padding-top:20px; scroll-margin-top:-12px}
 }
 
 /* Bottom nav: the gold "current" pill kept off the screen edges. */
@@ -313,3 +318,40 @@ section{scroll-margin-top:64px}
 
 /* The Upgrades shop button on the narrowest phones: one line, even in German. */
 @media (max-width:360px){ .upgrade-btn{font-size:12px; padding:12px 16px; letter-spacing:0} }
+
+/* Upgrades prices are US store prices: hidden when the visitor came from another store (?store=ca) */
+html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
+
+/* 44px tap targets */
+.reg-btn{min-height:44px}
+/* 200% text zoom (or a very narrow window): the header keeps the icon of "All guides" and
+   drops its label, so the three header controls still fit on one line */
+@media (max-width:300px){ .guides-btn{font-size:0; gap:0; padding-inline:10px} .guides-btn svg{margin:0} }
+/* a phone held sideways: four product cards per row in the All guides sheet, so names show */
+@media (orientation:landscape) and (max-height:500px){
+  .sheet-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+/* ---------- support footer: the same voice as assets.gpen.com, on every page ----------
+   A dark band in both themes, so the gold eyebrow and the white call button read the same
+   everywhere. */
+.cs{margin-top:44px; padding:52px 0 46px; color:#ECEDEF; border-top:2px solid #FFC876;
+  background:#0C0D10; background:radial-gradient(130% 120% at 12% 0%, #1E2126 0%, #111316 48%, #08090B 100%)}
+.cs-eyebrow{font-family:var(--f-body); font-weight:700; font-size:12.5px; letter-spacing:.3em;
+  text-transform:uppercase; color:#FFC876; margin:0 0 16px}
+.cs-title{font-family:var(--f-body); font-weight:700; font-size:clamp(30px,8vw,40px); line-height:1.08;
+  letter-spacing:-.025em; color:#fff; margin:0 0 18px}
+.cs-text{color:#C9CDD3; font-size:16.5px; line-height:1.7; margin:0 0 28px; max-width:62ch}
+.cs-actions{display:grid; gap:12px}
+@media (min-width:600px){ .cs-actions{grid-template-columns:1fr 1fr} }
+.cs-btn{display:flex; align-items:center; justify-content:center; gap:12px; min-height:60px; padding:0 22px;
+  border-radius:999px; font-family:var(--f-body); font-weight:700; font-size:19px; letter-spacing:.01em;
+  text-decoration:none; transition:background .18s ease, border-color .18s ease, transform .18s ease}
+.cs-btn svg{width:22px; height:22px; flex:none}
+.cs-phone{background:#fff; color:#101215; border:1.5px solid #fff}
+.cs-phone:hover{background:#ECEDEF; border-color:#ECEDEF}
+.cs-mail{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.34)}
+.cs-mail:hover{border-color:#fff}
+.cs-btn:active{transform:scale(.985)}
+.cs-hours{text-align:center; color:#A1A7AF; font-weight:700; font-size:14.5px; letter-spacing:.02em; margin:20px 0 0}
+.cs + footer{margin-top:0; border-top:0}

@@ -62,6 +62,14 @@
       }
     });
 
+    /* ── attributes: data-i18n-attr="aria-label:key;alt:key2" ─────────────── */
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      el.getAttribute('data-i18n-attr').split(';').forEach(function(pair){
+        var i = pair.indexOf(':'), attr = pair.slice(0, i), key = pair.slice(i + 1);
+        if (attr && s[key]) el.setAttribute(attr, s[key]);
+      });
+    });
+
     /* ── HTML zones: data-i18n-zone ────────────────────────────────────── */
     /* vids_block skipped — its video buttons have JS listeners bound at load */
     document.querySelectorAll('[data-i18n-zone]').forEach(function(el){
@@ -86,7 +94,9 @@
   /* A ?lang=es link wins and sticks (same rule as the brand portal at assets.gpen.com),
      so a translated link sent to someone stays translated after a refresh. */
   var saved = null;
-  var q = (location.search.match(/[?&]lang=([a-z]{2})\b/i) || [])[1];
+  /* ?lang=es, or a /es/... address that ended up on the shared 404 page */
+  var q = (location.search.match(/[?&]lang=([a-z]{2})\b/i) ||
+           location.pathname.match(/^\/(es|de|it|fr|pt|sv|pl|da)\//) || [])[1];
   if (q && SUPPORTED.indexOf(q.toUpperCase()) >= 0) {
     saved = q.toUpperCase();
     try { localStorage.setItem('gpen-lang', saved); } catch(e){}
@@ -102,10 +112,28 @@
   /* the <head> hid the page for a non-English visitor so English never flashes first */
   document.documentElement.classList.remove('i18n-wait');
 
-  /* save chosen language to localStorage whenever the dropdown fires _i18n */
+  /* save chosen language to localStorage whenever the dropdown fires _i18n; a ?lang= in
+     the address is updated too, or a reload (iOS does one when you come back to a tab)
+     would switch back to the language the link was shared in */
   var _orig = window._i18n;
   window._i18n = function(lang){
     _orig(lang);
     try { localStorage.setItem('gpen-lang', lang); } catch(e){}
+    if (/[?&]lang=/i.test(location.search)){
+      try {
+        var q = location.search.replace(/([?&]lang=)[a-z]{2}\b/i, '$1' + lang.toLowerCase());
+        history.replaceState(history.state, '', location.pathname + q + location.hash);
+      } catch(e){}
+    }
   };
+
+  /* Back/forward can restore this page from the cache as it was, in the language it had
+     then: show it in the language chosen since */
+  window.addEventListener('pageshow', function(e){
+    if (!e.persisted) return;
+    var now = null;
+    try { now = localStorage.getItem('gpen-lang'); } catch(x){}
+    var shown = (document.documentElement.lang || 'en').slice(0, 2).toUpperCase();
+    if (now && SUPPORTED.indexOf(now) >= 0 && now !== shown) window._i18n(now);
+  });
 })();

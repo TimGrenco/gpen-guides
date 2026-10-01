@@ -227,8 +227,8 @@
     },
     {
       "id": "f4",
-      "question": "What does the LED flashing 3 times mean?",
-      "answer": "Three blinks on startup usually indicates a short circuit or improper tank connection. Remove the tank, clean the connection threads, and reattach firmly."
+      "question": "The LED flashes red and green",
+      "answer": "Red and green flashing five times means a tank connection problem. Twist off the mouthpiece assembly and the tank, clean the connection threads, then screw the tank back on firmly."
     }
   ],
   "videos": [

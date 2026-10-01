@@ -2,7 +2,7 @@
 
 > Official how-to guides for G Pen devices, published by G Pen: how to charge, load, use and clean each device, its specs, and answers to common questions. Customers reach each guide by scanning the QR code on the device's packaging.
 
-Each guide is also published in Spanish, German, Italian, French and Brazilian Portuguese, at the same path under /es/, /de/, /it/, /fr/ and /pt/ (for example https://help.gpen.com/es/hydout/).
+Each guide is also published in Spanish, German, Italian, French, Brazilian Portuguese, Swedish, Polish and Danish, at the same path under /es/, /de/, /it/, /fr/, /pt/, /sv/, /pl/, /da/ (for example https://help.gpen.com/es/hydout/).
 
 ## Guides
 

@@ -140,15 +140,6 @@
           },
           "action": "Activate session",
           "sub": "Double-click to start"
-        },
-        {
-          "id": "p2",
-          "badge": {
-            "kind": "pill",
-            "label": "Hold"
-          },
-          "action": "Increased airflow",
-          "sub": "Hold the side button during a session"
         }
       ],
       "note": {
@@ -246,6 +237,11 @@
       "id": "f4",
       "question": "How do I change the session timer?",
       "answer": "While the device is on, hold the Left and Right buttons simultaneously for 2 seconds. Each press cycles through 15, 30, 45, 60, or 75 seconds. The concentrate timer applies to the Concentrates Tank. The dry herb timer cycles separately if you have the dry herb tank attachment."
+    },
+    {
+      "id": "f5",
+      "question": "The light flashes five times",
+      "answer": "**Blue** flashing five times means a bad connection with the tank: check that it's screwed in properly and clean the connection points, and if that doesn't help, change the tank. **Yellow** flashing five times means a short circuit or a faulty tank: contact G Pen support."
     }
   ],
   "videos": [

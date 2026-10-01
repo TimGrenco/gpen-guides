@@ -20,8 +20,8 @@
   --plate:#E4E5E7;
   --shadow:0 1px 2px rgba(16,18,21,.06), 0 8px 24px -12px rgba(16,18,21,.18);
   --radius:14px;
-  --f-display:'Kanit','Arial Black',Arial,sans-serif;
-  --f-body:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --f-display:'Kanit','Kanit-fb','Arial Black',Arial,sans-serif;
+  --f-body:'Lato','Lato-fb','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -215,7 +215,7 @@ section{scroll-margin-top:104px; padding-top:56px; padding-bottom:56px}
 .press-badge{
   flex:none; width:42px; height:42px; border-radius:50%;
   background:var(--accent); color:var(--accent-ink);
-  font-family:var(--f-body); font-weight:900; font-size:13px; letter-spacing:.02em;
+  font-family:var(--f-body); font-weight:700; font-size:13px; letter-spacing:.02em;
   display:grid; place-items:center;
 }
 .press-hold{font-size:10px; letter-spacing:.08em; text-transform:uppercase; width:auto; min-width:42px; padding:0 5px; border-radius:999px; white-space:nowrap}
@@ -542,11 +542,16 @@ footer .legal{font-size:11.5px; line-height:1.6}
 <meta property="og:title" content="G Pen Roam: Anwendung">
 <meta property="og:description" content="So lädst du das tragbare E-Rig G Pen Roam auf, befüllst es mit Wasser und Konzentrat, erhitzt und reinigst es.">
 <meta property="og:url" content="https://help.gpen.com/de/roam/">
-<meta property="og:image" content="https://help.gpen.com/roam/img/roam-card.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://help.gpen.com/core/share/roam.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="G Pen Roam: Anwendung">
+<meta name="twitter:image" content="https://help.gpen.com/core/share/roam.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 /* G Pen Core fonts — self-hosted woff2 (SIL Open Font License), latin + latin-ext only.
-   Kanit ExtraBold Italic for display type, Lato 400/700/900 for body. ../core/fonts/ is
+   Kanit ExtraBold Italic for display type, Lato 400/700 for body. ../core/fonts/ is
    filled in by build.py: a relative path on hosted pages, the site URL in offline copies. */
 @font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../../core/fonts/kanit-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../../core/fonts/kanit-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
@@ -554,8 +559,12 @@ footer .legal{font-size:11.5px; line-height:1.6}
 @font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(../../core/fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../../core/fonts/lato-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../../core/fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../../core/fonts/lato-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../../core/fonts/lato-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+/* Size-matched stand-ins (Helvetica Neue / Arial scaled to Lato's and Kanit's widths) for
+   the moment before the web fonts arrive, so text doesn't reflow and push step 1 down when
+   they swap in (measured: layout shift 0.089 -> 0). */
+@font-face{font-family:'Lato-fb';font-weight:400;src:local('Helvetica Neue'),local('HelveticaNeue'),local('Arial');size-adjust:96%}
+@font-face{font-family:'Lato-fb';font-weight:700;src:local('Helvetica Neue Bold'),local('HelveticaNeue-Bold'),local('Arial Bold'),local('Arial-BoldMT');size-adjust:92.5%}
+@font-face{font-family:'Kanit-fb';font-style:italic;font-weight:800;src:local('Arial Bold Italic'),local('Arial-BoldItalicMT');size-adjust:97.5%}
 
 /* G Pen Core — shared layer for every guide page and the index.
    build.py inlines this AFTER each template's own <style>, so a rule here wins over the
@@ -677,7 +686,7 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
    a "need help" drop-down or a second step image renders styled on any product. */
 .note-help{margin:12px 0 0; padding:10px 12px; border-radius:10px;
   background:var(--accent-wash); border:1px solid var(--line-2)}
-.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+.note-help > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none; min-height:44px;
   font-size:13.5px; font-weight:600; color:var(--ink); user-select:none}
 .note-help > summary .note-icon{color:var(--ink-3); margin-top:0}
 .note-help > summary::-webkit-details-marker{display:none}
@@ -757,8 +766,13 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
 
 /* Tapping a section in the nav lands its heading just under the header (the 104px offset
    was sized for the desktop header and left a ~107px gap on a phone). */
-section{scroll-margin-top:64px}
-@media (max-width:639px){ section{scroll-margin-top:24px} }
+/* Keyboard focus and in-page jumps stay clear of the sticky header (56px) and, on phones,
+   the bottom nav: the page reserves that room, and each section's own offset is reduced by
+   the same 56px so a tap on a nav pill lands exactly where it did before. */
+html{scroll-padding-top:56px}
+@media (max-width:639px){ html{scroll-padding-bottom:72px} }
+section{scroll-margin-top:8px}
+@media (max-width:639px){ section{scroll-margin-top:-32px} }
 
 /* color-mix() needs iOS 16.2 / Chrome 111. Older phones dropped the whole background and
    showed a see-through header and bottom nav. */
@@ -810,7 +824,7 @@ section{scroll-margin-top:64px}
   .step:last-child{padding-bottom:4px}
   /* a step with no bullets (e.g. Activate): its heading sits level with the photo */
   .step:not(:has(.do)) .step-body > h3{display:flex; align-items:center; min-height:var(--circle,130px); margin-bottom:0}
-}}
+}
 @media (max-width:374px){ .step-img-wrap{margin-right:14px} :root{--circle:100px} }
 @media (max-width:359px){ :root{--circle:88px} .step-img-wrap, .step-img-main, .step-circle{width:88px; height:88px} .num{width:30px; height:30px; font-size:16px} }
 
@@ -849,7 +863,7 @@ section{scroll-margin-top:64px}
 /* Sections breathe less on a phone (there was ~150px between them). */
 @media (max-width:639px){
   section{padding-top:40px; padding-bottom:40px}
-  section#use{padding-top:20px; scroll-margin-top:44px}
+  section#use{padding-top:20px; scroll-margin-top:-12px}
 }
 
 /* Bottom nav: the gold "current" pill kept off the screen edges. */
@@ -872,6 +886,43 @@ section{scroll-margin-top:64px}
 
 /* The Upgrades shop button on the narrowest phones: one line, even in German. */
 @media (max-width:360px){ .upgrade-btn{font-size:12px; padding:12px 16px; letter-spacing:0} }
+
+/* Upgrades prices are US store prices: hidden when the visitor came from another store (?store=ca) */
+html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
+
+/* 44px tap targets */
+.reg-btn{min-height:44px}
+/* 200% text zoom (or a very narrow window): the header keeps the icon of "All guides" and
+   drops its label, so the three header controls still fit on one line */
+@media (max-width:300px){ .guides-btn{font-size:0; gap:0; padding-inline:10px} .guides-btn svg{margin:0} }
+/* a phone held sideways: four product cards per row in the All guides sheet, so names show */
+@media (orientation:landscape) and (max-height:500px){
+  .sheet-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+/* ---------- support footer: the same voice as assets.gpen.com, on every page ----------
+   A dark band in both themes, so the gold eyebrow and the white call button read the same
+   everywhere. */
+.cs{margin-top:44px; padding:52px 0 46px; color:#ECEDEF; border-top:2px solid #FFC876;
+  background:#0C0D10; background:radial-gradient(130% 120% at 12% 0%, #1E2126 0%, #111316 48%, #08090B 100%)}
+.cs-eyebrow{font-family:var(--f-body); font-weight:700; font-size:12.5px; letter-spacing:.3em;
+  text-transform:uppercase; color:#FFC876; margin:0 0 16px}
+.cs-title{font-family:var(--f-body); font-weight:700; font-size:clamp(30px,8vw,40px); line-height:1.08;
+  letter-spacing:-.025em; color:#fff; margin:0 0 18px}
+.cs-text{color:#C9CDD3; font-size:16.5px; line-height:1.7; margin:0 0 28px; max-width:62ch}
+.cs-actions{display:grid; gap:12px}
+@media (min-width:600px){ .cs-actions{grid-template-columns:1fr 1fr} }
+.cs-btn{display:flex; align-items:center; justify-content:center; gap:12px; min-height:60px; padding:0 22px;
+  border-radius:999px; font-family:var(--f-body); font-weight:700; font-size:19px; letter-spacing:.01em;
+  text-decoration:none; transition:background .18s ease, border-color .18s ease, transform .18s ease}
+.cs-btn svg{width:22px; height:22px; flex:none}
+.cs-phone{background:#fff; color:#101215; border:1.5px solid #fff}
+.cs-phone:hover{background:#ECEDEF; border-color:#ECEDEF}
+.cs-mail{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.34)}
+.cs-mail:hover{border-color:#fff}
+.cs-btn:active{transform:scale(.985)}
+.cs-hours{text-align:center; color:#A1A7AF; font-weight:700; font-size:14.5px; letter-spacing:.02em; margin:20px 0 0}
+.cs + footer{margin-top:0; border-top:0}
 </style>
 </head>
 <body>
@@ -879,27 +930,28 @@ section{scroll-margin-top:64px}
 <header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="../" aria-label="All G Pen guides"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
+      <a class="glyph" href="../" aria-label="Startseite der G Pen Anleitungen" data-i18n-attr="aria-label:a11y_home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <div class="bar-name">Roam</div>
       <div class="lang-wrap" id="lang-wrap">
-        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="10" cy="10" r="8"/>
             <path d="M10 2C10 2 7 6 7 10s3 8 3 8M10 2c0 0 3 4 3 8s-3 8-3 8M2 10h16"/>
           </svg>
+          <span class="sr-only" data-i18n="a11y_language">Sprache:</span>
           <span class="lang-code" id="lang-code">DE</span>
           <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg>
         </button>
-        <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Language" hidden>
-          <li role="option" data-lang="EN" data-label="English"      aria-selected="false"  class="lang-opt"><span class="lc">EN</span><span class="ll">English</span></li>
-          <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll">Español</span></li>
-          <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="true" class="lang-opt active"><span class="lc">DE</span><span class="ll">Deutsch</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
-          <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll">Italiano</span></li>
-          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll">Français</span></li>
-          <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
-          <li role="option" data-lang="SV" data-label="Svenska" aria-selected="false" class="lang-opt"><span class="lc">SV</span><span class="ll">Svenska</span></li>
-          <li role="option" data-lang="PL" data-label="Polski" aria-selected="false" class="lang-opt"><span class="lc">PL</span><span class="ll">Polski</span></li>
-          <li role="option" data-lang="DA" data-label="Dansk" aria-selected="false" class="lang-opt"><span class="lc">DA</span><span class="ll">Dansk</span></li>
+        <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Sprache" data-i18n-attr="aria-label:a11y_language_list" hidden>
+          <li role="option" data-lang="EN" data-label="English"      aria-selected="false"  class="lang-opt"><span class="lc">EN</span><span class="ll" lang="en">English</span></li>
+          <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll" lang="es">Español</span></li>
+          <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="true" class="lang-opt active"><span class="lc">DE</span><span class="ll" lang="de">Deutsch</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
+          <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll" lang="it">Italiano</span></li>
+          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll" lang="fr">Français</span></li>
+          <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll" lang="pt-BR">Português (Brasil)</span></li>
+          <li role="option" data-lang="SV" data-label="Svenska" aria-selected="false" class="lang-opt"><span class="lc">SV</span><span class="ll" lang="sv">Svenska</span></li>
+          <li role="option" data-lang="PL" data-label="Polski" aria-selected="false" class="lang-opt"><span class="lc">PL</span><span class="ll" lang="pl">Polski</span></li>
+          <li role="option" data-lang="DA" data-label="Dansk" aria-selected="false" class="lang-opt"><span class="lc">DA</span><span class="ll" lang="da">Dansk</span></li>
         </ul>
       </div>
       <button class="guides-btn" id="guides-btn" aria-haspopup="dialog" aria-controls="product-sheet" aria-expanded="false" data-i18n="all_guides">
@@ -908,9 +960,9 @@ section{scroll-margin-top:64px}
           <rect x="11" y="2"  width="7" height="7" rx="1.5"/>
           <rect x="2"  y="11" width="7" height="7" rx="1.5"/>
           <rect x="11" y="11" width="7" height="7" rx="1.5"/>
-        </svg>Alle Anleitungen</button>
+        </svg>Anleitungen</button>
     </div>
-    <nav class="jump" aria-label="Sections">
+    <nav class="jump" aria-label="Abschnitte" data-i18n-attr="aria-label:a11y_sections">
       <a href="#use" data-i18n="nav_use">Anwendung</a>
       <a href="#upgrade" data-i18n="nav_upgrade">Upgrades</a>
       <a href="#help" data-i18n="nav_help">Hilfe</a>
@@ -938,7 +990,7 @@ section{scroll-margin-top:64px}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="../../roam/img/roam-step-01-charge.jpg" srcset="../../roam/img/roam-step-01-charge-300.webp 300w, ../../roam/img/roam-step-01-charge-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Front of the G Pen Roam with the power button and Micro USB port" fetchpriority="high"></div>
+          <div class="step-circle"><img src="../../roam/img/roam-step-01-charge.jpg" srcset="../../roam/img/roam-step-01-charge-300.webp 300w, ../../roam/img/roam-step-01-charge-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Vorderseite des G Pen Roam mit Ein-/Aus-Taste und Micro-USB-Anschluss" data-i18n-attr="alt:step1_alt" fetchpriority="high"></div>
           <div class="num">1</div>
         </div>
         <div class="step-body" data-i18n-zone="step1_body"><h3>Aufladen</h3>
@@ -952,7 +1004,7 @@ section{scroll-margin-top:64px}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="../../roam/img/roam-step-02-fill-load.jpg" srcset="../../roam/img/roam-step-02-fill-load-300.webp 300w, ../../roam/img/roam-step-02-fill-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Roam taken apart: glass tube, battery, tank cover and quartz tank"></div>
+          <div class="step-circle"><img src="../../roam/img/roam-step-02-fill-load.jpg" srcset="../../roam/img/roam-step-02-fill-load-300.webp 300w, ../../roam/img/roam-step-02-fill-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Zerlegter G Pen Roam: Glasrohr, Akku, Tankabdeckung und Quarztank" data-i18n-attr="alt:step2_alt"></div>
           <div class="num">2</div>
         </div>
         <div class="step-body" data-i18n-zone="step2_body"><h3>Befüllen</h3>
@@ -966,7 +1018,7 @@ section{scroll-margin-top:64px}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="../../roam/img/roam-step-03-set-temp.jpg" srcset="../../roam/img/roam-step-03-set-temp-300.webp 300w, ../../roam/img/roam-step-03-set-temp-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Roam LED screen with the two temperature buttons above it" loading="lazy"></div>
+          <div class="step-circle"><img src="../../roam/img/roam-step-03-set-temp.jpg" srcset="../../roam/img/roam-step-03-set-temp-300.webp 300w, ../../roam/img/roam-step-03-set-temp-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="LED-Display des G Pen Roam mit den zwei Temperaturtasten darüber" data-i18n-attr="alt:step3_alt" loading="lazy"></div>
           <div class="num">3</div>
         </div>
         <div class="step-body" data-i18n-zone="step3_body"><h3>Temperatur einstellen</h3>
@@ -997,7 +1049,7 @@ section{scroll-margin-top:64px}
               </div>
             </div>
             <div class="press-row">
-              <div class="press-badge press-hold">Hold</div>
+              <div class="press-badge press-hold">Halten</div>
               <div>
                 <span class="press-action">°F / °C</span>
                 <span class="press-sub">Ein-/Aus-Taste + Hoch 3 Sekunden lang gedrückt halten</span>
@@ -1009,7 +1061,7 @@ section{scroll-margin-top:64px}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="../../roam/img/roam-step-04-heat-draw.jpg" srcset="../../roam/img/roam-step-04-heat-draw-300.webp 300w, ../../roam/img/roam-step-04-heat-draw-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Holding the G Pen Roam" loading="lazy"></div>
+          <div class="step-circle"><img src="../../roam/img/roam-step-04-heat-draw.jpg" srcset="../../roam/img/roam-step-04-heat-draw-300.webp 300w, ../../roam/img/roam-step-04-heat-draw-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Roam in der Hand" data-i18n-attr="alt:step4_alt" loading="lazy"></div>
           <div class="num">4</div>
         </div>
         <div class="step-body" data-i18n-zone="step4_body"><h3>Erhitzen &amp; Ziehen</h3>
@@ -1041,7 +1093,7 @@ section{scroll-margin-top:64px}
               </div>
             </div>
             <div class="press-row">
-              <div class="press-badge press-hold">Hold</div>
+              <div class="press-badge press-hold">Halten</div>
               <div>
                 <span class="press-action">Manuelles Heizen</span>
                 <span class="press-sub">Ein-/Aus-Taste gedrückt halten · bis zu 30 Sekunden</span>
@@ -1052,7 +1104,7 @@ section{scroll-margin-top:64px}
 
       <li class="step">
         <div class="step-img-wrap">
-          <div class="step-circle"><img src="../../roam/img/roam-step-05-clean.jpg" srcset="../../roam/img/roam-step-05-clean-300.webp 300w, ../../roam/img/roam-step-05-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Roam quartz tank" loading="lazy"></div>
+          <div class="step-circle"><img src="../../roam/img/roam-step-05-clean.jpg" srcset="../../roam/img/roam-step-05-clean-300.webp 300w, ../../roam/img/roam-step-05-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Quarztank des G Pen Roam" data-i18n-attr="alt:step5_alt" loading="lazy"></div>
           <div class="num">5</div>
         </div>
         <div class="step-body" data-i18n-zone="step5_body"><h3>Reinigen</h3>
@@ -1074,7 +1126,7 @@ section{scroll-margin-top:64px}
     <p class="upgrade-sub" data-i18n="upgrade_sub">Ersatzteile für deinen Roam.</p>
     <div class="acc-grid">
       <a class="acc-card" href="https://www.gpen.com/products/g-pen-roam-quartz-tank" target="_blank" rel="noopener noreferrer">
-        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Atomizer_top_914282bf-6c95-4159-9fec-80aaa40044b0.png?v=1600307524&width=480" alt="Quartz Tank" loading="lazy"></span>
+        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Atomizer_top_914282bf-6c95-4159-9fec-80aaa40044b0.png?v=1600307524&width=320" alt="" loading="lazy"></span>
         <div class="acc-card-body">
           <span class="acc-card-name" data-i18n="acc1_name">Quarztank</span>
           <span class="acc-card-price">$20.95</span>
@@ -1083,7 +1135,7 @@ section{scroll-margin-top:64px}
         </div>
       </a>
       <a class="acc-card" href="https://www.gpen.com/products/g-pen-roam-glass-tube" target="_blank" rel="noopener noreferrer">
-        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/files/Roam_Glass_Hydrotube.jpg?v=1736499806&width=480" alt="Glass Hydrotube" loading="lazy"></span>
+        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/files/Roam_Glass_Hydrotube.jpg?v=1736499806&width=320" alt="" loading="lazy"></span>
         <div class="acc-card-body">
           <span class="acc-card-name" data-i18n="acc2_name">Glas-Hydrotube</span>
           <span class="acc-card-price">$15.95</span>
@@ -1092,7 +1144,7 @@ section{scroll-margin-top:64px}
         </div>
       </a>
       <a class="acc-card" href="https://www.gpen.com/products/g-pen-roam-mouthpiece" target="_blank" rel="noopener noreferrer">
-        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Mouthpiece_Solo_0606b1e7-9380-4e1d-8d14-600428cbc9d0.png?v=1692903230&width=480" alt="Mouthpiece" loading="lazy"></span>
+        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Mouthpiece_Solo_0606b1e7-9380-4e1d-8d14-600428cbc9d0.png?v=1692903230&width=320" alt="" loading="lazy"></span>
         <div class="acc-card-body">
           <span class="acc-card-name" data-i18n="acc3_name">Mundstück</span>
           <span class="acc-card-price">$4.95</span>
@@ -1101,7 +1153,7 @@ section{scroll-margin-top:64px}
         </div>
       </a>
       <a class="acc-card" href="https://www.gpen.com/products/g-pen-roam-silicone-airflow-strip" target="_blank" rel="noopener noreferrer">
-        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/RoamSiliconeChannel.png?v=1692903236&width=480" alt="Silicone Airflow Strip" loading="lazy"></span>
+        <span class="acc-img"><img src="https://cdn.shopify.com/s/files/1/0185/1576/products/RoamSiliconeChannel.png?v=1692903236&width=320" alt="" loading="lazy"></span>
         <div class="acc-card-body">
           <span class="acc-card-name" data-i18n="acc4_name">Silikon-Luftstromstreifen</span>
           <span class="acc-card-price">$4.95</span>
@@ -1174,32 +1226,20 @@ section{scroll-margin-top:64px}
           </details></div>
       </div>
     </details>
-    <h3 style="font-size:16px; font-weight:600; color:var(--ink-2); margin:32px 0 12px" data-i18n="still_stuck">Noch Probleme?</h3>
-    <div class="support">
-      <a class="card-link" href="tel:+18336913224">
-        <span class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="32" cy="32" r="30"/>
-            <path d="M39.5 40.5c-1.5 1.5-3 2-4.5 2-8 0-13.5-5.5-13.5-13.5 0-1.5.5-3 2-4.5l3-3c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5l-1.5 1.5c-.5.5-.5 1 0 1.5 1 1.5 2.5 3 4 4 .5.5 1 .5 1.5 0l1.5-1.5c.5-.5 1-.5 1.5 0l4 4c.5.5.5 1 0 1.5z"/>
-          </svg>
-        </span>
-        <span class="v">+1 833-691-3224</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="card-link" href="mailto:help@gpen.com">
-        <span class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="32" cy="32" r="30"/>
-            <path d="M20 24h24v16H20z" rx="2"/>
-            <path d="M20 24l12 10 12-10"/>
-          </svg>
-        </span>
-        <span class="v">help@gpen.com</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
   </section>
 
+    <section class="cs" id="support" aria-labelledby="cs-title">
+    <div class="wrap">
+      <p class="cs-eyebrow" data-i18n="cs_eyebrow">Fragen zu einem Produkt?</p>
+      <h2 class="cs-title" id="cs-title" data-i18n="cs_title">Sprich mit unserem Team.</h2>
+      <p class="cs-text" data-i18n="cs_text">Unser Kundenservice ist von Anfang an dabei und bringt über 15 Jahre praktische Erfahrung mit unseren Geräten mit. Das Team kennt diese Produkte wie seine Westentasche und führt dich gern durch alles Schritt für Schritt oder beantwortet weitere Fragen, die du hast. Wir sprechen gern mit dir über alles rund um Cannabis und Vaporizer.</p>
+      <div class="cs-actions">
+        <a class="cs-btn cs-phone" href="tel:+18336913224"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>+1 833-691-3224</span></a>
+        <a class="cs-btn cs-mail" href="mailto:help@gpen.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>help@gpen.com</span></a>
+      </div>
+      <p class="cs-hours" data-i18n="cs_hours">Mo–Fr · 10:00–18:00 Uhr EST</p>
+    </div>
+  </section>
   <footer class="wrap">
     <p class="legal" data-i18n="legal_notice">Nur für Erwachsene ab 21 Jahren. Dieses Produkt ist nicht zur Verwendung mit Tabak, nikotinhaltigen E‑Liquids oder synthetischem Nikotin bzw. Nikotinersatzstoffen bestimmt.</p>
     <p class="legal">© 2026 G Pen</p>
@@ -1212,56 +1252,56 @@ section{scroll-margin-top:64px}
   <div class="sheet-handle"></div>
   <div class="sheet-head">
     <span class="sheet-title" id="sheet-title" data-i18n="guides_title">G Pen Anleitungen</span>
-    <button class="sheet-close" id="sheet-close" aria-label="Close">
+    <button class="sheet-close" id="sheet-close" aria-label="Schließen" data-i18n-attr="aria-label:a11y_close">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
     </button>
   </div>
   <div class="sheet-body">
     <div class="sheet-grid">
       <a class="guide-card" href="../hydout/"  >
-        <div class="gc-img"><img src="../../hydout/img/hero.png" srcset="../../hydout/img/hero-160.webp 160w, ../../hydout/img/hero-320.webp 320w, ../../hydout/img/hero-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="658" height="658" loading="lazy"></div>
+        <div class="gc-img"><img src="../../hydout/img/hero.png" srcset="../../hydout/img/hero-160.webp 160w, ../../hydout/img/hero-320.webp 320w, ../../hydout/img/hero-480.webp 480w, ../../hydout/img/hero-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="658" height="658" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Hydout</span>
           <span class="gc-cat" data-i18n="cat_hydout">510‑Cartridge-Akku</span>
         </div>
       </a>
       <a class="guide-card" href="../dash-ii/"  >
-        <div class="gc-img"><img src="../../dash-ii/img/dash-ii-card.png" srcset="../../dash-ii/img/dash-ii-card-160.webp 160w, ../../dash-ii/img/dash-ii-card-320.webp 320w, ../../dash-ii/img/dash-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1304" height="1304" loading="lazy"></div>
+        <div class="gc-img"><img src="../../dash-ii/img/dash-ii-card.png" srcset="../../dash-ii/img/dash-ii-card-160.webp 160w, ../../dash-ii/img/dash-ii-card-320.webp 320w, ../../dash-ii/img/dash-ii-card-480.webp 480w, ../../dash-ii/img/dash-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1304" height="1304" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Dash II</span>
           <span class="gc-cat" data-i18n="cat_dash-ii">Kräuter-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../510-original/"  >
-        <div class="gc-img"><img src="../../510-original/img/510-original-card.png" srcset="../../510-original/img/510-original-card-160.webp 160w, ../../510-original/img/510-original-card-320.webp 320w, ../../510-original/img/510-original-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1011" height="1011" loading="lazy"></div>
+        <div class="gc-img"><img src="../../510-original/img/510-original-card.png" srcset="../../510-original/img/510-original-card-160.webp 160w, ../../510-original/img/510-original-card-320.webp 320w, ../../510-original/img/510-original-card-480.webp 480w, ../../510-original/img/510-original-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1011" height="1011" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen 510 Original</span>
           <span class="gc-cat" data-i18n="cat_510-original">510‑Cartridge-Akku</span>
         </div>
       </a>
       <a class="guide-card" href="../micro-ii/"  >
-        <div class="gc-img"><img src="../../micro-ii/img/micro-ii-card.png" srcset="../../micro-ii/img/micro-ii-card-160.webp 160w, ../../micro-ii/img/micro-ii-card-320.webp 320w, ../../micro-ii/img/micro-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1350" height="1350" loading="lazy"></div>
+        <div class="gc-img"><img src="../../micro-ii/img/micro-ii-card.png" srcset="../../micro-ii/img/micro-ii-card-160.webp 160w, ../../micro-ii/img/micro-ii-card-320.webp 320w, ../../micro-ii/img/micro-ii-card-480.webp 480w, ../../micro-ii/img/micro-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1350" height="1350" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Micro II</span>
           <span class="gc-cat" data-i18n="cat_micro-ii">Konzentrat-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../melt/"  >
-        <div class="gc-img"><img src="../../melt/img/melt-card.png" srcset="../../melt/img/melt-card-160.webp 160w, ../../melt/img/melt-card-320.webp 320w, ../../melt/img/melt-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1342" height="1342" loading="lazy"></div>
+        <div class="gc-img"><img src="../../melt/img/melt-card.png" srcset="../../melt/img/melt-card-160.webp 160w, ../../melt/img/melt-card-320.webp 320w, ../../melt/img/melt-card-480.webp 480w, ../../melt/img/melt-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1342" height="1342" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Melt</span>
           <span class="gc-cat" data-i18n="cat_melt">Heißmesser / Dab-Werkzeug</span>
         </div>
       </a>
       <a class="guide-card" href="../dash-plus/"  >
-        <div class="gc-img"><img src="../../dash-plus/img/dash-plus-card.png" srcset="../../dash-plus/img/dash-plus-card-160.webp 160w, ../../dash-plus/img/dash-plus-card-320.webp 320w, ../../dash-plus/img/dash-plus-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1306" height="1306" loading="lazy"></div>
+        <div class="gc-img"><img src="../../dash-plus/img/dash-plus-card.png" srcset="../../dash-plus/img/dash-plus-card-160.webp 160w, ../../dash-plus/img/dash-plus-card-320.webp 320w, ../../dash-plus/img/dash-plus-card-480.webp 480w, ../../dash-plus/img/dash-plus-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1306" height="1306" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Dash+</span>
           <span class="gc-cat" data-i18n="cat_dash-plus">Kräuter-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../grinder/"  >
-        <div class="gc-img"><img src="../../grinder/img/grinder-card.png" srcset="../../grinder/img/grinder-card-160.webp 160w, ../../grinder/img/grinder-card-320.webp 320w, ../../grinder/img/grinder-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="648" height="648" loading="lazy"></div>
+        <div class="gc-img"><img src="../../grinder/img/grinder-card.png" srcset="../../grinder/img/grinder-card-160.webp 160w, ../../grinder/img/grinder-card-320.webp 320w, ../../grinder/img/grinder-card-480.webp 480w, ../../grinder/img/grinder-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="648" height="648" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen 3-Piece Slim Grinder</span>
           <span class="gc-cat" data-i18n="cat_grinder">Kräuter-Grinder</span>
@@ -1271,35 +1311,35 @@ section{scroll-margin-top:64px}
         <summary data-i18n="legacy_title">Ältere Produkte</summary>
         <div class="legacy-grid">
       <a class="guide-card" href="../elite-ii/"  >
-        <div class="gc-img"><img src="../../elite-ii/img/elite-ii-card.png" srcset="../../elite-ii/img/elite-ii-card-160.webp 160w, ../../elite-ii/img/elite-ii-card-320.webp 320w, ../../elite-ii/img/elite-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1560" height="1560" loading="lazy"></div>
+        <div class="gc-img"><img src="../../elite-ii/img/elite-ii-card.png" srcset="../../elite-ii/img/elite-ii-card-160.webp 160w, ../../elite-ii/img/elite-ii-card-320.webp 320w, ../../elite-ii/img/elite-ii-card-480.webp 480w, ../../elite-ii/img/elite-ii-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1560" height="1560" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Elite II</span>
           <span class="gc-cat" data-i18n="cat_elite-ii">Kräuter-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../micro-plus/"  >
-        <div class="gc-img"><img src="../../micro-plus/img/micro-plus-card.png" srcset="../../micro-plus/img/micro-plus-card-160.webp 160w, ../../micro-plus/img/micro-plus-card-320.webp 320w, ../../micro-plus/img/micro-plus-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1328" height="1328" loading="lazy"></div>
+        <div class="gc-img"><img src="../../micro-plus/img/micro-plus-card.png" srcset="../../micro-plus/img/micro-plus-card-160.webp 160w, ../../micro-plus/img/micro-plus-card-320.webp 320w, ../../micro-plus/img/micro-plus-card-480.webp 480w, ../../micro-plus/img/micro-plus-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1328" height="1328" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Micro+</span>
           <span class="gc-cat" data-i18n="cat_micro-plus">Konzentrat-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../hyer/"  >
-        <div class="gc-img"><img src="../../hyer/img/hyer-card.png" srcset="../../hyer/img/hyer-card-160.webp 160w, ../../hyer/img/hyer-card-320.webp 320w, ../../hyer/img/hyer-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1616" height="1616" loading="lazy"></div>
+        <div class="gc-img"><img src="../../hyer/img/hyer-card.png" srcset="../../hyer/img/hyer-card-160.webp 160w, ../../hyer/img/hyer-card-320.webp 320w, ../../hyer/img/hyer-card-480.webp 480w, ../../hyer/img/hyer-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1616" height="1616" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Hyer</span>
           <span class="gc-cat" data-i18n="cat_hyer">Konzentrat-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="../connect/"  >
-        <div class="gc-img"><img src="../../connect/img/connect-card.png" srcset="../../connect/img/connect-card-160.webp 160w, ../../connect/img/connect-card-320.webp 320w, ../../connect/img/connect-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1598" height="1598" loading="lazy"></div>
+        <div class="gc-img"><img src="../../connect/img/connect-card.png" srcset="../../connect/img/connect-card-160.webp 160w, ../../connect/img/connect-card-320.webp 320w, ../../connect/img/connect-card-480.webp 480w, ../../connect/img/connect-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1598" height="1598" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Connect</span>
           <span class="gc-cat" data-i18n="cat_connect">Konzentrat-Vaporizer</span>
         </div>
       </a>
       <a class="guide-card" href="./"  aria-current="true">
-        <div class="gc-img"><img src="../../roam/img/roam-card.png" srcset="../../roam/img/roam-card-160.webp 160w, ../../roam/img/roam-card-320.webp 320w, ../../roam/img/roam-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1176" height="1176" loading="lazy"></div>
+        <div class="gc-img"><img src="../../roam/img/roam-card.png" srcset="../../roam/img/roam-card-160.webp 160w, ../../roam/img/roam-card-320.webp 320w, ../../roam/img/roam-card-480.webp 480w, ../../roam/img/roam-card-640.webp 640w" sizes="(min-width:480px) 190px, 44vw" alt="" width="1176" height="1176" loading="lazy"></div>
         <div class="gc-body">
           <span class="gc-name">G Pen Roam</span>
           <span class="gc-cat" data-i18n="cat_roam">Tragbares E-Rig</span>
@@ -1312,7 +1352,7 @@ section{scroll-margin-top:64px}
 </div>
 
 <!-- ========== BOTTOM NAV (mobile) ========== -->
-<nav class="bottom-nav" aria-label="Sections">
+<nav class="bottom-nav" aria-label="Abschnitte" data-i18n-attr="aria-label:a11y_sections">
   <a href="#use" data-i18n="bn_steps">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
       <circle cx="5" cy="7"  r="1.4" fill="currentColor" stroke="none"/>
@@ -1335,7 +1375,7 @@ section{scroll-margin-top:64px}
     </svg>Hilfe</a>
 </nav>
 
-<script>(function(){var P='DE',U={"EN":"../../roam/","ES":"../../es/roam/","DE":"./","IT":"../../it/roam/","FR":"../../fr/roam/","PT":"../../pt/roam/","SV":"../../sv/roam/","PL":"../../pl/roam/","DA":"../../da/roam/"};try{localStorage.setItem('gpen-lang',P)}catch(e){}window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}location.href=U[l]+location.hash}})();</script>
+<script>(function(){var P='DE',U={"EN":"../../roam/","ES":"../../es/roam/","DE":"./","IT":"../../it/roam/","FR":"../../fr/roam/","PT":"../../pt/roam/","SV":"../../sv/roam/","PL":"../../pl/roam/","DA":"../../da/roam/"};try{localStorage.setItem('gpen-lang',P)}catch(e){}window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}location.href=U[l]+(l==='EN'?'?lang=en':'')+location.hash}})();</script>
 <script>
 /* G Pen Core — guide page behavior.
    One copy, shared by every guide page (build.py inlines it before </body>, after the
@@ -1365,7 +1405,10 @@ section{scroll-margin-top:64px}
   }
   function focusables(root){
     return arr(root.querySelectorAll('a[href], button:not([disabled]), summary, iframe, [tabindex]:not([tabindex="-1"])'))
-      .filter(function(el){ return el.getClientRects().length > 0; });
+      .filter(function(el){
+        /* skip what can't be seen, e.g. links inside a closed Legacy products fold */
+        return el.checkVisibility ? el.checkVisibility() : el.getClientRects().length > 0;
+      });
   }
   function trapTab(root, e){
     var f = focusables(root); if (!f.length) return;
@@ -1491,10 +1534,10 @@ section{scroll-margin-top:64px}
   var sheetBackdrop = $('sheet-backdrop'), sheetClose = $('sheet-close');
   var sheetOpen = false, closeSheet = function(){};
   if (guidesBtn && sheet && sheetBackdrop){
-    var hideTimer = 0, sheetReturn = null;
+    var hideTimer = 0, sheetReturn = null, openedAt = 0;
     var openSheet = function(){
       if (sheetOpen) return;
-      sheetOpen = true; clearTimeout(hideTimer);
+      sheetOpen = true; clearTimeout(hideTimer); openedAt = Date.now();
       sheetReturn = d.activeElement;
       sheet.hidden = false; sheetBackdrop.hidden = false;
       sheet.getBoundingClientRect();            /* commit the closed position so it animates */
@@ -1521,15 +1564,22 @@ section{scroll-margin-top:64px}
     };
     guidesBtn.addEventListener('click', openSheet);
     if (sheetClose) sheetClose.addEventListener('click', closeSheet);
-    sheetBackdrop.addEventListener('click', closeSheet);
+    /* a quick double tap on "All guides" lands its second tap on the backdrop that just
+       appeared under the finger: don't let that close the sheet again */
+    sheetBackdrop.addEventListener('click', function(){ if (Date.now() - openedAt > 400) closeSheet(); });
 
     /* Swipe down to close — only when the list is scrolled to its top, so scrolling the
        product list back up doesn't dismiss the sheet. */
     var sheetBody = sheet.querySelector('.sheet-body') || sheet;
     var startY = 0, startTop = 0;
-    sheet.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; startTop = sheetBody.scrollTop; }, { passive: true });
+    var fromHead = false;
+    sheet.addEventListener('touchstart', function(e){
+      startY = e.touches[0].clientY; startTop = sheetBody.scrollTop;
+      /* a swipe that starts on the handle or the title bar closes it wherever the list is scrolled */
+      fromHead = !sheetBody.contains(e.target);
+    }, { passive: true });
     sheet.addEventListener('touchend', function(e){
-      if (e.changedTouches[0].clientY - startY > 60 && startTop <= 0) closeSheet();
+      if (e.changedTouches[0].clientY - startY > 60 && (fromHead || startTop <= 0)) closeSheet();
     }, { passive: true });
   }
 
@@ -1588,6 +1638,8 @@ section{scroll-margin-top:64px}
     else { var saved = localStorage.getItem('gpen-store'); if (STORES[saved]) store = saved; }
   } catch (x) {}
   function applyStore(){
+    /* the Upgrades prices are the US store's: other stores' differ, so they're hidden there */
+    d.documentElement.setAttribute('data-store', store);
     if (store === 'us' && !d.querySelector('a[data-us-href]')) return;
     var cfg = STORES[store];
     var prefix = (cfg.langPrefix || {})[(d.documentElement.lang || 'en').slice(0, 2).toLowerCase()] || '';

@@ -255,6 +255,17 @@ ARROW_SVG = ('<svg viewBox="0 0 20 20" aria-hidden="true">'
              '<path d="M7 4.5 15.5 10 7 15.5Z" fill="currentColor"/></svg>')
 
 
+def share_image(name: str) -> str | None:
+    """Absolute URL of a page's link-preview card (src/share/<name>.jpg, published to
+    /core/share/); None if that card hasn't been rendered yet."""
+    return f"{BASE_URL}core/share/{name}.jpg" if (SRC / "share" / f"{name}.jpg").exists() else None
+
+
+def support_footer() -> str:
+    """The "Talk to our team" band at the foot of every page (same voice as assets.gpen.com)."""
+    return (ROOT / "sections" / "partials" / "support-footer.html").read_text().rstrip("\n")
+
+
 def accessories_html(slug: str) -> str:
     """The body of a guide's Upgrade section: product cards (from src/accessories.json) and a shop button.
 
@@ -268,16 +279,15 @@ def accessories_html(slug: str) -> str:
         for i, c in enumerate(cards, start=1):
             img = c["image"]
             if img.startswith("http"):  # store CDN: ask for a card-sized rendition
-                img += ("&" if "?" in img else "?") + "width=480"
+                img += ("&" if "?" in img else "?") + "width=320"   # drawn ~104px wide, x3 screens
             href = c.get("url") or f"https://www.gpen.com/products/{c['handle']}"
             # alt attribute needs full escaping; the visible text is set via data-i18n's
             # textContent (not innerHTML), so it must stay UNescaped or entities like
             # &amp;/&#x27; would show up literally once a translation is applied.
-            alt = htmllib.escape(c["name"])
             name, note, price = c["name"], c["note"], c["price"]
             out.append(
                 f'      <a class="acc-card" href="{href}" target="_blank" rel="noopener noreferrer">\n'
-                f'        <span class="acc-img"><img src="{img}" alt="{alt}" loading="lazy"></span>\n'
+                f'        <span class="acc-img"><img src="{img}" alt="" loading="lazy"></span>\n'
                 '        <div class="acc-card-body">\n'
                 f'          <span class="acc-card-name" data-i18n="acc{i}_name">{keep_together(name)}</span>\n'
                 f'          <span class="acc-card-price">{price}</span>\n'
@@ -332,7 +342,10 @@ def load_i18n(slug: str):
     """Load the translation cache from i18n/<slug>.json if it exists."""
     path = I18N_DIR / f"{slug}.json"
     if path.exists():
-        return json.loads(path.read_text())
+        try:
+            return json.loads(path.read_text())
+        except json.JSONDecodeError as e:
+            raise ContentError(f"i18n/{slug}.json is not valid JSON: {e}")
     return None
 
 
@@ -373,7 +386,7 @@ def merge_translations(page: dict | None) -> dict:
 
 def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
               image: str | None, noindex: bool = False, jsonld: dict | None = None,
-              alts: list | None = None, translated: bool = False) -> str:
+              alts: list | None = None, translated: bool = False, lang_path: str | None = None) -> str:
     """Everything G Pen Core adds to <head>: fonts, the shared stylesheet, icons, share tags.
     prefix: path from the page to the site root ("" for the index, "../" for a guide)."""
     asset = (BASE_URL if offline else prefix) + "core/"
@@ -384,12 +397,25 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         '<meta name="color-scheme" content="light dark">',
         '<meta name="format-detection" content="telephone=no">',   # UPC digits aren't phone numbers
     ]
-    if not translated:   # a pre-translated /es/... page is already in its language
+    if lang_path is not None:
+        # An English page (the address on the box): a visitor whose language is another
+        # goes to that language's page before anything paints. Same rule as before:
+        # ?lang= > saved choice > browser language. The English page itself carries no
+        # translations, so it stays small for the visitors who read it.
+        folders = json.dumps({k: f for k, f, _ in LANG_PAGES}, separators=(",", ":"))
+        out.append(
+            "<script>(function(){try{var F=%s,s=null,m=location.search.match(/[?&]lang=([a-z]{2})\\b/i);"
+            "if(m){s=m[1].toUpperCase();if(s==='EN'||F[s]){try{localStorage.setItem('gpen-lang',s)}catch(e){}}else s=null}"
+            "else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
+            "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN');"
+            "if(L!=='EN'){var q=location.search.replace(/([?&])lang=[a-z]{2}\\b&?/i,'$1').replace(/[?&]$/,'');"
+            "location.replace('/'+F[L]+'/%s'+q+location.hash)}}catch(e){}})();</script>" % (folders, lang_path))
+    elif not translated:   # the 404 page and the offline copies still translate in place
         out += [
         # Pick the visitor's language before first paint (same rule as i18n-runtime.js:
         # ?lang= > saved choice > browser language). A non-English visitor gets the page
         # hidden until the runtime has swapped the text, so English never flashes first.
-        "<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT','SV','PL','DA'],q=(location.search.match(/[?&]lang=([a-z]{2})\\b/i)||[])[1],s=null;"
+        "<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT','SV','PL','DA'],q=(location.search.match(/[?&]lang=([a-z]{2})\\b/i)||location.pathname.match(/^\\/(es|de|it|fr|pt|sv|pl|da)\\//)||[])[1],s=null;"
         "if(q&&S.indexOf(q.toUpperCase())>=0)s=q.toUpperCase();else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
         "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s&&S.indexOf(s)>=0)?s:(S.indexOf(n)>=0?n:'EN');"
         "if(L!=='EN')document.documentElement.classList.add('i18n-wait')}catch(e){}})();</script>",
@@ -421,8 +447,14 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         f'<meta property="og:url" content="{canonical}">',
     ]
     if image:
-        out.append(f'<meta property="og:image" content="{image}">')
-    out.append('<meta name="twitter:card" content="summary">')
+        # the share cards (scripts/make_share_cards.py) are 1200x630 JPEGs
+        out += [f'<meta property="og:image" content="{image}">',
+                '<meta property="og:image:type" content="image/jpeg">',
+                '<meta property="og:image:width" content="1200">',
+                '<meta property="og:image:height" content="630">',
+                f'<meta property="og:image:alt" content="{esc(title)}">',
+                f'<meta name="twitter:image" content="{image}">']
+    out.append('<meta name="twitter:card" content="%s">' % ("summary_large_image" if image else "summary"))
     out.append(f"<style>\n{fonts}\n{css}</style>")
     return "\n".join(out) + "\n"
 
@@ -477,8 +509,26 @@ def _element_spans(html: str, attr: str):
     return sorted(found, reverse=True)
 
 
+_ATTR_RE = re.compile(r'(<[^>]*?\sdata-i18n-attr="([^"]+)"[^>]*>)')
+
+
+def translate_attrs(html: str, strings: dict) -> str:
+    """data-i18n-attr="aria-label:key;alt:key2" sets those attributes from the strings."""
+    def tag(m):
+        t = m.group(1)
+        for pair in m.group(2).split(";"):
+            attr, _, key = pair.partition(":")
+            val = strings.get(key)
+            if val:
+                t = re.sub(r'(\s%s=")[^"]*(")' % re.escape(attr),
+                           lambda a: a.group(1) + htmllib.escape(keep_together(val), quote=True) + a.group(2), t, count=1)
+        return t
+    return _ATTR_RE.sub(tag, html)
+
+
 def translate_static(html: str, strings: dict) -> str:
     """What i18n-runtime.js does in the browser, done once at build time."""
+    html = translate_attrs(html, strings)
     for start, end, key in _element_spans(html, "data-i18n-zone"):
         if key != "vids_block" and strings.get(key):     # the runtime leaves vids_block alone too
             html = html[:start] + strings[key] + html[end:]
@@ -553,16 +603,20 @@ def relocate(html: str, from_dir: str, to_dir: str, page_paths: set, folder: str
     return "".join(x if x.startswith("<script") else fix(x) for x in parts)
 
 
-def lang_switch_script(lang: str, path: str, here: str) -> str:
+def lang_switch_script(lang: str, path: str, here: str, save: bool = True) -> str:
     """On a language page the menu goes to the other language's page instead of translating
     in place, so the address always matches what's on screen. The visit also counts as a
     choice: the English pages open in this language from now on (same rule as ?lang=)."""
     urls = {"EN": posixpath.relpath("/" + path, here)}
     urls.update({k: posixpath.relpath(f"/{f}/{path}", here) for k, f, _ in LANG_PAGES})
     urls = {k: ("./" if v == "." else v + "/") for k, v in urls.items()}
-    return ("<script>(function(){var P='%s',U=%s;try{localStorage.setItem('gpen-lang',P)}catch(e){}"
+    # ?lang=en on the way to English, so the choice holds even where storage is blocked
+    # (the English page would otherwise send the visitor back by their browser language)
+    return ("<script>(function(){var P='%s',U=%s;%s"
             "window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}"
-            "location.href=U[l]+location.hash}})();</script>\n" % (lang, json.dumps(urls, separators=(",", ":"))))
+            "location.href=U[l]+(l==='EN'?'?lang=en':'')+location.hash}})();</script>\n"
+            % (lang, json.dumps(urls, separators=(",", ":")),
+               "try{localStorage.setItem('gpen-lang',P)}catch(e){}" if save else ""))
 
 
 def localize_content(content: dict, leaf: dict) -> dict:
@@ -590,11 +644,32 @@ def localize_content(content: dict, leaf: dict) -> dict:
 EXTRA_PAGES = ["identify/"]   # site pages that aren't guides; each has /<lang>/ versions too
 
 
-def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, title_for, head_for) -> None:
-    """Write /<folder>/<path>index.html for every language. pre is the finished English page
-    body before the i18n runtime and core head go in; title_for(key, strings) gives the
-    tab title, head_for(key, folder, title, desc) the core <head> block."""
+def missing_strings(pre: str, translations: dict) -> list[str]:
+    """Every data-i18n / data-i18n-zone key on the page, per language, that has no string.
+    A missing one would leave that bit of the page in English (silently, on every visit)."""
+    keys = set(re.findall(r'\sdata-i18n(?:-zone)?="([^"]+)"', pre)) - {"vids_block"}
+    keys |= {pair.partition(":")[2] for attrs in re.findall(r'\sdata-i18n-attr="([^"]+)"', pre)
+             for pair in attrs.split(";")}
+    out = []
+    for key, _, _ in LANG_PAGES:
+        gone = sorted(k for k in keys if not translations.get(key, {}).get(k))
+        if gone:
+            out.append(f"{key}: {', '.join(gone)}")
+    return out
+
+
+def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, title_for, head_for,
+                     dry: bool = False) -> list:
+    """Render /<folder>/<path>index.html for every language and return [(file, html)]; written
+    unless dry (a guide writes its pages only once every one of them rendered). pre is the
+    finished English page body before the i18n runtime and core head go in;
+    title_for(key, strings) gives the tab title, head_for(key, folder, title, desc) the core
+    <head> block."""
+    gaps = missing_strings(pre, translations)
+    if gaps:
+        raise ContentError(f"{path or 'home page'} has untranslated strings:\n    " + "\n    ".join(gaps))
     meta = load_meta_desc()
+    pages = []
     page_paths = ({"/"} | {f"/{s}/" for s, sp in visible_products().items() if sp.get("template")}
                   | {f"/{p}" for p in EXTRA_PAGES})
     for key, folder, hreflang in LANG_PAGES:
@@ -615,7 +690,11 @@ def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, tit
         left = sorted(set(re.findall(r"\{\{[^{}]{1,60}\}\}", page)))
         if left:
             raise ContentError(f"{folder}/{path}index.html still contains {', '.join(left)}")
-        write(ROOT / folder / path / "index.html", page)
+        pages.append((ROOT / folder / path / "index.html", page))
+    if not dry:
+        for f, page in pages:
+            write(f, page)
+    return pages
 
 
 def page_meta(html: str) -> tuple[str, str]:
@@ -711,9 +790,9 @@ def build_llms_files() -> None:
              "> Official how-to guides for G Pen devices, published by G Pen: how to charge, "
              "load, use and clean each device, its specs, and answers to common questions. "
              "Customers reach each guide by scanning the QR code on the device's packaging.", "",
-             "Each guide is also published in Spanish, German, Italian, French and Brazilian "
-             f"Portuguese, at the same path under /es/, /de/, /it/, /fr/ and /pt/ (for example "
-             f"{BASE_URL}es/hydout/).", "",
+             "Each guide is also published in Spanish, German, Italian, French, Brazilian "
+             "Portuguese, Swedish, Polish and Danish, at the same path under " +
+             ", ".join(f"/{f}/" for _, f, _ in LANG_PAGES) + f" (for example {BASE_URL}es/hydout/).", "",
              "## Guides", ""]
     full = ["# G Pen Product Guides: full text", "",
             f"Source: {BASE_URL} (official G Pen help site). Support: +1 833-691-3224, help@gpen.com.", ""]
@@ -765,6 +844,9 @@ def publish_core() -> None:
         shutil.copy(f, out / "fonts" / f.name)
     for f in ("favicon.svg", "apple-touch-icon.png"):
         shutil.copy(CORE_SRC / f, out / f)
+    (out / "share").mkdir()
+    for f in sorted((SRC / "share").glob("*.jpg")):
+        shutil.copy(f, out / "share" / f.name)
     shutil.copy(CORE_SRC / "favicon.ico", ROOT / "favicon.ico")   # browsers still ask for /favicon.ico
 
 
@@ -781,7 +863,7 @@ SIZES_INDEX_CARD = "80px"
 SIZES_SWITCHER_CARD = "(min-width:480px) 190px, 44vw"
 WIDTHS_CIRCLE = (300, 450)     # 150px x DPR 2 / DPR 3
 WIDTHS_VIDEO = (480, 960)
-WIDTHS_CARD = (160, 320, 640)
+WIDTHS_CARD = (160, 320, 480, 640)
 
 
 CARD_FILL = 0.80   # a product card's cut-out fills 80% of its square, whatever its source framing
@@ -928,17 +1010,25 @@ def build_product(slug: str, spec: dict) -> None:
             raise ContentError(f"{slug}: content has {', '.join(missing)} but {spec['template']} "
                                "has no placeholder for it, so it would not appear on the page")
     out_dir = ROOT / slug
-    img_dir = out_dir / "img"
-
-    # Rebuild the image folder so removed assets don't linger.
-    if img_dir.exists():
-        shutil.rmtree(img_dir, ignore_errors=True)
+    # Everything is rendered first and only swapped in once every page has rendered, so a
+    # content error leaves the live guide exactly as it was (the stores read the sitemap
+    # that lists these pages). Images go to a staging folder that replaces img/ at the end.
+    img_dir = out_dir / ".img-next"
+    shutil.rmtree(img_dir, ignore_errors=True)
     img_dir.mkdir(parents=True)
+    try:
+        _build_product(slug, spec, template, content, body, out_dir, img_dir)
+    finally:
+        shutil.rmtree(img_dir, ignore_errors=True)
+
+
+def _build_product(slug, spec, template, content, body, out_dir, img_dir) -> None:
 
     register_button = ("" if spec.get("register") is False else
                        (ROOT / "sections" / "partials" / "register-button.html").read_text().rstrip("\n"))
     hosted = offline = (template.replace("{{ACCESSORIES}}", accessories_html(slug))
-                                .replace("{{REGISTER_BUTTON}}", register_button))
+                                .replace("{{REGISTER_BUTTON}}", register_button)
+                                .replace("{{SUPPORT_FOOTER}}", support_footer()))
 
     # Structured content (steps/attachments/specs/faq/videos) — still contains unresolved
     # {{img:...}} image tokens, resolved by the per-image loop right below.
@@ -952,6 +1042,12 @@ def build_product(slug: str, spec: dict) -> None:
         if "{{%s}}" % key not in hosted:
             continue
         src = SRC / filename
+        if key.startswith("UPG_"):
+            # an Upgrades card picture (drawn ~104px wide): a small WebP, not the source PNG
+            name, _, _ = webp_variant(src, 320, img_dir)
+            hosted = hosted.replace("{{%s}}" % key, f"img/{name}")
+            offline = offline.replace("{{%s}}" % key, data_uri(img_dir / name))
+            continue
         shutil.copy(src, img_dir / filename)
         hosted = hosted.replace("{{%s}}" % key, f"img/{filename}")
         offline = offline.replace("{{%s}}" % key, data_uri(src))
@@ -1006,16 +1102,16 @@ def build_product(slug: str, spec: dict) -> None:
     page_t = (compose_translations(slug, content, cache) if content else cache) if cache else None
     translations = merge_translations(page_t)
     pre_i18n = hosted
-    hosted = inject_i18n(hosted, translations)
+    hosted = hosted.replace("</body>", lang_switch_script("EN", f"{slug}/", f"/{slug}/", save=False) + "</body>", 1)
     offline = inject_i18n(offline, translations)
 
     # G Pen Core: fonts, shared CSS + behavior, icons, canonical + share tags.
     title, desc = page_meta(hosted)
     canonical = f"{BASE_URL}{slug}/"
-    og_image = f"{BASE_URL}{slug}/img/{card_image}" if card_image and not card_image.startswith("http") else None
+    og_image = share_image(slug)
     ld = guide_jsonld(slug, spec, content, title, desc) if content else None
     hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image, jsonld=ld,
-                                           alts=alternates(f"{slug}/")))
+                                           alts=alternates(f"{slug}/"), lang_path=f"{slug}/"))
     offline = inject_core(offline, core_head("../", True, canonical, title, desc, og_image, noindex=True))
 
     # Any {{...}} left means a placeholder nothing filled (a missing image key, a typo):
@@ -1024,9 +1120,6 @@ def build_product(slug: str, spec: dict) -> None:
         left = sorted(set(re.findall(r"\{\{[^{}]{1,60}\}\}", page)))
         if left:
             raise ContentError(f"{slug}/{label} still contains {', '.join(left)}")
-
-    write(out_dir / "index.html", hosted)
-    write(out_dir / "offline.html", offline)
 
     # The same guide at /es/<slug>/, /de/<slug>/ ...: what a visitor's browser would show
     # after translating, written out so search engines can index it.
@@ -1039,9 +1132,18 @@ def build_product(slug: str, spec: dict) -> None:
                            core_t[key].get("doc_title_index", "G Pen Product Guides")) if content else None)
         return core_head("../", False, f"{BASE_URL}{folder}/{slug}/", t, d, og_image, jsonld=jl,
                          alts=alternates(f"{slug}/"), translated=True)
+    lang_pages = write_lang_pages(pre_i18n, f"{slug}/", translations, slug, title_for, head_for, dry=True)
+
+    # every page rendered: swap in the new images, then write
+    final_img = out_dir / "img"
+    shutil.rmtree(final_img, ignore_errors=True)
+    img_dir.rename(final_img)
+    write(out_dir / "index.html", hosted)
+    write(out_dir / "offline.html", offline)
     for _, folder, _ in LANG_PAGES:
         shutil.rmtree(ROOT / folder / slug, ignore_errors=True)
-    write_lang_pages(pre_i18n, f"{slug}/", translations, slug, title_for, head_for)
+    for f, page in lang_pages:
+        write(f, page)
 
 
 def build_index() -> None:
@@ -1092,6 +1194,7 @@ def build_index() -> None:
             "    </details>"
         )
     page = (template.replace("{{CARDS}}", "\n".join(cards_html))
+                    .replace("{{SUPPORT_FOOTER}}", support_footer())
                     .replace("{{LEGACY_SECTION}}", legacy_section)
                     .replace("{{YEAR}}", YEAR))
     # The shared strings reach every page, so the index's own tab title rides under its own
@@ -1100,12 +1203,12 @@ def build_index() -> None:
         t = merge_translations(None)
         return {lang: {**strings, "doc_title": strings.get(key, "")} for lang, strings in t.items()}
     page_plain = page
-    page = inject_i18n(page_plain, titled("doc_title_index"))
+    page = page_plain.replace("</body>", lang_switch_script("EN", "", "/", save=False) + "</body>", 1)
     title, desc = page_meta(page)
     first = next(iter(visible_products().items()))
-    og_image = f"{BASE_URL}{first[0]}/img/{first[1]['card_image']}"
+    og_image = share_image("home")
     index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image, jsonld=index_jsonld(title, desc),
-                                        alts=alternates("")))
+                                        alts=alternates(""), lang_path=""))
     write(ROOT / "index.html", index)
 
     # /es/, /de/ ... home pages
@@ -1178,12 +1281,12 @@ def build_identify() -> None:
 
     def card(slug, spec, n, h):
         if slug in has_guide:
-            srcset, dims = card_srcset(slug, spec, "../", "112px")
+            srcset, dims = card_srcset(slug, spec, "../", "96px")
             img = _card_img(slug, spec, is_switcher=True)
             photo_tag, photo_attrs = "a", f' href="../{slug}/" tabindex="-1" aria-hidden="true"'
             name_html = f'<a href="../{slug}/">{spec["name"]}</a>'
             action = (f'<a class="dev-go" href="../{slug}/"><span data-i18n="id_open">{esc(en["id_open"])}</span>'
-                      '<span aria-hidden="true">→</span></a>')
+                      f'<span class="sr-only">: {spec["name"]}</span><span aria-hidden="true">→</span></a>')
         else:
             src = SRC / (spec.get("id_image") or spec["card_image"])
             img_dir.mkdir(parents=True, exist_ok=True)
@@ -1194,7 +1297,7 @@ def build_identify() -> None:
             with Image.open(src) as im:
                 W, H = framed(im).size
             img = f"img/{webp_variant(src, WIDTHS_CARD[1], img_dir, frame=True)[0]}"
-            srcset, dims = f' srcset="{", ".join(dict.fromkeys(parts))}" sizes="112px"', f' width="{W}" height="{H}"'
+            srcset, dims = f' srcset="{", ".join(dict.fromkeys(parts))}" sizes="96px"', f' width="{W}" height="{H}"'
             photo_tag, photo_attrs, name_html = "div", "", spec["name"]
             action = (f'<a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">'
                       f'{esc(en["id_help_btn"])}</span><span aria-hidden="true">↓</span></a>')
@@ -1230,6 +1333,7 @@ def build_identify() -> None:
             + "\n".join(body) + tips + "\n    </section>")
     page = ((SRC / "identify.template.html").read_text()
             .replace("{{ID_CHIPS}}", "\n".join(chips)).replace("{{ID_GROUPS}}", "\n".join(blocks))
+            .replace("{{SUPPORT_FOOTER}}", support_footer())
             .replace("{{YEAR}}", YEAR))
 
     page_t = {lang: {k: v for k, v in strings.items()} for lang, strings in data.items() if not lang.startswith("_")}
@@ -1237,7 +1341,7 @@ def build_identify() -> None:
     for lang, strings in translations.items():
         strings["doc_title"] = strings.get("doc_title_identify", "")
     pre = page
-    page = inject_i18n(page, translations)
+    page = page.replace("</body>", lang_switch_script("EN", "identify/", "/identify/", save=False) + "</body>", 1)
     title, desc = page_meta(page)
     url = f"{BASE_URL}identify/"
 
@@ -1255,10 +1359,10 @@ def build_identify() -> None:
                 {"@type": "ListItem", "position": 2, "name": t, "item": me}]},
             WEBSITE, ORG]}
 
-    og_image = f"{BASE_URL}{guides[0][0]}/img/{guides[0][1]['card_image']}"
+    og_image = share_image("home")
     page = inject_core(page, core_head("../", False, url, title, desc, og_image,
                                        jsonld=jsonld(title, desc, "en", "", "G Pen Product Guides"),
-                                       alts=alternates("identify/")))
+                                       alts=alternates("identify/"), lang_path="identify/"))
     write(ROOT / "identify" / "index.html", page)
 
     core_t = merge_translations(None)
@@ -1290,6 +1394,7 @@ def build_seo_files() -> None:
     (ROOT / "robots.txt").write_text(
         "User-agent: *\n"
         "Disallow: /src/\nDisallow: /content/\nDisallow: /i18n/\nDisallow: /sections/\nDisallow: /scripts/\n"
+        "Disallow: /.claude/\nDisallow: /build.py\nDisallow: /serve.py\nDisallow: /README.md\n"
         "Disallow: /*/offline.html\n\n"
         f"Sitemap: {BASE_URL}sitemap.xml\n")
 
@@ -1305,11 +1410,19 @@ if __name__ == "__main__":
                 # leave that product's previously built pages untouched; build the rest
                 failed.append(slug)
                 print(f"\n  ✗ {e}\n")
-    build_index()
-    build_identify()
+    for name, step in (("home page", build_index), ("identify page", build_identify)):
+        try:
+            step()
+        except ContentError as e:
+            failed.append(name)
+            print(f"\n  ✗ {e}\n")
     publish_core()
-    build_seo_files()
-    build_llms_files()
+    if failed:
+        # the sitemap, llms files and IndexNow list would describe pages that weren't rebuilt
+        print("  kept the previous sitemap.xml, robots.txt and llms files (build failed)")
+    else:
+        build_seo_files()
+        build_llms_files()
 
     for slug, spec in PRODUCTS.items():
         if spec.get("hidden") and spec.get("template") and (ROOT / slug).is_dir():
