@@ -1,0 +1,22 @@
+# G Pen Product Guides
+
+> Official how-to guides for G Pen devices, published by G Pen: how to charge, load, use and clean each device, its specs, and answers to common questions. Customers reach each guide by scanning the QR code on the device's packaging.
+
+Each guide is also available in Spanish, German, Italian, French and Brazilian Portuguese: add ?lang=es, ?lang=de, ?lang=it, ?lang=fr or ?lang=pt to its URL.
+
+## Guides
+
+- [G Pen Hydout](https://help.gpen.com/hydout/): 510 Cartridge Battery. How to charge, load, use, and clean the G Pen Hydout 510 cartridge battery.
+- [G Pen Dash II](https://help.gpen.com/dash-ii/): Dry Herb Vaporizer. How to charge, load, use, and clean the G Pen Dash II dry herb vaporizer.
+- [G Pen 510 Original](https://help.gpen.com/510-original/): 510 Cartridge Battery. How to charge, load, use, and clean the G Pen 510 Original cartridge battery.
+- [G Pen Micro II](https://help.gpen.com/micro-ii/): Concentrate Vaporizer. How to charge, load, use, and clean the G Pen Micro II concentrate vaporizer.
+- [G Pen Melt](https://help.gpen.com/melt/): Hot Knife / Dab Tool. How to charge, activate, and clean the G Pen Melt hot knife dab tool.
+- [G Pen Dash+](https://help.gpen.com/dash-plus/): Dry Herb Vaporizer. How to charge, load, use, and clean the G Pen Dash+ dry herb vaporizer.
+- [G Pen 3-Piece Slim Grinder](https://help.gpen.com/grinder/): Dry Herb Grinder. How to open, load, grind, collect, and clean the G Pen 3-Piece Slim Grinder.
+
+## Optional
+
+- [All guides as plain text](https://help.gpen.com/llms-full.txt): every guide's steps, specs and FAQ
+- [G Pen store](https://www.gpen.com/): products, warranty and registration
+
+Support: +1 833-691-3224, help@gpen.com
