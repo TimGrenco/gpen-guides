@@ -184,6 +184,11 @@
       "value": "510-compatible battery"
     },
     {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "6-Month Limited Warranty (1-Year with registration)"
+    },
+    {
       "id": "package-dimensions",
       "label": "Package dimensions",
       "value": "177 × 69 × 42 mm"

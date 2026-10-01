@@ -192,14 +192,19 @@
       "value": "14mm male adapter (included)"
     },
     {
-      "id": "package-dimensions",
-      "label": "Package dimensions",
-      "value": "158 × 117 × 48 mm"
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "2-Year Limited Warranty"
     },
     {
-      "id": "package-weight",
-      "label": "Package weight",
-      "value": "362 g"
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "33 × 22.5 × 54.6 mm"
+    },
+    {
+      "id": "weight",
+      "label": "Weight",
+      "value": "99 g"
     },
     {
       "id": "sku",

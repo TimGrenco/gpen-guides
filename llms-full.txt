@@ -497,3 +497,257 @@ The chamber is probably overfilled. Remove some flower, break up large buds by h
 
 An even, consistent grind. About 10 twists and a few taps give you material that loads and heats evenly in the Dash II and Dash+.
 
+
+## G Pen Elite II (Dry Herb Vaporizer)
+
+Guide: https://help.gpen.com/elite-ii/
+
+### How to use
+
+1. **Charge**
+    - Plug any USB-C cable into the charging port on the bottom.
+    - Give it a full charge before first use.
+    - The battery indicator on the display shows when the battery is low.
+2. **Load**
+    - Remove the mouthpiece by pulling it straight up.
+    - Fill the ceramic oven with ground dry herb. Don't pack tight.
+    - Replace the mouthpiece before powering on.
+    - Note: Tip: Use the built-in pick tool stored at the base of the device to pack and stir the chamber.
+3. **Set & Heat**
+    - Hold the power button for 3 seconds to power on. The display lights up.
+    - Press + / − to dial in your temperature.
+    - Double-click to start a session. The device vibrates twice when it reaches temperature.
+    - Power on / off (Hold): Hold the power button for 3 seconds
+    - Adjust temperature (+/−): + = increase · − = decrease
+    - Start / cancel session (2x): Double-click the power button
+    - Settings menu (5x): Brightness · Haptics · °F/°C · Firmware
+4. **Draw**
+    - Once the device vibrates, draw slowly and steadily through the mouthpiece.
+    - Device powers off automatically after 1 minute of inactivity.
+    - Note: After your session: Let cool, then use the pick tool to stir the chamber and brush out residue. Regular cleaning keeps flavor at its best.
+
+### Specs
+
+- Type: Dry Herb Vaporizer
+- Battery: 2,100 mAh · ~60 minutes of vape time
+- Temperature range: 200°F – 430°F (93°C – 221°C)
+- Chamber: Ceramic oven
+- Charging: USB-C
+- Pick tool: Built-in (stored at device base)
+- Auto shut-off: 1 minute of inactivity
+- Warranty: 2-Year Limited Warranty
+- Dimensions: 118 × 30 × 27 mm
+- Weight: 146 g
+- SKU: GPE-001-AKZZ
+- UPC: 811736026154
+
+### Common questions
+
+**Device won't turn on**
+
+Hold the power button for a full 3 seconds. If nothing happens, charge the device. The battery may be depleted.
+
+**How do I know it's ready?**
+
+After double-clicking to start a session, the device vibrates twice when it reaches your set temperature.
+
+**Vapor is thin or tastes off**
+
+Try a finer grind and check that the chamber isn't overpacked. Use the built-in pick tool to stir the load mid-session. Clean the mouthpiece and chamber regularly.
+
+**What does the warranty cover?**
+
+The Elite II comes with a 2-Year Limited Warranty covering electronics and manufacturing defects. Physical damage is not covered.
+
+
+## G Pen Micro+ (Concentrate Vaporizer)
+
+Guide: https://help.gpen.com/micro-plus/
+
+### How to use
+
+1. **Charge**
+    - Plug a USB-C cable into the port on the bottom of the battery.
+    - Red LED = charging · Green LED = fully charged.
+    - LED flashes 5 times when the battery is low.
+2. **Load**
+    - Twist off the mouthpiece assembly, then twist off the tank.
+    - Add your concentrate to the ceramic chamber inside the tank.
+    - Reassemble the tank and mouthpiece before use.
+    - Note: Less is more. A small, rice-sized amount of concentrate works best. Overfilling the chamber clogs the airpath.
+3. **Set Heat**
+    - Click 5 times to power on. The LED lights up.
+    - Click 3 times to cycle through heat levels.
+    - Power on / off (5x): 5 clicks to power on or off
+    - Cycle heat level (3x): Blue = Low · Green = Medium · Red = High
+4. **Heat & Draw**
+    - The LED flashes then goes solid when the chamber is ready.
+    - Draw steadily through the mouthpiece while the LED is solid.
+    - Device auto powers off after 5 minutes of inactivity.
+    - Manual heat (Hold): Hold button · up to 10 seconds max
+    - Auto heat (2x): Double-click · 10 seconds, then stops automatically
+    - Note: Hot surface: Do not touch the tank or tank cover for at least 5 minutes after use.
+
+### Specs
+
+- Type: Concentrate Vaporizer
+- Battery: 850 mAh
+- Chamber: Ceramic
+- Heat levels: 3 (Low / Medium / High)
+- Max heat duration: 10 seconds
+- Auto power-off: 5 minutes of inactivity
+- Charging: USB-C
+- Thread: 510-compatible battery
+- Warranty: 6-Month Limited Warranty (1-Year with registration)
+- Package dimensions: 177 × 69 × 42 mm
+- Package weight: 190 g
+- SKU: GPM-001-AKZZ
+- UPC: 811736025362
+
+### Common questions
+
+**Device won't turn on**
+
+Click the button 5 times quickly. If nothing happens, charge the device. The LED will turn red when charging. Make sure the tank is fully twisted onto the battery before trying again.
+
+**Vapor is thin or weak**
+
+Try a higher heat setting. Make sure the concentrate is loaded into the chamber (not on the walls). Clean the tank regularly. Residue buildup on the ceramic reduces efficiency.
+
+**Airflow feels blocked**
+
+Remove the mouthpiece assembly and check for buildup. Soak the mouthpiece in isopropyl alcohol and clean the airpath with a cotton swab. Overfilling the chamber is the most common cause.
+
+**What does the LED flashing 3 times mean?**
+
+Three blinks on startup usually indicates a short circuit or improper tank connection. Remove the tank, clean the connection threads, and reattach firmly.
+
+
+## G Pen Hyer (Concentrate Vaporizer)
+
+Guide: https://help.gpen.com/hyer/
+
+### How to use
+
+1. **Charge**
+    - Plug a USB-C cable into the charging port.
+    - Give it a full charge before first use.
+    - Press the power button once while off to check battery: 5 LEDs = full, 1 LED = low.
+2. **Set Up**
+    - Insert the glass adapter end of the Hyer housing into the 14mm female joint of your glass rig.
+    - Load concentrate into the bottom of the Concentrates Tank.
+    - Place the tank cap on top. Thread your dab tool into the side hole for easy access.
+    - Note: 14mm male glass adapter is included. Other adapter sizes sold separately.
+3. **Set Heat**
+    - Hold the power button for 3 seconds to turn on.
+    - Press Left or Right to cycle through the 5 heat levels.
+    - Power on / off (Hold): Hold the power button for 3 seconds
+    - Heat level (left/right): Blue 482°F · Turquoise · Green · Yellow · Red 842°F
+    - Session timer (Hold): Hold both buttons 2s · 15 / 30 / 45 / 60 / 75 sec
+    - Sound on / off (3x): 3 clicks to toggle audio notifications
+4. **Draw**
+    - Double-click the power button to activate a session.
+    - Draw through your glass piece while the session runs.
+    - Single click or wait for the timer to end the session.
+    - Activate session (2x): Double-click to start
+    - Increased airflow (Hold): Hold the side button during a session
+    - Note: After your session: Wait at least 1 minute, then wipe the quartz chamber with a cotton swab while still warm.
+
+### Specs
+
+- Type: Concentrate Vaporizer
+- Battery: 6,000 mAh
+- Chamber: Quartz
+- Heat levels: 5 (Blue 482°F → Red 842°F)
+- Session timer: 15 / 30 / 45 / 60 / 75 seconds
+- Battery indicator: 5 LED dots (press power while off)
+- Charging: USB-C
+- Glass connection: 14mm male adapter (included)
+- Warranty: 2-Year Limited Warranty
+- Package dimensions: 165 × 137 × 70 mm
+- Package weight: 670 g
+- SKU: GPH-001-ALZZ
+- UPC: 811736026475
+
+### Common questions
+
+**Device won't turn on**
+
+Hold the power button for a full 3 seconds. If nothing happens, charge the device. Press the power button once while off to check the battery level. Only 1 LED lit means it needs a charge.
+
+**How do I check the battery level?**
+
+Press the power button once while the device is off. The 5 LED dots show remaining charge: 1 LED means 0–20%, 5 LEDs means 80–100%.
+
+**Vapor flavor or density is off**
+
+Clean the quartz chamber regularly with a cotton swab after sessions while still warm. Residue buildup is the most common cause of off flavor. Try a lower heat level for a cleaner, more flavorful draw.
+
+**How do I change the session timer?**
+
+While the device is on, hold the Left and Right buttons simultaneously for 2 seconds. Each press cycles through 15, 30, 45, 60, or 75 seconds. The concentrate timer applies to the Concentrates Tank. The dry herb timer cycles separately if you have the dry herb tank attachment.
+
+
+## G Pen Connect (Concentrate Vaporizer)
+
+Guide: https://help.gpen.com/connect/
+
+### How to use
+
+1. **Charge**
+    - Plug a Micro USB cable into the port on the side of the battery housing.
+    - Red LED = charging · Green LED = fully charged.
+    - LED blinks 8 times when the battery is low.
+2. **Set Up**
+    - Twist the tank onto the top of the adapter.
+    - Twist the male glass adapter onto the bottom of the adapter.
+    - Insert the adapter into the 14mm female joint of your water piece.
+    - Note: 14mm male adapter fits standard water pieces. Other adapter sizes available separately.
+3. **Load**
+    - Remove the tank cover and load concentrate onto the ceramic plate inside.
+    - Reattach the tank cover.
+    - Attach the battery to the tank to complete the connection.
+4. **Heat & Draw**
+    - Click 5 times to power on. LED lights up in your current voltage color.
+    - Draw through your water piece while heating.
+    - Power on / off (5x): 5 clicks to power on or off
+    - Voltage level (3x): Blue 3.1V · Green 3.6V · Red 4.1V
+    - Auto heat (2x): 5s heat-up flash, then 10s max solid heat
+    - Manual heat (Hold): Hold button · up to 15 seconds
+    - Increased airflow (Side): Hold the side button during a session
+    - Note: After consecutive max-heat sessions: Wait at least 2 minutes before touching the tank cover.
+
+### Specs
+
+- Type: Concentrate Vaporizer
+- Battery: 850 mAh
+- Chamber: Quartz ceramic plate
+- Voltage: 3.1V / 3.6V / 4.1V
+- Auto heat duration: 5s heat-up + 10s max
+- Manual heat duration: Up to 15 seconds
+- Charging: Micro USB
+- Glass connection: 14mm male adapter (included)
+- Warranty: 2-Year Limited Warranty
+- Dimensions: 33 × 22.5 × 54.6 mm
+- Weight: 99 g
+- SKU: GPC-100-AJZZ
+- UPC: 811736023986
+
+### Common questions
+
+**Device won't turn on**
+
+Click the button 5 times quickly. Make sure the battery is attached to the tank. The connection must be complete for power to work. If nothing happens, charge the device first.
+
+**LED blinks 3 times on startup**
+
+Three blinks usually means a short circuit or the tank isn't properly connected. Remove the battery, check the tank connection, reattach firmly, and try again.
+
+**Vapor is thin or has poor flavor**
+
+Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly. Residue buildup is the most common cause of reduced performance.
+
+**Tank cover is too hot to handle**
+
+This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot. That's how it vaporizes concentrate efficiently.
+

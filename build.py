@@ -136,7 +136,7 @@ PRODUCTS = {
         "template": "elite-ii.template.html",
         "legacy": True,
         "group": "dryherb",
-        "hidden": True,     # off the site for now; flip to False to bring it back
+        "hidden": False,
         "name": "G Pen Elite II",
         "category": "Dry Herb Vaporizer",
         "card_image": "elite-ii-card.png",
@@ -147,7 +147,7 @@ PRODUCTS = {
         "template": "micro-plus.template.html",
         "legacy": True,
         "group": "concentrate",
-        "hidden": True,     # off the site for now; flip to False to bring it back
+        "hidden": False,
         "name": "G Pen Micro+",
         "category": "Concentrate Vaporizer",
         "card_image": "micro-plus-card.png",
@@ -158,7 +158,7 @@ PRODUCTS = {
         "template": "hyer.template.html",
         "legacy": True,
         "group": "concentrate",
-        "hidden": True,     # off the site for now; flip to False to bring it back
+        "hidden": False,
         "name": "G Pen Hyer",
         "category": "Concentrate Vaporizer",
         "card_image": "hyer-card.png",
@@ -169,7 +169,7 @@ PRODUCTS = {
         "template": "connect.template.html",
         "legacy": True,
         "group": "concentrate",
-        "hidden": True,     # off the site for now; flip to False to bring it back
+        "hidden": False,
         "name": "G Pen Connect",
         "category": "Concentrate Vaporizer",
         "card_image": "connect-card.png",

@@ -18,7 +18,7 @@
         },
         {
           "id": "b3",
-          "text": "The LED blinks **8 times** when the battery is low."
+          "text": "The battery indicator on the display shows when the battery is low."
         }
       ],
       "press": [],
@@ -71,7 +71,7 @@
         },
         {
           "id": "b3",
-          "text": "**Double-click** to start a session. The device vibrates when it's at temp."
+          "text": "**Double-click** to start a session. The device vibrates twice when it reaches temperature."
         }
       ],
       "press": [
@@ -91,7 +91,7 @@
             "value": "+/−"
           },
           "action": "Adjust temperature",
-          "sub": "Right = increase · Left = decrease"
+          "sub": "+ = increase · − = decrease"
         },
         {
           "id": "p3",
@@ -126,10 +126,6 @@
         {
           "id": "b1",
           "text": "Once the device vibrates, **draw slowly and steadily** through the mouthpiece."
-        },
-        {
-          "id": "b2",
-          "text": "The session auto-ends when the countdown hits 0:00."
         },
         {
           "id": "b3",
@@ -172,11 +168,6 @@
       "value": "USB-C"
     },
     {
-      "id": "connectivity",
-      "label": "Connectivity",
-      "value": "2.4G WiFi"
-    },
-    {
       "id": "pick-tool",
       "label": "Pick tool",
       "value": "Built-in (stored at device base)"
@@ -189,17 +180,17 @@
     {
       "id": "warranty",
       "label": "Warranty",
-      "value": "2-year limited (3 years with registration)"
+      "value": "2-Year Limited Warranty"
     },
     {
-      "id": "package-dimensions",
-      "label": "Package dimensions",
-      "value": "190 × 90 × 60 mm"
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "118 × 30 × 27 mm"
     },
     {
-      "id": "package-weight",
-      "label": "Package weight",
-      "value": "396 g"
+      "id": "weight",
+      "label": "Weight",
+      "value": "146 g"
     },
     {
       "id": "sku",
@@ -221,7 +212,7 @@
     {
       "id": "f2",
       "question": "How do I know it's ready?",
-      "answer": "After double-clicking to start a session, the device vibrates once when it reaches your set temperature. The session countdown begins on the display."
+      "answer": "After double-clicking to start a session, the device vibrates twice when it reaches your set temperature."
     },
     {
       "id": "f3",
@@ -231,7 +222,7 @@
     {
       "id": "f4",
       "question": "What does the warranty cover?",
-      "answer": "The Elite II includes a 2-year limited warranty covering electronics and manufacturing defects. Register at gpen.com to extend it to 3 years."
+      "answer": "The Elite II comes with a **2-Year Limited Warranty** covering electronics and manufacturing defects. Physical damage is not covered."
     }
   ],
   "videos": [

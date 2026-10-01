@@ -201,6 +201,11 @@
       "value": "14mm male adapter (included)"
     },
     {
+      "id": "warranty",
+      "label": "Warranty",
+      "value": "2-Year Limited Warranty"
+    },
+    {
       "id": "package-dimensions",
       "label": "Package dimensions",
       "value": "165 × 137 × 70 mm"

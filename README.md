@@ -173,14 +173,19 @@ placeholder for, `build.py` stops with an error instead of silently dropping it.
 Step images are 900×900 squares cropped to a circle by CSS;
 `scripts/compose_step.py` turns a product render or photo into one.
 
-## Hidden (legacy) products
+## Legacy products
 
-Elite II, Micro+, Hyer, Connect and the Roam card are `"hidden": True` in
-`PRODUCTS`: not built, not listed, not linked. Their source (templates, content,
-translations, images) is kept on purpose. To bring one back, set `hidden` to
-`False`, run `build.py`, then `gen_i18n.py <product>` (a few strings will need
-translating; their caches predate Swedish, Polish and Danish, so those three need
-every string), then `build.py` again.
+Elite II, Micro+, Hyer and Connect are `"legacy": True` in `PRODUCTS`: published, listed in
+the home page's "Legacy products" fold and under each group's "Legacy products" heading on
+/identify/. Their facts were confirmed by the team on 2026-10-01 (every warranty is at most
+2 years; Elite II has + / − buttons, no session countdown, vibrates twice). The Micro+ and
+Hyer specs still show the package's size and weight, labeled as such, because the "device"
+figures the team sent matched the package exactly.
+
+The Roam card is still `"hidden": True` (no guide content yet; the stores expect `/roam/`
+when it exists). It already appears on /identify/ with a "Get help from support" button.
+A product flagged hidden keeps its source (template, content, translations, images) but
+isn't built, listed or linked; to publish one, set `hidden` to `False` and run `build.py`.
 
 ## Where the content comes from
 
