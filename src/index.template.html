@@ -78,6 +78,10 @@ header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
 
 .list{padding-bottom:40px}
 .grid{display:grid; gap:14px}
+/* product groups: 510 Batteries / Concentrate Devices / Dry Herb Devices */
+.group + .group{margin-top:30px}
+.group-title{font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  letter-spacing:-.01em; font-size:18px; line-height:1.15; margin:0 0 12px; color:var(--ink)}
 @media (min-width:560px){.grid{grid-template-columns:1fr 1fr}}
 .card{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center;
   text-decoration:none; color:inherit; padding:14px; border:1px solid var(--line);
@@ -86,7 +90,7 @@ header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
 .card:hover{border-color:var(--accent); transform:translateY(-2px)}
 .card .thumb{background:var(--plate); border-radius:10px; padding:8px; display:grid; place-items:center}
 .card .thumb img{width:100%}
-.card h2{font-family:var(--f-display); font-weight:800; font-style:italic;
+.card h2, .card h3{font-family:var(--f-display); font-weight:800; font-style:italic;
   text-transform:uppercase; font-size:18px; margin:0; letter-spacing:-.01em}
 .card .eyebrow{display:block; margin-top:5px}
 
@@ -166,9 +170,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
   </header>
 
   <div class="wrap list">
-    <div class="grid">
 {{CARDS}}
-    </div>
 {{LEGACY_SECTION}}
   </div>
 

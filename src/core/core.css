@@ -268,7 +268,7 @@ section{scroll-margin-top:64px}
 .step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row{
   hyphenate-limit-chars:10 4 4; -webkit-hyphenate-limit-before:4; -webkit-hyphenate-limit-after:4}
 .nohy{hyphens:manual; -webkit-hyphens:manual; white-space:nowrap}
-.attach-name, .acc-card-name, .gc-name, .card h2{hyphens:manual; -webkit-hyphens:manual}
+.attach-name, .acc-card-name, .gc-name, .card h2, .card h3{hyphens:manual; -webkit-hyphens:manual}
 .do li, .note span, .press-action, .press-sub, .faq p, .acc-card-note{text-wrap:pretty}
 
 /* Upgrades: every product photo on the same white tile. Store images arrive in three
@@ -306,7 +306,7 @@ section{scroll-margin-top:64px}
 .guide-card .gc-img img{object-fit:contain}
 
 /* Index cards on the narrowest phones: a smaller thumbnail leaves room for the name. */
-.card h2{line-height:1.1}
+.card h2, .card h3{line-height:1.1}
 @media (max-width:360px){ .card{grid-template-columns:72px minmax(0,1fr); gap:12px} }
 
 /* The Upgrades shop button on the narrowest phones: one line, even in German. */

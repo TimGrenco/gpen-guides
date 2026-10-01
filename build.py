@@ -57,6 +57,7 @@ PRODUCTS = {
         "template": "hydout.template.html",
         "name": "G Pen Hydout",
         "category": "510 Cartridge Battery",
+        "group": "510",
         "card_image": "hero.png",           # local file in src/
         "images": {},
         "text": {},
@@ -66,6 +67,7 @@ PRODUCTS = {
         "template": "dash-ii.template.html",
         "name": "G Pen Dash II",
         "category": "Dry Herb Vaporizer",
+        "group": "dryherb",
         "card_image": "dash-ii-card.png",   # local file in src/
         "images": {},
         "text": {},
@@ -74,6 +76,7 @@ PRODUCTS = {
         "template": "510-original.template.html",
         "name": "G Pen 510 Original",
         "category": "510 Cartridge Battery",
+        "group": "510",
         "card_image": "510-original-card.png",
         "images": {},
         "text": {},
@@ -83,6 +86,7 @@ PRODUCTS = {
         "template": "micro-ii.template.html",
         "name": "G Pen Micro II",
         "category": "Concentrate Vaporizer",
+        "group": "concentrate",
         "card_image": "micro-ii-card.png",
         "images": {},
         "text": {},
@@ -91,6 +95,7 @@ PRODUCTS = {
         "template": "melt.template.html",
         "name": "G Pen Melt",
         "category": "Hot Knife / Dab Tool",
+        "group": "concentrate",
         "card_image": "melt-card.png",
         "images": {
             # used by the Upgrades cards in src/accessories.json ("image": "{{UPG_...}}")
@@ -105,6 +110,7 @@ PRODUCTS = {
         "template": "dash-plus.template.html",
         "name": "G Pen Dash+",
         "category": "Dry Herb Vaporizer",
+        "group": "dryherb",
         "card_image": "dash-plus-card.png",
         "images": {},
         "text": {},
@@ -113,6 +119,7 @@ PRODUCTS = {
         "template": "grinder.template.html",
         "name": "G Pen 3-Piece Slim Grinder",
         "category": "Dry Herb Grinder",
+        "group": "dryherb",
         "card_image": "grinder-card.png",
         "images": {},
         "text": {},
@@ -191,10 +198,17 @@ def _card_href(s: str, spec: dict) -> tuple[str, str]:
            'target="_blank" rel="noopener noreferrer"'
 
 
+# Home page sections, in order: (group key, i18n key, English heading).
+INDEX_GROUPS = [
+    ("510", "grp_510", "510 Batteries"),
+    ("concentrate", "grp_concentrate", "Concentrate Devices"),
+    ("dryherb", "grp_dryherb", "Dry Herb Devices"),
+]
+
 CARD = """      <a class="card" href="{href}" {extattr}>
         <span class="thumb"><img src="{card_img}"{srcset} alt=""{dims}{loading}></span>
         <div>
-          <h2>{name}</h2>
+          <h3>{name}</h3>
           <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>
         </div>
       </a>"""
@@ -679,11 +693,15 @@ def build_product(slug: str, spec: dict) -> None:
 
 def build_index() -> None:
     template = (SRC / "index.template.html").read_text()
-    cards_html, legacy_html = [], []
-    for n, (slug, spec) in enumerate(visible_products().items()):
+    grouped, ungrouped, legacy_html = {g: [] for g, _, _ in INDEX_GROUPS}, [], []
+    # display order: group by group, then anything unfiled; the first four cards on screen
+    # load their pictures right away
+    rank = {g: i for i, (g, _, _) in enumerate(INDEX_GROUPS)}
+    ordered = sorted(visible_products().items(), key=lambda kv: rank.get(kv[1].get("group"), len(rank)))
+    for n, (slug, spec) in enumerate(ordered):
         href, extattr = _card_href(slug, spec)
         srcset, dims = card_srcset(slug, spec, "", SIZES_INDEX_CARD)
-        (legacy_html if spec.get("legacy") else cards_html).append(CARD.format(
+        card = CARD.format(
             slug=slug,
             card_img=_card_img(slug, spec, is_switcher=False),
             srcset=srcset,
@@ -694,7 +712,24 @@ def build_index() -> None:
             name=spec["name"],
             href=href,
             extattr=extattr,
-        ))
+        )
+        if spec.get("legacy"):
+            legacy_html.append(card)
+        elif spec.get("group") in grouped:
+            grouped[spec["group"]].append(card)
+        else:
+            ungrouped.append(card)   # a product nobody has filed yet still shows, at the end
+    blocks = []
+    for key, i18n_key, heading in INDEX_GROUPS:
+        if grouped[key]:
+            blocks.append(
+                f'    <div class="group" role="group" aria-labelledby="grp-{key}">\n'
+                f'      <h2 class="group-title" id="grp-{key}" data-i18n="{i18n_key}">{heading}</h2>\n'
+                '      <div class="grid">\n' + "\n".join(grouped[key]) + "\n      </div>\n"
+                "    </div>")
+    if ungrouped:
+        blocks.append('    <div class="group">\n      <div class="grid">\n' + "\n".join(ungrouped) + "\n      </div>\n    </div>")
+    cards_html = blocks
     legacy_section = ""
     if legacy_html:
         legacy_section = (
