@@ -16,7 +16,7 @@ Guide: https://help.gpen.com/hydout/
     - Note: USB-C cable not included.
 2. **Load**
     - Pull off the magnetic mouthpiece cover.
-    - Screw in your 510 cartridge — snug, not cranked.
+    - Screw in your 510 cartridge: snug, not cranked.
     - Snap the cover back on.
     - Note: Fits most 510-thread cartridges up to 2 g. Cartridge sold separately.
 3. **Activate**
@@ -57,7 +57,7 @@ The device auto-sleeps after 10 minutes. Press five times to wake it. If the dis
 
 **My cart isn't producing vapor**
 
-Make sure the cartridge is threaded in snugly — not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then draw again — hold the button or just inhale.
+Make sure the cartridge is threaded in snugly, not over-tightened. Try a double-press for a 10-second preheat to loosen thick oil, then draw again: hold the button or just inhale.
 
 **Which heat setting should I use?**
 
@@ -89,9 +89,9 @@ Guide: https://help.gpen.com/dash-ii/
 2. **Load**
     - Remove the magnetic mouthpiece.
     - Fully load the chamber with ground dry herb.
-    - Pack lightly with the included pick tool — do not overpack.
+    - Pack lightly with the included pick tool. Do not overpack.
     - Re-attach the mouthpiece before powering on.
-    - Note: ~0.4 g capacity. A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.
+    - Note: ~0.4 g capacity. A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality.
 3. **Activate**
     - Power on (hold): Hold button 3 seconds
     - Turn off (hold): Press and hold the center button
@@ -133,7 +133,7 @@ Hold the main button for 3 seconds. The device will vibrate and the display will
 
 Once the device is on, set your temperature and double-tap the button within 2 seconds to start a session. It vibrates three times when it's heated and ready. Double-tap again anytime to cancel it early.
 
-**My vapor tastes burnt — what's wrong?**
+**My vapor tastes burnt. What's wrong?**
 
 You may have the temperature too high, or the bowl may need cleaning. Try a lower temperature setting and clean the screen and bowl with the pick tool after each session.
 
@@ -162,7 +162,7 @@ Guide: https://help.gpen.com/510-original/
     - Give it a full charge before first use.
     - Note: USB-C cable not included.
 2. **Load**
-    - Screw in your 510 cartridge — snug, not cranked.
+    - Screw in your 510 cartridge: snug, not cranked.
     - Note: Fits standard 510-thread cartridges. Cartridge sold separately.
 3. **Activate**
     - Turn on (5x): Five quick presses
@@ -201,7 +201,7 @@ Press the button five times quickly to power the device on. The LED will light u
 
 **My cart isn't producing vapor**
 
-Make sure the cartridge is threaded in snugly — not over-tightened. Try double-pressing for a 10-second preheat to loosen thick oil, then hold the button or draw to activate.
+Make sure the cartridge is threaded in snugly, not over-tightened. Try double-pressing for a 10-second preheat to loosen thick oil, then hold the button or draw to activate.
 
 **Which voltage should I use?**
 
@@ -228,7 +228,7 @@ Guide: https://help.gpen.com/micro-ii/
     - Note: USB-C cable not included.
 2. **Load**
     - Remove the mouthpiece to access the ceramic heating chamber.
-    - Load the chamber with your concentrate — do not overfill.
+    - Load the chamber with your concentrate. Do not overfill.
     - Note: A small amount of concentrate goes a long way. Overfilling can clog the chamber and reduce airflow.
 3. **Activate**
     - Turn on (5x): Five quick presses
@@ -241,7 +241,7 @@ Guide: https://help.gpen.com/micro-ii/
 4. **Clean**
     - Allow the device to completely cool before cleaning.
     - Use a cotton swab + isopropyl alcohol (ISO).
-    - Clean inside the ceramic heating chamber and the mouthpiece — ensure air holes are clear.
+    - Clean inside the ceramic heating chamber and the mouthpiece, and make sure the air holes are clear.
     - Allow the device to completely dry before using again.
     - Note: Never soak the battery in alcohol or any liquid.
 5. **Alerts**
@@ -259,7 +259,7 @@ Guide: https://help.gpen.com/micro-ii/
 - Session mode: Double-tap to start / cancel
 - Manual mode: Press and hold to activate
 - Auto shut-off: 10 minutes
-- Compatible attachments: Sidecar, Rig Adapter (14 mm) — sold separately
+- Compatible attachments: Sidecar, Rig Adapter (14 mm), sold separately
 - Dimensions: 98.6 × 24 × 32 mm
 - Weight: 86 g
 - SKU: GPM-001-APZZ
@@ -301,9 +301,9 @@ Guide: https://help.gpen.com/melt/
 
 1. **Charge**
     - Plug any USB-C cable into the charging port on the bottom.
-    - Give it a full charge before first use — takes about 1 hour.
+    - Give it a full charge before first use. It takes about 1 hour.
     - The LED blinks 8 times when the battery is low.
-    - Note: Always ready: the Melt supports pass-through charging — you can use it while it's plugged in. USB-C cable not included.
+    - Note: Always ready: the Melt supports pass-through charging, so you can use it while it's plugged in. USB-C cable not included.
 2. **Power On & Scoop**
     - Click 5 times quickly to power on. The LED lights to confirm.
     - Touch the tip to your concentrate to scoop up a small amount.
@@ -311,11 +311,11 @@ Guide: https://help.gpen.com/melt/
     - Click 5 times again to power off.
     - Power on / off (5x): Click button 5 times quickly
 3. **Heat & Drop**
-    - Hold the button to heat the ceramic tip — it heats for up to 5 seconds per hold.
-    - The tip stays hot for a moment after you let go — don't touch it.
+    - Hold the button to heat the ceramic tip. It heats for up to 5 seconds per hold.
+    - The tip stays hot for a moment after you let go, so don't touch it.
     - Let your concentrate melt cleanly into your rig, bowl, or device.
     - Works with bangers, e-rigs, and the G Pen Micro II.
-    - Heat tip (Hold): Hold to heat, release to stop — 150 °C / 302 °F
+    - Heat tip (Hold): Hold to heat, release to stop: 150 °C / 302 °F
 4. **Clean**
     - Power it off and let the tip cool completely first.
     - Clean the tip and plastic housing by wiping them with a clean cloth.
@@ -350,11 +350,11 @@ Power it on (5× click), touch the ceramic tip to your concentrate to scoop it u
 
 **Does the Melt have variable heat?**
 
-No — the Melt uses a precisely tuned heating element optimized for smooth, controlled melting without burning. No settings to adjust.
+No. The Melt uses a precisely tuned heating element optimized for smooth, controlled melting without burning. No settings to adjust.
 
 **Can I use the Melt while it's charging?**
 
-Yes. The Melt supports USB-C pass-through charging — plug it in and keep using it without waiting.
+Yes. The Melt supports USB-C pass-through charging: plug it in and keep using it without waiting.
 
 **Is the Melt easy to carry?**
 
@@ -373,14 +373,14 @@ Guide: https://help.gpen.com/dash-plus/
 
 1. **Charge**
     - Plug any USB-C cable into the charging port on the side.
-    - Give it a full charge before first use — takes about 1 hour.
+    - Give it a full charge before first use. It takes about 1 hour.
     - Note: USB-C cable included.
 2. **Load**
     - Remove the magnetic mouthpiece.
     - Fully load the titanium chamber with ground dry herb.
-    - Pack lightly with the included pick tool — do not overpack.
+    - Pack lightly with the included pick tool. Do not overpack.
     - Re-attach the mouthpiece before powering on.
-    - Note: ~0.3 g capacity. A proper pack allows airflow — overpacking restricts draws and reduces vapor quality.
+    - Note: ~0.3 g capacity. A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality.
 3. **Activate**
     - Hold the power button for 4 seconds to turn on. The display lights up.
     - Press Left / Right to adjust your target temperature.
@@ -422,7 +422,7 @@ Guide: https://help.gpen.com/dash-plus/
 
 **Device won't turn on**
 
-Hold the power button for a full 4 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on.
+Hold the power button for a full 4 seconds. If nothing happens, charge the device. The battery may be depleted. The LED display lights up when it's on.
 
 **How do I know it's ready to use?**
 
@@ -430,7 +430,7 @@ After you double-click to start a session, the device vibrates twice when it rea
 
 **Vapor is thin or tastes off**
 
-Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and air path regularly — residue buildup is the most common cause of reduced vapor and off flavor.
+Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and air path regularly. Residue buildup is the most common cause of reduced vapor and off flavor.
 
 **What do the error codes mean?**
 
@@ -450,14 +450,14 @@ Guide: https://help.gpen.com/grinder/
 1. **Open & Load**
     - Remove the magnetic lid.
     - Break up large buds by hand and place them on the teeth in the grinding chamber.
-    - Don't overfill — leave room for the lid to turn freely.
+    - Don't overfill. Leave room for the lid to turn freely.
 2. **Grind**
     - Replace the lid and twist back and forth about 10 times.
     - Tap the grinder a few times so ground material falls through to the collection chamber.
     - Note: The micro-rounded teeth gently separate flower instead of shredding it, helping preserve terpenes and trichomes.
 3. **Collect**
     - Unscrew the bottom chamber to reach your ground material.
-    - No kief screen — trichomes and kief stay mixed in with your flower.
+    - No kief screen: trichomes and kief stay mixed in with your flower.
     - Load it straight into your Dash II or Dash+.
 4. **Clean**
     - Brush leftover material out of the teeth and chambers.
@@ -469,7 +469,7 @@ Guide: https://help.gpen.com/grinder/
 - Type: 3-Piece Dry Herb Grinder
 - Teeth: Patented micro-rounded teeth
 - Material: 6063 aircraft-grade anodized aluminum
-- Kief screen: None — screenless design
+- Kief screen: None, screenless design
 - Lid: Magnetic
 - Size: 64 mm diameter
 - Pairs with: G Pen Dash II, Dash+

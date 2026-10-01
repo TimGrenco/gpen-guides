@@ -74,7 +74,7 @@
     document.documentElement.lang = LANG_CODES[lang] || 'en';
     if (lang === 'EN') document.title = ORIGINAL_TITLE;
     else if (s.doc_title) document.title = s.doc_title;
-    else if (s.nav_use && PRODUCT_NAME) document.title = 'G Pen ' + PRODUCT_NAME + ' — ' + s.nav_use;
+    else if (s.nav_use && PRODUCT_NAME) document.title = 'G Pen ' + PRODUCT_NAME + ': ' + s.nav_use;
 
     syncLangUI(lang);
   }

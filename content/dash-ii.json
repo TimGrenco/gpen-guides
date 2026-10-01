@@ -42,7 +42,7 @@
         },
         {
           "id": "b3",
-          "text": "**Pack lightly** with the included pick tool — do not overpack."
+          "text": "**Pack lightly** with the included pick tool. Do not overpack."
         },
         {
           "id": "b4",
@@ -52,7 +52,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**~0.4 g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
+        "text": "**~0.4 g capacity.** A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality."
       },
       "helpWidget": false
     },
@@ -245,7 +245,7 @@
     },
     {
       "id": "f3",
-      "question": "My vapor tastes burnt — what's wrong?",
+      "question": "My vapor tastes burnt. What's wrong?",
       "answer": "You may have the temperature too high, or the bowl may need cleaning. Try a lower temperature setting and clean the screen and bowl with the pick tool after each session."
     },
     {

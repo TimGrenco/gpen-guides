@@ -38,7 +38,7 @@
         },
         {
           "id": "b2",
-          "text": "**Load** the chamber with your concentrate — do not overfill."
+          "text": "**Load** the chamber with your concentrate. Do not overfill."
         }
       ],
       "press": [],
@@ -136,7 +136,7 @@
         },
         {
           "id": "b3",
-          "text": "Clean **inside the ceramic heating chamber** and the mouthpiece — ensure air holes are clear."
+          "text": "Clean **inside the ceramic heating chamber** and the mouthpiece, and make sure the air holes are clear."
         },
         {
           "id": "b4",
@@ -254,7 +254,7 @@
     {
       "id": "compatible-attachments",
       "label": "Compatible attachments",
-      "value": "Sidecar, Rig Adapter (14 mm) — sold separately"
+      "value": "Sidecar, Rig Adapter (14 mm), sold separately"
     },
     {
       "id": "dimensions",

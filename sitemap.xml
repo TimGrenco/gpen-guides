@@ -1,75 +1,867 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://help.gpen.com/</loc></url>
-  <url><loc>https://help.gpen.com/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/melt/</loc></url>
-  <url><loc>https://help.gpen.com/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/es/</loc></url>
-  <url><loc>https://help.gpen.com/es/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/es/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/es/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/es/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/es/melt/</loc></url>
-  <url><loc>https://help.gpen.com/es/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/es/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/de/</loc></url>
-  <url><loc>https://help.gpen.com/de/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/de/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/de/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/de/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/de/melt/</loc></url>
-  <url><loc>https://help.gpen.com/de/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/de/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/it/</loc></url>
-  <url><loc>https://help.gpen.com/it/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/it/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/it/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/it/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/it/melt/</loc></url>
-  <url><loc>https://help.gpen.com/it/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/it/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/fr/</loc></url>
-  <url><loc>https://help.gpen.com/fr/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/fr/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/fr/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/fr/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/fr/melt/</loc></url>
-  <url><loc>https://help.gpen.com/fr/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/fr/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/pt/</loc></url>
-  <url><loc>https://help.gpen.com/pt/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/pt/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/pt/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/pt/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/pt/melt/</loc></url>
-  <url><loc>https://help.gpen.com/pt/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/pt/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/sv/</loc></url>
-  <url><loc>https://help.gpen.com/sv/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/sv/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/sv/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/sv/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/sv/melt/</loc></url>
-  <url><loc>https://help.gpen.com/sv/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/sv/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/pl/</loc></url>
-  <url><loc>https://help.gpen.com/pl/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/pl/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/pl/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/pl/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/pl/melt/</loc></url>
-  <url><loc>https://help.gpen.com/pl/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/pl/grinder/</loc></url>
-  <url><loc>https://help.gpen.com/da/</loc></url>
-  <url><loc>https://help.gpen.com/da/hydout/</loc></url>
-  <url><loc>https://help.gpen.com/da/dash-ii/</loc></url>
-  <url><loc>https://help.gpen.com/da/510-original/</loc></url>
-  <url><loc>https://help.gpen.com/da/micro-ii/</loc></url>
-  <url><loc>https://help.gpen.com/da/melt/</loc></url>
-  <url><loc>https://help.gpen.com/da/dash-plus/</loc></url>
-  <url><loc>https://help.gpen.com/da/grinder/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://help.gpen.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/de/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/fr/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/sv/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pl/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/hydout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/hydout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/hydout/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/dash-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/510-original/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/510-original/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/510-original/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/micro-ii/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/micro-ii/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/micro-ii/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/melt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/melt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/melt/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/melt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/melt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/melt/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/melt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/melt/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/melt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/melt/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/dash-plus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/dash-plus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/dash-plus/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/grinder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/grinder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/grinder/"/>
+  </url>
 </urlset>

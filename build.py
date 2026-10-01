@@ -1021,7 +1021,7 @@ def build_product(slug: str, spec: dict) -> None:
     # after translating, written out so search engines can index it.
     core_t = merge_translations(None)
     def title_for(key, strings):
-        return strings.get("doc_title") or f"{title.rsplit(' — ', 1)[0]} — {strings.get('nav_use', 'How to use')}"
+        return strings.get("doc_title") or f"{title.rsplit(': ', 1)[0]}: {strings.get('nav_use', 'How to use')}"
     def head_for(key, folder, t, d):
         leaf = (cache or {}).get(key, {}).get("content", {})
         jl = (guide_jsonld(slug, spec, localize_content(content, leaf), t, d, LANG_NAMES[key], folder,
@@ -1100,7 +1100,7 @@ def build_index() -> None:
     # /es/, /de/ ... home pages
     use = {k: v.get("shell", {}).get("nav_use", "How to use") for k, v in (load_i18n("hydout") or {}).items()}
     def head_for(key, folder, t, d):
-        jl = index_jsonld(t, d, LANG_NAMES[key], folder, "{} — " + use.get(key, "How to use"))
+        jl = index_jsonld(t, d, LANG_NAMES[key], folder, "{}: " + use.get(key, "How to use"))
         return core_head("", False, f"{BASE_URL}{folder}/", t, d, og_image, jsonld=jl,
                          alts=alternates(""), translated=True)
     write_lang_pages(page_plain, "", titled("doc_title_index"), "index",
@@ -1112,19 +1112,25 @@ def build_index() -> None:
               'Pick your device below to get to its guide.</p>\n')
     nf = inject_i18n(page_plain, titled("doc_title_404"))
     nf = nf.replace("<head>", f'<head>\n<base href="{BASE_URL}">', 1)
-    nf = nf.replace("<title>", "<title>Page not found — ", 1)
+    nf = nf.replace("<title>", "<title>Page not found: ", 1)
     nf = nf.replace('  <div class="wrap list">', f'  <div class="wrap">{notice}  </div>\n  <div class="wrap list">', 1)
-    nf = inject_core(nf, core_head("", False, BASE_URL, "Page not found — G Pen Product Guides", desc, None, noindex=True))
+    nf = inject_core(nf, core_head("", False, BASE_URL, "Page not found: G Pen Product Guides", desc, None, noindex=True))
     write(ROOT / "404.html", nf)
 
 
 def build_seo_files() -> None:
     paths = [""] + [f"{s}/" for s, spec in visible_products().items() if spec.get("template")]
-    urls = [BASE_URL + p for p in paths] + [f"{BASE_URL}{f}/{p}" for _, f, _ in LANG_PAGES for p in paths]
+    # every language version of a page lists all of them (itself included) plus x-default,
+    # the same set as the hreflang links in each page's <head>
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
-               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+               'xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     # no <lastmod>: a date that moves on every rebuild would claim every page changed daily
-    sitemap += [f"  <url><loc>{u}</loc></url>" for u in urls]
+    for folder in [""] + [f for _, f, _ in LANG_PAGES]:
+        for p in paths:
+            sitemap.append(f"  <url><loc>{BASE_URL}{folder + '/' if folder else ''}{p}</loc>")
+            sitemap += [f'    <xhtml:link rel="alternate" hreflang="{h}" href="{u}"/>' for h, u in alternates(p)]
+            sitemap.append("  </url>")
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n")
     (ROOT / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)

@@ -18,7 +18,7 @@
         },
         {
           "id": "b3",
-          "text": "**Don't overfill** — leave room for the lid to turn freely."
+          "text": "**Don't overfill.** Leave room for the lid to turn freely."
         }
       ],
       "press": [],
@@ -63,7 +63,7 @@
         },
         {
           "id": "b2",
-          "text": "**No kief screen** — trichomes and kief stay mixed in with your flower."
+          "text": "**No kief screen:** trichomes and kief stay mixed in with your flower."
         },
         {
           "id": "b3",
@@ -120,7 +120,7 @@
     {
       "id": "kief-screen",
       "label": "Kief screen",
-      "value": "None — screenless design"
+      "value": "None, screenless design"
     },
     {
       "id": "lid",

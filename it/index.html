@@ -151,7 +151,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 <link rel="alternate" hreflang="da" href="https://help.gpen.com/da/">
 <link rel="alternate" hreflang="x-default" href="https://help.gpen.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://help.gpen.com/it/","url":"https://help.gpen.com/it/","name":"Guide ai prodotti G Pen","description":"Guide passo passo per i dispositivi G Pen: come ricaricare, riempire, usare e pulire Hydout, Dash II, Dash+, 510 Original, Micro II, Melt e 3-Piece Slim Grinder.","inLanguage":"it","isPartOf":{"@id":"https://help.gpen.com/#site"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"G Pen Hydout — Come si usa","url":"https://help.gpen.com/it/hydout/"},{"@type":"ListItem","position":2,"name":"G Pen Dash II — Come si usa","url":"https://help.gpen.com/it/dash-ii/"},{"@type":"ListItem","position":3,"name":"G Pen 510 Original — Come si usa","url":"https://help.gpen.com/it/510-original/"},{"@type":"ListItem","position":4,"name":"G Pen Micro II — Come si usa","url":"https://help.gpen.com/it/micro-ii/"},{"@type":"ListItem","position":5,"name":"G Pen Melt — Come si usa","url":"https://help.gpen.com/it/melt/"},{"@type":"ListItem","position":6,"name":"G Pen Dash+ — Come si usa","url":"https://help.gpen.com/it/dash-plus/"},{"@type":"ListItem","position":7,"name":"G Pen 3-Piece Slim Grinder — Come si usa","url":"https://help.gpen.com/it/grinder/"}]}},{"@type":"WebSite","@id":"https://help.gpen.com/#site","url":"https://help.gpen.com/","name":"G Pen Product Guides","publisher":{"@id":"https://www.gpen.com/#org"},"inLanguage":["en","es","de","it","fr","pt-BR","sv","pl","da"]},{"@type":"Organization","@id":"https://www.gpen.com/#org","name":"G Pen","url":"https://www.gpen.com/","logo":"https://help.gpen.com/core/apple-touch-icon.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+1-833-691-3224","email":"help@gpen.com"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://help.gpen.com/it/","url":"https://help.gpen.com/it/","name":"Guide ai prodotti G Pen","description":"Guide passo passo per i dispositivi G Pen: come ricaricare, riempire, usare e pulire Hydout, Dash II, Dash+, 510 Original, Micro II, Melt e 3-Piece Slim Grinder.","inLanguage":"it","isPartOf":{"@id":"https://help.gpen.com/#site"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"G Pen Hydout: Come si usa","url":"https://help.gpen.com/it/hydout/"},{"@type":"ListItem","position":2,"name":"G Pen Dash II: Come si usa","url":"https://help.gpen.com/it/dash-ii/"},{"@type":"ListItem","position":3,"name":"G Pen 510 Original: Come si usa","url":"https://help.gpen.com/it/510-original/"},{"@type":"ListItem","position":4,"name":"G Pen Micro II: Come si usa","url":"https://help.gpen.com/it/micro-ii/"},{"@type":"ListItem","position":5,"name":"G Pen Melt: Come si usa","url":"https://help.gpen.com/it/melt/"},{"@type":"ListItem","position":6,"name":"G Pen Dash+: Come si usa","url":"https://help.gpen.com/it/dash-plus/"},{"@type":"ListItem","position":7,"name":"G Pen 3-Piece Slim Grinder: Come si usa","url":"https://help.gpen.com/it/grinder/"}]}},{"@type":"WebSite","@id":"https://help.gpen.com/#site","url":"https://help.gpen.com/","name":"G Pen Product Guides","publisher":{"@id":"https://www.gpen.com/#org"},"inLanguage":["en","es","de","it","fr","pt-BR","sv","pl","da"]},{"@type":"Organization","@id":"https://www.gpen.com/#org","name":"G Pen","url":"https://www.gpen.com/","logo":"https://help.gpen.com/core/apple-touch-icon.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+1-833-691-3224","email":"help@gpen.com"}}]}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="G Pen">
 <meta property="og:title" content="Guide ai prodotti G Pen">
@@ -637,7 +637,7 @@ section{scroll-margin-top:64px}
    no videos, the index page has no sections or sheet.
 
    Owns: sticky header state, section scroll-spy (top pills + mobile bottom nav), the
-   language menu, the product-switcher sheet and the video modal. Dialogs trap focus,
+   language menu, the store region (?store=), the product-switcher sheet and the video modal. Dialogs trap focus,
    return it on close, make the rest of the page inert, and share one scroll lock so
    closing one can't unlock the page while the other is still open. */
 (function(){
@@ -860,6 +860,45 @@ section{scroll-margin-top:64px}
     vmBackdrop.addEventListener('click', closeVideo);
     vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
   }
+
+  /* ---------- store region: which G Pen store the store links go to ---------- */
+  /* The static pages link to the US store. A visitor sent from another store's site
+     (ca.gpen.com links here with ?store=ca) gets that store instead, same rule as ?lang=:
+     ?store= > saved choice > US, and a ?store= link sticks for the next guides they open.
+     To add a store: one entry here. base replaces https://www.gpen.com on every store
+     link; register replaces /pages/register; langPrefix puts a language folder in front
+     of the path (Canada's French pages live under /fr). */
+  var STORES = {
+    us: { base: 'https://www.gpen.com', register: '/pages/register' },
+    ca: { base: 'https://ca.gpen.com', register: '/register/', langPrefix: { fr: '/fr' } }
+  };
+  var STORE_LINK = /^https?:\/\/(?:www\.)?gpen\.com(?=[\/?#]|$)/i;
+  var REGISTER = /^\/pages\/register\/?(?=[?#]|$)/;
+  var store = 'us';
+  try {
+    var qStore = ((location.search.match(/[?&]store=([a-z]{2})\b/i) || [])[1] || '').toLowerCase();
+    if (STORES[qStore]){ store = qStore; localStorage.setItem('gpen-store', store); }
+    else { var saved = localStorage.getItem('gpen-store'); if (STORES[saved]) store = saved; }
+  } catch (x) {}
+  function applyStore(){
+    if (store === 'us' && !d.querySelector('a[data-us-href]')) return;
+    var cfg = STORES[store];
+    var prefix = (cfg.langPrefix || {})[(d.documentElement.lang || 'en').slice(0, 2).toLowerCase()] || '';
+    arr(d.querySelectorAll('a[href]')).forEach(function(a){
+      /* the US address is the source of truth: a language switch re-renders some links */
+      var us = a.getAttribute('data-us-href') || a.getAttribute('href');
+      if (!STORE_LINK.test(us)) return;
+      a.setAttribute('data-us-href', us);
+      var path = us.replace(STORE_LINK, '') || '/';
+      if (REGISTER.test(path)) path = path.replace(REGISTER, cfg.register);
+      a.setAttribute('href', cfg.base + prefix + path);
+    });
+  }
+  applyStore();
+  /* a language change re-renders translated blocks and can move a Canadian visitor to the
+     French store pages, so the links are worked out again after it */
+  var langChange = window._i18n;
+  if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

@@ -14,7 +14,7 @@
         },
         {
           "id": "b2",
-          "text": "Give it a full charge before first use — takes about **1 hour**."
+          "text": "Give it a full charge before first use. It takes about **1 hour**."
         }
       ],
       "press": [],
@@ -42,7 +42,7 @@
         },
         {
           "id": "b3",
-          "text": "**Pack lightly** with the included pick tool — do not overpack."
+          "text": "**Pack lightly** with the included pick tool. Do not overpack."
         },
         {
           "id": "b4",
@@ -52,7 +52,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**~0.3 g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
+        "text": "**~0.3 g capacity.** A proper pack allows airflow. Overpacking restricts draws and reduces vapor quality."
       },
       "helpWidget": false
     },
@@ -253,7 +253,7 @@
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Hold the power button for a full 4 seconds. If nothing happens, charge the device — the battery may be depleted. The LED display lights up when it's on."
+      "answer": "Hold the power button for a full 4 seconds. If nothing happens, charge the device. The battery may be depleted. The LED display lights up when it's on."
     },
     {
       "id": "f2",
@@ -263,7 +263,7 @@
     {
       "id": "f3",
       "question": "Vapor is thin or tastes off",
-      "answer": "Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and air path regularly — residue buildup is the most common cause of reduced vapor and off flavor."
+      "answer": "Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and air path regularly. Residue buildup is the most common cause of reduced vapor and off flavor."
     },
     {
       "id": "f4",

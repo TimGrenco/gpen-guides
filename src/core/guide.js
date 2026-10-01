@@ -5,7 +5,7 @@
    no videos, the index page has no sections or sheet.
 
    Owns: sticky header state, section scroll-spy (top pills + mobile bottom nav), the
-   language menu, the product-switcher sheet and the video modal. Dialogs trap focus,
+   language menu, the store region (?store=), the product-switcher sheet and the video modal. Dialogs trap focus,
    return it on close, make the rest of the page inert, and share one scroll lock so
    closing one can't unlock the page while the other is still open. */
 (function(){
@@ -228,6 +228,45 @@
     vmBackdrop.addEventListener('click', closeVideo);
     vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
   }
+
+  /* ---------- store region: which G Pen store the store links go to ---------- */
+  /* The static pages link to the US store. A visitor sent from another store's site
+     (ca.gpen.com links here with ?store=ca) gets that store instead, same rule as ?lang=:
+     ?store= > saved choice > US, and a ?store= link sticks for the next guides they open.
+     To add a store: one entry here. base replaces https://www.gpen.com on every store
+     link; register replaces /pages/register; langPrefix puts a language folder in front
+     of the path (Canada's French pages live under /fr). */
+  var STORES = {
+    us: { base: 'https://www.gpen.com', register: '/pages/register' },
+    ca: { base: 'https://ca.gpen.com', register: '/register/', langPrefix: { fr: '/fr' } }
+  };
+  var STORE_LINK = /^https?:\/\/(?:www\.)?gpen\.com(?=[\/?#]|$)/i;
+  var REGISTER = /^\/pages\/register\/?(?=[?#]|$)/;
+  var store = 'us';
+  try {
+    var qStore = ((location.search.match(/[?&]store=([a-z]{2})\b/i) || [])[1] || '').toLowerCase();
+    if (STORES[qStore]){ store = qStore; localStorage.setItem('gpen-store', store); }
+    else { var saved = localStorage.getItem('gpen-store'); if (STORES[saved]) store = saved; }
+  } catch (x) {}
+  function applyStore(){
+    if (store === 'us' && !d.querySelector('a[data-us-href]')) return;
+    var cfg = STORES[store];
+    var prefix = (cfg.langPrefix || {})[(d.documentElement.lang || 'en').slice(0, 2).toLowerCase()] || '';
+    arr(d.querySelectorAll('a[href]')).forEach(function(a){
+      /* the US address is the source of truth: a language switch re-renders some links */
+      var us = a.getAttribute('data-us-href') || a.getAttribute('href');
+      if (!STORE_LINK.test(us)) return;
+      a.setAttribute('data-us-href', us);
+      var path = us.replace(STORE_LINK, '') || '/';
+      if (REGISTER.test(path)) path = path.replace(REGISTER, cfg.register);
+      a.setAttribute('href', cfg.base + prefix + path);
+    });
+  }
+  applyStore();
+  /* a language change re-renders translated blocks and can move a Canadian visitor to the
+     French store pages, so the links are worked out again after it */
+  var langChange = window._i18n;
+  if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

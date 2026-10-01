@@ -53,6 +53,21 @@ for that visitor, same as on the brand portal (assets.gpen.com).
 Search descriptions for the translated pages live in `i18n/_meta.json`; the build stops if
 a page is missing one.
 
+**Sitemap.** `/sitemap.xml` lists every guide in every language, each with `xhtml:link`
+hreflang alternates. The G Pen stores read it twice a day to decide which product pages
+get a guide link, so keep its address and the `/<slug>/`, `/<lang>/<slug>/` paths stable.
+New guides must use the slugs the stores expect: elite-ii, micro-plus, hyer, connect, roam.
+
+**Store region (`?store=`).** The static pages link to the US store. `?store=ca` (sent by
+ca.gpen.com) switches every `https://www.gpen.com/...` link to the same path on
+ca.gpen.com, Register to `/register/`, and adds `/fr` when the page is in French. Same rule
+as `?lang=`: `?store=` > saved choice > US, and it sticks. Stores are one config object,
+`STORES` in `src/core/guide.js`; add an entry for another region. Phone and email are the
+same for every store.
+
+**Style: no em dashes** in any copy, title, description or translation; use a colon,
+comma or new sentence. Code comments may keep them.
+
 ## How it's built
 
 ```

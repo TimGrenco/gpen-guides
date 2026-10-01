@@ -14,7 +14,7 @@
         },
         {
           "id": "b2",
-          "text": "Give it a full charge before first use — takes about **1 hour**."
+          "text": "Give it a full charge before first use. It takes about **1 hour**."
         },
         {
           "id": "b3",
@@ -24,7 +24,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**Always ready:** the Melt supports pass-through charging — you can use it while it's plugged in. USB-C cable not included."
+        "text": "**Always ready:** the Melt supports pass-through charging, so you can use it while it's plugged in. USB-C cable not included."
       },
       "helpWidget": false
     },
@@ -77,11 +77,11 @@
       "bullets": [
         {
           "id": "b4",
-          "text": "**Hold the button** to heat the ceramic tip — it heats for up to **5 seconds** per hold."
+          "text": "**Hold the button** to heat the ceramic tip. It heats for up to **5 seconds** per hold."
         },
         {
           "id": "b1",
-          "text": "The tip stays hot for a moment after you let go — **don't touch it**."
+          "text": "The tip stays hot for a moment after you let go, so **don't touch it**."
         },
         {
           "id": "b2",
@@ -100,7 +100,7 @@
             "label": "Hold"
           },
           "action": "Heat tip",
-          "sub": "Hold to heat, release to stop — 150 °C / 302 °F"
+          "sub": "Hold to heat, release to stop: 150 °C / 302 °F"
         }
       ],
       "note": null,
@@ -217,12 +217,12 @@
     {
       "id": "f3",
       "question": "Does the Melt have variable heat?",
-      "answer": "No — the Melt uses a precisely tuned heating element optimized for smooth, controlled melting without burning. No settings to adjust."
+      "answer": "No. The Melt uses a precisely tuned heating element optimized for smooth, controlled melting without burning. No settings to adjust."
     },
     {
       "id": "f4",
       "question": "Can I use the Melt while it's charging?",
-      "answer": "Yes. The Melt supports USB-C pass-through charging — plug it in and keep using it without waiting."
+      "answer": "Yes. The Melt supports USB-C pass-through charging: plug it in and keep using it without waiting."
     },
     {
       "id": "f5",

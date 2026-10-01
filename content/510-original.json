@@ -38,7 +38,7 @@
       "bullets": [
         {
           "id": "b1",
-          "text": "**Screw in** your 510 cartridge — snug, not cranked."
+          "text": "**Screw in** your 510 cartridge: snug, not cranked."
         }
       ],
       "press": [],
@@ -214,7 +214,7 @@
     {
       "id": "f2",
       "question": "My cart isn't producing vapor",
-      "answer": "Make sure the cartridge is threaded in snugly — not over-tightened. Try double-pressing for a 10-second preheat to loosen thick oil, then hold the button or draw to activate."
+      "answer": "Make sure the cartridge is threaded in snugly, not over-tightened. Try double-pressing for a 10-second preheat to loosen thick oil, then hold the button or draw to activate."
     },
     {
       "id": "f3",
