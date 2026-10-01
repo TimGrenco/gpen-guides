@@ -139,6 +139,35 @@
         "text": "**Hot surface:** Do not touch the tank or tank cover for at least 5 minutes after use."
       },
       "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "images/micro-plus-video-cleaning.jpg",
+      "imageAlt": "Separating the G Pen Micro+ mouthpiece for cleaning",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Wait 5 minutes** after use before you handle the tank."
+        },
+        {
+          "id": "b2",
+          "text": "Twist off the **mouthpiece assembly**, then twist off the **tank**."
+        },
+        {
+          "id": "b3",
+          "text": "Separate the **ceramic airpath** from the mouthpiece's **silicone sleeve** to clean it."
+        },
+        {
+          "id": "b4",
+          "text": "Soak the mouthpiece in **isopropyl alcohol (ISO)** and clean the airpath with a **cotton swab**."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
     }
   ],
   "attachments": [],

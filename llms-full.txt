@@ -587,6 +587,11 @@ Guide: https://help.gpen.com/micro-plus/
     - Manual heat (Hold): Hold button · up to 10 seconds max
     - Auto heat (2x): Double-click · 10 seconds, then stops automatically
     - Note: Hot surface: Do not touch the tank or tank cover for at least 5 minutes after use.
+5. **Clean**
+    - Wait 5 minutes after use before you handle the tank.
+    - Twist off the mouthpiece assembly, then twist off the tank.
+    - Separate the ceramic airpath from the mouthpiece's silicone sleeve to clean it.
+    - Soak the mouthpiece in isopropyl alcohol (ISO) and clean the airpath with a cotton swab.
 
 ### Specs
 
@@ -650,7 +655,12 @@ Guide: https://help.gpen.com/hyer/
     - Draw through your glass piece while the session runs.
     - Single click or wait for the timer to end the session.
     - Activate session (2x): Double-click to start
-    - Note: After your session: Wait at least 1 minute, then wipe the quartz chamber with a cotton swab while still warm.
+5. **Clean**
+    - After the session ends, wait at least 1 minute.
+    - Remove the tank cap. Screw your dab tool into its top or side hole for easy removal.
+    - Wipe down the quartz chamber with a cotton swab.
+    - Keep the connection points clean so the tank connects properly.
+    - Note: Tank life: replace the quartz tank after about 200 power cycles for the best performance.
 
 ### Specs
 
@@ -680,7 +690,7 @@ Press the power button once while the device is off. The 5 LED dots show remaini
 
 **Vapor flavor or density is off**
 
-Clean the quartz chamber regularly with a cotton swab after sessions while still warm. Residue buildup is the most common cause of off flavor. Try a lower heat level for a cleaner, more flavorful draw.
+Wipe the quartz chamber with a cotton swab after sessions, waiting at least 1 minute after the session ends. Residue buildup is the most common cause of off flavor. Try a lower heat level for a cleaner, more flavorful draw.
 
 **How do I change the session timer?**
 

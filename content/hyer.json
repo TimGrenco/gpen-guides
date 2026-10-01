@@ -142,9 +142,38 @@
           "sub": "Double-click to start"
         }
       ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "images/hyer-step-02-setup.jpg",
+      "imageAlt": "G Pen Hyer quartz chamber with the tank cap removed",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "After the session ends, **wait at least 1 minute**."
+        },
+        {
+          "id": "b2",
+          "text": "Remove the **tank cap**. Screw your dab tool into its top or side hole for easy removal."
+        },
+        {
+          "id": "b3",
+          "text": "**Wipe down the quartz chamber** with a **cotton swab**."
+        },
+        {
+          "id": "b4",
+          "text": "Keep the **connection points** clean so the tank connects properly."
+        }
+      ],
+      "press": [],
       "note": {
         "type": "tip",
-        "text": "**After your session:** Wait at least 1 minute, then wipe the quartz chamber with a cotton swab while still warm."
+        "text": "**Tank life:** replace the quartz tank after about **200 power cycles** for the best performance."
       },
       "helpWidget": false
     }
@@ -231,7 +260,7 @@
     {
       "id": "f3",
       "question": "Vapor flavor or density is off",
-      "answer": "Clean the quartz chamber regularly with a cotton swab after sessions while still warm. Residue buildup is the most common cause of off flavor. Try a lower heat level for a cleaner, more flavorful draw."
+      "answer": "Wipe the quartz chamber with a cotton swab after sessions, waiting at least 1 minute after the session ends. Residue buildup is the most common cause of off flavor. Try a lower heat level for a cleaner, more flavorful draw."
     },
     {
       "id": "f4",

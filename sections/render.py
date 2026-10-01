@@ -111,10 +111,12 @@ def render_badge(badge):
     if kind == "pill":
         return "press-badge press-hold", "", htmllib.escape(badge["label"], quote=False)
     if kind == "text":
-        return "press-badge", "", htmllib.escape(badge["value"], quote=False)
+        # a symbol-only badge (▲▼, +/−) would be read out as noise: the row's text says it
+        hide = "" if re.search(r"[^\W_]", badge["value"].replace("−", "")) else ' aria-hidden="true"'
+        return "press-badge", hide, htmllib.escape(badge["value"], quote=False)
     if kind == "arrows":
         return ("press-badge",
-                ' style="display:flex;align-items:center;justify-content:center;gap:3px"',
+                ' aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:3px"',
                 "<span>◀</span><span>▶</span>")
     raise ValueError(f"unknown badge kind {kind!r}")
 

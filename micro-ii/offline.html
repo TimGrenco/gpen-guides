@@ -943,6 +943,14 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
 .cs-btn:active{transform:scale(.985)}
 .cs-hours{text-align:center; color:#A1A7AF; font-weight:700; font-size:14.5px; letter-spacing:.02em; margin:20px 0 0}
 .cs + footer{margin-top:0; border-top:0}
+
+/* a small phone held sideways (568x320): the bottom nav would cover a third of the screen */
+@media (max-width:639px) and (max-height:420px){ .bottom-nav{display:none!important} html{scroll-padding-bottom:0} }
+/* Windows high contrast / forced colors: the current section and the current product stay marked */
+@media (forced-colors:active){
+  [aria-current="true"]{outline:2px solid CanvasText; outline-offset:-3px}
+  .bottom-nav [aria-current="true"] svg{forced-color-adjust:auto}
+}
 </style>
 </head>
 <body>
