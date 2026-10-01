@@ -155,8 +155,13 @@ header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-displ
 .dev-name{hyphens:auto; -webkit-hyphens:auto; overflow-wrap:break-word}
 /* long one-word labels (Swedish "Koncentratvaporizer") need the room on the narrowest phones */
 @media (max-width:359px){.dev{grid-template-columns:96px minmax(0,1fr); column-gap:12px}}
-.dev-head .tag{display:inline-block; margin-top:8px; padding:3px 9px; border-radius:999px;
-  background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); font-size:12px; font-weight:700}
+.older-title{font-family:var(--f-body); font-weight:700; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin:28px 0 12px; padding-top:20px; border-top:1px solid var(--line)}
+.dev{scroll-margin-top:68px}
+.dev:target{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent), var(--shadow)}
+.dev-go.dev-help{background:var(--surface); color:var(--ink); border:1px solid var(--line)}
+.dev-go.dev-help:hover{background:var(--surface-2)}
+#support{scroll-margin-top:68px}
 .dev-cues{grid-area:cues; min-width:0}
 .dev-cues ul{margin:6px 0 0; padding:0; list-style:none; display:grid; gap:6px}
 .dev-cues li{position:relative; padding-left:17px; color:var(--ink-2); font-size:15px; line-height:1.4}
@@ -583,7 +588,7 @@ section{scroll-margin-top:64px}
       <h2 class="group-title" id="idg-dryherb" data-i18n="grp_dryherb">Urządzenia do suszu</h2>
       <p class="group-sub" data-i18n="id_sub_dryherb">Zmielony susz trafia do podgrzewanej komory.</p>
       <div class="grid">
-        <article class="dev">
+        <article class="dev" id="dash-ii">
           <a class="dev-photo" href="../dash-ii/" tabindex="-1" aria-hidden="true"><img src="../../dash-ii/img/dash-ii-card.png" srcset="../../dash-ii/img/dash-ii-card-160.webp 160w, ../../dash-ii/img/dash-ii-card-320.webp 320w, ../../dash-ii/img/dash-ii-card-640.webp 640w" sizes="112px" alt="" width="1304" height="1304"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../dash-ii/">G Pen Dash II</a></h3>
@@ -599,7 +604,7 @@ section{scroll-margin-top:64px}
           </div>
           <a class="dev-go" href="../dash-ii/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
-        <article class="dev">
+        <article class="dev" id="dash-plus">
           <a class="dev-photo" href="../dash-plus/" tabindex="-1" aria-hidden="true"><img src="../../dash-plus/img/dash-plus-card.png" srcset="../../dash-plus/img/dash-plus-card-160.webp 160w, ../../dash-plus/img/dash-plus-card-320.webp 320w, ../../dash-plus/img/dash-plus-card-640.webp 640w" sizes="112px" alt="" width="1306" height="1306"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../dash-plus/">G Pen Dash+</a></h3>
@@ -615,7 +620,7 @@ section{scroll-margin-top:64px}
           </div>
           <a class="dev-go" href="../dash-plus/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
-        <article class="dev">
+        <article class="dev" id="grinder">
           <a class="dev-photo" href="../grinder/" tabindex="-1" aria-hidden="true"><img src="../../grinder/img/grinder-card.png" srcset="../../grinder/img/grinder-card-160.webp 160w, ../../grinder/img/grinder-card-320.webp 320w, ../../grinder/img/grinder-card-640.webp 640w" sizes="112px" alt="" width="648" height="648" loading="lazy"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../grinder/">G Pen 3-Piece Slim Grinder</a></h3>
@@ -632,13 +637,33 @@ section{scroll-margin-top:64px}
           <a class="dev-go" href="../grinder/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
       </div>
+      <h3 class="older-title" data-i18n="legacy_title">Starsze produkty</h3>
+      <div class="grid">
+        <article class="dev" id="elite-ii">
+          <div class="dev-photo"><img src="../../identify/img/elite-ii-card-320.webp" srcset="../../identify/img/elite-ii-card-160.webp 160w, ../../identify/img/elite-ii-card-320.webp 320w, ../../identify/img/elite-ii-card-640.webp 640w" sizes="112px" alt="" width="1560" height="1560" loading="lazy"></div>
+          <div class="dev-head">
+            <h4 class="dev-name">G Pen Elite II</h4>
+            <span class="eyebrow" data-i18n="cat_elite-ii">Waporyzator do suszu</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">Cechy rozpoznawcze</p>
+            <ul>
+              <li data-i18n="id_elite-ii_1">Wysoka, smukła obudowa z błyszczącym czarnym panelem przednim</li>
+              <li data-i18n="id_elite-ii_2">Srebrny ustnik na górze</li>
+              <li data-i18n="id_elite-ii_3">Wyświetlacz z przodu, który świeci po włączeniu urządzenia</li>
+            </ul>
+          </div>
+          <a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">Poproś obsługę o pomoc</span><span aria-hidden="true">↓</span></a>
+        </article>
+      </div>
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_elite_t">Myślisz, że to Elite II?</p><p data-i18n="id_tip_elite">Elite II jest wyższy i smuklejszy niż Dash II i Dash+, ma błyszczący czarny panel przedni i srebrny ustnik na górze. Dash II ma okrągły panel przycisków + i −. Dash+ ma kwadratowy przycisk nad kolorowym wyświetlaczem.</p></aside>
       <aside class="tip"><p class="tip-t" data-i18n="id_tip_dash_t">Dash II czy Dash+?</p><p data-i18n="id_tip_dash">Dash+ ma kolorowy wyświetlacz z okrągłym pierścieniem temperatury. Dash II ma okrągły panel przycisków + i − oraz mały wyświetlacz przy dole.</p></aside>
     </section>
     <section class="group" id="id-concentrate" aria-labelledby="idg-concentrate">
       <h2 class="group-title" id="idg-concentrate" data-i18n="grp_concentrate">Urządzenia do koncentratów</h2>
       <p class="group-sub" data-i18n="id_sub_concentrate">Do wosku, shattera, rosinu i innych koncentratów.</p>
       <div class="grid">
-        <article class="dev">
+        <article class="dev" id="micro-ii">
           <a class="dev-photo" href="../micro-ii/" tabindex="-1" aria-hidden="true"><img src="../../micro-ii/img/micro-ii-card.png" srcset="../../micro-ii/img/micro-ii-card-160.webp 160w, ../../micro-ii/img/micro-ii-card-320.webp 320w, ../../micro-ii/img/micro-ii-card-640.webp 640w" sizes="112px" alt="" width="1350" height="1350" loading="lazy"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../micro-ii/">G Pen Micro II</a></h3>
@@ -654,7 +679,7 @@ section{scroll-margin-top:64px}
           </div>
           <a class="dev-go" href="../micro-ii/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
-        <article class="dev">
+        <article class="dev" id="melt">
           <a class="dev-photo" href="../melt/" tabindex="-1" aria-hidden="true"><img src="../../melt/img/melt-card.png" srcset="../../melt/img/melt-card-160.webp 160w, ../../melt/img/melt-card-320.webp 320w, ../../melt/img/melt-card-640.webp 640w" sizes="112px" alt="" width="1342" height="1342" loading="lazy"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../melt/">G Pen Melt</a></h3>
@@ -671,13 +696,82 @@ section{scroll-margin-top:64px}
           <a class="dev-go" href="../melt/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
       </div>
+      <h3 class="older-title" data-i18n="legacy_title">Starsze produkty</h3>
+      <div class="grid">
+        <article class="dev" id="micro-plus">
+          <div class="dev-photo"><img src="../../identify/img/micro-plus-card-320.webp" srcset="../../identify/img/micro-plus-card-160.webp 160w, ../../identify/img/micro-plus-card-320.webp 320w, ../../identify/img/micro-plus-card-640.webp 640w" sizes="112px" alt="" width="1328" height="1328" loading="lazy"></div>
+          <div class="dev-head">
+            <h4 class="dev-name">G Pen Micro+</h4>
+            <span class="eyebrow" data-i18n="cat_micro-plus">Waporyzator do koncentratów</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">Cechy rozpoznawcze</p>
+            <ul>
+              <li data-i18n="id_micro-plus_1">Smukły kształt długopisu ze zwężającym się ustnikiem</li>
+              <li data-i18n="id_micro-plus_2">Jeden owalny przycisk z przodu</li>
+              <li data-i18n="id_micro-plus_3">Odkręcany ustnik i zbiornik, a pod nimi ceramiczna komora</li>
+            </ul>
+          </div>
+          <a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">Poproś obsługę o pomoc</span><span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="dev" id="hyer">
+          <div class="dev-photo"><img src="../../identify/img/hyer-card-320.webp" srcset="../../identify/img/hyer-card-160.webp 160w, ../../identify/img/hyer-card-320.webp 320w, ../../identify/img/hyer-card-640.webp 640w" sizes="112px" alt="" width="1616" height="1616" loading="lazy"></div>
+          <div class="dev-head">
+            <h4 class="dev-name">G Pen Hyer</h4>
+            <span class="eyebrow" data-i18n="cat_hyer">Waporyzator do koncentratów</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">Cechy rozpoznawcze</p>
+            <ul>
+              <li data-i18n="id_hyer_1">Bateria w kształcie pudełka z pięcioma diodami LED i przyciskami ze strzałkami</li>
+              <li data-i18n="id_hyer_2">Kabel do grzałki pasującej do szklanego riga</li>
+              <li data-i18n="id_hyer_3">Pokrywka zbiornika z bocznym otworem na narzędzie do dabów</li>
+            </ul>
+          </div>
+          <a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">Poproś obsługę o pomoc</span><span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="dev" id="connect">
+          <div class="dev-photo"><img src="../../identify/img/connect-card-320.webp" srcset="../../identify/img/connect-card-160.webp 160w, ../../identify/img/connect-card-320.webp 320w, ../../identify/img/connect-card-640.webp 640w" sizes="112px" alt="" width="1598" height="1598" loading="lazy"></div>
+          <div class="dev-head">
+            <h4 class="dev-name">G Pen Connect</h4>
+            <span class="eyebrow" data-i18n="cat_connect">Waporyzator do koncentratów</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">Cechy rozpoznawcze</p>
+            <ul>
+              <li data-i18n="id_connect_1">Pionowy zbiornik z nadrukiem „Connect”</li>
+              <li data-i18n="id_connect_2">Blok baterii przymocowany z boku zbiornika</li>
+              <li data-i18n="id_connect_3">Szklany adapter na dole, pasujący do bonga</li>
+            </ul>
+          </div>
+          <a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">Poproś obsługę o pomoc</span><span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="dev" id="roam">
+          <div class="dev-photo"><img src="../../identify/img/roam-card-320.webp" srcset="../../identify/img/roam-card-160.webp 160w, ../../identify/img/roam-card-320.webp 320w, ../../identify/img/roam-card-640.webp 640w" sizes="112px" alt="" width="1176" height="1176" loading="lazy"></div>
+          <div class="dev-head">
+            <h4 class="dev-name">G Pen Roam</h4>
+            <span class="eyebrow" data-i18n="cat_roam">Przenośny e-rig</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">Cechy rozpoznawcze</p>
+            <ul>
+              <li data-i18n="id_roam_1">Poręczna obudowa z długim, skośnym ustnikiem na górze</li>
+              <li data-i18n="id_roam_2">Karbowana gumowa nakładka przy górze z napisem „Caution hot”</li>
+              <li data-i18n="id_roam_3">Mały wyświetlacz z boku, z dwoma przyciskami nad nim</li>
+            </ul>
+          </div>
+          <a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">Poproś obsługę o pomoc</span><span aria-hidden="true">↓</span></a>
+        </article>
+      </div>
       <aside class="tip"><p class="tip-t" data-i18n="id_tip_hydmic_t">Hydout czy Micro II?</p><p data-i18n="id_tip_hydmic">Oba mają skośną górę. Zdejmij ją: jeśli w środku jest kartridż z olejem, to Hydout. Jeśli jest tam ceramiczna komora na koncentraty, to Micro II.</p></aside>
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_micro_t">Micro II czy Micro+?</p><p data-i18n="id_tip_micro">Micro+ ma kształt smukłego długopisu i zwężający się ustnik. Micro II jest szerszy, ma skośny ustnik, a pod nim karbowany pasek ułatwiający chwyt.</p></aside>
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_rig_t">Hyer czy Connect?</p><p data-i18n="id_tip_rig">Oba podłącza się do szklanego bonga. W Hyer bateria to osobne pudełko połączone z grzałką kablem. W Connect bateria zatrzaskuje się bezpośrednio z boku zbiornika.</p></aside>
     </section>
     <section class="group" id="id-510" aria-labelledby="idg-510">
       <h2 class="group-title" id="idg-510" data-i18n="grp_510">Baterie 510</h2>
       <p class="group-sub" data-i18n="id_sub_510">Fabrycznie napełniony kartridż 510 z olejem wkręcasz w baterię.</p>
       <div class="grid">
-        <article class="dev">
+        <article class="dev" id="hydout">
           <a class="dev-photo" href="../hydout/" tabindex="-1" aria-hidden="true"><img src="../../hydout/img/hero.png" srcset="../../hydout/img/hero-160.webp 160w, ../../hydout/img/hero-320.webp 320w, ../../hydout/img/hero-640.webp 640w" sizes="112px" alt="" width="658" height="658" loading="lazy"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../hydout/">G Pen Hydout</a></h3>
@@ -693,7 +787,7 @@ section{scroll-margin-top:64px}
           </div>
           <a class="dev-go" href="../hydout/"><span data-i18n="id_open">Otwórz instrukcję</span><span aria-hidden="true">→</span></a>
         </article>
-        <article class="dev">
+        <article class="dev" id="510-original">
           <a class="dev-photo" href="../510-original/" tabindex="-1" aria-hidden="true"><img src="../../510-original/img/510-original-card.png" srcset="../../510-original/img/510-original-card-160.webp 160w, ../../510-original/img/510-original-card-320.webp 320w, ../../510-original/img/510-original-card-640.webp 640w" sizes="112px" alt="" width="1011" height="1011" loading="lazy"></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../510-original/">G Pen 510 Original</a></h3>
@@ -714,7 +808,7 @@ section{scroll-margin-top:64px}
     </section>
   </div>
 
-  <div class="wrap help">
+  <div class="wrap help" id="support">
     <h3 data-i18n="id_unsure">Nadal nie wiesz?</h3>
     <p class="help-text" data-i18n="id_unsure_text">Wyślij nam zdjęcie swojego urządzenia, a powiemy ci, jaki to model.</p>
     <div class="support">

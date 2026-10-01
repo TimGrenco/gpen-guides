@@ -71,8 +71,10 @@ Dash+, Hydout vs 510 Original, Hydout vs Micro II). Linked from the home page an
 page. Strings live in `i18n/identify.json` (cues are `id_<slug>_1..3`, tips are `ID_TIPS`
 in `build.py`; a tip only appears when every device it names is published). The build
 stops if a published guide has no cues or no group, so a newly published guide can't go live
-without being identifiable. The legacy guides already have their cues, tips (Dash+ vs Elite II,
-Micro II vs Micro+, Hyer vs Connect), groups and an "Older model" tag, in all nine languages.
+without being identifiable. Older devices (`legacy` in `PRODUCTS`) are listed under each group's "Legacy products"
+heading even while their guide is hidden; until it's published their button is "Get help from
+support" and their photos are written to `identify/img/`. Every card has an anchor, so support
+can send a direct link: `help.gpen.com/identify/#elite-ii`.
 
 **Style: no em dashes** in any copy, title, description or translation; use a colon,
 comma or new sentence. Code comments may keep them.

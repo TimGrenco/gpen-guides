@@ -49,7 +49,7 @@ BASE_URL = "https://help.gpen.com/"
 INDEXNOW_KEY = "c2e3ce9201b3ccdca3b873e6e1bcbdd2"
 
 sys.path.insert(0, str(ROOT))
-from sections.render import render_product_body, compose_translations, IMG_REF_RE, keep_together  # noqa: E402
+from sections.render import render_product_body, compose_translations, IMG_REF_RE, keep_together, no_widow  # noqa: E402
 from sections.normalize import load_normalized  # noqa: E402
 from sections.schema import validate_content  # noqa: E402
 
@@ -187,6 +187,7 @@ PRODUCTS = {
         "name": "G Pen Roam",
         "category": "Portable E-Rig",
         "card_image": _CDN + "Roam_thumb_01.png?v=1768241512",
+        "id_image": "roam-card.png",   # local copy for the "Which G Pen do I have?" page
         "href": "https://www.gpen.com/products/g-pen-roam",
     },
 }
@@ -1133,19 +1134,19 @@ def build_index() -> None:
 # grouped by what goes in the device, plus tips for the look-alikes
 # ─────────────────────────────────────────────────────────────────────────────────────
 # look-alike tips (i18n id_tip_<key>, id_tip_<key>_t), each shown only when every device it
-# names is published, so a tip never mentions a hidden guide
+# names is on the page
 ID_TIPS = {
-    "dryherb": [("dash", ["dash-ii", "dash-plus"]), ("elite", ["dash-plus", "elite-ii"])],
+    "dryherb": [("elite", ["elite-ii", "dash-ii", "dash-plus"]), ("dash", ["dash-ii", "dash-plus"])],
     "concentrate": [("hydmic", ["hydout", "micro-ii"]), ("micro", ["micro-ii", "micro-plus"]),
                     ("rig", ["hyer", "connect"])],
     "510": [("510", ["hydout", "510-original"])],
 }
 
-ID_DEV = """        <article class="dev">
-          <a class="dev-photo" href="../{slug}/" tabindex="-1" aria-hidden="true"><img src="{img}"{srcset} alt=""{dims}{loading}></a>
+ID_DEV = """        <article class="dev" id="{slug}">
+          <{photo_tag} class="dev-photo"{photo_attrs}><img src="{img}"{srcset} alt=""{dims}{loading}></{photo_tag}>
           <div class="dev-head">
-            <h3 class="dev-name"><a href="../{slug}/">{name}</a></h3>
-            <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>{older}
+            <{h} class="dev-name">{name_html}</{h}>
+            <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>
           </div>
           <div class="dev-cues">
             <p class="eyebrow" data-i18n="id_look">{look}</p>
@@ -1153,47 +1154,80 @@ ID_DEV = """        <article class="dev">
 {cues}
             </ul>
           </div>
-          <a class="dev-go" href="../{slug}/"><span data-i18n="id_open">{open}</span><span aria-hidden="true">→</span></a>
+          {action}
         </article>"""
 
 
 def build_identify() -> None:
     data = json.loads((I18N_DIR / "identify.json").read_text())
     en = data["EN"]
-    esc = lambda t: htmllib.escape(keep_together(t), quote=False)
+    esc = lambda t: htmllib.escape(keep_together(no_widow(t)), quote=False)
     guides = [(s, p) for s, p in visible_products().items() if p.get("template")]
-    missing = [f"id_{s}_{n}" for s, _ in guides for n in (1, 2, 3) if not en.get(f"id_{s}_{n}")]
-    unfiled = [s for s, p in guides if p.get("group") not in {g for g, _, _ in INDEX_GROUPS}]
+    # older devices are listed whether or not their guide is published yet
+    shown = guides + [(s, p) for s, p in PRODUCTS.items() if p.get("legacy") and (s, p) not in guides]
+    has_guide = {s for s, _ in guides}
+    missing = [f"id_{s}_{n}" for s, _ in shown for n in (1, 2, 3) if not en.get(f"id_{s}_{n}")]
+    unfiled = [s for s, p in shown if p.get("group") not in {g for g, _, _ in INDEX_GROUPS}]
     if missing or unfiled:
-        raise ContentError("identify: every guide needs three 'look for' cues in i18n/identify.json "
-                           f"and a group in PRODUCTS (missing {', '.join(missing + unfiled)})")
-    published = {s for s, _ in guides}
+        raise ContentError("identify: every device on the page needs three 'look for' cues in "
+                           f"i18n/identify.json and a group in PRODUCTS (missing {', '.join(missing + unfiled)})")
+    img_dir = ROOT / "identify" / "img"          # photos of devices that have no guide folder
+    shutil.rmtree(img_dir, ignore_errors=True)
+    on_page = {s for s, _ in shown}
+    core_en = merge_translations(None)["EN"]
+
+    def card(slug, spec, n, h):
+        if slug in has_guide:
+            srcset, dims = card_srcset(slug, spec, "../", "112px")
+            img = _card_img(slug, spec, is_switcher=True)
+            photo_tag, photo_attrs = "a", f' href="../{slug}/" tabindex="-1" aria-hidden="true"'
+            name_html = f'<a href="../{slug}/">{spec["name"]}</a>'
+            action = (f'<a class="dev-go" href="../{slug}/"><span data-i18n="id_open">{esc(en["id_open"])}</span>'
+                      '<span aria-hidden="true">→</span></a>')
+        else:
+            src = SRC / (spec.get("id_image") or spec["card_image"])
+            img_dir.mkdir(parents=True, exist_ok=True)
+            parts = []
+            for w in WIDTHS_CARD:
+                name, rw, _ = webp_variant(src, w, img_dir, frame=True)
+                parts.append(f"img/{name} {rw}w")
+            with Image.open(src) as im:
+                W, H = framed(im).size
+            img = f"img/{webp_variant(src, WIDTHS_CARD[1], img_dir, frame=True)[0]}"
+            srcset, dims = f' srcset="{", ".join(dict.fromkeys(parts))}" sizes="112px"', f' width="{W}" height="{H}"'
+            photo_tag, photo_attrs, name_html = "div", "", spec["name"]
+            action = (f'<a class="dev-go dev-help" href="#support"><span data-i18n="id_help_btn">'
+                      f'{esc(en["id_help_btn"])}</span><span aria-hidden="true">↓</span></a>')
+        return ID_DEV.format(
+            slug=slug, img=img, srcset=srcset, dims=dims, loading="" if n < 2 else ' loading="lazy"',
+            photo_tag=photo_tag, photo_attrs=photo_attrs, h=h, name_html=name_html,
+            category=spec["category"], look=esc(en["id_look"]), action=action,
+            cues="\n".join(f'              <li data-i18n="id_{slug}_{i}">{esc(en[f"id_{slug}_{i}"])}</li>' for i in (1, 2, 3)))
+
     chips, blocks, n = [], [], 0
     for key, i18n_key, heading in INDEX_GROUPS:
-        members = [(s, p) for s, p in guides if p.get("group") == key]
-        if not members:
+        current = [(s, p) for s, p in shown if p.get("group") == key and not p.get("legacy")]
+        older = [(s, p) for s, p in shown if p.get("group") == key and p.get("legacy")]
+        if not current and not older:
             continue
         chips.append(f'        <a class="chip" href="#id-{key}" data-i18n="id_chip_{key}">{esc(en[f"id_chip_{key}"])}</a>')
-        cards = []
-        for slug, spec in members:
-            srcset, dims = card_srcset(slug, spec, "../", "112px")
-            cards.append(ID_DEV.format(
-                slug=slug, img=_card_img(slug, spec, is_switcher=True), srcset=srcset, dims=dims,
-                loading="" if n < 2 else ' loading="lazy"', name=spec["name"], category=spec["category"],
-                look=esc(en["id_look"]), open=esc(en["id_open"]),
-                older=(f'\n            <span class="tag" data-i18n="id_older">{esc(en["id_older"])}</span>'
-                       if spec.get("legacy") else ""),
-                cues="\n".join(f'              <li data-i18n="id_{slug}_{i}">{esc(en[f"id_{slug}_{i}"])}</li>' for i in (1, 2, 3))))
-            n += 1
+        body = []
+        if current:
+            body.append('      <div class="grid">\n' + "\n".join(card(s, p, n + i, "h3") for i, (s, p) in enumerate(current)) + "\n      </div>")
+            n += len(current)
+        if older:
+            body.append(f'      <h3 class="older-title" data-i18n="legacy_title">{esc(core_en["legacy_title"])}</h3>\n'
+                        '      <div class="grid">\n' + "\n".join(card(s, p, n + i, "h4") for i, (s, p) in enumerate(older)) + "\n      </div>")
+            n += len(older)
         tips = "".join(
             f'\n      <aside class="tip"><p class="tip-t" data-i18n="id_tip_{t}_t">{esc(en[f"id_tip_{t}_t"])}</p>'
             f'<p data-i18n="id_tip_{t}">{esc(en[f"id_tip_{t}"])}</p></aside>'
-            for t, names in ID_TIPS.get(key, []) if all(x in published for x in names))
+            for t, names in ID_TIPS.get(key, []) if all(x in on_page for x in names))
         blocks.append(
             f'    <section class="group" id="id-{key}" aria-labelledby="idg-{key}">\n'
             f'      <h2 class="group-title" id="idg-{key}" data-i18n="{i18n_key}">{heading}</h2>\n'
             f'      <p class="group-sub" data-i18n="id_sub_{key}">{esc(en[f"id_sub_{key}"])}</p>\n'
-            '      <div class="grid">\n' + "\n".join(cards) + "\n      </div>" + tips + "\n    </section>")
+            + "\n".join(body) + tips + "\n    </section>")
     page = ((SRC / "identify.template.html").read_text()
             .replace("{{ID_CHIPS}}", "\n".join(chips)).replace("{{ID_GROUPS}}", "\n".join(blocks))
             .replace("{{YEAR}}", YEAR))
