@@ -206,9 +206,9 @@
       "value": "2-Year Limited Warranty"
     },
     {
-      "id": "package-dimensions",
-      "label": "Package dimensions",
-      "value": "165 × 137 × 70 mm"
+      "id": "dimensions",
+      "label": "Dimensions",
+      "value": "140 × 100 × 30 mm"
     },
     {
       "id": "package-weight",

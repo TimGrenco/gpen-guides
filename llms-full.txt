@@ -664,7 +664,7 @@ Guide: https://help.gpen.com/hyer/
 - Charging: USB-C
 - Glass connection: 14mm male adapter (included)
 - Warranty: 2-Year Limited Warranty
-- Package dimensions: 165 × 137 × 70 mm
+- Dimensions: 140 × 100 × 30 mm
 - Package weight: 670 g
 - SKU: GPH-001-ALZZ
 - UPC: 811736026475
