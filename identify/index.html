@@ -1168,6 +1168,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
   var langChange = window._i18n;
   if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
 
+  /* ---------- deep links: /micro-ii/#faq-2 opens that answer, #help the question list ----------
+     Support sends links like these; a target inside a closed <details> would land on a
+     collapsed accordion, so every <details> around it opens first, then it scrolls into view. */
+  function openTarget(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && d.getElementById(id);
+    if (!el) return;
+    var opened = false;
+    if (id === 'help'){ var faq = el.querySelector('details.collapsible'); if (faq && !faq.open){ faq.open = true; opened = true; } }
+    for (var p = el; p; p = p.parentElement){
+      if (p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; }
+    }
+    if (opened) el.scrollIntoView({ block: 'start' });
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
+
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){
     if (!e.persisted) return;

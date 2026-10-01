@@ -248,6 +248,7 @@ def render_step(step, num, leaf_lookup, need_help_text=NEED_HELP_TEXT_EN):
     blocks = _step_body_blocks(step, id_prefix, leaf_lookup, need_help_text)
     return _fill(
         _partial("step"),
+        NUM=str(num),
         IMG_BLOCK=render_step_image(step, num),
         ZONE_KEY=f"step{num}_body",
         TITLE=render_inline(title),
@@ -291,11 +292,12 @@ def render_spec_row(spec, leaf_lookup):
     return _fill(_partial("spec-row"), LABEL=render_inline(label), VALUE=render_inline(value))
 
 
-def render_faq_item(item, leaf_lookup):
+def render_faq_item(item, leaf_lookup, num=1):
     id_prefix = f"faq.{item['id']}"
     q = _leaf(leaf_lookup, f"{id_prefix}.question", item["question"])
     a = _leaf(leaf_lookup, f"{id_prefix}.answer", item["answer"])
-    return _fill(_partial("faq-item"), QUESTION=render_inline(q), ANSWER=render_inline(no_widow(a)))
+    # id="faq-N": support can link straight to one answer (/micro-ii/#faq-2 opens it)
+    return _fill(_partial("faq-item"), NUM=str(num), QUESTION=render_inline(q), ANSWER=render_inline(no_widow(a)))
 
 
 def _video_card(video, num, leaf_lookup):
@@ -319,7 +321,7 @@ def _render_body(content, leaf_lookup, need_help_text=NEED_HELP_TEXT_EN):
     steps_html = [render_step(s, i, leaf_lookup, need_help_text) for i, s in enumerate(steps, start=1)]
     attach_html = [render_attach_item(a, i, leaf_lookup) for i, a in enumerate(content.get("attachments", []), start=1)]
     specs_html = [render_spec_row(s, leaf_lookup) for s in content.get("specs", [])]
-    faq_html = [render_faq_item(f, leaf_lookup) for f in content.get("faq", [])]
+    faq_html = [render_faq_item(f, leaf_lookup, i) for i, f in enumerate(content.get("faq", []), start=1)]
 
     video_cards, video_scalars = [], {}
     for i, v in enumerate(content.get("videos", []), start=1):

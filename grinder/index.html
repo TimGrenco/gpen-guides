@@ -987,7 +987,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <h2 class="sr-only" data-i18n="nav_use">How to use</h2>
     <ol class="steps">
 
-      <li class="step">
+      <li class="step" id="step-1">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="img/grinder-step-01-open-load.jpg" srcset="img/grinder-step-01-open-load-300.webp 300w, img/grinder-step-01-open-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Grinder with the magnetic lid off, showing the micro-rounded teeth" data-i18n-attr="alt:step1_alt" fetchpriority="high"></div>
           <div class="num">1</div>
@@ -1002,7 +1002,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
         </div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-2">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="img/grinder-step-02-grind.jpg" srcset="img/grinder-step-02-grind-300.webp 300w, img/grinder-step-02-grind-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Hand holding the closed G Pen Grinder" data-i18n-attr="alt:step2_alt"></div>
           <div class="num">2</div>
@@ -1017,7 +1017,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
         </div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-3">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="img/grinder-step-03-collect.jpg" srcset="img/grinder-step-03-collect-300.webp 300w, img/grinder-step-03-collect-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="The G Pen Grinder&#x27;s bottom collection chamber" data-i18n-attr="alt:step3_alt" loading="lazy"></div>
           <div class="num">3</div>
@@ -1032,7 +1032,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
         </div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-4">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="img/grinder-step-04-clean.jpg" srcset="img/grinder-step-04-clean-300.webp 300w, img/grinder-step-04-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Close-up of the G Pen Grinder&#x27;s micro-rounded teeth" data-i18n-attr="alt:step4_alt" loading="lazy"></div>
           <div class="num">4</div>
@@ -1124,19 +1124,19 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
       <summary data-i18n="sum_faq">Common questions</summary>
       <div class="collapsible-body">
         <div class="faq" data-i18n-zone="faq_body">
-          <details>
+          <details id="faq-1">
             <summary>Why doesn't it have a kief screen?</summary>
             <p>The screenless 3‑piece design keeps trichomes and kief mixed in with your ground flower instead of separating them out, so you get all of your flower in every session.</p>
           </details>
-          <details>
+          <details id="faq-2">
             <summary>What makes micro-rounded teeth different?</summary>
             <p>Instead of cutting and shredding like sharp teeth, the rounded teeth gently separate flower into a consistent grind. In independent testing by Orange Photonics, the micro-rounded design showed the highest post-grind THC retention of the grinder styles tested.</p>
           </details>
-          <details>
+          <details id="faq-3">
             <summary>The lid is hard to turn</summary>
             <p>The chamber is probably overfilled. Remove some flower, break up large buds by hand, and try again. If it still sticks, brush out any buildup around the teeth and threads.</p>
           </details>
-          <details>
+          <details id="faq-4">
             <summary>What grind works best in my <span class="nohy">Dash II</span> or <span class="nohy">Dash+</span>?</summary>
             <p>An even, consistent grind. About 10 twists and a few taps give you material that loads and heats evenly in the <span class="nohy">Dash II</span> and <span class="nohy">Dash+</span>.</p>
           </details>
@@ -1581,6 +1581,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
      French store pages, so the links are worked out again after it */
   var langChange = window._i18n;
   if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
+
+  /* ---------- deep links: /micro-ii/#faq-2 opens that answer, #help the question list ----------
+     Support sends links like these; a target inside a closed <details> would land on a
+     collapsed accordion, so every <details> around it opens first, then it scrolls into view. */
+  function openTarget(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && d.getElementById(id);
+    if (!el) return;
+    var opened = false;
+    if (id === 'help'){ var faq = el.querySelector('details.collapsible'); if (faq && !faq.open){ faq.open = true; opened = true; } }
+    for (var p = el; p; p = p.parentElement){
+      if (p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; }
+    }
+    if (opened) el.scrollIntoView({ block: 'start' });
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

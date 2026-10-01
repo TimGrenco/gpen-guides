@@ -989,7 +989,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <h2 class="sr-only" data-i18n="nav_use">Användning</h2>
     <ol class="steps">
 
-      <li class="step">
+      <li class="step" id="step-1">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../melt/img/melt-step-01-charge.jpg" srcset="../../melt/img/melt-step-01-charge-300.webp 300w, ../../melt/img/melt-step-01-charge-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="USB‑C-laddporten på G Pen Melt" data-i18n-attr="alt:step1_alt" fetchpriority="high"></div>
           <div class="num">1</div>
@@ -1003,7 +1003,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           <p class="note"><svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Alltid redo:</b> Melt har pass-through-laddning. Du kan använda den medan den är ansluten. USB‑C-kabel ingår inte.</span></p></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-2">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../melt/img/melt-step-02-activate.jpg" srcset="../../melt/img/melt-step-02-activate-300.webp 300w, ../../melt/img/melt-step-02-activate-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Den keramiska spetsen och knappen på G Pen Melt" data-i18n-attr="alt:step2_alt"></div>
           <div class="num">2</div>
@@ -1026,7 +1026,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           </div></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-3">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../melt/img/melt-step-03-scoop.jpg" srcset="../../melt/img/melt-step-03-scoop-300.webp 300w, ../../melt/img/melt-step-03-scoop-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="G Pen Melt tar upp koncentrat" data-i18n-attr="alt:step3_alt" loading="lazy"></div>
           <div class="num">3</div>
@@ -1049,7 +1049,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           </div></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-4">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../melt/img/melt-step-04-clean.jpg" srcset="../../melt/img/melt-step-04-clean-300.webp 300w, ../../melt/img/melt-step-04-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="640" height="640" alt="Rengöring av spetsen på G Pen Melt med en bomullspinne" data-i18n-attr="alt:step4_alt" loading="lazy"></div>
           <div class="num">4</div>
@@ -1159,27 +1159,27 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <details class="collapsible">
       <summary data-i18n="sum_faq">Vanliga frågor</summary>
       <div class="collapsible-body">
-        <div class="faq" data-i18n-zone="faq_body">          <details>
+        <div class="faq" data-i18n-zone="faq_body">          <details id="faq-1">
             <summary>Inget händer när jag trycker på knappen</summary>
             <p>Tryck snabbt fem gånger på knappen för att slå på. LED-lampan tänds som bekräftelse. Om den fortfarande inte reagerar laddar du enheten och försöker igen.</p>
           </details>
-          <details>
+          <details id="faq-2">
             <summary>Hur använder jag Melt?</summary>
             <p>Slå på den (klicka 5×), rör den keramiska spetsen mot koncentratet för att ta upp det, håll in knappen för att värma och låt det smälta rent ner i din enhet.</p>
           </details>
-          <details>
+          <details id="faq-3">
             <summary>Har Melt justerbar värme?</summary>
             <p>Nej. Melt har ett precist inställt värmeelement som är optimerat för mjuk, kontrollerad smältning utan att bränna. Inga inställningar att justera.</p>
           </details>
-          <details>
+          <details id="faq-4">
             <summary>Kan jag använda Melt medan den laddas?</summary>
             <p>Ja. Melt har pass-through-laddning via USB‑C: anslut den och fortsätt använda den utan att vänta.</p>
           </details>
-          <details>
+          <details id="faq-5">
             <summary>Är Melt lätt att ta med sig?</summary>
             <p>Den kompakta storleken (3,94" hög) och det medföljande skyddslocket gör den lätt att ta med sig, och 5×-klickspärren förhindrar oavsiktlig aktivering. Kontrollera lokala lagar och flygbolagets regler innan du reser med den.</p>
           </details>
-          <details>
+          <details id="faq-6">
             <summary>Vad täcker garantin?</summary>
             <p>Melt har <b>90 dagars begränsad garanti</b> som täcker elektroniken. Den täcker inte fysiska skador. Registrera din enhet och kontakta supporten med dina orderuppgifter.</p>
           </details></div>
@@ -1633,6 +1633,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
      French store pages, so the links are worked out again after it */
   var langChange = window._i18n;
   if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
+
+  /* ---------- deep links: /micro-ii/#faq-2 opens that answer, #help the question list ----------
+     Support sends links like these; a target inside a closed <details> would land on a
+     collapsed accordion, so every <details> around it opens first, then it scrolls into view. */
+  function openTarget(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && d.getElementById(id);
+    if (!el) return;
+    var opened = false;
+    if (id === 'help'){ var faq = el.querySelector('details.collapsible'); if (faq && !faq.open){ faq.open = true; opened = true; } }
+    for (var p = el; p; p = p.parentElement){
+      if (p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; }
+    }
+    if (opened) el.scrollIntoView({ block: 'start' });
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

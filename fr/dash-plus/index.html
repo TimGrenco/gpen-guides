@@ -989,7 +989,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <h2 class="sr-only" data-i18n="nav_use">Utilisation</h2>
     <ol class="steps">
 
-      <li class="step">
+      <li class="step" id="step-1">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../dash-plus/img/dash-plus-step-01-charge.jpg" srcset="../../dash-plus/img/dash-plus-step-01-charge-300.webp 300w, ../../dash-plus/img/dash-plus-step-01-charge-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Port de charge USB‑C du G Pen Dash+" data-i18n-attr="alt:step1_alt" fetchpriority="high"></div>
           <div class="num">1</div>
@@ -1002,7 +1002,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           <p class="note"><svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span>Câble USB‑C inclus.</span></p></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-2">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../dash-plus/img/dash-plus-step-02-load.jpg" srcset="../../dash-plus/img/dash-plus-step-02-load-300.webp 300w, ../../dash-plus/img/dash-plus-step-02-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Remplissage de la chambre à herbe sèche du G Pen Dash+" data-i18n-attr="alt:step2_alt"></div>
           <div class="num">2</div>
@@ -1017,7 +1017,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           <p class="note"><svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Capacité de ~0,3 g.</b> Un remplissage correct permet la circulation de l'air. Un remplissage excessif restreint les bouffées et réduit la qualité de la vapeur.</span></p></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-3">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../dash-plus/img/dash-plus-step-03-heat.jpg" srcset="../../dash-plus/img/dash-plus-step-03-heat-300.webp 300w, ../../dash-plus/img/dash-plus-step-03-heat-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Réglage de la température sur le G Pen Dash+" data-i18n-attr="alt:step3_alt" loading="lazy"></div>
           <div class="num">3</div>
@@ -1061,7 +1061,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           </div></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-4">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../dash-plus/img/dash-plus-step-04-draw.jpg" srcset="../../dash-plus/img/dash-plus-step-04-draw-300.webp 300w, ../../dash-plus/img/dash-plus-step-04-draw-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Inhalation avec le G Pen Dash+" data-i18n-attr="alt:step4_alt" loading="lazy"></div>
           <div class="num">4</div>
@@ -1075,7 +1075,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           <p class="note"><svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Après votre session :</b> laissez l'appareil refroidir, puis retirez l'embout et brossez la chambre et la grille filtrante de l'embout. Un nettoyage régulier préserve une saveur et un flux d'air optimaux.</span></p></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-5">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../dash-plus/img/dash-plus-step-05-clean.jpg" srcset="../../dash-plus/img/dash-plus-step-05-clean-300.webp 300w, ../../dash-plus/img/dash-plus-step-05-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="540" height="540" alt="Dash+ avec son embout magnétique retiré pour le nettoyage" data-i18n-attr="alt:step5_alt" loading="lazy"></div>
           <div class="num">5</div>
@@ -1203,23 +1203,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <details class="collapsible">
       <summary data-i18n="sum_faq">Questions fréquentes</summary>
       <div class="collapsible-body">
-        <div class="faq" data-i18n-zone="faq_body">          <details>
+        <div class="faq" data-i18n-zone="faq_body">          <details id="faq-1">
             <summary>L'appareil ne s'allume pas</summary>
             <p>Maintenez le bouton d'alimentation enfoncé pendant 4 secondes complètes. Si rien ne se passe, rechargez l'appareil. La batterie est peut-être déchargée. L'écran LED s'illumine lorsque l'appareil est allumé.</p>
           </details>
-          <details>
+          <details id="faq-2">
             <summary>Comment savoir s'il est prêt à l'emploi ?</summary>
             <p>Après avoir appuyé deux fois pour démarrer une session, l'appareil vibre deux fois lorsqu'il atteint la température réglée. Attendez environ <b>30 secondes</b> que votre matière chauffe bien, puis commencez à inhaler. Le compte à rebours de la session s'affiche à l'écran.</p>
           </details>
-          <details>
+          <details id="faq-3">
             <summary>La vapeur est faible ou a un mauvais goût</summary>
             <p>Essayez une mouture plus fine et assurez-vous que la chambre n'est pas trop remplie. Nettoyez régulièrement l'embout et le circuit d'air. L'accumulation de résidus est la cause la plus fréquente d'une vapeur réduite et d'un mauvais goût.</p>
           </details>
-          <details>
+          <details id="faq-4">
             <summary>Que signifient les codes d'erreur ?</summary>
             <p>Le <span class="nohy">Dash+</span> affiche un code lorsqu'un problème survient. <b>Surchauffe :</b> éteignez-le, attendez cinq minutes, puis rallumez-le. <b>E02</b> (problème de capteur de température) ou <b>E08</b> (résistance de chauffe non connectée) : contactez l'assistance <span class="nohy">G Pen</span>. Si le message de surchauffe revient, contactez également l'assistance.</p>
           </details>
-          <details>
+          <details id="faq-5">
             <summary>Que couvre la garantie ?</summary>
             <p>Le <span class="nohy">Dash+</span> bénéficie d'une <b>garantie limitée de 2 ans</b> couvrant l'électronique et les défauts de fabrication. Les dommages physiques ne sont pas couverts.</p>
           </details></div>
@@ -1673,6 +1673,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
      French store pages, so the links are worked out again after it */
   var langChange = window._i18n;
   if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
+
+  /* ---------- deep links: /micro-ii/#faq-2 opens that answer, #help the question list ----------
+     Support sends links like these; a target inside a closed <details> would land on a
+     collapsed accordion, so every <details> around it opens first, then it scrolls into view. */
+  function openTarget(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && d.getElementById(id);
+    if (!el) return;
+    var opened = false;
+    if (id === 'help'){ var faq = el.querySelector('details.collapsible'); if (faq && !faq.open){ faq.open = true; opened = true; } }
+    for (var p = el; p; p = p.parentElement){
+      if (p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; }
+    }
+    if (opened) el.scrollIntoView({ block: 'start' });
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

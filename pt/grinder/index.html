@@ -984,7 +984,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <h2 class="sr-only" data-i18n="nav_use">Como usar</h2>
     <ol class="steps">
 
-      <li class="step">
+      <li class="step" id="step-1">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../grinder/img/grinder-step-01-open-load.jpg" srcset="../../grinder/img/grinder-step-01-open-load-300.webp 300w, ../../grinder/img/grinder-step-01-open-load-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Dichavador G Pen sem a tampa magnética, mostrando os dentes microarredondados" data-i18n-attr="alt:step1_alt" fetchpriority="high"></div>
           <div class="num">1</div>
@@ -997,7 +997,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           </ul></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-2">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../grinder/img/grinder-step-02-grind.jpg" srcset="../../grinder/img/grinder-step-02-grind-300.webp 300w, ../../grinder/img/grinder-step-02-grind-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Mão segurando o dichavador G Pen fechado" data-i18n-attr="alt:step2_alt"></div>
           <div class="num">2</div>
@@ -1010,7 +1010,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           <p class="note"><svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.1v.2h6v-.2c0-.9.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span>Os <b>dentes microarredondados</b> separam a flor delicadamente em vez de triturá-la, ajudando a preservar terpenos e tricomas.</span></p></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-3">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../grinder/img/grinder-step-03-collect.jpg" srcset="../../grinder/img/grinder-step-03-collect-300.webp 300w, ../../grinder/img/grinder-step-03-collect-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Câmara de coleta inferior do dichavador G Pen" data-i18n-attr="alt:step3_alt" loading="lazy"></div>
           <div class="num">3</div>
@@ -1023,7 +1023,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
           </ul></div>
       </li>
 
-      <li class="step">
+      <li class="step" id="step-4">
         <div class="step-img-wrap">
           <div class="step-circle"><img src="../../grinder/img/grinder-step-04-clean.jpg" srcset="../../grinder/img/grinder-step-04-clean-300.webp 300w, ../../grinder/img/grinder-step-04-clean-450.webp 450w" sizes="(min-width:480px) 150px, (min-width:375px) 130px, 100px" width="900" height="900" alt="Detalhe dos dentes microarredondados do dichavador G Pen" data-i18n-attr="alt:step4_alt" loading="lazy"></div>
           <div class="num">4</div>
@@ -1108,19 +1108,19 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <details class="collapsible">
       <summary data-i18n="sum_faq">Perguntas frequentes</summary>
       <div class="collapsible-body">
-        <div class="faq" data-i18n-zone="faq_body">          <details>
+        <div class="faq" data-i18n-zone="faq_body">          <details id="faq-1">
             <summary>Por que ele não tem tela para kief?</summary>
             <p>O design de 3 peças sem tela mantém tricomas e kief misturados à sua flor moída em vez de separá-los, então você aproveita toda a sua flor em cada sessão.</p>
           </details>
-          <details>
+          <details id="faq-2">
             <summary>O que torna os dentes microarredondados diferentes?</summary>
             <p>Em vez de cortar e triturar como dentes afiados, os dentes arredondados separam a flor delicadamente em uma moagem uniforme. Em testes independentes realizados pela Orange Photonics, o design microarredondado apresentou a maior retenção de THC pós-moagem entre os estilos de dichavador testados.</p>
           </details>
-          <details>
+          <details id="faq-3">
             <summary>A tampa está difícil de girar</summary>
             <p>É provável que a câmara esteja cheia demais. Retire um pouco de flor, quebre os buds maiores com as mãos e tente novamente. Se ainda estiver travando, remova com uma escova qualquer acúmulo em volta dos dentes e das roscas.</p>
           </details>
-          <details>
+          <details id="faq-4">
             <summary>Qual moagem funciona melhor no meu <span class="nohy">Dash II</span> ou <span class="nohy">Dash+</span>?</summary>
             <p>Uma moagem uniforme e consistente. Cerca de 10 giros e algumas batidinhas resultam em um material que preenche a câmara e aquece de forma uniforme no <span class="nohy">Dash II</span> e no <span class="nohy">Dash+</span>.</p>
           </details></div>
@@ -1558,6 +1558,23 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
      French store pages, so the links are worked out again after it */
   var langChange = window._i18n;
   if (langChange) window._i18n = function(lang){ langChange(lang); applyStore(); };
+
+  /* ---------- deep links: /micro-ii/#faq-2 opens that answer, #help the question list ----------
+     Support sends links like these; a target inside a closed <details> would land on a
+     collapsed accordion, so every <details> around it opens first, then it scrolls into view. */
+  function openTarget(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && d.getElementById(id);
+    if (!el) return;
+    var opened = false;
+    if (id === 'help'){ var faq = el.querySelector('details.collapsible'); if (faq && !faq.open){ faq.open = true; opened = true; } }
+    for (var p = el; p; p = p.parentElement){
+      if (p.tagName === 'DETAILS' && !p.open){ p.open = true; opened = true; }
+    }
+    if (opened) el.scrollIntoView({ block: 'start' });
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
 
   /* ---------- back/forward cache: restore the page with nothing left open ---------- */
   window.addEventListener('pageshow', function(e){

@@ -94,6 +94,11 @@ with `python3 scripts/make_share_cards.py [slug ...]` (headless Chrome, the site
 wordmark) after adding a product or changing its photo. They carry no translated words, so
 one card serves all nine languages.
 
+**Links for support.** Any page section or item can be linked directly, in any language:
+`/micro-ii/#step-2` (a step), `/micro-ii/#faq-3` (one answer, opened), `/micro-ii/#help`
+(the question list, opened), `#videos`, `#upgrade`, `#specs`, `/identify/#elite-ii`.
+Steps and answers are numbered in page order, so reordering FAQ items changes their numbers.
+
 **Support footer.** Every page ends with the "Talk to our team" band
 (`sections/partials/support-footer.html`, strings `cs_*` in `i18n/_core.json`, styles in
 `src/core/core.css`), in the same voice as assets.gpen.com, with the support hours.
