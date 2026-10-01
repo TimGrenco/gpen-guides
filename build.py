@@ -135,6 +135,7 @@ PRODUCTS = {
     "elite-ii": {
         "template": "elite-ii.template.html",
         "legacy": True,
+        "group": "dryherb",
         "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Elite II",
         "category": "Dry Herb Vaporizer",
@@ -145,6 +146,7 @@ PRODUCTS = {
     "micro-plus": {
         "template": "micro-plus.template.html",
         "legacy": True,
+        "group": "concentrate",
         "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Micro+",
         "category": "Concentrate Vaporizer",
@@ -155,6 +157,7 @@ PRODUCTS = {
     "hyer": {
         "template": "hyer.template.html",
         "legacy": True,
+        "group": "concentrate",
         "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Hyer",
         "category": "Concentrate Vaporizer",
@@ -165,6 +168,7 @@ PRODUCTS = {
     "connect": {
         "template": "connect.template.html",
         "legacy": True,
+        "group": "concentrate",
         "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Connect",
         "category": "Concentrate Vaporizer",
@@ -178,6 +182,7 @@ PRODUCTS = {
     "roam": {
         "template": None,
         "legacy": True,
+        "group": "concentrate",
         "hidden": True,     # off the site for now; flip to False to bring it back
         "name": "G Pen Roam",
         "category": "Portable E-Rig",
@@ -1127,13 +1132,20 @@ def build_index() -> None:
 # "Which G Pen do I have?" (/identify/): every guide's photo with three "look for" cues,
 # grouped by what goes in the device, plus tips for the look-alikes
 # ─────────────────────────────────────────────────────────────────────────────────────
-ID_TIPS = {"dryherb": ["dash"], "concentrate": ["hydmic"], "510": ["510"]}   # i18n id_tip_<key>(_t)
+# look-alike tips (i18n id_tip_<key>, id_tip_<key>_t), each shown only when every device it
+# names is published, so a tip never mentions a hidden guide
+ID_TIPS = {
+    "dryherb": [("dash", ["dash-ii", "dash-plus"]), ("elite", ["dash-plus", "elite-ii"])],
+    "concentrate": [("hydmic", ["hydout", "micro-ii"]), ("micro", ["micro-ii", "micro-plus"]),
+                    ("rig", ["hyer", "connect"])],
+    "510": [("510", ["hydout", "510-original"])],
+}
 
 ID_DEV = """        <article class="dev">
           <a class="dev-photo" href="../{slug}/" tabindex="-1" aria-hidden="true"><img src="{img}"{srcset} alt=""{dims}{loading}></a>
           <div class="dev-head">
             <h3 class="dev-name"><a href="../{slug}/">{name}</a></h3>
-            <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>
+            <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>{older}
           </div>
           <div class="dev-cues">
             <p class="eyebrow" data-i18n="id_look">{look}</p>
@@ -1155,6 +1167,7 @@ def build_identify() -> None:
     if missing or unfiled:
         raise ContentError("identify: every guide needs three 'look for' cues in i18n/identify.json "
                            f"and a group in PRODUCTS (missing {', '.join(missing + unfiled)})")
+    published = {s for s, _ in guides}
     chips, blocks, n = [], [], 0
     for key, i18n_key, heading in INDEX_GROUPS:
         members = [(s, p) for s, p in guides if p.get("group") == key]
@@ -1168,11 +1181,14 @@ def build_identify() -> None:
                 slug=slug, img=_card_img(slug, spec, is_switcher=True), srcset=srcset, dims=dims,
                 loading="" if n < 2 else ' loading="lazy"', name=spec["name"], category=spec["category"],
                 look=esc(en["id_look"]), open=esc(en["id_open"]),
+                older=(f'\n            <span class="tag" data-i18n="id_older">{esc(en["id_older"])}</span>'
+                       if spec.get("legacy") else ""),
                 cues="\n".join(f'              <li data-i18n="id_{slug}_{i}">{esc(en[f"id_{slug}_{i}"])}</li>' for i in (1, 2, 3))))
             n += 1
         tips = "".join(
             f'\n      <aside class="tip"><p class="tip-t" data-i18n="id_tip_{t}_t">{esc(en[f"id_tip_{t}_t"])}</p>'
-            f'<p data-i18n="id_tip_{t}">{esc(en[f"id_tip_{t}"])}</p></aside>' for t in ID_TIPS.get(key, []))
+            f'<p data-i18n="id_tip_{t}">{esc(en[f"id_tip_{t}"])}</p></aside>'
+            for t, names in ID_TIPS.get(key, []) if all(x in published for x in names))
         blocks.append(
             f'    <section class="group" id="id-{key}" aria-labelledby="idg-{key}">\n'
             f'      <h2 class="group-title" id="idg-{key}" data-i18n="{i18n_key}">{heading}</h2>\n'

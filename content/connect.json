@@ -216,7 +216,7 @@
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Click the button 5 times quickly. Make sure the battery is attached to the tank — the connection must be complete for power to work. If nothing happens, charge the device first."
+      "answer": "Click the button 5 times quickly. Make sure the battery is attached to the tank. The connection must be complete for power to work. If nothing happens, charge the device first."
     },
     {
       "id": "f2",
@@ -226,12 +226,12 @@
     {
       "id": "f3",
       "question": "Vapor is thin or has poor flavor",
-      "answer": "Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly — residue buildup is the most common cause of reduced performance."
+      "answer": "Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly. Residue buildup is the most common cause of reduced performance."
     },
     {
       "id": "f4",
       "question": "Tank cover is too hot to handle",
-      "answer": "This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot — that's how it vaporizes concentrate efficiently."
+      "answer": "This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot. That's how it vaporizes concentrate efficiently."
     }
   ],
   "videos": [

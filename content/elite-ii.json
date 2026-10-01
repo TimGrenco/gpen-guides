@@ -39,7 +39,7 @@
         },
         {
           "id": "b2",
-          "text": "Fill the **ceramic oven** with ground dry herb — don't pack tight."
+          "text": "Fill the **ceramic oven** with ground dry herb. Don't pack tight."
         },
         {
           "id": "b3",
@@ -216,7 +216,7 @@
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device — the battery may be depleted."
+      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device. The battery may be depleted."
     },
     {
       "id": "f2",

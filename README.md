@@ -69,8 +69,10 @@ same for every store.
 "look for" cues, grouped by what goes in the device, plus tips for look-alikes (Dash II vs
 Dash+, Hydout vs 510 Original, Hydout vs Micro II). Linked from the home page and the 404
 page. Strings live in `i18n/identify.json` (cues are `id_<slug>_1..3`, tips are `ID_TIPS`
-in `build.py`). The build stops if a published guide has no cues or no group, so a newly
-published guide (a legacy one, say) can't go live without being identifiable.
+in `build.py`; a tip only appears when every device it names is published). The build
+stops if a published guide has no cues or no group, so a newly published guide can't go live
+without being identifiable. The legacy guides already have their cues, tips (Dash+ vs Elite II,
+Micro II vs Micro+, Hyer vs Connect), groups and an "Older model" tag, in all nine languages.
 
 **Style: no em dashes** in any copy, title, description or translation; use a colon,
 comma or new sentence. Code comments may keep them.

@@ -87,13 +87,13 @@
       "specs.upc.label": "UPC",
       "specs.upc.value": "811736023986",
       "faq.f1.question": "Device won't turn on",
-      "faq.f1.answer": "Click the button 5 times quickly. Make sure the battery is attached to the tank — the connection must be complete for power to work. If nothing happens, charge the device first.",
+      "faq.f1.answer": "Click the button 5 times quickly. Make sure the battery is attached to the tank. The connection must be complete for power to work. If nothing happens, charge the device first.",
       "faq.f2.question": "LED blinks 3 times on startup",
       "faq.f2.answer": "Three blinks usually means a short circuit or the tank isn't properly connected. Remove the battery, check the tank connection, reattach firmly, and try again.",
       "faq.f3.question": "Vapor is thin or has poor flavor",
-      "faq.f3.answer": "Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly — residue buildup is the most common cause of reduced performance.",
+      "faq.f3.answer": "Try a higher voltage setting (3× to cycle). Make sure the concentrate is on the ceramic plate, not the walls of the chamber. Clean the tank regularly. Residue buildup is the most common cause of reduced performance.",
       "faq.f4.question": "Tank cover is too hot to handle",
-      "faq.f4.answer": "This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot — that's how it vaporizes concentrate efficiently.",
+      "faq.f4.answer": "This is normal after consecutive max-heat sessions. Wait at least 2 minutes before touching the tank cover. The tank surface is designed to get hot. That's how it vaporizes concentrate efficiently.",
       "video.v1.title": "Using the Connect",
       "video.v2.title": "Cleaning the Connect"
     }
@@ -582,13 +582,13 @@
       "specs.upc.label": "UPC",
       "specs.upc.value": "811736023986",
       "faq.f1.question": "O dispositivo não liga",
-      "faq.f1.answer": "Clique no botão 5 vezes rapidamente. Verifique se a bateria está conectada ao tanque — a conexão precisa estar completa para o aparelho funcionar. Se nada acontecer, carregue o dispositivo primeiro.",
+      "faq.f1.answer": "Clique no botão 5 vezes rapidamente. Verifique se a bateria está conectada ao tanque. A conexão precisa estar completa para o aparelho funcionar. Se nada acontecer, carregue o dispositivo primeiro.",
       "faq.f2.question": "O LED pisca 3 vezes ao ligar",
       "faq.f2.answer": "Três piscadas geralmente indicam um curto-circuito ou que o tanque não está conectado corretamente. Remova a bateria, verifique a conexão do tanque, encaixe-a com firmeza e tente novamente.",
       "faq.f3.question": "O vapor está fraco ou com pouco sabor",
-      "faq.f3.answer": "Tente uma voltagem mais alta (3× para alternar). Certifique-se de que o concentrado está na placa de cerâmica, e não nas paredes da câmara. Limpe o tanque regularmente — o acúmulo de resíduos é a causa mais comum de queda de desempenho.",
+      "faq.f3.answer": "Tente uma voltagem mais alta (3× para alternar). Certifique-se de que o concentrado está na placa de cerâmica, e não nas paredes da câmara. Limpe o tanque regularmente. O acúmulo de resíduos é a causa mais comum de queda de desempenho.",
       "faq.f4.question": "A tampa do tanque está quente demais para tocar",
-      "faq.f4.answer": "Isso é normal após sessões consecutivas em calor máximo. Aguarde pelo menos 2 minutos antes de tocar na tampa do tanque. A superfície do tanque foi projetada para esquentar — é assim que ele vaporiza o concentrado com eficiência.",
+      "faq.f4.answer": "Isso é normal após sessões consecutivas em calor máximo. Aguarde pelo menos 2 minutos antes de tocar na tampa do tanque. A superfície do tanque foi projetada para esquentar. É assim que ele vaporiza o concentrado com eficiência.",
       "video.v1.title": "Usando o Connect",
       "video.v2.title": "Limpando o Connect"
     }

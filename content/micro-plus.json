@@ -208,12 +208,12 @@
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Click the button 5 times quickly. If nothing happens, charge the device — the LED will turn red when charging. Make sure the tank is fully twisted onto the battery before trying again."
+      "answer": "Click the button 5 times quickly. If nothing happens, charge the device. The LED will turn red when charging. Make sure the tank is fully twisted onto the battery before trying again."
     },
     {
       "id": "f2",
       "question": "Vapor is thin or weak",
-      "answer": "Try a higher heat setting. Make sure the concentrate is loaded into the chamber (not on the walls). Clean the tank regularly — residue buildup on the ceramic reduces efficiency."
+      "answer": "Try a higher heat setting. Make sure the concentrate is loaded into the chamber (not on the walls). Clean the tank regularly. Residue buildup on the ceramic reduces efficiency."
     },
     {
       "id": "f3",

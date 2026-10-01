@@ -18,7 +18,7 @@
         },
         {
           "id": "b3",
-          "text": "Press the power button once while off to check battery — **5 LEDs = full, 1 LED = low**."
+          "text": "Press the power button once while off to check battery: **5 LEDs = full, 1 LED = low**."
         }
       ],
       "press": [],
@@ -43,7 +43,7 @@
         },
         {
           "id": "b3",
-          "text": "Place the **tank cap** on top — thread your dab tool into the side hole for easy access."
+          "text": "Place the **tank cap** on top. Thread your dab tool into the side hole for easy access."
         }
       ],
       "press": [],
@@ -225,12 +225,12 @@
     {
       "id": "f1",
       "question": "Device won't turn on",
-      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device. Press the power button once while off to check the battery level — only 1 LED lit means it needs a charge."
+      "answer": "Hold the power button for a full 3 seconds. If nothing happens, charge the device. Press the power button once while off to check the battery level. Only 1 LED lit means it needs a charge."
     },
     {
       "id": "f2",
       "question": "How do I check the battery level?",
-      "answer": "Press the power button once while the device is off. The 5 LED dots show remaining charge — 1 LED means 0–20%, 5 LEDs means 80–100%."
+      "answer": "Press the power button once while the device is off. The 5 LED dots show remaining charge: 1 LED means 0–20%, 5 LEDs means 80–100%."
     },
     {
       "id": "f3",
@@ -240,7 +240,7 @@
     {
       "id": "f4",
       "question": "How do I change the session timer?",
-      "answer": "While the device is on, hold the Left and Right buttons simultaneously for 2 seconds. Each press cycles through 15, 30, 45, 60, or 75 seconds. The concentrate timer applies to the Concentrates Tank — the dry herb timer cycles separately if you have the dry herb tank attachment."
+      "answer": "While the device is on, hold the Left and Right buttons simultaneously for 2 seconds. Each press cycles through 15, 30, 45, 60, or 75 seconds. The concentrate timer applies to the Concentrates Tank. The dry herb timer cycles separately if you have the dry herb tank attachment."
     }
   ],
   "videos": [
