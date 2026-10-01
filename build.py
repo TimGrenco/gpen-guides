@@ -200,9 +200,9 @@ def _card_href(s: str, spec: dict) -> tuple[str, str]:
 
 # Home page sections, in order: (group key, i18n key, English heading).
 INDEX_GROUPS = [
-    ("510", "grp_510", "510 Batteries"),
-    ("concentrate", "grp_concentrate", "Concentrate Devices"),
     ("dryherb", "grp_dryherb", "Dry Herb Devices"),
+    ("concentrate", "grp_concentrate", "Concentrate Devices"),
+    ("510", "grp_510", "510 Batteries"),
 ]
 
 CARD = """      <a class="card" href="{href}" {extattr}>
