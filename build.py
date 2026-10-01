@@ -255,9 +255,11 @@ ARROW_SVG = ('<svg viewBox="0 0 20 20" aria-hidden="true">'
              '<path d="M7 4.5 15.5 10 7 15.5Z" fill="currentColor"/></svg>')
 
 
-def share_image(name: str) -> str | None:
+def share_image(name: str, folder: str = "") -> str | None:
     """Absolute URL of a page's link-preview card (src/share/<name>.jpg, published to
     /core/share/); None if that card hasn't been rendered yet."""
+    if folder and name == "home" and (SRC / "share" / f"home-{folder}.jpg").exists():
+        name = f"home-{folder}"      # the home card carries words, so it comes per language
     return f"{BASE_URL}core/share/{name}.jpg" if (SRC / "share" / f"{name}.jpg").exists() else None
 
 
@@ -407,8 +409,9 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
             "<script>(function(){try{var F=%s,s=null,m=location.search.match(/[?&]lang=([a-z]{2})\\b/i);"
             "if(m){s=m[1].toUpperCase();if(s==='EN'||F[s]){try{localStorage.setItem('gpen-lang',s)}catch(e){}}else s=null}"
             "else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
-            "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN');"
-            "if(L!=='EN'){var q=location.search.replace(/([?&])lang=[a-z]{2}\\b&?/i,'$1').replace(/[?&]$/,'');"
+            "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN'),"
+            "t=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type;"
+            "if(L!=='EN'&&t!=='back_forward'){var q=location.search.replace(/([?&])lang=[a-z]{2}\\b&?/i,'$1').replace(/[?&]$/,'');"
             "location.replace('/'+F[L]+'/%s'+q+location.hash)}}catch(e){}})();</script>" % (folders, lang_path))
     elif not translated:   # the 404 page and the offline copies still translate in place
         out += [
@@ -684,7 +687,8 @@ def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, tit
         page = re.sub(r"<title>.*?</title>", f"<title>{htmllib.escape(title, quote=False)}</title>", page, count=1, flags=re.S)
         page = DESC_RE.sub(lambda m: m.group(0).replace(m.group(1), htmllib.escape(desc, quote=True)), page, count=1)
         here = f"/{folder}/{path}"
-        page = page.replace("</body>", lang_switch_script(key, path, here) + "</body>", 1)
+        # opening a /pl/ link someone shared isn't a choice: only the menu (or ?lang=) saves one
+        page = page.replace("</body>", lang_switch_script(key, path, here, save=False) + "</body>", 1)
         page = inject_core(page, head_for(key, folder, title, desc))
         page = relocate(page, "/" + path, here, page_paths, folder)
         left = sorted(set(re.findall(r"\{\{[^{}]{1,60}\}\}", page)))
@@ -1215,7 +1219,7 @@ def build_index() -> None:
     use = {k: v.get("shell", {}).get("nav_use", "How to use") for k, v in (load_i18n("hydout") or {}).items()}
     def head_for(key, folder, t, d):
         jl = index_jsonld(t, d, LANG_NAMES[key], folder, "{}: " + use.get(key, "How to use"))
-        return core_head("", False, f"{BASE_URL}{folder}/", t, d, og_image, jsonld=jl,
+        return core_head("", False, f"{BASE_URL}{folder}/", t, d, share_image("home", folder), jsonld=jl,
                          alts=alternates(""), translated=True)
     write_lang_pages(page_plain, "", titled("doc_title_index"), "index",
                      lambda key, strings: strings["doc_title_index"], head_for)
@@ -1225,7 +1229,7 @@ def build_index() -> None:
     notice = ('<p class="notfound" data-i18n="nf_text">We couldn\'t find that page. '
               'Pick your device below to get to its guide.</p>\n')
     nf = inject_i18n(page_plain, titled("doc_title_404"))
-    nf = nf.replace("<head>", f'<head>\n<base href="{BASE_URL}">', 1)
+    nf = nf.replace("<head>", f'<head>\n<base href="{BASE_URL}">\n{alias_script()}', 1)
     nf = nf.replace("<title>", "<title>Page not found: ", 1)
     nf = nf.replace('  <div class="wrap list">', f'  <div class="wrap">{notice}  </div>\n  <div class="wrap list">', 1)
     nf = inject_core(nf, core_head("", False, BASE_URL, "Page not found: G Pen Product Guides", desc, None, noindex=True))
@@ -1367,11 +1371,36 @@ def build_identify() -> None:
 
     core_t = merge_translations(None)
     def head_for(key, folder, t, d):
-        return core_head("../", False, f"{BASE_URL}{folder}/identify/", t, d, og_image,
+        return core_head("../", False, f"{BASE_URL}{folder}/identify/", t, d, share_image("home", folder),
                          jsonld=jsonld(t, d, LANG_NAMES[key], folder, core_t[key].get("doc_title_index", "G Pen Product Guides")),
                          alts=alternates("identify/"), translated=True)
     write_lang_pages(pre, "identify/", translations, "identify",
                      lambda key, strings: strings.get("doc_title_identify") or title, head_for)
+
+
+# Addresses people type or misread off a box, sent to the right guide by the 404 page
+# (GitHub Pages is case-sensitive and has no server-side redirects).
+ALIASES = {
+    "dashplus": "dash-plus", "dash+": "dash-plus", "dash%2b": "dash-plus", "dash-+": "dash-plus",
+    "dash": "dash-ii", "dash2": "dash-ii", "dash-2": "dash-ii", "dashii": "dash-ii",
+    "micro": "micro-ii", "micro2": "micro-ii", "micro-2": "micro-ii", "microii": "micro-ii",
+    "microplus": "micro-plus", "micro+": "micro-plus", "micro%2b": "micro-plus",
+    "elite": "elite-ii", "elite2": "elite-ii", "elite-2": "elite-ii", "eliteii": "elite-ii",
+    "510": "510-original", "510original": "510-original", "original": "510-original",
+    "hydout-510": "hydout", "hideout": "hydout", "grinders": "grinder", "3-piece-grinder": "grinder",
+    "melt-hot-knife": "melt", "hot-knife": "melt", "hyer-erig": "hyer", "roam-erig": "roam",
+}
+
+
+def alias_script() -> str:
+    """For the 404 page: /HYDOUT/, /dashplus, /es/Micro2/ ... go to the guide they meant."""
+    known = sorted(s for s, sp in visible_products().items() if sp.get("template")) + ["identify"]
+    aliases = {k: v for k, v in ALIASES.items() if v in known}
+    folders = "|".join(f for _, f, _ in LANG_PAGES)
+    return ("<script>(function(){try{var K=%s,A=%s,m=location.pathname.toLowerCase().match("
+            "/^(\\/(?:%s))?\\/([^\\/]+)\\/?$/);if(!m)return;var t=A[m[2]]||(K.indexOf(m[2])>=0?m[2]:null),"
+            "u=(m[1]||'')+'/'+t+'/';if(t&&u!==location.pathname)location.replace(u+location.search+location.hash)}catch(e){}})();</script>"
+            % (json.dumps(known, separators=(",", ":")), json.dumps(aliases, separators=(",", ":")), folders))
 
 
 def build_seo_files() -> None:

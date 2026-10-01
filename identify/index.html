@@ -177,10 +177,12 @@ header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-displ
 .tip p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.5}
 .tip .tip-t{color:var(--ink)}
 .help-text{color:var(--ink-2); margin:-4px 0 14px; max-width:52ch}
+.help-mail{color:var(--ink); font-weight:700; text-decoration:underline; text-decoration-color:var(--accent);
+  text-decoration-thickness:2px; text-underline-offset:4px}
 </style>
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
-<script>(function(){try{var F={"ES":"es","DE":"de","IT":"it","FR":"fr","PT":"pt","SV":"sv","PL":"pl","DA":"da"},s=null,m=location.search.match(/[?&]lang=([a-z]{2})\b/i);if(m){s=m[1].toUpperCase();if(s==='EN'||F[s]){try{localStorage.setItem('gpen-lang',s)}catch(e){}}else s=null}else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN');if(L!=='EN'){var q=location.search.replace(/([?&])lang=[a-z]{2}\b&?/i,'$1').replace(/[?&]$/,'');location.replace('/'+F[L]+'/identify/'+q+location.hash)}}catch(e){}})();</script>
+<script>(function(){try{var F={"ES":"es","DE":"de","IT":"it","FR":"fr","PT":"pt","SV":"sv","PL":"pl","DA":"da"},s=null,m=location.search.match(/[?&]lang=([a-z]{2})\b/i);if(m){s=m[1].toUpperCase();if(s==='EN'||F[s]){try{localStorage.setItem('gpen-lang',s)}catch(e){}}else s=null}else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN'),t=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type;if(L!=='EN'&&t!=='back_forward'){var q=location.search.replace(/([?&])lang=[a-z]{2}\b&?/i,'$1').replace(/[?&]$/,'');location.replace('/'+F[L]+'/identify/'+q+location.hash)}}catch(e){}})();</script>
 <link rel="preload" href="../core/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../core/fonts/lato-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../core/fonts/kanit-800i-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -871,7 +873,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
 
   <div class="wrap help">
     <h2 data-i18n="id_unsure">Still not sure?</h2>
-    <p class="help-text" data-i18n="id_unsure_text">Send us a photo of your device and we'll tell you which one it is.</p>
+    <p class="help-text"><a class="help-mail" href="mailto:help@gpen.com" data-i18n="id_unsure_text">Send us a photo of your device and we'll tell you which one it is.</a></p>
     
   </div>
 

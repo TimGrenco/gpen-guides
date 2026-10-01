@@ -111,7 +111,7 @@ def guide_card(slug: str, spec: dict, tmp: pathlib.Path) -> None:
           tmp, slug)
 
 
-def home_card(tmp: pathlib.Path) -> None:
+def home_card(tmp: pathlib.Path, lang: str = "EN", folder: str = "") -> None:
     lineup = [(s, p) for s, p in build.visible_products().items() if p.get("template") and not p.get("legacy")]
     def tag(s, p):
         f = card_photo(p, tmp, s, tight=True)
@@ -119,8 +119,10 @@ def home_card(tmp: pathlib.Path) -> None:
             wide = im.width > im.height * 1.2     # the grinder lies flat: size it by width
         return f'<img src="{f.as_uri()}" alt=""{" class=wide" if wide else ""}>'
     imgs = "".join(tag(s, p) for s, p in lineup)
-    shoot(page(f'<div class="wm">{WORDMARK}</div><div class="lock">Product Guides</div><div class="tag">help.gpen.com</div>'
-               f'<div class="shelf">{imgs}</div>', "home"), tmp, "home")
+    import html as h, json as j
+    title = j.loads((build.I18N_DIR / "_core.json").read_text())[lang]["idx_title"]
+    shoot(page(f'<div class="wm">{WORDMARK}</div><div class="lock">{h.escape(title)}</div><div class="tag">help.gpen.com</div>'
+               f'<div class="shelf">{imgs}</div>', "home"), tmp, "home" + (f"-{folder}" if folder else ""))
 
 
 if __name__ == "__main__":
@@ -128,7 +130,10 @@ if __name__ == "__main__":
     with tempfile.TemporaryDirectory() as t:
         tmp = pathlib.Path(t)
         if not only or "home" in only:
+            # the home card says "Product Guides", so each language gets its own
             home_card(tmp)
+            for key, folder, _ in build.LANG_PAGES:
+                home_card(tmp, key, folder)
         for slug, spec in build.visible_products().items():
             if spec.get("template") and (not only or slug in only):
                 guide_card(slug, spec, tmp)

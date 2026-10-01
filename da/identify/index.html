@@ -177,6 +177,8 @@ header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-displ
 .tip p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.5}
 .tip .tip-t{color:var(--ink)}
 .help-text{color:var(--ink-2); margin:-4px 0 14px; max-width:52ch}
+.help-mail{color:var(--ink); font-weight:700; text-decoration:underline; text-decoration-color:var(--accent);
+  text-decoration-thickness:2px; text-underline-offset:4px}
 </style>
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
@@ -204,12 +206,12 @@ header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-displ
 <meta property="og:title" content="Hvilken G Pen har jeg? Identificér din enhed">
 <meta property="og:description" content="I tvivl om, hvilken G Pen du har? Sammenlign din enhed med billeder af alle nuværende vaporizere, batterier og grindere fra G Pen, og åbn derefter vejledningen.">
 <meta property="og:url" content="https://help.gpen.com/da/identify/">
-<meta property="og:image" content="https://help.gpen.com/core/share/home.jpg">
+<meta property="og:image" content="https://help.gpen.com/core/share/home-da.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Hvilken G Pen har jeg? Identificér din enhed">
-<meta name="twitter:image" content="https://help.gpen.com/core/share/home.jpg">
+<meta name="twitter:image" content="https://help.gpen.com/core/share/home-da.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <style>
 /* G Pen Core fonts — self-hosted woff2 (SIL Open Font License), latin + latin-ext only.
@@ -870,7 +872,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
 
   <div class="wrap help">
     <h2 data-i18n="id_unsure">Stadig i tvivl?</h2>
-    <p class="help-text" data-i18n="id_unsure_text">Send os et billede af din enhed, så fortæller vi dig, hvilken det er.</p>
+    <p class="help-text"><a class="help-mail" href="mailto:help@gpen.com" data-i18n="id_unsure_text">Send os et billede af din enhed, så fortæller vi dig, hvilken det er.</a></p>
     
   </div>
 
@@ -891,7 +893,7 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
     <p class="legal">© 2026 G Pen</p>
   </footer>
 </main>
-<script>(function(){var P='DA',U={"EN":"../../identify/","ES":"../../es/identify/","DE":"../../de/identify/","IT":"../../it/identify/","FR":"../../fr/identify/","PT":"../../pt/identify/","SV":"../../sv/identify/","PL":"../../pl/identify/","DA":"./"};try{localStorage.setItem('gpen-lang',P)}catch(e){}window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}location.href=U[l]+(l==='EN'?'?lang=en':'')+location.hash}})();</script>
+<script>(function(){var P='DA',U={"EN":"../../identify/","ES":"../../es/identify/","DE":"../../de/identify/","IT":"../../it/identify/","FR":"../../fr/identify/","PT":"../../pt/identify/","SV":"../../sv/identify/","PL":"../../pl/identify/","DA":"./"};window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}location.href=U[l]+(l==='EN'?'?lang=en':'')+location.hash}})();</script>
 <script>
 /* G Pen Core — guide page behavior.
    One copy, shared by every guide page (build.py inlines it before </body>, after the
