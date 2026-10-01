@@ -99,6 +99,8 @@
                  (SUPPORTED.indexOf(navLang) >= 0 ? navLang : 'EN');
 
   if (initLang !== 'EN') applyLang(initLang);
+  /* the <head> hid the page for a non-English visitor so English never flashes first */
+  document.documentElement.classList.remove('i18n-wait');
 
   /* save chosen language to localStorage whenever the dropdown fires _i18n */
   var _orig = window._i18n;

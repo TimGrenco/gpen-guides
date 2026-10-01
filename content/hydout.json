@@ -56,7 +56,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "Fits most 510-thread cartridges up to **2g**. Cartridge sold separately."
+        "text": "Fits most 510-thread cartridges up to **2 g**. Cartridge sold separately."
       },
       "helpWidget": false
     },
@@ -112,7 +112,7 @@
             "n": 5
           },
           "action": "Turn off",
-          "sub": "Auto shut-off after 10 min"
+          "sub": "Auto shut-off after 10 minutes"
         }
       ],
       "note": {
@@ -188,7 +188,7 @@
     {
       "id": "compatibility",
       "label": "Compatibility",
-      "value": "510-thread carts up to 2g"
+      "value": "510-thread carts up to 2 g"
     },
     {
       "id": "display",
@@ -240,7 +240,7 @@
     {
       "id": "f4",
       "question": "Will my cartridge fit?",
-      "answer": "The Hydout takes standard 510-thread cartridges up to 2g. Very wide or extra-tall carts may keep the magnetic cover from seating flush."
+      "answer": "The Hydout takes standard 510-thread cartridges up to 2 g. Very wide or extra-tall carts may keep the magnetic cover from seating flush."
     },
     {
       "id": "f5",

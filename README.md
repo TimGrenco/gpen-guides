@@ -51,8 +51,8 @@ the choice sticks for that visitor, same as on the brand portal (assets.gpen.com
 content/<product>.json       steps, specs, FAQ, videos for each guide
 src/accessories.json         Upgrades cards (all products)
 src/images/                  guide images (steps, attachments, video stills)
-src/<product>.template.html  page shell: CSS, header/nav, section wrappers, scripts
-src/*-card.png, *-hero.*     index / switcher thumbnails
+src/<product>.template.html  page shell: CSS, header/nav, section wrappers (no scripts; see src/core)
+src/*-card.png, src/hero.png  index / switcher thumbnails (hero.png is the Hydout card)
 sections/                    renderer: content JSON -> HTML
   render.py                    partials/ fragments, translations, text polish
   schema.py / normalize.py     content validation + cleanup (mints IDs for new items)
@@ -81,8 +81,9 @@ sites (gpen.com, assets.gpen.com, training.gpen.com):
 
 ```
 src/core/core.css     shared rules + fixes; inlined AFTER each template's own <style>, so it wins ties
-src/core/guide.js     all page behavior: sticky header, section spy, language menu, All-guides
+src/core/guide.js     page behavior: sticky header, section spy, language menu, All-guides
                       sheet, video player (focus handling, Escape, scroll lock)
+src/i18n-runtime.js   applies the visitor's language (?lang= > saved choice > browser)
 src/core/fonts.css    self-hosted Kanit + Lato (woff2 in src/core/fonts/, published to /core/)
 src/core/favicon.svg, apple-touch-icon.png
 i18n/_core.json       shared translations
@@ -94,7 +95,8 @@ shared template shell with the per-product strings moved into content JSON.
 
 Images: `build.py` writes WebP renditions next to each image (`<name>-300.webp`,
 `-450.webp`, …) with `srcset`/`sizes` and `width`/`height`, cached in `.cache/` by
-content hash. Output is deterministic: rebuilding an unchanged tree changes no file.
+content hash. Output is deterministic: rebuilding an unchanged tree changes no file (except the
+© year on January 1). The build also writes freshly minted IDs back into `content/*.json`.
 
 ## Editing content
 
@@ -118,6 +120,10 @@ across all products (e.g. PT "bocal" for mouthpiece, FR "Boutique" for Upgrades,
 ones rather than re-translating a term differently.
 
 ## Adding a product
+
+If a product's content has a section (attachments, videos…) that its template has no
+placeholder for, `build.py` stops with an error instead of silently dropping it.
+
 
 1. Copy an existing shell to `src/<product>.template.html` — e.g.
    `src/melt.template.html`, or `src/grinder.template.html` for a guide without

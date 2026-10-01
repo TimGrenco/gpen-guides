@@ -24,7 +24,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**Always ready:** Melt supports pass-through charging — you can use it while it's plugged in. USB-C cable not included."
+        "text": "**Always ready:** the Melt supports pass-through charging — you can use it while it's plugged in. USB-C cable not included."
       },
       "helpWidget": false
     },
@@ -46,7 +46,7 @@
         },
         {
           "id": "b3",
-          "text": "Device **auto-shuts off** after 10 minutes of inactivity."
+          "text": "The device **shuts off automatically** after 10 minutes of inactivity."
         },
         {
           "id": "b4",
@@ -221,7 +221,7 @@
     },
     {
       "id": "f4",
-      "question": "Can I use Melt while it's charging?",
+      "question": "Can I use the Melt while it's charging?",
       "answer": "Yes. The Melt supports USB-C pass-through charging — plug it in and keep using it without waiting."
     },
     {

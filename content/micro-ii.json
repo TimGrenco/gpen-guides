@@ -193,7 +193,7 @@
       "id": "rig-adapter",
       "title": "Rig Adapter",
       "image": "images/micro-ii-attach-rig-adapter.jpg",
-      "imageAlt": "Micro II with the Rig Adapter and its 14mm glass stem lifted off",
+      "imageAlt": "Micro II with the Rig Adapter and its 14 mm glass stem lifted off",
       "bullets": [
         {
           "id": "b1",
@@ -279,7 +279,7 @@
     {
       "id": "warranty",
       "label": "Warranty",
-      "value": "6-Month Limited Warranty (1 year with registration)"
+      "value": "6-Month Limited Warranty (1-Year with registration)"
     }
   ],
   "faq": [
@@ -301,7 +301,7 @@
     {
       "id": "f4",
       "question": "How do I use the device with a glass rig?",
-      "answer": "Remove the mouthpiece from the Micro II and attach the Rig Adapter (sold separately). Connect 14mm glass to your compatible glass rig for water-cooled vapor."
+      "answer": "Remove the mouthpiece from the Micro II and attach the Rig Adapter (sold separately). Connect 14 mm glass to your compatible glass rig for water-cooled vapor."
     },
     {
       "id": "f5",

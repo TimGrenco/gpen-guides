@@ -37,18 +37,15 @@ CONTENT_DIR = ROOT / "content"
 CACHE_DIR = ROOT / ".cache"         # resized images, so a rebuild doesn't re-encode them
 YEAR = str(datetime.date.today().year)
 
-# The public address of the site. Canonical links, share previews (og:), the sitemap and
-# the offline copies' links all hang off this one value. When help.gpen.com goes live:
-# set it to "https://help.gpen.com/", add a CNAME file containing help.gpen.com, rebuild.
+# The public address of the site (live since 2026-09-30, see the CNAME file). Canonical
+# links, share previews (og:), the sitemap, robots.txt and the offline copies' links all
+# hang off this one value.
 BASE_URL = "https://help.gpen.com/"
 
 sys.path.insert(0, str(ROOT))
-from sections.render import render_product_body, compose_translations, IMG_REF_RE  # noqa: E402
+from sections.render import render_product_body, compose_translations, IMG_REF_RE, keep_together  # noqa: E402
 from sections.normalize import load_normalized  # noqa: E402
 from sections.schema import validate_content  # noqa: E402
-
-MANUAL_PDF = ("https://cdn.shopify.com/s/files/1/0185/1576/files/"
-              "20250528_GPen_Hydout_Manual.pdf?v=1749240232")
 
 # Shopify CDN images for products that don't have local guide pages yet.
 # Pulled live from gpen.com/products.json (September 2026).
@@ -61,10 +58,8 @@ PRODUCTS = {
         "name": "G Pen Hydout",
         "category": "510 Cartridge Battery",
         "card_image": "hero.png",           # local file in src/
-        "images": {
-            "HERO":  "hero.png",
-        },
-        "text": {"MANUAL_PDF": MANUAL_PDF},
+        "images": {},
+        "text": {},
         "shop_button": ("Shop the Hydout collection", "https://www.gpen.com/collections/g-pen-hydout-collection"),
     },
     "dash-ii": {
@@ -72,10 +67,7 @@ PRODUCTS = {
         "name": "G Pen Dash II",
         "category": "Dry Herb Vaporizer",
         "card_image": "dash-ii-card.png",   # local file in src/
-        "images": {
-            "HERO":  "dash-ii-hero.png",
-            "CARD":  "dash-ii-card.png",    # card img must be in images so build copies it
-        },
+        "images": {},
         "text": {},
     },
     "510-original": {
@@ -83,10 +75,7 @@ PRODUCTS = {
         "name": "G Pen 510 Original",
         "category": "510 Cartridge Battery",
         "card_image": "510-original-card.png",
-        "images": {
-            "HERO":  "510-original-hero.png",
-            "CARD":  "510-original-card.png",
-        },
+        "images": {},
         "text": {},
         "shop_button": ("Shop the Retro collection", "https://www.gpen.com/collections/g-pen-510-original-retro-collection"),
     },
@@ -95,10 +84,7 @@ PRODUCTS = {
         "name": "G Pen Micro II",
         "category": "Concentrate Vaporizer",
         "card_image": "micro-ii-card.png",
-        "images": {
-            "HERO":  "micro-ii-hero.jpg",
-            "CARD":  "micro-ii-card.png",
-        },
+        "images": {},
         "text": {},
     },
     "melt": {
@@ -107,8 +93,7 @@ PRODUCTS = {
         "category": "Hot Knife / Dab Tool",
         "card_image": "melt-card.png",
         "images": {
-            "HERO":  "melt-hero.png",
-            "CARD":  "melt-card.png",
+            # used by the Upgrades cards in src/accessories.json ("image": "{{UPG_...}}")
             "UPG_MICRO_II": "melt-upgrade-micro-ii.png",
             "UPG_MICRO_PLUS": "melt-upgrade-micro-plus.png",
         },
@@ -175,7 +160,7 @@ PRODUCTS = {
         "text": {},
     },
 
-    # ── Upcoming guide pages — show in switcher, link to gpen.com for now ─────
+    # ── Guides not built yet: hidden; set hidden False to list them, linking to gpen.com
     # card_image may be a full CDN URL or a local filename in src/.
     "roam": {
         "template": None,
@@ -233,7 +218,7 @@ def card_srcset(slug: str, spec: dict, root_prefix: str, sizes: str) -> tuple[st
     if ci.startswith("http"):
         return "", ""
     with Image.open(SRC / ci) as im:
-        W, H = im.size
+        W, H = framed(im).size
     stem = pathlib.PurePosixPath(ci).stem
     parts = dict.fromkeys(f"{root_prefix}{slug}/img/{stem}-{w}.webp {min(w, W)}w" for w in WIDTHS_CARD)
     return f' srcset="{", ".join(parts)}" sizes="{sizes}"', f' width="{W}" height="{H}"'
@@ -266,11 +251,11 @@ def accessories_html(slug: str) -> str:
             name, note, price = c["name"], c["note"], c["price"]
             out.append(
                 f'      <a class="acc-card" href="{href}" target="_blank" rel="noopener noreferrer">\n'
-                f'        <img src="{img}" alt="{alt}" loading="lazy">\n'
+                f'        <span class="acc-img"><img src="{img}" alt="{alt}" loading="lazy"></span>\n'
                 '        <div class="acc-card-body">\n'
-                f'          <span class="acc-card-name" data-i18n="acc{i}_name">{name}</span>\n'
+                f'          <span class="acc-card-name" data-i18n="acc{i}_name">{keep_together(name)}</span>\n'
                 f'          <span class="acc-card-price">{price}</span>\n'
-                f'          <span class="acc-card-note" data-i18n="acc{i}_note">{note}</span>\n'
+                f'          <span class="acc-card-note" data-i18n="acc{i}_note">{keep_together(note)}</span>\n'
                 '          <span class="acc-shop" data-i18n="acc_shop">Shop</span>\n'
                 '        </div>\n'
                 '      </a>'
@@ -328,6 +313,10 @@ def load_i18n(slug: str):
 def inject_i18n(html: str, translations: dict) -> str:
     """Inject window._T data block + i18n runtime JS before </body>."""
     runtime = (SRC / "i18n-runtime.js").read_text()
+    # plain strings (not zone HTML, already processed by render_inline) get the same
+    # non-breaking spaces as rendered copy, so a language switch keeps units together
+    translations = {lang: {k: (keep_together(v) if isinstance(v, str) and "<" not in v else v)
+                           for k, v in strings.items()} for lang, strings in translations.items()}
     t_json = json.dumps(translations, ensure_ascii=False)
     injection = (
         f"\n<script>window._T={t_json};</script>\n"
@@ -364,12 +353,23 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
     fonts = (CORE_SRC / "fonts.css").read_text().replace("{{FONT_BASE}}", asset + "fonts/")
     css = (CORE_SRC / "core.css").read_text()
     esc = lambda s: htmllib.escape(s, quote=True)
-    out = []
+    out = [
+        '<meta name="color-scheme" content="light dark">',
+        '<meta name="format-detection" content="telephone=no">',   # UPC digits aren't phone numbers
+        # Pick the visitor's language before first paint (same rule as i18n-runtime.js:
+        # ?lang= > saved choice > browser language). A non-English visitor gets the page
+        # hidden until the runtime has swapped the text, so English never flashes first.
+        "<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT'],q=(location.search.match(/[?&]lang=([a-z]{2})\\b/i)||[])[1],s=null;"
+        "if(q&&S.indexOf(q.toUpperCase())>=0)s=q.toUpperCase();else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
+        "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s&&S.indexOf(s)>=0)?s:(S.indexOf(n)>=0?n:'EN');"
+        "if(L!=='EN')document.documentElement.classList.add('i18n-wait')}catch(e){}})();</script>",
+    ]
     if not offline:
-        for f in ("lato-400-latin", "kanit-800i-latin"):
+        for f in ("lato-400-latin", "lato-700-latin", "kanit-800i-latin"):
             out.append(f'<link rel="preload" href="{asset}fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>')
     out += [
         f'<link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">',
+        f'<link rel="icon" href="{asset}apple-touch-icon.png" type="image/png" sizes="180x180">',
         f'<link rel="apple-touch-icon" href="{asset}apple-touch-icon.png">',
         f'<link rel="canonical" href="{canonical}">',
     ]
@@ -384,7 +384,7 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
     ]
     if image:
         out.append(f'<meta property="og:image" content="{image}">')
-    out.append(f'<meta name="twitter:card" content="{"summary" if image else "summary"}">')
+    out.append('<meta name="twitter:card" content="summary">')
     out.append(f"<style>\n{fonts}\n{css}</style>")
     return "\n".join(out) + "\n"
 
@@ -416,6 +416,7 @@ def publish_core() -> None:
         shutil.copy(f, out / "fonts" / f.name)
     for f in ("favicon.svg", "apple-touch-icon.png"):
         shutil.copy(CORE_SRC / f, out / f)
+    shutil.copy(CORE_SRC / "favicon.ico", ROOT / "favicon.ico")   # browsers still ask for /favicon.ico
 
 
 # ─────────────────────────────────────────────────────────────────────────────────────
@@ -434,17 +435,36 @@ WIDTHS_VIDEO = (480, 960)
 WIDTHS_CARD = (160, 320, 640)
 
 
-def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path) -> tuple[str, int, int]:
+CARD_FILL = 0.80   # a product card's cut-out fills 80% of its square, whatever its source framing
+
+
+def framed(im: Image.Image) -> Image.Image:
+    """Trim a cut-out's transparent margin and centre it on a square transparent canvas at
+    CARD_FILL, so the index and switcher thumbnails show every product at one scale (the
+    sources fill anywhere from 56% to 92% of their frame)."""
+    im = im.convert("RGBA")
+    box = im.getchannel("A").getbbox()
+    if not box:
+        return im
+    im = im.crop(box)
+    side = round(max(im.size) / CARD_FILL)
+    canvas = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    canvas.paste(im, ((side - im.width) // 2, (side - im.height) // 2))
+    return canvas
+
+
+def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path, frame: bool = False) -> tuple[str, int, int]:
     """Write <stem>-<width>.webp into out_dir (from a content-hash cache) and return
     (filename, width, height). Never upscales: a request wider than the source yields a
     rendition at the source's own width."""
     data = src.read_bytes()
-    with Image.open(src) as im:
+    with Image.open(src) as im0:
+        im = framed(im0) if frame else im0
         W, H = im.size
         w = min(width, W)
         h = round(H * w / W)
         name = f"{src.stem}-{width}.webp"
-        key = hashlib.sha1(data + f"|{w}|q80m6".encode()).hexdigest()[:16]
+        key = hashlib.sha1(data + f"|{w}|q80m6|{'f%s' % CARD_FILL if frame else ''}".encode()).hexdigest()[:16]
         cached = CACHE_DIR / "img" / f"{key}.webp"
         if not cached.exists():
             cached.parent.mkdir(parents=True, exist_ok=True)
@@ -550,6 +570,14 @@ def build_switcher(current_slug: str, offline: bool = False) -> str:
 def build_product(slug: str, spec: dict) -> None:
     template = (SRC / spec["template"]).read_text()
     content = load_content(slug)  # validate before touching the output folder
+    body = render_product_body(slug, content) if content else None
+    if body:
+        # A content section whose template has no slot for it would vanish without a word.
+        missing = [k for k in ("STEPS", "ATTACHMENTS", "SPECS_ROWS", "FAQ_ITEMS", "VIDEOS")
+                   if body[k].strip() and "{{%s}}" % k not in template]
+        if missing:
+            raise ContentError(f"{slug}: content has {', '.join(missing)} but {spec['template']} "
+                               "has no placeholder for it, so it would not appear on the page")
     out_dir = ROOT / slug
     img_dir = out_dir / "img"
 
@@ -564,15 +592,13 @@ def build_product(slug: str, spec: dict) -> None:
                                 .replace("{{REGISTER_BUTTON}}", register_button))
 
     # Structured content (steps/attachments/specs/faq/videos) — still contains unresolved
-    # {{STEP1}}-style image tokens, resolved by the per-image loop right below.
+    # {{img:...}} image tokens, resolved by the per-image loop right below.
     if content:
-        body = render_product_body(slug, content)
         for key in ("STEPS", "ATTACHMENTS", "SPECS_ROWS", "FAQ_ITEMS", "VIDEOS"):
             hosted = hosted.replace("{{%s}}" % key, body[key])
             offline = offline.replace("{{%s}}" % key, body[key])
 
-    # Template-level images ({{HERO}} etc.): published only if the template uses them.
-    # (Several products list a hero that no page shows — the Dash II one is 3 MB.)
+    # Template-level images ({{KEY}} in "images"): published only if the template uses them.
     for key, filename in spec["images"].items():
         if "{{%s}}" % key not in hosted:
             continue
@@ -596,7 +622,7 @@ def build_product(slug: str, spec: dict) -> None:
         widths, sizes = (WIDTHS_VIDEO, video_sizes) if is_video else (WIDTHS_CIRCLE, SIZES_CIRCLE)
         srcset, w, h = srcset_for(src, widths, img_dir)
         plans[name] = (srcset, sizes, w, h)
-        inline_name, _, _ = webp_variant(src, widths[-1] if is_video else 450, img_dir)
+        inline_name, _, _ = webp_variant(src, widths[-1], img_dir)
         hosted = hosted.replace("{{img:%s}}" % ref, f"img/{name}")
         offline = offline.replace("{{img:%s}}" % ref, data_uri(img_dir / inline_name))
     hosted = responsive_images(hosted, plans)
@@ -609,7 +635,7 @@ def build_product(slug: str, spec: dict) -> None:
         if not (img_dir / card_image).exists():
             shutil.copy(SRC / card_image, img_dir / card_image)
         for w in WIDTHS_CARD:
-            webp_variant(SRC / card_image, w, img_dir)
+            webp_variant(SRC / card_image, w, img_dir, frame=True)
 
     # Brand mark links to the guides home page (relative, so it survives a domain change).
     # The store is reached through each guide's "Upgrade" section instead.
@@ -639,6 +665,13 @@ def build_product(slug: str, spec: dict) -> None:
     og_image = f"{BASE_URL}{slug}/img/{card_image}" if card_image and not card_image.startswith("http") else None
     hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image))
     offline = inject_core(offline, core_head("../", True, canonical, title, desc, og_image, noindex=True))
+
+    # Any {{...}} left means a placeholder nothing filled (a missing image key, a typo):
+    # fail loudly rather than publish a broken image or a literal "{{X}}".
+    for label, page in (("index.html", hosted), ("offline.html", offline)):
+        left = sorted(set(re.findall(r"\{\{[^{}]{1,60}\}\}", page)))
+        if left:
+            raise ContentError(f"{slug}/{label} still contains {', '.join(left)}")
 
     write(out_dir / "index.html", hosted)
     write(out_dir / "offline.html", offline)
@@ -706,8 +739,7 @@ def build_seo_files() -> None:
     sitemap += [f"  <url><loc>{u}</loc></url>" for u in urls]
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n")
-    # Only honored at a domain's root (i.e. once this is help.gpen.com). Keeps the build
-    # inputs, which GitHub Pages also serves, out of search results.
+    # Keeps the build inputs, which GitHub Pages also serves, out of search results.
     (ROOT / "robots.txt").write_text(
         "User-agent: *\n"
         "Disallow: /src/\nDisallow: /content/\nDisallow: /i18n/\nDisallow: /sections/\nDisallow: /scripts/\n"
@@ -735,16 +767,6 @@ if __name__ == "__main__":
             # ignore_errors: macOS ._ sidecars on network volumes vanish mid-walk
             shutil.rmtree(ROOT / slug, ignore_errors=True)
             print(f"  removed {slug}/ (hidden — source kept in src/, content/, i18n/)")
-
-    stale = [p for p in ("hydout.html", "hydout-standalone.html") if (ROOT / p).exists()]
-    if stale:
-        print("\nRemoving files from the old flat layout:")
-        for name in stale:
-            (ROOT / name).unlink()
-            print(f"  {name}")
-    if (ROOT / "img").exists():
-        shutil.rmtree(ROOT / "img")
-        print("  img/")
 
     if failed:
         print(f"\nFAILED: {', '.join(failed)} — fix the content errors above; their pages were not rebuilt.")

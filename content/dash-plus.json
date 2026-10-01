@@ -52,7 +52,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**~0.3g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
+        "text": "**~0.3 g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
       },
       "helpWidget": false
     },
@@ -74,11 +74,11 @@
         },
         {
           "id": "b3",
-          "text": "**Double-click** to start a session. The device vibrates twice when it reaches temp (~20 sec)."
+          "text": "**Double-click** to start a session. The device vibrates twice when it reaches temperature (~20 seconds)."
         },
         {
           "id": "b4",
-          "text": "The session auto-ends when the countdown hits 0:00. Device goes to standby."
+          "text": "The session auto-ends when the countdown hits 0:00. The device goes to standby."
         }
       ],
       "press": [
@@ -135,17 +135,17 @@
         },
         {
           "id": "b2",
-          "text": "The spiral ceramic airpath cools vapor before it reaches you."
+          "text": "The spiral ceramic air path cools vapor before it reaches you."
         },
         {
           "id": "b3",
-          "text": "Device powers off automatically after **1 minute** of no activity."
+          "text": "The device powers off automatically after **1 minute** of no activity."
         }
       ],
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**After your session:** Let the device cool, then remove the mouthpiece and brush out the chamber and mouthpiece filter screen. Regular cleaning keeps flavor and airflow at their best."
+        "text": "**After your session:** let the device cool, then remove the mouthpiece and brush out the chamber and mouthpiece filter screen. Regular cleaning keeps flavor and airflow at their best."
       },
       "helpWidget": false
     },
@@ -196,11 +196,11 @@
     {
       "id": "chamber",
       "label": "Chamber",
-      "value": "~0.3g titanium"
+      "value": "~0.3 g titanium"
     },
     {
       "id": "airpath",
-      "label": "Airpath",
+      "label": "Air path",
       "value": "Spiral ceramic (hybrid conduction + convection)"
     },
     {
@@ -263,7 +263,7 @@
     {
       "id": "f3",
       "question": "Vapor is thin or tastes off",
-      "answer": "Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and airpath regularly — residue buildup is the most common cause of reduced vapor and off flavor."
+      "answer": "Try a finer grind and make sure the chamber isn't overpacked. Clean the mouthpiece and air path regularly — residue buildup is the most common cause of reduced vapor and off flavor."
     },
     {
       "id": "f4",

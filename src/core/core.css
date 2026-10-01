@@ -76,7 +76,6 @@
 /* ---------- mobile type floor ---------- */
 .bottom-nav a{font-size:10.5px}
 .press-hold{font-size:10px}
-@media (max-width:420px){ .press-hold{font-size:10px} }
 
 /* ---------- video modal: always fits, close button always on screen ----------
    The frame was up to 860px wide at 16:9 with the close button 42px above it, so on a
@@ -133,8 +132,6 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
 .attach-text{min-width:0; padding-top:2px}
 .attach-name{font-family:var(--f-display); font-weight:800; font-style:italic;
   text-transform:uppercase; letter-spacing:-.01em; font-size:20px; margin:0 0 8px}
-.attach-note{margin:0; color:var(--ink-2); font-size:15px}
-.attach-note b{color:var(--ink); font-weight:600}
 .step-img-wrap.step-img-stack{height:auto; display:flex; flex-direction:column; gap:14px}
 .step-img-main{position:relative; width:130px; height:130px}
 @media (min-width:480px){ .step-img-main{width:150px; height:150px} }
@@ -182,3 +179,135 @@ nav.jump{padding:4px 4px 10px; margin:-4px -4px 0}
 /* 404 page notice */
 .notfound{margin:0 0 18px; padding:12px 14px; border-radius:10px; background:var(--accent-wash);
   border:1px solid var(--line-2); color:var(--ink); font-size:15px}
+
+/* ============================================================
+   PHONES IN THE REAL WORLD — what headless Chrome can't show
+   ============================================================ */
+
+/* The page has its own dark theme: say so, so Samsung Internet's and Android WebView's
+   forced dark modes (QR-scanner apps) leave it alone instead of darkening it again. */
+:root{color-scheme:light dark}
+
+/* A non-English visitor: the <head> hides the page until the i18n runtime has swapped in
+   their language, so English never flashes first. The 1.5s animation is the safety net
+   if a script fails: the page shows itself regardless. */
+.i18n-wait main, .i18n-wait .bar-top, .i18n-wait .bottom-nav{visibility:hidden; animation:i18n-show 0s 1.5s forwards}
+@keyframes i18n-show{to{visibility:visible}}
+
+/* Tapping a section in the nav lands its heading just under the header (the 104px offset
+   was sized for the desktop header and left a ~107px gap on a phone). */
+section{scroll-margin-top:64px}
+@media (max-width:639px){ section{scroll-margin-top:24px} }
+
+/* color-mix() needs iOS 16.2 / Chrome 111. Older phones dropped the whole background and
+   showed a see-through header and bottom nav. */
+@supports not (color: color-mix(in srgb, red 50%, blue)){
+  .bar{background:rgba(255,255,255,.94)}
+  .bottom-nav{background:rgba(255,255,255,.96)}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .bar, :root:not([data-theme="light"]) .bottom-nav{background:rgba(12,13,16,.95)}
+  }
+}
+
+/* The All-guides sheet: dvh fallback for older phones, and clear of the notch in landscape. */
+.sheet{max-height:85vh; max-height:85dvh}
+.sheet-head, .sheet-body{padding-left:max(16px, env(safe-area-inset-left)); padding-right:max(16px, env(safe-area-inset-right))}
+
+/* Touch screens keep :hover after a tap (a card stays lifted, a button stays pale after the
+   call prompt). Undo the hover looks where there's no real pointer; give a press instead. */
+@media (hover:none){
+  .vid:hover, .acc-card:hover, .guide-card:hover, .card:hover, .card-link:hover, .reg-btn:hover, .upgrade-btn:hover{transform:none}
+  .vid:hover{border-color:var(--line)}
+  .acc-card:hover{box-shadow:none}
+  .guide-card:not([aria-current="true"]):hover, .card:hover{border-color:var(--line)}
+  .card-link:hover, .reg-btn:hover{background:var(--accent); border-color:var(--accent)}
+  .upgrade-btn:hover{background:var(--accent); color:var(--accent-ink)}
+  .upgrade-btn.alt:hover{background:var(--surface-2); color:var(--ink)}
+  .collapsible > summary:hover, .legacy > summary:hover{background:var(--surface)}
+  .lang-btn:hover, .guides-btn:hover{border-color:var(--line); color:var(--ink-2)}
+  .vid:active, .acc-card:active, .guide-card:active, .card:active, .card-link:active, .reg-btn:active, .upgrade-btn:active{opacity:.82}
+}
+
+/* ============================================================
+   PHONE LAYOUT POLISH (final QA, 2026-10-01)
+   ============================================================ */
+
+/* Steps on a phone: the photo and heading stay side by side, but the press-button card,
+   tips and help drop below the photo at full width. Squeezed into the ~110–200px column
+   beside the photo they broke mid-word ("simpleme-nt"), stranded words, and pushed long
+   badges (MAINTENIR, HALTEN) into the text. */
+@media (max-width:479px){
+  /* photo floats left; heading and bullets sit beside it (the bullet list is a flex
+     container, so it keeps its own column instead of wrapping under the photo); the
+     press card, tips and help clear the photo and run full width */
+  .step{display:block}
+  .step::after{content:""; display:table; clear:both}
+  .step-img-wrap{float:left; margin:0 18px 8px 0}
+  .step-body > h3{display:flow-root}
+  .step-body > :not(h3):not(.do){clear:both}
+  .step-body > .press-list, .step-body > .note, .step-body > .note-help{margin-top:16px}
+  .step:last-child{padding-bottom:4px}
+  /* a step with no bullets (e.g. Activate): its heading sits level with the photo */
+  .step:not(:has(.do)) .step-body > h3{display:flex; align-items:center; min-height:var(--circle,130px); margin-bottom:0}
+}}
+@media (max-width:374px){ .step-img-wrap{margin-right:14px} :root{--circle:100px} }
+@media (max-width:359px){ :root{--circle:88px} .step-img-wrap, .step-img-main, .step-circle{width:88px; height:88px} .num{width:30px; height:30px; font-size:16px} }
+
+/* Press rows: one badge column, so every row's text starts at the same line. */
+.press-row{display:grid; grid-template-columns:64px minmax(0,1fr); gap:12px}
+.press-badge{justify-self:center}
+.press-hold{max-width:64px; padding:0 6px; letter-spacing:.02em; font-size:9.5px}
+
+/* "View product details" / "Common questions": a long label (German) wraps instead of
+   running into its arrow. */
+.collapsible > summary{gap:12px}
+.collapsible > summary::after{flex:none}
+@media (max-width:374px){ .collapsible > summary{font-size:16px} }
+
+/* Hyphenation: no 2-letter fragments ("ei-nem", "Materi-al"); product names never split. */
+.step-body, .attach-text, .faq, .collapsible-body, .acc-card-body, .note, .press-row{
+  hyphenate-limit-chars:10 4 4; -webkit-hyphenate-limit-before:4; -webkit-hyphenate-limit-after:4}
+.nohy{hyphens:manual; -webkit-hyphens:manual; white-space:nowrap}
+.attach-name, .acc-card-name, .gc-name, .card h2{hyphens:manual; -webkit-hyphens:manual}
+.do li, .note span, .press-action, .press-sub, .faq p, .acc-card-note{text-wrap:pretty}
+
+/* Upgrades: every product photo on the same white tile. Store images arrive in three
+   styles (white JPG, off-white JPG, transparent cut-out); all three sit cleanly on white. */
+.acc-card{border:1px solid var(--line-2)}
+.acc-img{display:block; background:#FFFFFF; aspect-ratio:1}
+/* the store's "white" product shots range from #EEE to #FFF; lift them all to white so no
+   off-white box shows inside the tile (the products themselves are dark and barely move) */
+.acc-img img, .acc-card .acc-img img{width:100%; height:100%; aspect-ratio:auto; object-fit:contain; padding:10%; filter:brightness(1.07) contrast(1.03)}
+/* one card per row on a phone: picture left, words right, instead of a 480px-tall card */
+@media (max-width:400px){
+  .acc-card{display:grid; grid-template-columns:104px minmax(0,1fr); align-items:center; column-gap:2px; padding-left:12px}
+  .acc-img{border-radius:10px; overflow:hidden}
+  .acc-card-body{padding:14px 14px 14px 12px}
+}
+
+/* Sections breathe less on a phone (there was ~150px between them). */
+@media (max-width:639px){
+  section{padding-top:40px; padding-bottom:40px}
+  section#use{padding-top:20px; scroll-margin-top:44px}
+}
+
+/* Bottom nav: the gold "current" pill kept off the screen edges. */
+.bottom-nav{padding:4px 8px max(6px, env(safe-area-inset-bottom))}
+@media (max-width:639px){ main{padding-bottom:calc(74px + env(safe-area-inset-bottom))} }
+
+/* Bullet dots: the pale gold all but disappeared on a white page. */
+:root{--dot:#D08A18}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){--dot:var(--accent)} }
+:root[data-theme="dark"]{--dot:var(--accent)}
+.do li::before{background:var(--dot)}
+
+/* All-guides sheet: product thumbnails on the same light tile as the index cards. */
+.guide-card .gc-img{background:var(--plate)}
+.guide-card .gc-img img{object-fit:contain}
+
+/* Index cards on the narrowest phones: a smaller thumbnail leaves room for the name. */
+.card h2{line-height:1.1}
+@media (max-width:360px){ .card{grid-template-columns:72px minmax(0,1fr); gap:12px} }
+
+/* The Upgrades shop button on the narrowest phones: one line, even in German. */
+@media (max-width:360px){ .upgrade-btn{font-size:12px; padding:12px 16px; letter-spacing:0} }

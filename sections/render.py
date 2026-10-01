@@ -3,7 +3,7 @@ site's hand-authored templates already use for steps, attachments, specs, FAQ an
 
 Two entry points:
   render_product_body(slug, content)                 -> {"STEPS": ..., "SPECS_ROWS": ..., ...}
-      English, still containing unresolved {{STEP1}}-style image tokens for build.py's
+      English, still containing unresolved {{img:...}} image tokens for build.py's
       existing image-substitution loop to resolve.
   compose_translations(slug, content, cache)          -> {"EN": {...}, "ES": {...}, ...}
       The old zone-shaped dict inject_i18n() already expects (data-i18n-zone keys map to
@@ -36,7 +36,7 @@ def _fill(template, **tokens):
 _BOLD_RE = re.compile(r'\*\*(.+?)\*\*')
 
 
-def no_widow(text, max_pair=28):
+def no_widow(text, max_pair=12):
     """Join the last two words with a non-breaking space so a line never ends with one
     word stranded on its own. Only for 4+ word copy with a short final pair, so short
     labels can still wrap in narrow columns."""
@@ -46,9 +46,43 @@ def no_widow(text, max_pair=28):
     return text
 
 
+NBSP = "\u00a0"
+_UNIT_RE = re.compile(
+    r"(\d)\s+(?=(?:g|mm|cm|V|mAh|°F|°C|min|minutes?|seconds?|sec|s|hours?|h|Sek\.?|Sekunden|Minuten|"
+    r"Stunden?|segundos?|minutos?|horas?|secondi|minuti|ore|secondes|heures?|mois|jours?|días|dias|"
+    r"giorni|Tage|Monate|meses|mesi|ans?|años|anos|anni|Jahre?|veces|vezes|volte|fois|mal|times|×)(?![\w]))")
+_SEP_RE = re.compile(r" ([/=→·])([ \u00a0])")
+_NUMHY_RE = re.compile(r"(\d[a-zA-Z]{0,2})-(?=\w)")
+_NAMES = ("G Pen", "Micro II", "Dash II", "Micro+", "510 Original", "Rig Adapter")
+
+
+def keep_together(text):
+    """Non-breaking spaces where a line break would strand half of a unit: a number and its
+    unit ("5 seconds", "3,8 V"), the product names, and the separators that read as part of
+    the next item ("/ 302°F", "= decrease", "→ 3.8V", "· Haptics")."""
+    text = _UNIT_RE.sub(lambda m: m.group(1) + NBSP, text)
+    for name in _NAMES:
+        if " " in name:
+            text = text.replace(name, name.replace(" ", NBSP))
+    # a separator stays with the item it introduces (no_widow may already have joined it
+    # to the next word with a non-breaking space, hence [ \u00a0]); "=" binds both sides
+    text = _SEP_RE.sub(lambda m: NBSP + m.group(1) + (NBSP if m.group(1) == "=" else m.group(2)), text)
+    # a dash never starts a line
+    text = text.replace(" — ", NBSP + "— ").replace(" – ", NBSP + "– ")
+    # hyphens inside number compounds and product codes never break: USB-C, 510-Gewinde,
+    # 20-Sekunden, 5er-Pack, 1-Year
+    text = text.replace("USB-C", "USB\u2011C")
+    return _NUMHY_RE.sub(lambda m: m.group(1) + "\u2011", text)
+
+
+_NOHY_RE = re.compile(r"(Rig\u00a0Adapter|Sidecar|Showerhead|Hydout|Micro\u00a0II|Dash\u00a0II|Dash\+|G\u00a0Pen)")
+
+
 def render_inline(text, quote=False):
     """HTML-escape plain text, then turn **bold** markers into <b> tags."""
-    escaped = htmllib.escape(text, quote=quote)
+    escaped = htmllib.escape(keep_together(text), quote=quote)
+    if not quote:   # not inside an attribute
+        escaped = _NOHY_RE.sub(r'<span class="nohy">\1</span>', escaped)
     return _BOLD_RE.sub(lambda m: f"<b>{m.group(1)}</b>", escaped)
 
 
@@ -115,11 +149,11 @@ def render_press(press, id_prefix, leaf_lookup):
         sub_line = ""
         if sub is not None:
             sub_text = _leaf(leaf_lookup, f"{id_prefix}.press.{p['id']}.sub", sub)
-            sub_line = f'                <span class="press-sub">{render_inline(no_widow(sub_text, 20))}</span>\n'
+            sub_line = f'                <span class="press-sub">{render_inline(no_widow(sub_text, 14))}</span>\n'
         rows.append(_fill(
             _partial("press-row"),
             BADGE_CLASS=badge_class, BADGE_STYLE=badge_style, BADGE_CONTENT=badge_content,
-            ACTION=render_inline(no_widow(action, 20)), SUB_LINE=sub_line,
+            ACTION=render_inline(no_widow(action, 14)), SUB_LINE=sub_line,
         ))
     return _fill(_partial("press-list"), ROWS="\n".join(rows))
 
@@ -145,8 +179,11 @@ def img_ref(filename):
 IMG_REF_RE = re.compile(r"\{\{img:([^}]+)\}\}")
 
 
-def _img_tag(token, alt, indent):
-    return f'{indent}<div class="step-circle"><img src="{img_ref(token)}" alt="{alt}" loading="lazy"></div>'
+def _img_tag(token, alt, indent, num=99):
+    # Steps 1 and 2 are on screen when a phone opens the page (step 2's photo is usually the
+    # largest paint), so they load right away; step 1 gets download priority. The rest stay lazy.
+    load = ' fetchpriority="high"' if num == 1 else ('' if num == 2 else ' loading="lazy"')
+    return f'{indent}<div class="step-circle"><img src="{img_ref(token)}" alt="{alt}"{load}></div>'
 
 
 def render_step_image(step, num):
@@ -158,7 +195,7 @@ def render_step_image(step, num):
         return (
             '        <div class="step-img-wrap step-img-stack">\n'
             '          <div class="step-img-main">\n'
-            f'{_img_tag(token, alt, "            ")}\n'
+            f'{_img_tag(token, alt, "            ", num)}\n'
             f'            <div class="num">{num}</div>\n'
             '          </div>\n'
             f'{_img_tag(token2, alt2, "          ")}\n'
@@ -166,7 +203,7 @@ def render_step_image(step, num):
         )
     return (
         '        <div class="step-img-wrap">\n'
-        f'{_img_tag(token, alt, "          ")}\n'
+        f'{_img_tag(token, alt, "          ", num)}\n'
         f'          <div class="num">{num}</div>\n'
         '        </div>'
     )
@@ -295,7 +332,7 @@ def _render_body(content, leaf_lookup, need_help_text=NEED_HELP_TEXT_EN):
 
 
 def render_product_body(slug, content):
-    """English render, still containing unresolved {{STEP1}}-style image tokens."""
+    """English render, still containing unresolved {{img:...}} image tokens."""
     return _render_body(content, leaf_lookup=None)
 
 

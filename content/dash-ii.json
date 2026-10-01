@@ -52,7 +52,7 @@
       "press": [],
       "note": {
         "type": "tip",
-        "text": "**~0.4g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
+        "text": "**~0.4 g capacity.** A proper pack allows airflow — overpacking restricts draws and reduces vapor quality."
       },
       "helpWidget": false
     },
@@ -149,7 +149,7 @@
         },
         {
           "id": "b2",
-          "text": "**Deep clean:** remove the mouthpiece insert, clean with **isopropyl alcohol (ISO)**."
+          "text": "**Deep clean:** remove the mouthpiece insert and clean it with **isopropyl alcohol (ISO)**."
         },
         {
           "id": "b3",
@@ -179,7 +179,7 @@
     {
       "id": "chamber",
       "label": "Chamber",
-      "value": "0.4g ceramic"
+      "value": "0.4 g ceramic"
     },
     {
       "id": "charging",
@@ -229,7 +229,7 @@
     {
       "id": "warranty",
       "label": "Warranty",
-      "value": "6-Month Limited Warranty (1 year with registration)"
+      "value": "6-Month Limited Warranty (1-Year with registration)"
     }
   ],
   "faq": [

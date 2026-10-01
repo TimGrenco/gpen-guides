@@ -49,7 +49,8 @@
     var hrefs   = bottomLinks.map(function(a){ return a.getAttribute('href'); });
     var topLinks = hrefs.map(function(h){ return d.querySelector('nav.jump a[href="' + h + '"]'); });
     var targets = hrefs.map(function(h){ return d.querySelector(h); });
-    var NAV_H = 108, current = -1, ticking = false, pinned = -1;
+    var current = -1, ticking = false, pinned = -1;
+    var navH = function(){ return bar ? bar.getBoundingClientRect().height : 52; };
 
     var setActive = function(i){
       if (i === current) return; current = i;
@@ -70,7 +71,7 @@
       if (pinned >= 0){ setActive(pinned); return; }
       var active = 0;
       for (var i = 0; i < targets.length; i++){
-        if (targets[i] && targets[i].getBoundingClientRect().top <= NAV_H + 24) active = i;
+        if (targets[i] && targets[i].getBoundingClientRect().top <= navH() + 24) active = i;
       }
       var root = d.documentElement;
       if (window.scrollY > 0 && window.innerHeight + window.scrollY >= root.scrollHeight - 2) active = targets.length - 1;
@@ -85,9 +86,14 @@
        until the reader scrolls on their own again. */
     bottomLinks.concat(topLinks).forEach(function(a){
       if (!a) return;
-      a.addEventListener('click', function(){
-        var i = hrefs.indexOf(a.getAttribute('href'));
-        if (i >= 0){ pinned = i; setActive(i); }
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href'), i = hrefs.indexOf(href), target = targets[i];
+        if (i < 0 || !target) return;
+        e.preventDefault();
+        pinned = i; setActive(i);
+        var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+        try { history.replaceState(history.state, '', href); } catch (x) {}
       });
     });
     ['wheel', 'touchstart', 'keydown'].forEach(function(type){
@@ -136,7 +142,9 @@
       else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (i >= 0) choose(opts[i]); }
       else if (e.key === 'Tab'){ closeDrop(false); }
     });
-    d.addEventListener('click', function(e){ if (!drop.contains(e.target)) closeDrop(false); });
+    var outside = function(e){ if (!drop.hidden && !drop.contains(e.target) && !langBtn.contains(e.target)) closeDrop(false); };
+    d.addEventListener('click', outside);
+    d.addEventListener('pointerdown', outside);   /* iOS: taps on plain text fire no click */
   }
 
   /* ---------- product switcher sheet ---------- */
@@ -154,6 +162,13 @@
       sheet.classList.add('open'); sheetBackdrop.classList.add('open');
       guidesBtn.setAttribute('aria-expanded', 'true');
       lock(); setInert(true, [sheet, sheetBackdrop]);
+      /* the current product's card is often below the fold of the sheet */
+      var cur = sheet.querySelector('[aria-current="true"]');
+      var body = sheet.querySelector('.sheet-body');
+      if (cur && body){
+        var off = cur.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop;
+        body.scrollTop = Math.max(0, off - (body.clientHeight - cur.offsetHeight) / 2);
+      }
       refocus(sheetClose || sheet);
     };
     closeSheet = function(){
@@ -213,6 +228,12 @@
     vmBackdrop.addEventListener('click', closeVideo);
     vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
   }
+
+  /* ---------- back/forward cache: restore the page with nothing left open ---------- */
+  window.addEventListener('pageshow', function(e){
+    if (!e.persisted) return;
+    closeDrop(false); closeVideo(); closeSheet();
+  });
 
   /* ---------- one keyboard handler, innermost layer first ---------- */
   d.addEventListener('keydown', function(e){

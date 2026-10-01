@@ -105,7 +105,7 @@
     {
       "id": "type",
       "label": "Type",
-      "value": "3-piece dry herb grinder"
+      "value": "3-Piece Dry Herb Grinder"
     },
     {
       "id": "teeth",
@@ -139,12 +139,12 @@
     },
     {
       "id": "package-dimensions",
-      "label": "Package dimensions",
+      "label": "Dimensions",
       "value": "65 × 65 × 31 mm"
     },
     {
       "id": "package-weight",
-      "label": "Package weight",
+      "label": "Weight",
       "value": "110 g"
     },
     {
@@ -167,7 +167,7 @@
     {
       "id": "f1",
       "question": "Why doesn't it have a kief screen?",
-      "answer": "The screenless 3-piece design keeps trichomes and kief mixed in with your ground flower instead of separating them away, so you get all of your flower in every session."
+      "answer": "The screenless 3-piece design keeps trichomes and kief mixed in with your ground flower instead of separating them out, so you get all of your flower in every session."
     },
     {
       "id": "f2",
@@ -182,7 +182,7 @@
     {
       "id": "f4",
       "question": "What grind works best in my Dash II or Dash+?",
-      "answer": "An even, consistent grind. About 10 twists and a few taps gives you material that loads and heats evenly in the Dash II and Dash+."
+      "answer": "An even, consistent grind. About 10 twists and a few taps give you material that loads and heats evenly in the Dash II and Dash+."
     }
   ],
   "videos": []
