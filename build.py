@@ -42,6 +42,11 @@ YEAR = str(datetime.date.today().year)
 # hang off this one value.
 BASE_URL = "https://help.gpen.com/"
 
+# IndexNow (Bing, Yandex, Seznam, Naver; Bing also feeds ChatGPT search and Copilot): the
+# site proves it owns this key by serving /<key>.txt. Ping after a deploy with
+# scripts/indexnow.py to have changed pages re-crawled within minutes.
+INDEXNOW_KEY = "c2e3ce9201b3ccdca3b873e6e1bcbdd2"
+
 sys.path.insert(0, str(ROOT))
 from sections.render import render_product_body, compose_translations, IMG_REF_RE, keep_together  # noqa: E402
 from sections.normalize import load_normalized  # noqa: E402
@@ -360,7 +365,7 @@ def merge_translations(page: dict | None) -> dict:
 
 
 def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
-              image: str | None, noindex: bool = False) -> str:
+              image: str | None, noindex: bool = False, jsonld: dict | None = None) -> str:
     """Everything G Pen Core adds to <head>: fonts, the shared stylesheet, icons, share tags.
     prefix: path from the page to the site root ("" for the index, "../" for a guide)."""
     asset = (BASE_URL if offline else prefix) + "core/"
@@ -389,6 +394,13 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
     ]
     if noindex:
         out.append('<meta name="robots" content="noindex">')
+    else:
+        out.append('<meta name="robots" content="index, follow, max-image-preview:large">')
+    if jsonld:
+        # "</" can't appear inside a <script>; JSON allows it escaped
+        out.append('<script type="application/ld+json">'
+                   + json.dumps(jsonld, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+                   + "</script>")
     out += [
         '<meta property="og:type" content="website">',
         '<meta property="og:site_name" content="G Pen">',
@@ -418,6 +430,128 @@ def page_meta(html: str) -> tuple[str, str]:
     d = DESC_RE.search(html)
     return (htmllib.unescape(t.group(1).strip()) if t else "G Pen",
             htmllib.unescape(d.group(1)) if d else "")
+
+
+# ─────────────────────────────────────────────────────────────────────────────────────
+# Search + AI discoverability: schema.org JSON-LD, llms.txt
+# ─────────────────────────────────────────────────────────────────────────────────────
+ORG = {
+    "@type": "Organization", "@id": "https://www.gpen.com/#org", "name": "G Pen",
+    "url": "https://www.gpen.com/",
+    "logo": f"{BASE_URL}core/apple-touch-icon.png",
+    "contactPoint": {"@type": "ContactPoint", "contactType": "customer support",
+                     "telephone": "+1-833-691-3224", "email": "help@gpen.com"},
+}
+WEBSITE = {"@type": "WebSite", "@id": f"{BASE_URL}#site", "url": BASE_URL,
+           "name": "G Pen Product Guides", "publisher": {"@id": "https://www.gpen.com/#org"},
+           "inLanguage": ["en", "es", "de", "it", "fr", "pt-BR"]}
+
+
+def plain(s: str) -> str:
+    """Content text without the **bold** markers."""
+    return " ".join(s.replace("**", "").split())
+
+
+def step_text(step: dict) -> str:
+    parts = [plain(b["text"]) for b in step.get("bullets", [])]
+    for p in step.get("press", []):
+        parts.append(plain(p["action"]) + (f": {plain(p['sub'])}" if p.get("sub") else ""))
+    if step.get("note"):
+        parts.append(plain(step["note"]["text"]))
+    return " ".join(x if x.endswith((".", "!", "?")) else x + "." for x in parts)
+
+
+def guide_jsonld(slug: str, spec: dict, content: dict, title: str, desc: str) -> dict:
+    url = f"{BASE_URL}{slug}/"
+    img = lambda ref: f"{url}img/{pathlib.PurePosixPath(ref).name}"
+    card = spec.get("card_image", "")
+    howto = {
+        "@type": "HowTo", "@id": f"{url}#howto", "name": f"How to use the {spec['name']}",
+        "description": desc, "inLanguage": "en",
+        "step": [{"@type": "HowToStep", "position": i, "name": plain(s["title"]),
+                  "text": step_text(s), "image": img(s["image"]), "url": f"{url}#use"}
+                 for i, s in enumerate(content.get("steps", []), start=1)],
+    }
+    if card and not card.startswith("http"):
+        howto["image"] = f"{url}img/{card}"
+    graph = [
+        {"@type": "WebPage", "@id": url, "url": url, "name": title, "description": desc,
+         "inLanguage": "en", "isPartOf": {"@id": f"{BASE_URL}#site"},
+         "breadcrumb": {"@id": f"{url}#breadcrumb"}, "mainEntity": {"@id": f"{url}#howto"},
+         "publisher": {"@id": "https://www.gpen.com/#org"}},
+        howto,
+        {"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "G Pen Product Guides", "item": BASE_URL},
+            {"@type": "ListItem", "position": 2, "name": spec["name"], "item": url}]},
+        WEBSITE, ORG,
+    ]
+    if content.get("faq"):
+        graph.append({"@type": "FAQPage", "@id": f"{url}#faq", "url": f"{url}#help",
+                      "mainEntity": [{"@type": "Question", "name": plain(f["question"]),
+                                      "acceptedAnswer": {"@type": "Answer", "text": plain(f["answer"])}}
+                                     for f in content["faq"]]})
+    return {"@context": "https://schema.org", "@graph": graph}
+
+
+def index_jsonld(title: str, desc: str) -> dict:
+    guides = [(s, p) for s, p in visible_products().items() if p.get("template")]
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "CollectionPage", "@id": BASE_URL, "url": BASE_URL, "name": title,
+         "description": desc, "inLanguage": "en", "isPartOf": {"@id": f"{BASE_URL}#site"},
+         "mainEntity": {"@type": "ItemList", "itemListElement": [
+             {"@type": "ListItem", "position": i, "name": f"How to use the {p['name']}",
+              "url": f"{BASE_URL}{s}/"} for i, (s, p) in enumerate(guides, start=1)]}},
+        WEBSITE, ORG]}
+
+
+def build_llms_files() -> None:
+    """/llms.txt (the llmstxt.org convention: a short map of the site for AI assistants) and
+    /llms-full.txt (every guide's instructions, specs and FAQ as plain Markdown)."""
+    guides = [(s, p) for s, p in visible_products().items() if p.get("template")]
+    lines = ["# G Pen Product Guides", "",
+             "> Official how-to guides for G Pen devices, published by G Pen: how to charge, "
+             "load, use and clean each device, its specs, and answers to common questions. "
+             "Customers reach each guide by scanning the QR code on the device's packaging.", "",
+             "Each guide is also available in Spanish, German, Italian, French and Brazilian "
+             "Portuguese: add ?lang=es, ?lang=de, ?lang=it, ?lang=fr or ?lang=pt to its URL.", "",
+             "## Guides", ""]
+    full = ["# G Pen Product Guides: full text", "",
+            f"Source: {BASE_URL} (official G Pen help site). Support: +1 833-691-3224, help@gpen.com.", ""]
+    for slug, spec in guides:
+        content = load_content(slug) or {}
+        url = f"{BASE_URL}{slug}/"
+        tpl = (SRC / spec["template"]).read_text()
+        d = DESC_RE.search(tpl)
+        lines.append(f"- [{spec['name']}]({url}): {spec['category']}. "
+                     + (htmllib.unescape(d.group(1)) if d else ""))
+        full += [f"## {spec['name']} ({spec['category']})", "", f"Guide: {url}", "", "### How to use", ""]
+        for i, s in enumerate(content.get("steps", []), start=1):
+            full.append(f"{i}. **{plain(s['title'])}**")
+            for bl in s.get("bullets", []):
+                full.append(f"    - {plain(bl['text'])}")
+            for p in s.get("press", []):
+                badge = p["badge"]
+                how = {"count": lambda b: f"{b['n']}x", "pill": lambda b: b["label"],
+                       "text": lambda b: b["value"], "arrows": lambda b: "left/right"}.get(
+                           badge["kind"], lambda b: "")(badge)
+                full.append(f"    - {plain(p['action'])} ({how})" + (f": {plain(p['sub'])}" if p.get("sub") else ""))
+            if s.get("note"):
+                full.append(f"    - Note: {plain(s['note']['text'])}")
+        for a in content.get("attachments", []):
+            full.append(f"- Attachment, **{plain(a['title'])}**: " + " ".join(plain(b["text"]) for b in a.get("bullets", [])))
+        if content.get("specs"):
+            full += ["", "### Specs", ""] + [f"- {plain(x['label'])}: {plain(x['value'])}" for x in content["specs"]]
+        if content.get("faq"):
+            full += ["", "### Common questions", ""]
+            for f in content["faq"]:
+                full += [f"**{plain(f['question'])}**", "", plain(f["answer"]), ""]
+        full.append("")
+    lines += ["", "## Optional", "",
+              f"- [All guides as plain text]({BASE_URL}llms-full.txt): every guide's steps, specs and FAQ",
+              "- [G Pen store](https://www.gpen.com/): products, warranty and registration",
+              "", "Support: +1 833-691-3224, help@gpen.com", ""]
+    (ROOT / "llms.txt").write_text("\n".join(lines))
+    (ROOT / "llms-full.txt").write_text("\n".join(full))
 
 
 def publish_core() -> None:
@@ -677,7 +811,8 @@ def build_product(slug: str, spec: dict) -> None:
     title, desc = page_meta(hosted)
     canonical = f"{BASE_URL}{slug}/"
     og_image = f"{BASE_URL}{slug}/img/{card_image}" if card_image and not card_image.startswith("http") else None
-    hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image))
+    ld = guide_jsonld(slug, spec, content, title, desc) if content else None
+    hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image, jsonld=ld))
     offline = inject_core(offline, core_head("../", True, canonical, title, desc, og_image, noindex=True))
 
     # Any {{...}} left means a placeholder nothing filled (a missing image key, a typo):
@@ -751,7 +886,7 @@ def build_index() -> None:
     title, desc = page_meta(page)
     first = next(iter(visible_products().items()))
     og_image = f"{BASE_URL}{first[0]}/img/{first[1]['card_image']}"
-    index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image))
+    index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image, jsonld=index_jsonld(title, desc)))
     write(ROOT / "index.html", index)
 
     # 404: GitHub Pages serves /404.html for any missing path, at any depth, so every
@@ -774,6 +909,7 @@ def build_seo_files() -> None:
     sitemap += [f"  <url><loc>{u}</loc></url>" for u in urls]
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n")
+    (ROOT / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY)
     # Keeps the build inputs, which GitHub Pages also serves, out of search results.
     (ROOT / "robots.txt").write_text(
         "User-agent: *\n"
@@ -796,6 +932,7 @@ if __name__ == "__main__":
     build_index()
     publish_core()
     build_seo_files()
+    build_llms_files()
 
     for slug, spec in PRODUCTS.items():
         if spec.get("hidden") and spec.get("template") and (ROOT / slug).is_dir():
