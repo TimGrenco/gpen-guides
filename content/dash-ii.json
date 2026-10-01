@@ -75,6 +75,15 @@
           "sub": "Hold button 3 seconds"
         },
         {
+          "id": "p7",
+          "badge": {
+            "kind": "pill",
+            "label": "hold"
+          },
+          "action": "Turn off",
+          "sub": "Press and hold the center button"
+        },
+        {
           "id": "p2",
           "badge": {
             "kind": "text",
@@ -90,7 +99,7 @@
             "n": 2
           },
           "action": "Start session",
-          "sub": "Double-tap within 2 seconds"
+          "sub": "Double-tap within 2 seconds · vibrates 3 times when ready"
         },
         {
           "id": "p4",
@@ -180,7 +189,7 @@
     {
       "id": "temperature",
       "label": "Temperature",
-      "value": "Adjustable with + / − buttons"
+      "value": "370°F – 430°F (187°C – 221°C) · adjust with + / −"
     },
     {
       "id": "session-mode",
@@ -232,7 +241,7 @@
     {
       "id": "f2",
       "question": "How do I start a session?",
-      "answer": "Once the device is on and at your desired temperature, double-tap the button within 2 seconds to start a session. Double-tap again anytime to cancel it early."
+      "answer": "Once the device is on, set your temperature and double-tap the button within 2 seconds to start a session. It vibrates three times when it's heated and ready. Double-tap again anytime to cancel it early."
     },
     {
       "id": "f3",

@@ -74,7 +74,7 @@
         },
         {
           "id": "b3",
-          "text": "**Double-click** to start a session. The device vibrates when it reaches temp (~20 sec)."
+          "text": "**Double-click** to start a session. The device vibrates twice when it reaches temp (~20 sec)."
         },
         {
           "id": "b4",
@@ -258,7 +258,7 @@
     {
       "id": "f2",
       "question": "How do I know it's ready to use?",
-      "answer": "After you double-click to start a session, the device vibrates once when it reaches your set temperature. The session countdown then begins on the display."
+      "answer": "After you double-click to start a session, the device vibrates twice when it reaches your set temperature. The session countdown then begins on the display."
     },
     {
       "id": "f3",

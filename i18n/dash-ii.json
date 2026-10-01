@@ -46,7 +46,7 @@
       "step.activate.press.p2.action": "Adjust temperature",
       "step.activate.press.p2.sub": "Use + and − buttons",
       "step.activate.press.p3.action": "Start session",
-      "step.activate.press.p3.sub": "Double-tap within 2 seconds",
+      "step.activate.press.p3.sub": "Double-tap within 2 seconds · vibrates 3 times when ready",
       "step.activate.press.p4.action": "Inhale from mouthpiece",
       "step.activate.press.p4.sub": "Long, sustained draws work best",
       "step.activate.press.p4.badge": "draw",
@@ -69,7 +69,7 @@
       "specs.charging.label": "Charging",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Temperature",
-      "specs.temperature.value": "Adjustable with + / − buttons",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · adjust with + / −",
       "specs.session-mode.label": "Session mode",
       "specs.session-mode.value": "Double-tap to start / cancel · 2 min / 3 min / 4 min",
       "specs.haptic-feedback.label": "Haptic feedback",
@@ -87,7 +87,7 @@
       "faq.f1.question": "How do I turn it on?",
       "faq.f1.answer": "Hold the main button for 3 seconds. The device will vibrate and the display will turn on, indicating it is powered up and ready.",
       "faq.f2.question": "How do I start a session?",
-      "faq.f2.answer": "Once the device is on and at your desired temperature, double-tap the button within 2 seconds to start a session. Double-tap again anytime to cancel it early.",
+      "faq.f2.answer": "Once the device is on, set your temperature and double-tap the button within 2 seconds to start a session. It vibrates three times when it's heated and ready. Double-tap again anytime to cancel it early.",
       "faq.f3.question": "My vapor tastes burnt — what's wrong?",
       "faq.f3.answer": "You may have the temperature too high, or the bowl may need cleaning. Try a lower temperature setting and clean the screen and bowl with the pick tool after each session.",
       "faq.f4.question": "How tight should I pack the chamber?",
@@ -99,7 +99,10 @@
       "video.v1.title": "Using the Dash II",
       "video.v2.title": "Cleaning the Dash II",
       "specs.warranty.label": "Warranty",
-      "specs.warranty.value": "6-Month Limited Warranty (1 year with registration)"
+      "specs.warranty.value": "6-Month Limited Warranty (1 year with registration)",
+      "step.activate.press.p7.action": "Turn off",
+      "step.activate.press.p7.sub": "Press and hold the center button",
+      "step.activate.press.p7.badge": "hold"
     }
   },
   "ES": {
@@ -148,7 +151,7 @@
       "step.activate.press.p2.action": "Ajustar la temperatura",
       "step.activate.press.p2.sub": "Usa los botones + y −",
       "step.activate.press.p3.action": "Iniciar sesión",
-      "step.activate.press.p3.sub": "Presiona dos veces en menos de 2 segundos",
+      "step.activate.press.p3.sub": "Presiona dos veces en menos de 2 segundos · vibra 3 veces cuando está listo",
       "step.activate.press.p4.action": "Inhalar por la boquilla",
       "step.activate.press.p4.sub": "Las inhalaciones largas y sostenidas funcionan mejor",
       "step.activate.press.p4.badge": "inhala",
@@ -171,7 +174,7 @@
       "specs.charging.label": "Carga",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Temperatura",
-      "specs.temperature.value": "Ajustable con los botones + / −",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · ajustable con + / −",
       "specs.session-mode.label": "Modo de sesión",
       "specs.session-mode.value": "Presiona dos veces para iniciar / cancelar · 2 min / 3 min / 4 min",
       "specs.haptic-feedback.label": "Respuesta háptica",
@@ -189,7 +192,7 @@
       "faq.f1.question": "¿Cómo lo enciendo?",
       "faq.f1.answer": "Mantén presionado el botón principal durante 3 segundos. El dispositivo vibrará y la pantalla se encenderá, lo que indica que está activado y listo.",
       "faq.f2.question": "¿Cómo inicio una sesión?",
-      "faq.f2.answer": "Cuando el dispositivo esté encendido y a la temperatura que deseas, presiona el botón dos veces en menos de 2 segundos para iniciar una sesión. Vuelve a presionarlo dos veces en cualquier momento para cancelarla antes de tiempo.",
+      "faq.f2.answer": "Con el dispositivo encendido, ajusta la temperatura y presiona el botón dos veces en menos de 2 segundos para iniciar una sesión. Vibra tres veces cuando está caliente y listo. Vuelve a presionarlo dos veces en cualquier momento para cancelarla antes de tiempo.",
       "faq.f3.question": "El vapor sabe a quemado, ¿qué pasa?",
       "faq.f3.answer": "Es posible que la temperatura esté demasiado alta o que la cámara necesite limpieza. Prueba con una temperatura más baja y limpia la malla y la cámara con la herramienta incluida después de cada sesión.",
       "faq.f4.question": "¿Qué tan compacta debe ir la cámara?",
@@ -202,7 +205,10 @@
       "video.v2.title": "Cómo limpiar el Dash II",
       "step.load.bullet.b4": "**Vuelve a colocar** la boquilla antes de encender.",
       "specs.warranty.label": "Garantía",
-      "specs.warranty.value": "Garantía limitada de 6 meses (1 año con registro)"
+      "specs.warranty.value": "Garantía limitada de 6 meses (1 año con registro)",
+      "step.activate.press.p7.action": "Apagar",
+      "step.activate.press.p7.sub": "Mantén presionado el botón central",
+      "step.activate.press.p7.badge": "mantén"
     }
   },
   "DE": {
@@ -251,7 +257,7 @@
       "step.activate.press.p2.action": "Temperatur einstellen",
       "step.activate.press.p2.sub": "Mit den Tasten + und −",
       "step.activate.press.p3.action": "Session starten",
-      "step.activate.press.p3.sub": "Innerhalb von 2 Sekunden zweimal drücken",
+      "step.activate.press.p3.sub": "Innerhalb von 2 Sekunden zweimal drücken · vibriert 3-mal, wenn bereit",
       "step.activate.press.p4.action": "Am Mundstück inhalieren",
       "step.activate.press.p4.sub": "Lange, gleichmäßige Züge funktionieren am besten",
       "step.activate.press.p4.badge": "Ziehen",
@@ -274,7 +280,7 @@
       "specs.charging.label": "Aufladen",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Temperatur",
-      "specs.temperature.value": "Einstellbar mit den Tasten + / −",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · einstellbar mit + / −",
       "specs.session-mode.label": "Session-Modus",
       "specs.session-mode.value": "Zweimal drücken zum Starten / Abbrechen · 2 Min. / 3 Min. / 4 Min.",
       "specs.haptic-feedback.label": "Haptisches Feedback",
@@ -292,7 +298,7 @@
       "faq.f1.question": "Wie schalte ich das Gerät ein?",
       "faq.f1.answer": "Halte die Haupttaste 3 Sekunden lang gedrückt. Das Gerät vibriert und das Display schaltet sich ein – so weißt du, dass es eingeschaltet und betriebsbereit ist.",
       "faq.f2.question": "Wie starte ich eine Session?",
-      "faq.f2.answer": "Sobald das Gerät eingeschaltet ist und die gewünschte Temperatur erreicht hat, drücke die Taste innerhalb von 2 Sekunden zweimal, um eine Session zu starten. Drücke jederzeit erneut zweimal, um sie vorzeitig abzubrechen.",
+      "faq.f2.answer": "Schalte das Gerät ein, stelle die Temperatur ein und drücke die Taste innerhalb von 2 Sekunden zweimal, um eine Session zu starten. Das Gerät vibriert dreimal, wenn es aufgeheizt und bereit ist. Drücke jederzeit erneut zweimal, um die Session vorzeitig abzubrechen.",
       "faq.f3.question": "Der Dampf schmeckt verbrannt – was ist los?",
       "faq.f3.answer": "Möglicherweise ist die Temperatur zu hoch eingestellt oder die Kammer muss gereinigt werden. Probiere eine niedrigere Temperatur und reinige Sieb und Kammer nach jeder Session mit dem Stopfer.",
       "faq.f4.question": "Wie fest sollte ich die Kammer stopfen?",
@@ -305,7 +311,10 @@
       "video.v2.title": "Den Dash II reinigen",
       "step.load.bullet.b4": "**Setze das Mundstück wieder auf**, bevor du das Gerät einschaltest.",
       "specs.warranty.label": "Garantie",
-      "specs.warranty.value": "Eingeschränkte Garantie: 6 Monate (1 Jahr mit Registrierung)"
+      "specs.warranty.value": "Eingeschränkte Garantie: 6 Monate (1 Jahr mit Registrierung)",
+      "step.activate.press.p7.action": "Ausschalten",
+      "step.activate.press.p7.sub": "Mittlere Taste gedrückt halten",
+      "step.activate.press.p7.badge": "Halten"
     }
   },
   "IT": {
@@ -354,7 +363,7 @@
       "step.activate.press.p2.action": "Regola la temperatura",
       "step.activate.press.p2.sub": "Usa i pulsanti + e −",
       "step.activate.press.p3.action": "Avvia la sessione",
-      "step.activate.press.p3.sub": "Premi due volte entro 2 secondi",
+      "step.activate.press.p3.sub": "Premi due volte entro 2 secondi · vibra 3 volte quando è pronto",
       "step.activate.press.p4.action": "Inspira dal bocchino",
       "step.activate.press.p4.sub": "I tiri lunghi e costanti funzionano meglio",
       "step.activate.press.p4.badge": "Aspira",
@@ -377,7 +386,7 @@
       "specs.charging.label": "Ricarica",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Temperatura",
-      "specs.temperature.value": "Regolabile con i pulsanti + / −",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · regolabile con + / −",
       "specs.session-mode.label": "Modalità sessione",
       "specs.session-mode.value": "Doppia pressione per avviare / annullare · 2 min / 3 min / 4 min",
       "specs.haptic-feedback.label": "Feedback aptico",
@@ -395,7 +404,7 @@
       "faq.f1.question": "Come si accende?",
       "faq.f1.answer": "Tieni premuto il pulsante principale per 3 secondi. Il dispositivo vibrerà e il display si accenderà, indicando che è acceso e pronto all'uso.",
       "faq.f2.question": "Come si avvia una sessione?",
-      "faq.f2.answer": "Quando il dispositivo è acceso e alla temperatura desiderata, premi il pulsante due volte entro 2 secondi per avviare una sessione. Premi di nuovo due volte in qualsiasi momento per annullarla in anticipo.",
+      "faq.f2.answer": "Con il dispositivo acceso, imposta la temperatura e premi il pulsante due volte entro 2 secondi per avviare una sessione. Vibra tre volte quando è caldo e pronto. Premi di nuovo due volte in qualsiasi momento per annullarla in anticipo.",
       "faq.f3.question": "Il vapore sa di bruciato: cosa c'è che non va?",
       "faq.f3.answer": "Potresti aver impostato una temperatura troppo alta, oppure la camera potrebbe aver bisogno di essere pulita. Prova con una temperatura più bassa e, dopo ogni sessione, pulisci il retino e la camera con lo strumento in dotazione.",
       "faq.f4.question": "Quanto devo pressare la camera?",
@@ -408,7 +417,10 @@
       "video.v2.title": "Come pulire il Dash II",
       "step.load.bullet.b4": "**Riattacca** il bocchino prima di accendere il dispositivo.",
       "specs.warranty.label": "Garanzia",
-      "specs.warranty.value": "Garanzia limitata di 6 mesi (1 anno con registrazione)"
+      "specs.warranty.value": "Garanzia limitata di 6 mesi (1 anno con registrazione)",
+      "step.activate.press.p7.action": "Spegni",
+      "step.activate.press.p7.sub": "Tieni premuto il pulsante centrale",
+      "step.activate.press.p7.badge": "Tieni"
     }
   },
   "FR": {
@@ -457,7 +469,7 @@
       "step.activate.press.p2.action": "Régler la température",
       "step.activate.press.p2.sub": "Utilisez les boutons + et −",
       "step.activate.press.p3.action": "Démarrer une session",
-      "step.activate.press.p3.sub": "Appuyez deux fois en moins de 2 secondes",
+      "step.activate.press.p3.sub": "Appuyez deux fois en moins de 2 secondes · vibre 3 fois quand il est prêt",
       "step.activate.press.p4.action": "Inhaler par l'embout",
       "step.activate.press.p4.sub": "Les inspirations longues et régulières donnent les meilleurs résultats",
       "step.activate.press.p4.badge": "Inhaler",
@@ -480,7 +492,7 @@
       "specs.charging.label": "Recharge",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Température",
-      "specs.temperature.value": "Réglable avec les boutons + / −",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · réglable avec + / −",
       "specs.session-mode.label": "Mode session",
       "specs.session-mode.value": "Double pression pour démarrer / annuler · 2 min / 3 min / 4 min",
       "specs.haptic-feedback.label": "Retour haptique",
@@ -498,7 +510,7 @@
       "faq.f1.question": "Comment l'allumer ?",
       "faq.f1.answer": "Maintenez le bouton principal enfoncé pendant 3 secondes. L'appareil vibre et l'écran s'allume, ce qui indique qu'il est sous tension et prêt à l'emploi.",
       "faq.f2.question": "Comment démarrer une session ?",
-      "faq.f2.answer": "Une fois l'appareil allumé et réglé à la température souhaitée, appuyez deux fois sur le bouton en moins de 2 secondes pour démarrer une session. Appuyez de nouveau deux fois à tout moment pour l'annuler avant la fin.",
+      "faq.f2.answer": "Une fois l'appareil allumé, réglez la température et appuyez deux fois sur le bouton en moins de 2 secondes pour démarrer une session. Il vibre trois fois lorsqu'il est chaud et prêt. Appuyez de nouveau deux fois à tout moment pour l'annuler avant la fin.",
       "faq.f3.question": "Ma vapeur a un goût de brûlé : que se passe-t-il ?",
       "faq.f3.answer": "La température est peut-être trop élevée, ou la chambre a peut-être besoin d'être nettoyée. Essayez un réglage de température plus bas et nettoyez la grille et la chambre avec l'outil fourni après chaque session.",
       "faq.f4.question": "À quel point dois-je tasser la chambre ?",
@@ -511,7 +523,10 @@
       "video.v2.title": "Nettoyer le Dash II",
       "step.load.bullet.b4": "**Remettez** l'embout en place avant d'allumer l'appareil.",
       "specs.warranty.label": "Garantie",
-      "specs.warranty.value": "Garantie limitée de 6 mois (1 an avec enregistrement)"
+      "specs.warranty.value": "Garantie limitée de 6 mois (1 an avec enregistrement)",
+      "step.activate.press.p7.action": "Éteindre",
+      "step.activate.press.p7.sub": "Maintenez le bouton central enfoncé",
+      "step.activate.press.p7.badge": "Maintenir"
     }
   },
   "PT": {
@@ -560,7 +575,7 @@
       "step.activate.press.p2.action": "Ajustar a temperatura",
       "step.activate.press.p2.sub": "Use os botões + e −",
       "step.activate.press.p3.action": "Iniciar sessão",
-      "step.activate.press.p3.sub": "Pressione duas vezes em até 2 segundos",
+      "step.activate.press.p3.sub": "Pressione duas vezes em até 2 segundos · vibra 3 vezes quando estiver pronto",
       "step.activate.press.p4.action": "Inalar pelo bocal",
       "step.activate.press.p4.sub": "Tragadas longas e contínuas funcionam melhor",
       "step.activate.press.p4.badge": "Trague",
@@ -583,7 +598,7 @@
       "specs.charging.label": "Carregamento",
       "specs.charging.value": "USB-C",
       "specs.temperature.label": "Temperatura",
-      "specs.temperature.value": "Ajustável com os botões + / −",
+      "specs.temperature.value": "370°F – 430°F (187°C – 221°C) · ajustável com + / −",
       "specs.session-mode.label": "Modo sessão",
       "specs.session-mode.value": "Pressione duas vezes para iniciar / cancelar · 2 min / 3 min / 4 min",
       "specs.haptic-feedback.label": "Feedback tátil",
@@ -601,7 +616,7 @@
       "faq.f1.question": "Como faço para ligar?",
       "faq.f1.answer": "Segure o botão principal por 3 segundos. O dispositivo vai vibrar e o visor vai acender, indicando que está ligado e pronto para uso.",
       "faq.f2.question": "Como faço para iniciar uma sessão?",
-      "faq.f2.answer": "Com o dispositivo ligado e na temperatura desejada, pressione o botão duas vezes em até 2 segundos para iniciar uma sessão. Pressione duas vezes novamente a qualquer momento para cancelá-la antes do fim.",
+      "faq.f2.answer": "Com o dispositivo ligado, ajuste a temperatura e pressione o botão duas vezes em até 2 segundos para iniciar uma sessão. Ele vibra três vezes quando estiver aquecido e pronto. Pressione duas vezes novamente a qualquer momento para cancelá-la antes do fim.",
       "faq.f3.question": "O vapor está com gosto de queimado — o que houve?",
       "faq.f3.answer": "A temperatura pode estar alta demais ou a câmara pode precisar de limpeza. Tente uma temperatura mais baixa e limpe a tela e a câmara com a ferramenta incluída após cada sessão.",
       "faq.f4.question": "Quanto devo compactar a câmara?",
@@ -614,7 +629,10 @@
       "video.v2.title": "Como limpar o Dash II",
       "step.load.bullet.b4": "**Recoloque** o bocal antes de ligar o dispositivo.",
       "specs.warranty.label": "Garantia",
-      "specs.warranty.value": "Garantia limitada de 6 meses (1 ano com registro)"
+      "specs.warranty.value": "Garantia limitada de 6 meses (1 ano com registro)",
+      "step.activate.press.p7.action": "Desligar",
+      "step.activate.press.p7.sub": "Segure o botão central",
+      "step.activate.press.p7.badge": "Segure"
     }
   }
 }
