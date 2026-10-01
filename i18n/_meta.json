@@ -1,0 +1,53 @@
+{
+  "_comment": "Search-result descriptions (<meta name=description>, og:description) for the translated pages under /es/, /de/, /it/, /fr/, /pt/. One per page; 'index' is the home page. The English ones live in each template's <meta name=description>.",
+  "ES": {
+    "index": "Guías paso a paso para dispositivos G Pen: cómo cargar, llenar, usar y limpiar Hydout, Dash II, Dash+, 510 Original, Micro II, Melt y 3-Piece Slim Grinder.",
+    "hydout": "Cómo cargar, usar y limpiar la batería para cartuchos 510 G Pen Hydout, y cómo colocar el cartucho.",
+    "510-original": "Cómo cargar, usar y limpiar la batería para cartuchos 510 G Pen 510 Original, y cómo colocar el cartucho.",
+    "dash-ii": "Cómo cargar, llenar, usar y limpiar el vaporizador de hierba seca G Pen Dash II.",
+    "dash-plus": "Cómo cargar, llenar, usar y limpiar el vaporizador de hierba seca G Pen Dash+.",
+    "micro-ii": "Cómo cargar, llenar, usar y limpiar el vaporizador de concentrados G Pen Micro II.",
+    "melt": "Cómo cargar, activar y limpiar el cuchillo caliente para dab G Pen Melt.",
+    "grinder": "Cómo abrir, llenar, moler, recoger y limpiar el molinillo G Pen 3-Piece Slim Grinder."
+  },
+  "DE": {
+    "index": "Schritt-für-Schritt-Anleitungen für G Pen Geräte: Aufladen, Befüllen, Benutzen und Reinigen von Hydout, Dash II, Dash+, 510 Original, Micro II, Melt und 3-Piece Slim Grinder.",
+    "hydout": "So lädst du den G Pen Hydout 510-Cartridge-Akku auf, setzt die Cartridge ein, benutzt und reinigst ihn.",
+    "510-original": "So lädst du den G Pen 510 Original Cartridge-Akku auf, setzt die Cartridge ein, benutzt und reinigst ihn.",
+    "dash-ii": "So lädst, befüllst, benutzt und reinigst du den G Pen Dash II Kräuter-Vaporizer.",
+    "dash-plus": "So lädst, befüllst, benutzt und reinigst du den G Pen Dash+ Kräuter-Vaporizer.",
+    "micro-ii": "So lädst, befüllst, benutzt und reinigst du den G Pen Micro II Konzentrat-Vaporizer.",
+    "melt": "So lädst, aktivierst und reinigst du das G Pen Melt, ein Heißmesser für Dabs.",
+    "grinder": "Den G Pen 3-Piece Slim Grinder öffnen, befüllen, mahlen, das Mahlgut entnehmen und reinigen: Schritt für Schritt erklärt."
+  },
+  "IT": {
+    "index": "Guide passo passo per i dispositivi G Pen: come ricaricare, riempire, usare e pulire Hydout, Dash II, Dash+, 510 Original, Micro II, Melt e 3-Piece Slim Grinder.",
+    "hydout": "Come ricaricare, usare e pulire la batteria per cartucce 510 G Pen Hydout, e come inserire la cartuccia.",
+    "510-original": "Come ricaricare, usare e pulire la batteria per cartucce 510 G Pen 510 Original, e come inserire la cartuccia.",
+    "dash-ii": "Come ricaricare, riempire, usare e pulire il vaporizzatore per erbe secche G Pen Dash II.",
+    "dash-plus": "Come ricaricare, riempire, usare e pulire il vaporizzatore per erbe secche G Pen Dash+.",
+    "micro-ii": "Come ricaricare, riempire, usare e pulire il vaporizzatore per concentrati G Pen Micro II.",
+    "melt": "Come ricaricare, attivare e pulire il coltello caldo per dab G Pen Melt.",
+    "grinder": "Come aprire, riempire, macinare, raccogliere e pulire il G Pen 3-Piece Slim Grinder."
+  },
+  "FR": {
+    "index": "Guides pas à pas pour les appareils G Pen : comment recharger, remplir, utiliser et nettoyer Hydout, Dash II, Dash+, 510 Original, Micro II, Melt et 3-Piece Slim Grinder.",
+    "hydout": "Comment recharger, utiliser et nettoyer la batterie pour cartouches 510 G Pen Hydout, et comment installer la cartouche.",
+    "510-original": "Comment recharger, utiliser et nettoyer la batterie pour cartouches 510 G Pen 510 Original, et comment installer la cartouche.",
+    "dash-ii": "Comment recharger, remplir, utiliser et nettoyer le vaporisateur d'herbes sèches G Pen Dash II.",
+    "dash-plus": "Comment recharger, remplir, utiliser et nettoyer le vaporisateur d'herbes sèches G Pen Dash+.",
+    "micro-ii": "Comment recharger, remplir, utiliser et nettoyer le vaporisateur de concentrés G Pen Micro II.",
+    "melt": "Comment recharger, activer et nettoyer le couteau chauffant à dab G Pen Melt.",
+    "grinder": "Comment ouvrir, remplir, moudre, récupérer et nettoyer le G Pen 3-Piece Slim Grinder."
+  },
+  "PT": {
+    "index": "Guias passo a passo para dispositivos G Pen: como carregar, abastecer, usar e limpar Hydout, Dash II, Dash+, 510 Original, Micro II, Melt e 3-Piece Slim Grinder.",
+    "hydout": "Como carregar, usar e limpar a bateria para cartuchos 510 G Pen Hydout, e como encaixar o cartucho.",
+    "510-original": "Como carregar, usar e limpar a bateria para cartuchos 510 G Pen 510 Original, e como encaixar o cartucho.",
+    "dash-ii": "Como carregar, abastecer, usar e limpar o vaporizador de ervas secas G Pen Dash II.",
+    "dash-plus": "Como carregar, abastecer, usar e limpar o vaporizador de ervas secas G Pen Dash+.",
+    "micro-ii": "Como carregar, abastecer, usar e limpar o vaporizador de concentrados G Pen Micro II.",
+    "melt": "Como carregar, ativar e limpar a faca quente para dab G Pen Melt.",
+    "grinder": "Como abrir, abastecer, triturar, coletar e limpar o dichavador G Pen 3-Piece Slim Grinder."
+  }
+}

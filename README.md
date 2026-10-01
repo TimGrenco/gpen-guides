@@ -42,8 +42,16 @@ is wired, for reference:
    sitemap and the offline copies all hang off it) and the `CNAME` file at the repo root.
 3. Settings → Pages → Custom domain `help.gpen.com`, "Enforce HTTPS" on.
 
-Any guide can be linked in a specific language with `?lang=es` (es, de, it, fr, pt, en);
-the choice sticks for that visitor, same as on the brand portal (assets.gpen.com).
+Every page is also published pre-translated at its own address: `/es/`, `/de/`, `/it/`,
+`/fr/`, `/pt/` + the same path (help.gpen.com/es/hydout/). These are what search engines
+index in each language (hreflang links tie the six versions together); their language menu
+goes to the matching address. The English pages, the ones the QR codes open, still
+translate themselves in place for a visitor whose browser or saved choice is another
+language. A `?lang=es` link still works too (es, de, it, fr, pt, en), and the choice sticks
+for that visitor, same as on the brand portal (assets.gpen.com).
+
+Search descriptions for the translated pages live in `i18n/_meta.json`; the build stops if
+a page is missing one.
 
 ## How it's built
 

@@ -23,6 +23,7 @@ import html as htmllib
 import json
 import mimetypes
 import pathlib
+import posixpath
 import re
 import shutil
 import sys
@@ -365,7 +366,8 @@ def merge_translations(page: dict | None) -> dict:
 
 
 def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
-              image: str | None, noindex: bool = False, jsonld: dict | None = None) -> str:
+              image: str | None, noindex: bool = False, jsonld: dict | None = None,
+              alts: list | None = None, translated: bool = False) -> str:
     """Everything G Pen Core adds to <head>: fonts, the shared stylesheet, icons, share tags.
     prefix: path from the page to the site root ("" for the index, "../" for a guide)."""
     asset = (BASE_URL if offline else prefix) + "core/"
@@ -375,6 +377,9 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
     out = [
         '<meta name="color-scheme" content="light dark">',
         '<meta name="format-detection" content="telephone=no">',   # UPC digits aren't phone numbers
+    ]
+    if not translated:   # a pre-translated /es/... page is already in its language
+        out += [
         # Pick the visitor's language before first paint (same rule as i18n-runtime.js:
         # ?lang= > saved choice > browser language). A non-English visitor gets the page
         # hidden until the runtime has swapped the text, so English never flashes first.
@@ -382,7 +387,7 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         "if(q&&S.indexOf(q.toUpperCase())>=0)s=q.toUpperCase();else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
         "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s&&S.indexOf(s)>=0)?s:(S.indexOf(n)>=0?n:'EN');"
         "if(L!=='EN')document.documentElement.classList.add('i18n-wait')}catch(e){}})();</script>",
-    ]
+        ]
     if not offline:
         for f in ("lato-400-latin", "lato-700-latin", "kanit-800i-latin"):
             out.append(f'<link rel="preload" href="{asset}fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>')
@@ -392,6 +397,7 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         f'<link rel="apple-touch-icon" href="{asset}apple-touch-icon.png">',
         f'<link rel="canonical" href="{canonical}">',
     ]
+    out += [f'<link rel="alternate" hreflang="{h}" href="{u}">' for h, u in (alts or [])]
     if noindex:
         out.append('<meta name="robots" content="noindex">')
     else:
@@ -423,6 +429,182 @@ def inject_core(html: str, head: str) -> str:
     html = html.replace("</head>", head + "</head>", 1)
     js = (CORE_SRC / "guide.js").read_text()
     return html.replace("</body>", f"<script>\n{js}</script>\n</body>", 1)
+
+
+# ─────────────────────────────────────────────────────────────────────────────────────
+# Per-language pages: /es/hydout/, /de/hydout/ ... pre-translated at build time, so
+# search engines index each language at its own address. The English pages (the ones
+# the QR codes point at) keep translating themselves in place; these are additional.
+# ─────────────────────────────────────────────────────────────────────────────────────
+LANG_PAGES = [("ES", "es", "es"), ("DE", "de", "de"), ("IT", "it", "it"),
+              ("FR", "fr", "fr"), ("PT", "pt", "pt-BR")]    # (key, folder, hreflang)
+LANG_NAMES = {"EN": "en", **{k: h for k, _, h in LANG_PAGES}}
+
+
+def load_meta_desc() -> dict:
+    data = json.loads((I18N_DIR / "_meta.json").read_text())
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def alternates(path: str) -> list[tuple[str, str]]:
+    """hreflang links for one page; path is "" for the home page or "<slug>/"."""
+    out = [("en", BASE_URL + path)]
+    out += [(h, f"{BASE_URL}{folder}/{path}") for _, folder, h in LANG_PAGES]
+    return out + [("x-default", BASE_URL + path)]
+
+
+def _element_spans(html: str, attr: str):
+    """(start of inner HTML, end of inner HTML, key) for every element carrying attr="key",
+    last first, so replacing one doesn't move the ones still to come."""
+    found = []
+    for m in re.finditer(r'<([a-zA-Z][\w-]*)\b[^>]*?\s%s="([^"]+)"[^>]*>' % attr, html):
+        tag, key, depth, pos = m.group(1), m.group(2), 1, m.end()
+        tok = re.compile(r"<(/?)%s\b[^>]*>" % tag)
+        while depth:
+            t = tok.search(html, pos)
+            if not t:
+                raise ContentError(f"unclosed <{tag} {attr}={key!r}>")
+            depth += -1 if t.group(1) else (0 if t.group(0).endswith("/>") else 1)
+            pos = t.end()
+        found.append((m.end(), t.start(), key))
+    return sorted(found, reverse=True)
+
+
+def translate_static(html: str, strings: dict) -> str:
+    """What i18n-runtime.js does in the browser, done once at build time."""
+    for start, end, key in _element_spans(html, "data-i18n-zone"):
+        if key != "vids_block" and strings.get(key):     # the runtime leaves vids_block alone too
+            html = html[:start] + strings[key] + html[end:]
+    for start, end, key in _element_spans(html, "data-i18n"):
+        val = strings.get(key)
+        if not val:
+            continue
+        text = htmllib.escape(keep_together(val) if "<" not in val else val, quote=False)
+        inner = html[start:end]
+        if re.search(r"<(svg|button)\b", inner):
+            # an icon (or button) inside: swap only the last run of text, as the runtime does
+            parts = re.split(r"(<[^>]+>)", inner)
+            for i in range(len(parts) - 1, -1, -1):
+                if not parts[i].startswith("<") and parts[i].strip():
+                    parts[i] = text
+                    break
+            inner = "".join(parts)
+        else:
+            inner = text
+        html = html[:start] + inner + html[end:]
+    return html
+
+
+def set_lang_ui(html: str, lang: str) -> str:
+    """Language pill + menu showing `lang` as the current choice."""
+    html = re.sub(r'(<span class="lang-code" id="lang-code">)EN(</span>)', r"\g<1>%s\2" % lang, html)
+    check = re.search(r'<svg class="lcheck".*?</svg>', html).group(0)
+    def opt(m):
+        li = m.group(0).replace(check, "")
+        li = li.replace('aria-selected="true"', 'aria-selected="false"').replace(' class="lang-opt active"', ' class="lang-opt"')
+        if f'data-lang="{lang}"' in li:
+            li = (li.replace('aria-selected="false"', 'aria-selected="true"')
+                    .replace(' class="lang-opt"', ' class="lang-opt active"')
+                    .replace("</li>", check + "</li>"))
+        return li
+    return re.sub(r'<li role="option" data-lang="[A-Z]{2}".*?</li>', opt, html)
+
+
+_SKIP_URL = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|//|#|$)", re.I)
+
+
+def relocate(html: str, from_dir: str, to_dir: str, page_paths: set, folder: str) -> str:
+    """Rewrite every relative URL in a page written for from_dir ("/" or "/hydout/") so it
+    works from to_dir ("/es/" or "/es/hydout/"). A link to another page goes to that page's
+    version in the same language; anything else (images, fonts, the offline copy) still
+    points at the one shared file."""
+    def move(url: str) -> str:
+        if _SKIP_URL.match(url):
+            return url
+        path, tail = re.match(r"([^?#]*)(.*)", url, re.S).groups()
+        target = posixpath.normpath(posixpath.join(from_dir, path or "."))
+        target += "/" if (path.endswith("/") or path in ("", ".")) and target != "/" else ""
+        if target in page_paths:
+            target = f"/{folder}{target}"
+        rel = posixpath.relpath(target, to_dir)
+        if target.endswith("/"):
+            rel = "./" if rel == "." else rel + "/"
+        return rel + tail
+
+    def attr(m):
+        name, val = m.group(1), m.group(2)
+        if name == "srcset":
+            val = ", ".join(" ".join([move(p.split(" ")[0])] + p.split(" ")[1:]) for p in val.split(", "))
+        else:
+            val = move(val)
+        return f'{name}="{val}"'
+    def fix(part):
+        part = re.sub(r'\b(src|href|srcset|poster)="([^"]*)"', attr, part)
+        return re.sub(r"url\((['\"]?)([^'\")]+)\1\)", lambda m: f"url({m.group(1)}{move(m.group(2))}{m.group(1)})", part)
+    # scripts are left alone: guide.js builds selectors like a[href="' + h + '"] in strings
+    parts = re.split(r"(<script\b[^>]*>.*?</script>)", html, flags=re.S)
+    return "".join(x if x.startswith("<script") else fix(x) for x in parts)
+
+
+def lang_switch_script(lang: str, path: str, here: str) -> str:
+    """On a language page the menu goes to the other language's page instead of translating
+    in place, so the address always matches what's on screen. The visit also counts as a
+    choice: the English pages open in this language from now on (same rule as ?lang=)."""
+    urls = {"EN": posixpath.relpath("/" + path, here)}
+    urls.update({k: posixpath.relpath(f"/{f}/{path}", here) for k, f, _ in LANG_PAGES})
+    urls = {k: ("./" if v == "." else v + "/") for k, v in urls.items()}
+    return ("<script>(function(){var P='%s',U=%s;try{localStorage.setItem('gpen-lang',P)}catch(e){}"
+            "window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}"
+            "location.href=U[l]+location.hash}})();</script>\n" % (lang, json.dumps(urls, separators=(",", ":"))))
+
+
+def localize_content(content: dict, leaf: dict) -> dict:
+    """content/<slug>.json with one language's translations swapped in (for its JSON-LD)."""
+    c = json.loads(json.dumps(content))
+    tr = lambda key, cur: leaf.get(key, cur)
+    for s in c.get("steps", []):
+        p = f"step.{s['id']}"
+        s["title"] = tr(f"{p}.title", s["title"])
+        for b in s.get("bullets", []):
+            b["text"] = tr(f"{p}.bullet.{b['id']}", b["text"])
+        for x in s.get("press", []):
+            x["action"] = tr(f"{p}.press.{x['id']}.action", x["action"])
+            if x.get("sub"):
+                x["sub"] = tr(f"{p}.press.{x['id']}.sub", x["sub"])
+        if s.get("note"):
+            s["note"]["text"] = tr(f"{p}.note", s["note"]["text"])
+    for x in c.get("specs", []):
+        x["label"], x["value"] = tr(f"specs.{x['id']}.label", x["label"]), tr(f"specs.{x['id']}.value", x["value"])
+    for f in c.get("faq", []):
+        f["question"], f["answer"] = tr(f"faq.{f['id']}.question", f["question"]), tr(f"faq.{f['id']}.answer", f["answer"])
+    return c
+
+
+def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, title_for, head_for) -> None:
+    """Write /<folder>/<path>index.html for every language. pre is the finished English page
+    body before the i18n runtime and core head go in; title_for(key, strings) gives the
+    tab title, head_for(key, folder, title, desc) the core <head> block."""
+    meta = load_meta_desc()
+    page_paths = {"/"} | {f"/{s}/" for s, sp in visible_products().items() if sp.get("template")}
+    for key, folder, hreflang in LANG_PAGES:
+        strings = translations.get(key, {})
+        desc = meta.get(key, {}).get(meta_key)
+        if not desc:
+            raise ContentError(f"i18n/_meta.json has no {key} description for {meta_key!r}")
+        title = title_for(key, strings)
+        page = translate_static(pre, strings)
+        page = set_lang_ui(page, key)
+        page = page.replace('<html lang="en"', f'<html lang="{hreflang}"', 1)
+        page = re.sub(r"<title>.*?</title>", f"<title>{htmllib.escape(title, quote=False)}</title>", page, count=1, flags=re.S)
+        page = DESC_RE.sub(lambda m: m.group(0).replace(m.group(1), htmllib.escape(desc, quote=True)), page, count=1)
+        here = f"/{folder}/{path}"
+        page = page.replace("</body>", lang_switch_script(key, path, here) + "</body>", 1)
+        page = inject_core(page, head_for(key, folder, title, desc))
+        page = relocate(page, "/" + path, here, page_paths, folder)
+        left = sorted(set(re.findall(r"\{\{[^{}]{1,60}\}\}", page)))
+        if left:
+            raise ContentError(f"{folder}/{path}index.html still contains {', '.join(left)}")
+        write(ROOT / folder / path / "index.html", page)
 
 
 def page_meta(html: str) -> tuple[str, str]:
@@ -461,46 +643,52 @@ def step_text(step: dict) -> str:
     return " ".join(x if x.endswith((".", "!", "?")) else x + "." for x in parts)
 
 
-def guide_jsonld(slug: str, spec: dict, content: dict, title: str, desc: str) -> dict:
-    url = f"{BASE_URL}{slug}/"
-    img = lambda ref: f"{url}img/{pathlib.PurePosixPath(ref).name}"
+def guide_jsonld(slug: str, spec: dict, content: dict, title: str, desc: str,
+                 lang: str = "en", folder: str = "", home_name: str = "G Pen Product Guides") -> dict:
+    """lang/folder/home_name: a translated page's language, its /<folder>/ and the home page's
+    name in that language (its content arrives already translated, see localize_content)."""
+    home = f"{BASE_URL}{folder + '/' if folder else ''}"
+    url = f"{home}{slug}/"
+    img = lambda ref: f"{BASE_URL}{slug}/img/{pathlib.PurePosixPath(ref).name}"
     card = spec.get("card_image", "")
     howto = {
-        "@type": "HowTo", "@id": f"{url}#howto", "name": f"How to use the {spec['name']}",
-        "description": desc, "inLanguage": "en",
+        "@type": "HowTo", "@id": f"{url}#howto",
+        "name": f"How to use the {spec['name']}" if lang == "en" else title,
+        "description": desc, "inLanguage": lang,
         "step": [{"@type": "HowToStep", "position": i, "name": plain(s["title"]),
                   "text": step_text(s), "image": img(s["image"]), "url": f"{url}#use"}
                  for i, s in enumerate(content.get("steps", []), start=1)],
     }
     if card and not card.startswith("http"):
-        howto["image"] = f"{url}img/{card}"
+        howto["image"] = f"{BASE_URL}{slug}/img/{card}"
     graph = [
         {"@type": "WebPage", "@id": url, "url": url, "name": title, "description": desc,
-         "inLanguage": "en", "isPartOf": {"@id": f"{BASE_URL}#site"},
+         "inLanguage": lang, "isPartOf": {"@id": f"{BASE_URL}#site"},
          "breadcrumb": {"@id": f"{url}#breadcrumb"}, "mainEntity": {"@id": f"{url}#howto"},
          "publisher": {"@id": "https://www.gpen.com/#org"}},
         howto,
         {"@type": "BreadcrumbList", "@id": f"{url}#breadcrumb", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "G Pen Product Guides", "item": BASE_URL},
+            {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
             {"@type": "ListItem", "position": 2, "name": spec["name"], "item": url}]},
         WEBSITE, ORG,
     ]
     if content.get("faq"):
-        graph.append({"@type": "FAQPage", "@id": f"{url}#faq", "url": f"{url}#help",
+        graph.append({"@type": "FAQPage", "@id": f"{url}#faq", "url": f"{url}#help", "inLanguage": lang,
                       "mainEntity": [{"@type": "Question", "name": plain(f["question"]),
                                       "acceptedAnswer": {"@type": "Answer", "text": plain(f["answer"])}}
                                      for f in content["faq"]]})
     return {"@context": "https://schema.org", "@graph": graph}
 
 
-def index_jsonld(title: str, desc: str) -> dict:
+def index_jsonld(title: str, desc: str, lang: str = "en", folder: str = "", howto: str = "How to use the {}") -> dict:
     guides = [(s, p) for s, p in visible_products().items() if p.get("template")]
+    home = f"{BASE_URL}{folder + '/' if folder else ''}"
     return {"@context": "https://schema.org", "@graph": [
-        {"@type": "CollectionPage", "@id": BASE_URL, "url": BASE_URL, "name": title,
-         "description": desc, "inLanguage": "en", "isPartOf": {"@id": f"{BASE_URL}#site"},
+        {"@type": "CollectionPage", "@id": home, "url": home, "name": title,
+         "description": desc, "inLanguage": lang, "isPartOf": {"@id": f"{BASE_URL}#site"},
          "mainEntity": {"@type": "ItemList", "itemListElement": [
-             {"@type": "ListItem", "position": i, "name": f"How to use the {p['name']}",
-              "url": f"{BASE_URL}{s}/"} for i, (s, p) in enumerate(guides, start=1)]}},
+             {"@type": "ListItem", "position": i, "name": howto.format(p["name"]),
+              "url": f"{home}{s}/"} for i, (s, p) in enumerate(guides, start=1)]}},
         WEBSITE, ORG]}
 
 
@@ -512,8 +700,9 @@ def build_llms_files() -> None:
              "> Official how-to guides for G Pen devices, published by G Pen: how to charge, "
              "load, use and clean each device, its specs, and answers to common questions. "
              "Customers reach each guide by scanning the QR code on the device's packaging.", "",
-             "Each guide is also available in Spanish, German, Italian, French and Brazilian "
-             "Portuguese: add ?lang=es, ?lang=de, ?lang=it, ?lang=fr or ?lang=pt to its URL.", "",
+             "Each guide is also published in Spanish, German, Italian, French and Brazilian "
+             f"Portuguese, at the same path under /es/, /de/, /it/, /fr/ and /pt/ (for example "
+             f"{BASE_URL}es/hydout/).", "",
              "## Guides", ""]
     full = ["# G Pen Product Guides: full text", "",
             f"Source: {BASE_URL} (official G Pen help site). Support: +1 833-691-3224, help@gpen.com.", ""]
@@ -804,6 +993,7 @@ def build_product(slug: str, spec: dict) -> None:
     cache = load_i18n(slug)
     page_t = (compose_translations(slug, content, cache) if content else cache) if cache else None
     translations = merge_translations(page_t)
+    pre_i18n = hosted
     hosted = inject_i18n(hosted, translations)
     offline = inject_i18n(offline, translations)
 
@@ -812,7 +1002,8 @@ def build_product(slug: str, spec: dict) -> None:
     canonical = f"{BASE_URL}{slug}/"
     og_image = f"{BASE_URL}{slug}/img/{card_image}" if card_image and not card_image.startswith("http") else None
     ld = guide_jsonld(slug, spec, content, title, desc) if content else None
-    hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image, jsonld=ld))
+    hosted = inject_core(hosted, core_head("../", False, canonical, title, desc, og_image, jsonld=ld,
+                                           alts=alternates(f"{slug}/")))
     offline = inject_core(offline, core_head("../", True, canonical, title, desc, og_image, noindex=True))
 
     # Any {{...}} left means a placeholder nothing filled (a missing image key, a typo):
@@ -824,6 +1015,21 @@ def build_product(slug: str, spec: dict) -> None:
 
     write(out_dir / "index.html", hosted)
     write(out_dir / "offline.html", offline)
+
+    # The same guide at /es/<slug>/, /de/<slug>/ ...: what a visitor's browser would show
+    # after translating, written out so search engines can index it.
+    core_t = merge_translations(None)
+    def title_for(key, strings):
+        return strings.get("doc_title") or f"{title.rsplit(' — ', 1)[0]} — {strings.get('nav_use', 'How to use')}"
+    def head_for(key, folder, t, d):
+        leaf = (cache or {}).get(key, {}).get("content", {})
+        jl = (guide_jsonld(slug, spec, localize_content(content, leaf), t, d, LANG_NAMES[key], folder,
+                           core_t[key].get("doc_title_index", "G Pen Product Guides")) if content else None)
+        return core_head("../", False, f"{BASE_URL}{folder}/{slug}/", t, d, og_image, jsonld=jl,
+                         alts=alternates(f"{slug}/"), translated=True)
+    for _, folder, _ in LANG_PAGES:
+        shutil.rmtree(ROOT / folder / slug, ignore_errors=True)
+    write_lang_pages(pre_i18n, f"{slug}/", translations, slug, title_for, head_for)
 
 
 def build_index() -> None:
@@ -886,8 +1092,18 @@ def build_index() -> None:
     title, desc = page_meta(page)
     first = next(iter(visible_products().items()))
     og_image = f"{BASE_URL}{first[0]}/img/{first[1]['card_image']}"
-    index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image, jsonld=index_jsonld(title, desc)))
+    index = inject_core(page, core_head("", False, BASE_URL, title, desc, og_image, jsonld=index_jsonld(title, desc),
+                                        alts=alternates("")))
     write(ROOT / "index.html", index)
+
+    # /es/, /de/ ... home pages
+    use = {k: v.get("shell", {}).get("nav_use", "How to use") for k, v in (load_i18n("hydout") or {}).items()}
+    def head_for(key, folder, t, d):
+        jl = index_jsonld(t, d, LANG_NAMES[key], folder, "{} — " + use.get(key, "How to use"))
+        return core_head("", False, f"{BASE_URL}{folder}/", t, d, og_image, jsonld=jl,
+                         alts=alternates(""), translated=True)
+    write_lang_pages(page_plain, "", titled("doc_title_index"), "index",
+                     lambda key, strings: strings["doc_title_index"], head_for)
 
     # 404: GitHub Pages serves /404.html for any missing path, at any depth, so every
     # relative link on it is resolved against the site root with <base>.
@@ -902,7 +1118,8 @@ def build_index() -> None:
 
 
 def build_seo_files() -> None:
-    urls = [BASE_URL] + [f"{BASE_URL}{s}/" for s, spec in visible_products().items() if spec.get("template")]
+    paths = [""] + [f"{s}/" for s, spec in visible_products().items() if spec.get("template")]
+    urls = [BASE_URL + p for p in paths] + [f"{BASE_URL}{f}/{p}" for _, f, _ in LANG_PAGES for p in paths]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     # no <lastmod>: a date that moves on every rebuild would claim every page changed daily
@@ -938,6 +1155,8 @@ if __name__ == "__main__":
         if spec.get("hidden") and spec.get("template") and (ROOT / slug).is_dir():
             # ignore_errors: macOS ._ sidecars on network volumes vanish mid-walk
             shutil.rmtree(ROOT / slug, ignore_errors=True)
+            for _, folder, _ in LANG_PAGES:
+                shutil.rmtree(ROOT / folder / slug, ignore_errors=True)
             print(f"  removed {slug}/ (hidden — source kept in src/, content/, i18n/)")
 
     if failed:
