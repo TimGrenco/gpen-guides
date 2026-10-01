@@ -50,7 +50,9 @@ NBSP = "\u00a0"
 _UNIT_RE = re.compile(
     r"(\d)\s+(?=(?:g|mm|cm|V|mAh|°F|°C|min|minutes?|seconds?|sec|s|hours?|h|Sek\.?|Sekunden|Minuten|"
     r"Stunden?|segundos?|minutos?|horas?|secondi|minuti|ore|secondes|heures?|mois|jours?|días|dias|"
-    r"giorni|Tage|Monate|meses|mesi|ans?|años|anos|anni|Jahre?|veces|vezes|volte|fois|mal|times|×)(?![\w]))")
+    r"giorni|Tage|Monate|meses|mesi|ans?|años|anos|anni|Jahre?|veces|vezes|volte|fois|mal|times|"
+    r"sekunder|sekundach|minutach|godzinach|sekundy?|sekundę|minuter|minutter|minuty|minutę|minut|timmar|timme|timer|time|godzin[yę]?|"
+    r"månader|måneder|miesięcy|miesiące|dagar|dage|dni|år|lat|lata|gånger|gange|razy|×)(?![\w]))")
 _SEP_RE = re.compile(r" ([/=→·])([ \u00a0])")
 _NUMHY_RE = re.compile(r"(\d[a-zA-Z]{0,2})-(?=\w)")
 _NAMES = ("G Pen", "Micro II", "Dash II", "Micro+", "510 Original", "Rig Adapter")

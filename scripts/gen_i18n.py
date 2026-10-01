@@ -37,6 +37,9 @@ LANGUAGES = {
     "IT": "Italian",
     "FR": "French (France)",
     "PT": "Portuguese (Brazil)",
+    "SV": "Swedish",
+    "PL": "Polish",
+    "DA": "Danish",
 }
 
 # ── HTML extraction: shell (UI-chrome) strings only ─────────────────────────

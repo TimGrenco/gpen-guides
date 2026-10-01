@@ -3,8 +3,8 @@
   var T = window._T;
   if (!T) return;
 
-  var LANG_CODES = {EN:'en',ES:'es',DE:'de',IT:'it',FR:'fr',PT:'pt-BR'};
-  var SUPPORTED = ['EN','ES','DE','IT','FR','PT'];
+  var LANG_CODES = {EN:'en',ES:'es',DE:'de',IT:'it',FR:'fr',PT:'pt-BR',SV:'sv',PL:'pl',DA:'da'};
+  var SUPPORTED = ['EN','ES','DE','IT','FR','PT','SV','PL','DA'];
   var ORIGINAL_TITLE = document.title;
   var barName = document.querySelector('.bar-name');
   var PRODUCT_NAME = barName ? barName.textContent.trim() : '';

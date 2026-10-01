@@ -67,6 +67,8 @@
 .lang-opt:focus{outline:none}
 .lang-opt:focus-visible{outline:2px solid var(--ink); outline-offset:-2px; box-shadow:inset 0 0 0 4px var(--accent)}
 .lang-drop{max-width:calc(100vw - 24px)}
+/* nine languages: on a short screen (a phone turned sideways) the list scrolls inside itself */
+.lang-drop{max-height:calc(100vh - 88px); max-height:calc(100dvh - 88px); overflow-y:auto; overscroll-behavior:contain}
 @media (max-width:560px){
   .bar-top{position:relative}
   .lang-wrap{position:static}

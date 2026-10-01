@@ -383,7 +383,7 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         # Pick the visitor's language before first paint (same rule as i18n-runtime.js:
         # ?lang= > saved choice > browser language). A non-English visitor gets the page
         # hidden until the runtime has swapped the text, so English never flashes first.
-        "<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT'],q=(location.search.match(/[?&]lang=([a-z]{2})\\b/i)||[])[1],s=null;"
+        "<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT','SV','PL','DA'],q=(location.search.match(/[?&]lang=([a-z]{2})\\b/i)||[])[1],s=null;"
         "if(q&&S.indexOf(q.toUpperCase())>=0)s=q.toUpperCase();else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
         "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s&&S.indexOf(s)>=0)?s:(S.indexOf(n)>=0?n:'EN');"
         "if(L!=='EN')document.documentElement.classList.add('i18n-wait')}catch(e){}})();</script>",
@@ -437,7 +437,8 @@ def inject_core(html: str, head: str) -> str:
 # the QR codes point at) keep translating themselves in place; these are additional.
 # ─────────────────────────────────────────────────────────────────────────────────────
 LANG_PAGES = [("ES", "es", "es"), ("DE", "de", "de"), ("IT", "it", "it"),
-              ("FR", "fr", "fr"), ("PT", "pt", "pt-BR")]    # (key, folder, hreflang)
+              ("FR", "fr", "fr"), ("PT", "pt", "pt-BR"),
+              ("SV", "sv", "sv"), ("PL", "pl", "pl"), ("DA", "da", "da")]    # (key, folder, hreflang)
 LANG_NAMES = {"EN": "en", **{k: h for k, _, h in LANG_PAGES}}
 
 
@@ -626,7 +627,7 @@ ORG = {
 }
 WEBSITE = {"@type": "WebSite", "@id": f"{BASE_URL}#site", "url": BASE_URL,
            "name": "G Pen Product Guides", "publisher": {"@id": "https://www.gpen.com/#org"},
-           "inLanguage": ["en", "es", "de", "it", "fr", "pt-BR"]}
+           "inLanguage": ["en", "es", "de", "it", "fr", "pt-BR", "sv", "pl", "da"]}
 
 
 def plain(s: str) -> str:

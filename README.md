@@ -2,8 +2,8 @@
 
 Mobile-first how-to guides for G Pen products. A customer scans a QR code on the
 device or its packaging and lands on that product's guide: how to charge it, load
-it, use it and keep it clean — in English, Spanish, German, Italian, French and
-Portuguese (language switcher, top right).
+it, use it and keep it clean — in English, Spanish, German, Italian, French, Brazilian
+Portuguese, Swedish, Polish and Danish (language switcher, top right).
 
 A static site: the generated HTML is committed and GitHub Pages serves the repo
 root as-is. Nothing builds on push.
@@ -43,11 +43,11 @@ is wired, for reference:
 3. Settings → Pages → Custom domain `help.gpen.com`, "Enforce HTTPS" on.
 
 Every page is also published pre-translated at its own address: `/es/`, `/de/`, `/it/`,
-`/fr/`, `/pt/` + the same path (help.gpen.com/es/hydout/). These are what search engines
-index in each language (hreflang links tie the six versions together); their language menu
+`/fr/`, `/pt/`, `/sv/`, `/pl/`, `/da/` + the same path (help.gpen.com/es/hydout/). These are what search engines
+index in each language (hreflang links tie the nine versions together); their language menu
 goes to the matching address. The English pages, the ones the QR codes open, still
 translate themselves in place for a visitor whose browser or saved choice is another
-language. A `?lang=es` link still works too (es, de, it, fr, pt, en), and the choice sticks
+language. A `?lang=es` link still works too (es, de, it, fr, pt, sv, pl, da, en), and the choice sticks
 for that visitor, same as on the brand portal (assets.gpen.com).
 
 Search descriptions for the translated pages live in `i18n/_meta.json`; the build stops if
@@ -153,7 +153,8 @@ Elite II, Micro+, Hyer, Connect and the Roam card are `"hidden": True` in
 `PRODUCTS`: not built, not listed, not linked. Their source (templates, content,
 translations, images) is kept on purpose. To bring one back, set `hidden` to
 `False`, run `build.py`, then `gen_i18n.py <product>` (a few strings will need
-translating), then `build.py` again.
+translating; their caches predate Swedish, Polish and Danish, so those three need
+every string), then `build.py` again.
 
 ## Where the content comes from
 
