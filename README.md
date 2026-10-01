@@ -175,15 +175,16 @@ Step images are 900×900 squares cropped to a circle by CSS;
 
 ## Legacy products
 
-Elite II, Micro+, Hyer and Connect are `"legacy": True` in `PRODUCTS`: published, listed in
+Elite II, Micro+, Hyer, Connect and Roam are `"legacy": True` in `PRODUCTS`: published, listed in
 the home page's "Legacy products" fold and under each group's "Legacy products" heading on
 /identify/. Their facts were confirmed by the team on 2026-10-01 (every warranty is at most
 2 years; Elite II has + / − buttons, no session countdown, vibrates twice). The Micro+ and
 Hyer specs still show the package's size and weight, labeled as such, because the "device"
 figures the team sent matched the package exactly.
 
-The Roam card is still `"hidden": True` (no guide content yet; the stores expect `/roam/`
-when it exists). It already appears on /identify/ with a "Get help from support" button.
+The Roam guide (2026-10-01) was written from the Jan 2023 instruction insert
+(manual: 600-800°F; gpen.com's product page says 400-800°F+, flagged for review), with step
+photos composed from the gpen.com product images, SKU/UPC/parts from the store. No videos.
 A product flagged hidden keeps its source (template, content, translations, images) but
 isn't built, listed or linked; to publish one, set `hidden` to `False` and run `build.py`.
 

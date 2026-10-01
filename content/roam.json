@@ -1,0 +1,294 @@
+{
+  "steps": [
+    {
+      "id": "charge",
+      "title": "Charge",
+      "image": "images/roam-step-01-charge.jpg",
+      "imageAlt": "Front of the G Pen Roam with the power button and Micro USB port",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Plug a **Micro USB cable** into the port on the front of the battery."
+        },
+        {
+          "id": "b2",
+          "text": "Give it a full charge before first use. It takes **less than 90 minutes** with a 1A charger."
+        },
+        {
+          "id": "b3",
+          "text": "The battery level shows on the **LED screen**."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "tip",
+        "text": "**Full charge:** about 15 automatic heat sessions. You can also use the Roam while it's plugged in."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "fill-load",
+      "title": "Fill & Load",
+      "image": "images/roam-step-02-fill-load.jpg",
+      "imageAlt": "G Pen Roam taken apart: glass tube, battery, tank cover and quartz tank",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Fill the **glass tube** with water, no higher than the **etched water line**."
+        },
+        {
+          "id": "b2",
+          "text": "Place your concentrate onto the **heating element** in the quartz tank with the included G Pen tool."
+        },
+        {
+          "id": "b3",
+          "text": "Put the **tank cover** back on before you heat."
+        }
+      ],
+      "press": [],
+      "note": {
+        "type": "warning",
+        "text": "**Hot surface:** wait at least 5 minutes after heating before you handle the tank cover."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "set-temp",
+      "title": "Set Temperature",
+      "image": "images/roam-step-03-set-temp.jpg",
+      "imageAlt": "G Pen Roam LED screen with the two temperature buttons above it",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Press the power button 5 times** to turn on or off."
+        },
+        {
+          "id": "b2",
+          "text": "Use the **two buttons above the screen** to set the temperature, from **600°F to 800°F** (315°C to 425°C) in 25° steps."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 5
+          },
+          "action": "Power on / off",
+          "sub": "Power button on the front of the battery"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "text",
+            "value": "▲▼"
+          },
+          "action": "Adjust temperature",
+          "sub": "Up / down in 25° steps"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "text",
+            "value": "MAX"
+          },
+          "action": "Max mode",
+          "sub": "At 800°F, press up once more for full power"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "°F / °C",
+          "sub": "Hold power + up for 3 seconds"
+        }
+      ],
+      "note": {
+        "type": "tip",
+        "text": "**Max mode** gives full power with no temperature control. If the Roam overheats, a warning hand shows and it stops heating until it's back to a safe temperature."
+      },
+      "helpWidget": false
+    },
+    {
+      "id": "heat-draw",
+      "title": "Heat & Draw",
+      "image": "images/roam-step-04-heat-draw.jpg",
+      "imageAlt": "Holding the G Pen Roam",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "**Press the power button twice** to start heating."
+        },
+        {
+          "id": "b2",
+          "text": "The Roam **vibrates** when it reaches your temperature. Start drawing from the mouthpiece."
+        },
+        {
+          "id": "b3",
+          "text": "It stays at temperature for **30 seconds**, then vibrates again before it stops heating."
+        }
+      ],
+      "press": [
+        {
+          "id": "p1",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Auto heat",
+          "sub": "Heats, vibrates, holds for 30 seconds"
+        },
+        {
+          "id": "p2",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Add 10 seconds",
+          "sub": "Press twice right after heating stops"
+        },
+        {
+          "id": "p3",
+          "badge": {
+            "kind": "count",
+            "n": 2
+          },
+          "action": "Cancel heat",
+          "sub": "Press twice while it's heating"
+        },
+        {
+          "id": "p4",
+          "badge": {
+            "kind": "pill",
+            "label": "Hold"
+          },
+          "action": "Manual heat",
+          "sub": "Hold the power button · up to 30 seconds"
+        }
+      ],
+      "note": null,
+      "helpWidget": false
+    },
+    {
+      "id": "clean",
+      "title": "Clean",
+      "image": "images/roam-step-05-clean.jpg",
+      "imageAlt": "G Pen Roam quartz tank",
+      "image2": null,
+      "image2Alt": null,
+      "bullets": [
+        {
+          "id": "b1",
+          "text": "Let it cool first. Use **cotton swabs and isopropyl alcohol** on the quartz tank, tank cover and silicone mouthpiece."
+        },
+        {
+          "id": "b2",
+          "text": "The **silicone airflow strip** at the back of the battery comes off so you can clean it separately."
+        },
+        {
+          "id": "b3",
+          "text": "When you put the quartz tank back, line up the **tab on its bottom** with the cavity in the tank cover."
+        }
+      ],
+      "press": [],
+      "note": null,
+      "helpWidget": false
+    }
+  ],
+  "attachments": [],
+  "specs": [
+    {
+      "id": "type",
+      "label": "Type",
+      "value": "Portable E-Rig"
+    },
+    {
+      "id": "battery",
+      "label": "Battery",
+      "value": "1,300 mAh · about 15 automatic heat sessions per charge"
+    },
+    {
+      "id": "charging",
+      "label": "Charging",
+      "value": "Micro USB · less than 90 minutes at 1A · pass-through"
+    },
+    {
+      "id": "temperature-range",
+      "label": "Temperature range",
+      "value": "600°F to 800°F (315°C to 425°C) · 25° steps · Max mode"
+    },
+    {
+      "id": "heat-modes",
+      "label": "Heat modes",
+      "value": "Auto: 30 seconds (+10 seconds) · Manual: up to 30 seconds"
+    },
+    {
+      "id": "chamber",
+      "label": "Chamber",
+      "value": "Quartz tank"
+    },
+    {
+      "id": "water-filtration",
+      "label": "Water filtration",
+      "value": "Borosilicate glass tube"
+    },
+    {
+      "id": "display",
+      "label": "Display",
+      "value": "LED · temperature and battery level"
+    },
+    {
+      "id": "in-the-box",
+      "label": "In the box",
+      "value": "Roam, travel case, Micro USB cable, G Pen tool"
+    },
+    {
+      "id": "sku",
+      "label": "SKU",
+      "value": "GPR-001-AIZZ"
+    },
+    {
+      "id": "upc",
+      "label": "UPC",
+      "value": "811736022620"
+    }
+  ],
+  "faq": [
+    {
+      "id": "f1",
+      "question": "The screen shows an X",
+      "answer": "An X pointing up toward the heater means a short circuit or a connection problem. Check that the quartz tank is seated properly, then try again."
+    },
+    {
+      "id": "f2",
+      "question": "A hand symbol is on the screen",
+      "answer": "The Roam has overheated. It stops heating until it's back to a safe temperature, then you can use it again."
+    },
+    {
+      "id": "f3",
+      "question": "How do I switch between °F and °C?",
+      "answer": "Hold the power button and the temperature up button together for 3 seconds."
+    },
+    {
+      "id": "f4",
+      "question": "How much water goes in the glass tube?",
+      "answer": "Fill it no higher than the etched water line on the tube."
+    },
+    {
+      "id": "f5",
+      "question": "How long does a charge last?",
+      "answer": "A full charge gives about 15 automatic heat sessions. Charging takes less than 90 minutes with a 1A charger, and the battery level shows on the LED screen."
+    }
+  ],
+  "videos": []
+}

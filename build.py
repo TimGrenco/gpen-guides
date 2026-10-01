@@ -180,15 +180,15 @@ PRODUCTS = {
     # ── Guides not built yet: hidden; set hidden False to list them, linking to gpen.com
     # card_image may be a full CDN URL or a local filename in src/.
     "roam": {
-        "template": None,
+        "template": "roam.template.html",
         "legacy": True,
         "group": "concentrate",
-        "hidden": True,     # off the site for now; flip to False to bring it back
+        "hidden": False,
         "name": "G Pen Roam",
         "category": "Portable E-Rig",
-        "card_image": _CDN + "Roam_thumb_01.png?v=1768241512",
-        "id_image": "roam-card.png",   # local copy for the "Which G Pen do I have?" page
-        "href": "https://www.gpen.com/products/g-pen-roam",
+        "card_image": "roam-card.png",
+        "images": {},
+        "text": {},
     },
 }
 

@@ -91,13 +91,6 @@
       "price": "$10.47"
     },
     {
-      "handle": "g-pen-elite-ii-mouthpiece-assembly",
-      "name": "Mouthpiece Assembly",
-      "note": "Replacement zirconia mouthpiece with silicone insert, spiral ceramic air path and filter screen.",
-      "image": "https://cdn.shopify.com/s/files/1/0185/1576/products/Elite2_Web_Mouthpiece_ortho.png?v=1692903123",
-      "price": "$14.95"
-    },
-    {
       "handle": "g-pen-grinder-3-pc-aluminum",
       "name": "3-Piece Slim Grinder",
       "note": "Micro-rounded teeth for a consistent grind that helps preserve terpenes and cannabinoids.",
@@ -250,6 +243,36 @@
       "note": "Portable dry herb vaporizer with hybrid convection-conduction heating in a titanium chamber.",
       "image": "https://cdn.shopify.com/s/files/1/0185/1576/files/dash__vape_thumb_5e14bcb4-a63a-4cc3-8078-e57fc572e4da.png?v=1729247649",
       "price": "$99.95"
+    }
+  ],
+  "roam": [
+    {
+      "handle": "g-pen-roam-quartz-tank",
+      "name": "Quartz Tank",
+      "note": "Replacement quartz tank for your Roam.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Atomizer_top_914282bf-6c95-4159-9fec-80aaa40044b0.png?v=1600307524",
+      "price": "$20.95"
+    },
+    {
+      "handle": "g-pen-roam-glass-tube",
+      "name": "Glass Hydrotube",
+      "note": "Replacement borosilicate glass water tube. Mouthpiece not included.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/files/Roam_Glass_Hydrotube.jpg?v=1736499806",
+      "price": "$15.95"
+    },
+    {
+      "handle": "g-pen-roam-mouthpiece",
+      "name": "Mouthpiece",
+      "note": "Replacement silicone mouthpiece. Glass tube not included.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/products/Roam_Mouthpiece_Solo_0606b1e7-9380-4e1d-8d14-600428cbc9d0.png?v=1692903230",
+      "price": "$4.95"
+    },
+    {
+      "handle": "g-pen-roam-silicone-airflow-strip",
+      "name": "Silicone Airflow Strip",
+      "note": "Replacement silicone airflow strip for the back of the Roam battery.",
+      "image": "https://cdn.shopify.com/s/files/1/0185/1576/products/RoamSiliconeChannel.png?v=1692903236",
+      "price": "$4.95"
     }
   ]
 }

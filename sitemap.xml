@@ -144,6 +144,18 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
   </url>
+  <url><loc>https://help.gpen.com/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
+  </url>
   <url><loc>https://help.gpen.com/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/"/>
@@ -299,6 +311,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/connect/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
+  </url>
+  <url><loc>https://help.gpen.com/es/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
   </url>
   <url><loc>https://help.gpen.com/es/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
@@ -456,6 +480,18 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
   </url>
+  <url><loc>https://help.gpen.com/de/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
+  </url>
   <url><loc>https://help.gpen.com/de/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/"/>
@@ -611,6 +647,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/connect/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
+  </url>
+  <url><loc>https://help.gpen.com/it/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
   </url>
   <url><loc>https://help.gpen.com/it/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
@@ -768,6 +816,18 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
   </url>
+  <url><loc>https://help.gpen.com/fr/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
+  </url>
   <url><loc>https://help.gpen.com/fr/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/"/>
@@ -923,6 +983,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/connect/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
+  </url>
+  <url><loc>https://help.gpen.com/pt/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
   </url>
   <url><loc>https://help.gpen.com/pt/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
@@ -1080,6 +1152,18 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
   </url>
+  <url><loc>https://help.gpen.com/sv/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
+  </url>
   <url><loc>https://help.gpen.com/sv/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/"/>
@@ -1236,6 +1320,18 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
   </url>
+  <url><loc>https://help.gpen.com/pl/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
+  </url>
   <url><loc>https://help.gpen.com/pl/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/"/>
@@ -1391,6 +1487,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/connect/"/>
     <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/connect/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/connect/"/>
+  </url>
+  <url><loc>https://help.gpen.com/da/roam/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/roam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://help.gpen.com/es/roam/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://help.gpen.com/de/roam/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://help.gpen.com/it/roam/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/roam/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/roam/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/roam/"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://help.gpen.com/da/roam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://help.gpen.com/roam/"/>
   </url>
   <url><loc>https://help.gpen.com/da/identify/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/"/>
