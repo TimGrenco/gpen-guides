@@ -581,12 +581,16 @@ def localize_content(content: dict, leaf: dict) -> dict:
     return c
 
 
+EXTRA_PAGES = ["identify/"]   # site pages that aren't guides; each has /<lang>/ versions too
+
+
 def write_lang_pages(pre: str, path: str, translations: dict, meta_key: str, title_for, head_for) -> None:
     """Write /<folder>/<path>index.html for every language. pre is the finished English page
     body before the i18n runtime and core head go in; title_for(key, strings) gives the
     tab title, head_for(key, folder, title, desc) the core <head> block."""
     meta = load_meta_desc()
-    page_paths = {"/"} | {f"/{s}/" for s, sp in visible_products().items() if sp.get("template")}
+    page_paths = ({"/"} | {f"/{s}/" for s, sp in visible_products().items() if sp.get("template")}
+                  | {f"/{p}" for p in EXTRA_PAGES})
     for key, folder, hreflang in LANG_PAGES:
         strings = translations.get(key, {})
         desc = meta.get(key, {}).get(meta_key)
@@ -736,7 +740,8 @@ def build_llms_files() -> None:
             for f in content["faq"]:
                 full += [f"**{plain(f['question'])}**", "", plain(f["answer"]), ""]
         full.append("")
-    lines += ["", "## Optional", "",
+    lines += ["", f"- [Which G Pen do I have?]({BASE_URL}identify/): photos and look-for cues to identify a G Pen device",
+              "", "## Optional", "",
               f"- [All guides as plain text]({BASE_URL}llms-full.txt): every guide's steps, specs and FAQ",
               "- [G Pen store](https://www.gpen.com/): products, warranty and registration",
               "", "Support: +1 833-691-3224, help@gpen.com", ""]
@@ -1118,8 +1123,105 @@ def build_index() -> None:
     write(ROOT / "404.html", nf)
 
 
+# ─────────────────────────────────────────────────────────────────────────────────────
+# "Which G Pen do I have?" (/identify/): every guide's photo with three "look for" cues,
+# grouped by what goes in the device, plus tips for the look-alikes
+# ─────────────────────────────────────────────────────────────────────────────────────
+ID_TIPS = {"dryherb": ["dash"], "concentrate": ["hydmic"], "510": ["510"]}   # i18n id_tip_<key>(_t)
+
+ID_DEV = """        <article class="dev">
+          <a class="dev-photo" href="../{slug}/" tabindex="-1" aria-hidden="true"><img src="{img}"{srcset} alt=""{dims}{loading}></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../{slug}/">{name}</a></h3>
+            <span class="eyebrow" data-i18n="cat_{slug}">{category}</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">{look}</p>
+            <ul>
+{cues}
+            </ul>
+          </div>
+          <a class="dev-go" href="../{slug}/"><span data-i18n="id_open">{open}</span><span aria-hidden="true">→</span></a>
+        </article>"""
+
+
+def build_identify() -> None:
+    data = json.loads((I18N_DIR / "identify.json").read_text())
+    en = data["EN"]
+    esc = lambda t: htmllib.escape(keep_together(t), quote=False)
+    guides = [(s, p) for s, p in visible_products().items() if p.get("template")]
+    missing = [f"id_{s}_{n}" for s, _ in guides for n in (1, 2, 3) if not en.get(f"id_{s}_{n}")]
+    unfiled = [s for s, p in guides if p.get("group") not in {g for g, _, _ in INDEX_GROUPS}]
+    if missing or unfiled:
+        raise ContentError("identify: every guide needs three 'look for' cues in i18n/identify.json "
+                           f"and a group in PRODUCTS (missing {', '.join(missing + unfiled)})")
+    chips, blocks, n = [], [], 0
+    for key, i18n_key, heading in INDEX_GROUPS:
+        members = [(s, p) for s, p in guides if p.get("group") == key]
+        if not members:
+            continue
+        chips.append(f'        <a class="chip" href="#id-{key}" data-i18n="id_chip_{key}">{esc(en[f"id_chip_{key}"])}</a>')
+        cards = []
+        for slug, spec in members:
+            srcset, dims = card_srcset(slug, spec, "../", "112px")
+            cards.append(ID_DEV.format(
+                slug=slug, img=_card_img(slug, spec, is_switcher=True), srcset=srcset, dims=dims,
+                loading="" if n < 2 else ' loading="lazy"', name=spec["name"], category=spec["category"],
+                look=esc(en["id_look"]), open=esc(en["id_open"]),
+                cues="\n".join(f'              <li data-i18n="id_{slug}_{i}">{esc(en[f"id_{slug}_{i}"])}</li>' for i in (1, 2, 3))))
+            n += 1
+        tips = "".join(
+            f'\n      <aside class="tip"><p class="tip-t" data-i18n="id_tip_{t}_t">{esc(en[f"id_tip_{t}_t"])}</p>'
+            f'<p data-i18n="id_tip_{t}">{esc(en[f"id_tip_{t}"])}</p></aside>' for t in ID_TIPS.get(key, []))
+        blocks.append(
+            f'    <section class="group" id="id-{key}" aria-labelledby="idg-{key}">\n'
+            f'      <h2 class="group-title" id="idg-{key}" data-i18n="{i18n_key}">{heading}</h2>\n'
+            f'      <p class="group-sub" data-i18n="id_sub_{key}">{esc(en[f"id_sub_{key}"])}</p>\n'
+            '      <div class="grid">\n' + "\n".join(cards) + "\n      </div>" + tips + "\n    </section>")
+    page = ((SRC / "identify.template.html").read_text()
+            .replace("{{ID_CHIPS}}", "\n".join(chips)).replace("{{ID_GROUPS}}", "\n".join(blocks))
+            .replace("{{YEAR}}", YEAR))
+
+    page_t = {lang: {k: v for k, v in strings.items()} for lang, strings in data.items() if not lang.startswith("_")}
+    translations = merge_translations(page_t)
+    for lang, strings in translations.items():
+        strings["doc_title"] = strings.get("doc_title_identify", "")
+    pre = page
+    page = inject_i18n(page, translations)
+    title, desc = page_meta(page)
+    url = f"{BASE_URL}identify/"
+
+    def jsonld(t, d, lang, folder, home_name):
+        home = f"{BASE_URL}{folder + '/' if folder else ''}"
+        me = f"{home}identify/"
+        return {"@context": "https://schema.org", "@graph": [
+            {"@type": "WebPage", "@id": me, "url": me, "name": t, "description": d, "inLanguage": lang,
+             "isPartOf": {"@id": f"{BASE_URL}#site"}, "breadcrumb": {"@id": f"{me}#breadcrumb"},
+             "mainEntity": {"@type": "ItemList", "itemListElement": [
+                 {"@type": "ListItem", "position": i, "name": p["name"], "url": f"{home}{s}/",
+                  "image": f"{BASE_URL}{s}/img/{p['card_image']}"} for i, (s, p) in enumerate(guides, start=1)]}},
+            {"@type": "BreadcrumbList", "@id": f"{me}#breadcrumb", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
+                {"@type": "ListItem", "position": 2, "name": t, "item": me}]},
+            WEBSITE, ORG]}
+
+    og_image = f"{BASE_URL}{guides[0][0]}/img/{guides[0][1]['card_image']}"
+    page = inject_core(page, core_head("../", False, url, title, desc, og_image,
+                                       jsonld=jsonld(title, desc, "en", "", "G Pen Product Guides"),
+                                       alts=alternates("identify/")))
+    write(ROOT / "identify" / "index.html", page)
+
+    core_t = merge_translations(None)
+    def head_for(key, folder, t, d):
+        return core_head("../", False, f"{BASE_URL}{folder}/identify/", t, d, og_image,
+                         jsonld=jsonld(t, d, LANG_NAMES[key], folder, core_t[key].get("doc_title_index", "G Pen Product Guides")),
+                         alts=alternates("identify/"), translated=True)
+    write_lang_pages(pre, "identify/", translations, "identify",
+                     lambda key, strings: strings.get("doc_title_identify") or title, head_for)
+
+
 def build_seo_files() -> None:
-    paths = [""] + [f"{s}/" for s, spec in visible_products().items() if spec.get("template")]
+    paths = [""] + [f"{s}/" for s, spec in visible_products().items() if spec.get("template")] + EXTRA_PAGES
     # every language version of a page lists all of them (itself included) plus x-default,
     # the same set as the hreflang links in each page's <head>
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -1154,6 +1256,7 @@ if __name__ == "__main__":
                 failed.append(slug)
                 print(f"\n  ✗ {e}\n")
     build_index()
+    build_identify()
     publish_core()
     build_seo_files()
     build_llms_files()

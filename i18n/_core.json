@@ -23,7 +23,8 @@
     "legal_notice": "For adults 21 and over only. This product is not for use with tobacco, nicotine-containing e‑liquids, or any synthetic nicotine or nicotine substitute.",
     "grp_510": "510 Batteries",
     "grp_concentrate": "Concentrate Devices",
-    "grp_dryherb": "Dry Herb Devices"
+    "grp_dryherb": "Dry Herb Devices",
+    "id_cta": "Not sure which G Pen you have?"
   },
   "ES": {
     "cat_hydout": "Batería para cartuchos 510",
@@ -48,7 +49,8 @@
     "legal_notice": "Solo para adultos de 21 años en adelante. Este producto no es para usarse con tabaco, e‑líquidos que contengan nicotina ni ninguna nicotina sintética o sustituto de la nicotina.",
     "grp_510": "Baterías 510",
     "grp_concentrate": "Dispositivos para concentrados",
-    "grp_dryherb": "Dispositivos para hierba seca"
+    "grp_dryherb": "Dispositivos para hierba seca",
+    "id_cta": "¿No sabes qué G Pen tienes?"
   },
   "DE": {
     "cat_hydout": "510-Cartridge-Akku",
@@ -73,7 +75,8 @@
     "legal_notice": "Nur für Erwachsene ab 21 Jahren. Dieses Produkt ist nicht zur Verwendung mit Tabak, nikotinhaltigen E‑Liquids oder synthetischem Nikotin bzw. Nikotinersatzstoffen bestimmt.",
     "grp_510": "510-Akkus",
     "grp_concentrate": "Konzentrat-Geräte",
-    "grp_dryherb": "Kräuter-Geräte"
+    "grp_dryherb": "Kräuter-Geräte",
+    "id_cta": "Du weißt nicht, welchen G Pen du hast?"
   },
   "IT": {
     "cat_hydout": "Batteria per cartucce 510",
@@ -98,7 +101,8 @@
     "legal_notice": "Solo per adulti dai 21 anni in su. Questo prodotto non è destinato all'uso con tabacco, e‑liquid contenenti nicotina né con nicotina sintetica o sostituti della nicotina.",
     "grp_510": "Batterie 510",
     "grp_concentrate": "Dispositivi per concentrati",
-    "grp_dryherb": "Dispositivi per erbe secche"
+    "grp_dryherb": "Dispositivi per erbe secche",
+    "id_cta": "Non sai quale G Pen hai?"
   },
   "FR": {
     "cat_hydout": "Batterie pour cartouches 510",
@@ -123,7 +127,8 @@
     "legal_notice": "Réservé aux adultes de 21 ans et plus. Ce produit n'est pas destiné à être utilisé avec du tabac, des e‑liquides contenant de la nicotine, ni de la nicotine synthétique ou un substitut de nicotine.",
     "grp_510": "Batteries 510",
     "grp_concentrate": "Appareils pour concentrés",
-    "grp_dryherb": "Appareils pour herbes sèches"
+    "grp_dryherb": "Appareils pour herbes sèches",
+    "id_cta": "Vous ne savez pas quel G Pen vous avez ?"
   },
   "PT": {
     "cat_hydout": "Bateria para cartuchos 510",
@@ -148,7 +153,8 @@
     "legal_notice": "Somente para maiores de 21 anos. Este produto não deve ser usado com tabaco, e‑líquidos com nicotina ou qualquer nicotina sintética ou substituto de nicotina.",
     "grp_510": "Baterias 510",
     "grp_concentrate": "Dispositivos para concentrados",
-    "grp_dryherb": "Dispositivos para ervas secas"
+    "grp_dryherb": "Dispositivos para ervas secas",
+    "id_cta": "Não sabe qual G Pen você tem?"
   },
   "DA": {
     "cat_hydout": "510-patronbatteri",
@@ -173,7 +179,8 @@
     "legal_notice": "Kun for voksne på 21 år og derover. Dette produkt må ikke bruges med tobak, nikotinholdige e‑væsker eller syntetisk nikotin eller nikotinerstatning.",
     "grp_510": "510-batterier",
     "grp_concentrate": "Enheder til koncentrater",
-    "grp_dryherb": "Enheder til tørre urter"
+    "grp_dryherb": "Enheder til tørre urter",
+    "id_cta": "I tvivl om, hvilken G Pen du har?"
   },
   "SV": {
     "cat_hydout": "Batteri för 510-patroner",
@@ -198,7 +205,8 @@
     "legal_notice": "Endast för vuxna från 21 år. Produkten är inte avsedd att användas med tobak, nikotinhaltiga e‑vätskor eller syntetiskt nikotin eller nikotinersättning.",
     "grp_510": "510-batterier",
     "grp_concentrate": "Koncentratenheter",
-    "grp_dryherb": "Enheter för torra örter"
+    "grp_dryherb": "Enheter för torra örter",
+    "id_cta": "Osäker på vilken G Pen du har?"
   },
   "PL": {
     "cat_hydout": "Bateria do kartridży 510",
@@ -223,6 +231,7 @@
     "legal_notice": "Wyłącznie dla osób dorosłych, które ukończyły 21 lat. Ten produkt nie jest przeznaczony do użytku z tytoniem, e‑liquidami zawierającymi nikotynę ani z jakąkolwiek nikotyną syntetyczną lub substytutem nikotyny.",
     "grp_510": "Baterie 510",
     "grp_concentrate": "Urządzenia do koncentratów",
-    "grp_dryherb": "Urządzenia do suszu"
+    "grp_dryherb": "Urządzenia do suszu",
+    "id_cta": "Nie wiesz, jaki masz G Pen?"
   }
 }

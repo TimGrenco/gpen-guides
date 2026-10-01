@@ -14,6 +14,8 @@ Each guide is also published in Spanish, German, Italian, French and Brazilian P
 - [G Pen Dash+](https://help.gpen.com/dash-plus/): Dry Herb Vaporizer. How to charge, load, use, and clean the G Pen Dash+ dry herb vaporizer.
 - [G Pen 3-Piece Slim Grinder](https://help.gpen.com/grinder/): Dry Herb Grinder. How to open, load, grind, collect, and clean the G Pen 3-Piece Slim Grinder.
 
+- [Which G Pen do I have?](https://help.gpen.com/identify/): photos and look-for cues to identify a G Pen device
+
 ## Optional
 
 - [All guides as plain text](https://help.gpen.com/llms-full.txt): every guide's steps, specs and FAQ

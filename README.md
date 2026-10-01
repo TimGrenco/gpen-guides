@@ -65,6 +65,13 @@ as `?lang=`: `?store=` > saved choice > US, and it sticks. Stores are one config
 `STORES` in `src/core/guide.js`; add an entry for another region. Phone and email are the
 same for every store.
 
+**Which G Pen do I have? (`/identify/`).** Every published guide's photo with three
+"look for" cues, grouped by what goes in the device, plus tips for look-alikes (Dash II vs
+Dash+, Hydout vs 510 Original, Hydout vs Micro II). Linked from the home page and the 404
+page. Strings live in `i18n/identify.json` (cues are `id_<slug>_1..3`, tips are `ID_TIPS`
+in `build.py`). The build stops if a published guide has no cues or no group, so a newly
+published guide (a legacy one, say) can't go live without being identifiable.
+
 **Style: no em dashes** in any copy, title, description or translation; use a colon,
 comma or new sentence. Code comments may keep them.
 

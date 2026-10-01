@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Step-by-step guides for G Pen devices: how to charge, load, use, and clean the Hydout, Dash II, Dash+, 510 Original, Micro II, Melt, and 3-Piece Slim Grinder.">
+<meta name="description" content="Not sure which G Pen you have? Match your device to a photo of every current G Pen vaporizer, battery and grinder, then open its how-to guide.">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
-<title>G Pen Product Guides</title>
+<title>Which G Pen do I have? Identify your device</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,800&family=Lato:wght@300;400;700&display=swap');
 :root{
@@ -75,14 +75,6 @@ header.intro h1{
 }
 .wordmark{height:clamp(28px,7.5vw,38px); width:auto; flex:none; display:block; color:var(--ink)}
 header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
-/* link to the "Which G Pen do I have?" page */
-header.intro p.id-cta{margin-top:18px}
-.id-cta a{display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:0 16px;
-  border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink);
-  font-weight:700; font-size:15px; text-decoration:none; transition:border-color .18s ease, background .18s ease}
-.id-cta a:hover{border-color:var(--accent); background:var(--surface-2)}
-.id-cta svg{width:18px; height:18px; flex:none; color:var(--ink-2)}
-.id-cta .arrow{color:var(--ink-3)}
 
 .list{padding-bottom:40px}
 .grid{display:grid; gap:14px}
@@ -139,6 +131,46 @@ header.intro p.id-cta{margin-top:18px}
 footer{padding-top:28px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
 footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
 footer .legal{font-size:11.5px; line-height:1.6}
+
+/* ---------- Which G Pen do I have? ---------- */
+header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  letter-spacing:-.02em; font-size:clamp(26px,7.4vw,38px); line-height:1.02; margin:0; text-wrap:balance}
+.id-jump{margin-top:24px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.chip{display:inline-flex; align-items:center; min-height:44px; padding:0 18px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); color:var(--ink); text-decoration:none; font-weight:700;
+  font-size:15px; transition:border-color .18s ease, background .18s ease}
+.chip:hover{border-color:var(--accent); background:var(--surface-2)}
+.group{scroll-margin-top:64px}
+.group-sub{color:var(--ink-2); margin:-4px 0 14px; font-size:15px; max-width:52ch}
+.dev{display:grid; grid-template-columns:112px minmax(0,1fr); grid-template-areas:"photo head" "cues cues" "go go";
+  column-gap:14px; row-gap:12px; align-content:start; padding:14px; border:1px solid var(--line);
+  border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow)}
+.dev-photo{grid-area:photo; background:var(--plate); border-radius:10px; padding:8px; display:grid; place-items:center}
+.dev-photo img{width:100%}
+.dev-head{grid-area:head; align-self:center; min-width:0}
+.dev-name{font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  font-size:18px; line-height:1.15; margin:0; letter-spacing:-.01em}
+.dev-name a{color:inherit; text-decoration:none}
+.dev-head .eyebrow{display:block; margin-top:5px; hyphens:auto; -webkit-hyphens:auto; overflow-wrap:anywhere}
+.dev-name{hyphens:auto; -webkit-hyphens:auto; overflow-wrap:break-word}
+/* long one-word labels (Swedish "Koncentratvaporizer") need the room on the narrowest phones */
+@media (max-width:359px){.dev{grid-template-columns:96px minmax(0,1fr); column-gap:12px}}
+.dev-cues{grid-area:cues; min-width:0}
+.dev-cues ul{margin:6px 0 0; padding:0; list-style:none; display:grid; gap:6px}
+.dev-cues li{position:relative; padding-left:17px; color:var(--ink-2); font-size:15px; line-height:1.4}
+.dev-cues li::before{content:""; position:absolute; left:1px; top:.52em; width:7px; height:7px;
+  border-radius:50%; background:var(--accent)}
+.dev-go{grid-area:go; justify-self:start; display:inline-flex; align-items:center; gap:10px; min-height:44px;
+  padding:0 18px; border-radius:999px; background:var(--accent); color:var(--accent-ink); font-weight:700;
+  font-size:15px; text-decoration:none; transition:background .18s ease}
+.dev-go:hover{background:var(--accent-soft)}
+.tip{margin-top:14px; padding:14px 16px; border-radius:var(--radius); background:var(--accent-wash);
+  border:1px solid var(--line)}
+.tip-t{font-weight:700; margin:0 0 4px; color:var(--ink)}
+.tip p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.5}
+.tip .tip-t{color:var(--ink)}
+.help-text{color:var(--ink-2); margin:-4px 0 14px; max-width:52ch}
 </style>
 </head>
 <body>
@@ -146,7 +178,7 @@ footer .legal{font-size:11.5px; line-height:1.6}
 <header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="./" aria-label="G Pen guides home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
+      <a class="glyph" href="../" aria-label="G Pen guides home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <!-- Language selector -->
       <div class="lang-wrap" id="lang-wrap">
         <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
@@ -176,18 +208,23 @@ footer .legal{font-size:11.5px; line-height:1.6}
 
 <main>
   <header class="intro wrap">
-    <h1><svg class="wordmark" viewBox="0 0 214 65" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M11.74,58.69c-4.35-3.58-6.53-8.72-6.53-15.42,0-2.14.24-4.48.73-7.01,1.89-9.24,5.91-16.27,12.05-21.09,6.13-4.81,14.29-7.22,24.46-7.22,6.27,0,11.6.82,15.98,2.45l-3.16,15.46c-3.79-1.69-8.71-2.53-14.76-2.53-4.76,0-8.52,1.01-11.28,3.04s-4.6,5.32-5.52,9.89c-.43,2.25-.65,4.08-.65,5.49,0,2.59.74,4.39,2.23,5.41,1.49,1.01,3.99,1.52,7.5,1.52,2.38,0,4.49-.28,6.33-.84l1.14-5.58h-9.49l2.27-11.07h24.01l-5.68,27.71c-2.54,1.58-5.64,2.83-9.29,3.76s-7.77,1.39-12.37,1.39c-7.63,0-13.62-1.79-17.97-5.37h0ZM66.07,8.79h27.18c5.35,0,9.46,1.48,12.33,4.44,2.87,2.96,4.3,6.8,4.3,11.53,0,1.47-.16,3.01-.49,4.65-1.19,6.48-3.79,11.51-7.79,15.08-4,3.58-9.36,5.37-16.06,5.37h-10.38l-2.68,13.35h-17.44l11.03-54.42ZM84.4,35.75c2.16,0,3.8-.53,4.91-1.61,1.11-1.07,1.88-2.65,2.31-4.73.16-.84.24-1.63.24-2.37,0-2.76-1.51-4.14-4.54-4.14h-6.65l-2.6,12.84h6.33ZM116.77,8.79h40.64l-2.68,13.43h-23.2l-1.46,6.93h20.2l-2.76,13.77h-20.2l-1.46,6.84h23.2l-2.68,13.43h-40.64l11.04-54.4ZM161.47,8.79h14.68l12.09,25.09,5.11-25.09h17.44l-11.03,54.41h-14.85l-12.01-25.01-5.03,25.01h-17.44l11.04-54.41Z"/></svg><span class="sr-only">G Pen </span><span data-i18n="idx_title">Product Guides</span></h1>
-    <p data-i18n="idx_intro">Pick your device below. Next time, scan the code on your device or its box to jump straight to its guide: how to charge it, load it, use it, and keep it clean.</p>
-    <p class="id-cta"><a href="identify/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><span data-i18n="id_cta">Not sure which G Pen you have?</span><span class="arrow" aria-hidden="true">→</span></a></p>
+    <h1 class="id-h1" data-i18n="id_title">Which G Pen do I have?</h1>
+    <p data-i18n="id_intro">Match your device to a photo below, then open its guide. Start with what you put in it.</p>
+    <nav class="id-jump" aria-labelledby="id-q">
+      <p class="eyebrow" id="id-q" data-i18n="id_q">What do you put in it?</p>
+      <div class="chips">
+{{ID_CHIPS}}
+      </div>
+    </nav>
   </header>
 
   <div class="wrap list">
-{{CARDS}}
-{{LEGACY_SECTION}}
+{{ID_GROUPS}}
   </div>
 
   <div class="wrap help">
-    <h3 data-i18n="idx_help">Need help?</h3>
+    <h3 data-i18n="id_unsure">Still not sure?</h3>
+    <p class="help-text" data-i18n="id_unsure_text">Send us a photo of your device and we'll tell you which one it is.</p>
     <div class="support">
       <a class="card-link" href="tel:+18336913224">
         <span class="card-icon" aria-hidden="true">

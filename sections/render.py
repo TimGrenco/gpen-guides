@@ -69,6 +69,8 @@ def keep_together(text):
     # a separator stays with the item it introduces (no_widow may already have joined it
     # to the next word with a non-breaking space, hence [ \u00a0]); "=" binds both sides
     text = _SEP_RE.sub(lambda m: NBSP + m.group(1) + (NBSP if m.group(1) == "=" else m.group(2)), text)
+    # "+ and −" (a button pair, in any language: "+ und −", "+ et −") stays on one line
+    text = re.sub(r"\+ (\S{1,4}) −", "+" + NBSP + r"\1" + NBSP + "−", text)
     # a dash never starts a line
     text = text.replace(" — ", NBSP + "— ").replace(" – ", NBSP + "– ")
     # hyphens inside number compounds and product codes never break: USB-C, 510-Gewinde,

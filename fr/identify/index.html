@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Step-by-step guides for G Pen devices: how to charge, load, use, and clean the Hydout, Dash II, Dash+, 510 Original, Micro II, Melt, and 3-Piece Slim Grinder.">
+<meta name="description" content="Vous ne savez pas quel G Pen vous avez ? Comparez votre appareil aux photos de tous les vaporisateurs, batteries et grinders G Pen actuels, puis ouvrez son guide.">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
-<title>G Pen Product Guides</title>
+<title>Quel est mon G Pen ? Identifiez votre appareil</title>
 <style>
 :root{
   --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F5F6F7;
@@ -74,14 +74,6 @@ header.intro h1{
 }
 .wordmark{height:clamp(28px,7.5vw,38px); width:auto; flex:none; display:block; color:var(--ink)}
 header.intro p{color:var(--ink-2); margin:14px 0 0; max-width:52ch}
-/* link to the "Which G Pen do I have?" page */
-header.intro p.id-cta{margin-top:18px}
-.id-cta a{display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:0 16px;
-  border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink);
-  font-weight:700; font-size:15px; text-decoration:none; transition:border-color .18s ease, background .18s ease}
-.id-cta a:hover{border-color:var(--accent); background:var(--surface-2)}
-.id-cta svg{width:18px; height:18px; flex:none; color:var(--ink-2)}
-.id-cta .arrow{color:var(--ink-3)}
 
 .list{padding-bottom:40px}
 .grid{display:grid; gap:14px}
@@ -138,48 +130,87 @@ header.intro p.id-cta{margin-top:18px}
 footer{padding-top:28px; padding-bottom:46px; border-top:1px solid var(--line); margin-top:14px}
 footer p{margin:0 0 10px; color:var(--ink-3); font-size:13px; max-width:62ch}
 footer .legal{font-size:11.5px; line-height:1.6}
+
+/* ---------- Which G Pen do I have? ---------- */
+header.intro h1.id-h1{display:block; color:var(--ink); font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  letter-spacing:-.02em; font-size:clamp(26px,7.4vw,38px); line-height:1.02; margin:0; text-wrap:balance}
+.id-jump{margin-top:24px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.chip{display:inline-flex; align-items:center; min-height:44px; padding:0 18px; border:1px solid var(--line);
+  border-radius:999px; background:var(--surface); color:var(--ink); text-decoration:none; font-weight:700;
+  font-size:15px; transition:border-color .18s ease, background .18s ease}
+.chip:hover{border-color:var(--accent); background:var(--surface-2)}
+.group{scroll-margin-top:64px}
+.group-sub{color:var(--ink-2); margin:-4px 0 14px; font-size:15px; max-width:52ch}
+.dev{display:grid; grid-template-columns:112px minmax(0,1fr); grid-template-areas:"photo head" "cues cues" "go go";
+  column-gap:14px; row-gap:12px; align-content:start; padding:14px; border:1px solid var(--line);
+  border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow)}
+.dev-photo{grid-area:photo; background:var(--plate); border-radius:10px; padding:8px; display:grid; place-items:center}
+.dev-photo img{width:100%}
+.dev-head{grid-area:head; align-self:center; min-width:0}
+.dev-name{font-family:var(--f-display); font-weight:800; font-style:italic; text-transform:uppercase;
+  font-size:18px; line-height:1.15; margin:0; letter-spacing:-.01em}
+.dev-name a{color:inherit; text-decoration:none}
+.dev-head .eyebrow{display:block; margin-top:5px; hyphens:auto; -webkit-hyphens:auto; overflow-wrap:anywhere}
+.dev-name{hyphens:auto; -webkit-hyphens:auto; overflow-wrap:break-word}
+/* long one-word labels (Swedish "Koncentratvaporizer") need the room on the narrowest phones */
+@media (max-width:359px){.dev{grid-template-columns:96px minmax(0,1fr); column-gap:12px}}
+.dev-cues{grid-area:cues; min-width:0}
+.dev-cues ul{margin:6px 0 0; padding:0; list-style:none; display:grid; gap:6px}
+.dev-cues li{position:relative; padding-left:17px; color:var(--ink-2); font-size:15px; line-height:1.4}
+.dev-cues li::before{content:""; position:absolute; left:1px; top:.52em; width:7px; height:7px;
+  border-radius:50%; background:var(--accent)}
+.dev-go{grid-area:go; justify-self:start; display:inline-flex; align-items:center; gap:10px; min-height:44px;
+  padding:0 18px; border-radius:999px; background:var(--accent); color:var(--accent-ink); font-weight:700;
+  font-size:15px; text-decoration:none; transition:background .18s ease}
+.dev-go:hover{background:var(--accent-soft)}
+.tip{margin-top:14px; padding:14px 16px; border-radius:var(--radius); background:var(--accent-wash);
+  border:1px solid var(--line)}
+.tip-t{font-weight:700; margin:0 0 4px; color:var(--ink)}
+.tip p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.5}
+.tip .tip-t{color:var(--ink)}
+.help-text{color:var(--ink-2); margin:-4px 0 14px; max-width:52ch}
 </style>
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
-<script>(function(){try{var S=['EN','ES','DE','IT','FR','PT','SV','PL','DA'],q=(location.search.match(/[?&]lang=([a-z]{2})\b/i)||[])[1],s=null;if(q&&S.indexOf(q.toUpperCase())>=0)s=q.toUpperCase();else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s&&S.indexOf(s)>=0)?s:(S.indexOf(n)>=0?n:'EN');if(L!=='EN')document.documentElement.classList.add('i18n-wait')}catch(e){}})();</script>
-<link rel="preload" href="core/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="core/fonts/lato-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="core/fonts/kanit-800i-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="core/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="core/apple-touch-icon.png" type="image/png" sizes="180x180">
-<link rel="apple-touch-icon" href="core/apple-touch-icon.png">
-<link rel="canonical" href="https://help.gpen.com/">
-<link rel="alternate" hreflang="en" href="https://help.gpen.com/">
-<link rel="alternate" hreflang="es" href="https://help.gpen.com/es/">
-<link rel="alternate" hreflang="de" href="https://help.gpen.com/de/">
-<link rel="alternate" hreflang="it" href="https://help.gpen.com/it/">
-<link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/">
-<link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/">
-<link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/">
-<link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/">
-<link rel="alternate" hreflang="da" href="https://help.gpen.com/da/">
-<link rel="alternate" hreflang="x-default" href="https://help.gpen.com/">
+<link rel="preload" href="../../core/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../core/fonts/lato-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../core/fonts/kanit-800i-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../core/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../core/apple-touch-icon.png" type="image/png" sizes="180x180">
+<link rel="apple-touch-icon" href="../../core/apple-touch-icon.png">
+<link rel="canonical" href="https://help.gpen.com/fr/identify/">
+<link rel="alternate" hreflang="en" href="https://help.gpen.com/identify/">
+<link rel="alternate" hreflang="es" href="https://help.gpen.com/es/identify/">
+<link rel="alternate" hreflang="de" href="https://help.gpen.com/de/identify/">
+<link rel="alternate" hreflang="it" href="https://help.gpen.com/it/identify/">
+<link rel="alternate" hreflang="fr" href="https://help.gpen.com/fr/identify/">
+<link rel="alternate" hreflang="pt-BR" href="https://help.gpen.com/pt/identify/">
+<link rel="alternate" hreflang="sv" href="https://help.gpen.com/sv/identify/">
+<link rel="alternate" hreflang="pl" href="https://help.gpen.com/pl/identify/">
+<link rel="alternate" hreflang="da" href="https://help.gpen.com/da/identify/">
+<link rel="alternate" hreflang="x-default" href="https://help.gpen.com/identify/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://help.gpen.com/","url":"https://help.gpen.com/","name":"G Pen Product Guides","description":"Step-by-step guides for G Pen devices: how to charge, load, use, and clean the Hydout, Dash II, Dash+, 510 Original, Micro II, Melt, and 3-Piece Slim Grinder.","inLanguage":"en","isPartOf":{"@id":"https://help.gpen.com/#site"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"How to use the G Pen Hydout","url":"https://help.gpen.com/hydout/"},{"@type":"ListItem","position":2,"name":"How to use the G Pen Dash II","url":"https://help.gpen.com/dash-ii/"},{"@type":"ListItem","position":3,"name":"How to use the G Pen 510 Original","url":"https://help.gpen.com/510-original/"},{"@type":"ListItem","position":4,"name":"How to use the G Pen Micro II","url":"https://help.gpen.com/micro-ii/"},{"@type":"ListItem","position":5,"name":"How to use the G Pen Melt","url":"https://help.gpen.com/melt/"},{"@type":"ListItem","position":6,"name":"How to use the G Pen Dash+","url":"https://help.gpen.com/dash-plus/"},{"@type":"ListItem","position":7,"name":"How to use the G Pen 3-Piece Slim Grinder","url":"https://help.gpen.com/grinder/"}]}},{"@type":"WebSite","@id":"https://help.gpen.com/#site","url":"https://help.gpen.com/","name":"G Pen Product Guides","publisher":{"@id":"https://www.gpen.com/#org"},"inLanguage":["en","es","de","it","fr","pt-BR","sv","pl","da"]},{"@type":"Organization","@id":"https://www.gpen.com/#org","name":"G Pen","url":"https://www.gpen.com/","logo":"https://help.gpen.com/core/apple-touch-icon.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+1-833-691-3224","email":"help@gpen.com"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://help.gpen.com/fr/identify/","url":"https://help.gpen.com/fr/identify/","name":"Quel est mon G Pen ? Identifiez votre appareil","description":"Vous ne savez pas quel G Pen vous avez ? Comparez votre appareil aux photos de tous les vaporisateurs, batteries et grinders G Pen actuels, puis ouvrez son guide.","inLanguage":"fr","isPartOf":{"@id":"https://help.gpen.com/#site"},"breadcrumb":{"@id":"https://help.gpen.com/fr/identify/#breadcrumb"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"G Pen Hydout","url":"https://help.gpen.com/fr/hydout/","image":"https://help.gpen.com/hydout/img/hero.png"},{"@type":"ListItem","position":2,"name":"G Pen Dash II","url":"https://help.gpen.com/fr/dash-ii/","image":"https://help.gpen.com/dash-ii/img/dash-ii-card.png"},{"@type":"ListItem","position":3,"name":"G Pen 510 Original","url":"https://help.gpen.com/fr/510-original/","image":"https://help.gpen.com/510-original/img/510-original-card.png"},{"@type":"ListItem","position":4,"name":"G Pen Micro II","url":"https://help.gpen.com/fr/micro-ii/","image":"https://help.gpen.com/micro-ii/img/micro-ii-card.png"},{"@type":"ListItem","position":5,"name":"G Pen Melt","url":"https://help.gpen.com/fr/melt/","image":"https://help.gpen.com/melt/img/melt-card.png"},{"@type":"ListItem","position":6,"name":"G Pen Dash+","url":"https://help.gpen.com/fr/dash-plus/","image":"https://help.gpen.com/dash-plus/img/dash-plus-card.png"},{"@type":"ListItem","position":7,"name":"G Pen 3-Piece Slim Grinder","url":"https://help.gpen.com/fr/grinder/","image":"https://help.gpen.com/grinder/img/grinder-card.png"}]}},{"@type":"BreadcrumbList","@id":"https://help.gpen.com/fr/identify/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides produits G Pen","item":"https://help.gpen.com/fr/"},{"@type":"ListItem","position":2,"name":"Quel est mon G Pen ? Identifiez votre appareil","item":"https://help.gpen.com/fr/identify/"}]},{"@type":"WebSite","@id":"https://help.gpen.com/#site","url":"https://help.gpen.com/","name":"G Pen Product Guides","publisher":{"@id":"https://www.gpen.com/#org"},"inLanguage":["en","es","de","it","fr","pt-BR","sv","pl","da"]},{"@type":"Organization","@id":"https://www.gpen.com/#org","name":"G Pen","url":"https://www.gpen.com/","logo":"https://help.gpen.com/core/apple-touch-icon.png","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+1-833-691-3224","email":"help@gpen.com"}}]}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="G Pen">
-<meta property="og:title" content="G Pen Product Guides">
-<meta property="og:description" content="Step-by-step guides for G Pen devices: how to charge, load, use, and clean the Hydout, Dash II, Dash+, 510 Original, Micro II, Melt, and 3-Piece Slim Grinder.">
-<meta property="og:url" content="https://help.gpen.com/">
+<meta property="og:title" content="Quel est mon G Pen ? Identifiez votre appareil">
+<meta property="og:description" content="Vous ne savez pas quel G Pen vous avez ? Comparez votre appareil aux photos de tous les vaporisateurs, batteries et grinders G Pen actuels, puis ouvrez son guide.">
+<meta property="og:url" content="https://help.gpen.com/fr/identify/">
 <meta property="og:image" content="https://help.gpen.com/hydout/img/hero.png">
 <meta name="twitter:card" content="summary">
 <style>
 /* G Pen Core fonts — self-hosted woff2 (SIL Open Font License), latin + latin-ext only.
-   Kanit ExtraBold Italic for display type, Lato 400/700/900 for body. core/fonts/ is
+   Kanit ExtraBold Italic for display type, Lato 400/700/900 for body. ../core/fonts/ is
    filled in by build.py: a relative path on hosted pages, the site URL in offline copies. */
-@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(core/fonts/kanit-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(core/fonts/kanit-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(core/fonts/lato-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(core/fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(core/fonts/lato-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(core/fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(core/fonts/lato-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(core/fonts/lato-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../../core/fonts/kanit-800i-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Kanit';font-style:italic;font-weight:800;font-display:swap;src:url(../../core/fonts/kanit-800i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(../../core/fonts/lato-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(../../core/fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../../core/fonts/lato-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(../../core/fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../../core/fonts/lato-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url(../../core/fonts/lato-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 
 /* G Pen Core — shared layer for every guide page and the index.
    build.py inlines this AFTER each template's own <style>, so a rule here wins over the
@@ -503,7 +534,7 @@ section{scroll-margin-top:64px}
 <header class="bar" id="bar">
   <div class="wrap">
     <div class="bar-top">
-      <a class="glyph" href="./" aria-label="G Pen guides home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
+      <a class="glyph" href="../" aria-label="G Pen guides home"><svg viewBox="0 0 209 208" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;display:block"><path d="M139.369 107.862C138.969 107.635 138.378 107.601 137.596 107.757L134.225 108.437L134.104 114.314L137.318 113.668C138.378 113.459 139.126 113.058 139.56 112.465C139.995 111.872 140.22 111.123 140.238 110.199C140.238 109.832 140.22 109.449 140.134 109.065C140.012 108.49 139.751 108.089 139.352 107.862" fill="currentColor"/><path d="M189.52 113.285L184.202 114.366L176.4 105.055L176.209 115.988L169.987 117.243L170.352 96.5459L175.635 95.4823L183.49 104.811L183.681 93.8607L189.902 92.6052L189.555 113.302L189.52 113.285ZM166.199 101.986L156.276 103.991L156.19 107.374L164.878 105.613L164.791 110.303L156.103 112.064L156.051 115.447L165.973 113.442L165.904 118.063L149.76 121.323L150.107 100.626L166.251 97.3654L166.182 101.986H166.199ZM144.668 114.784C143.434 116.371 141.558 117.435 139.038 117.94L134.016 118.952L133.946 124.514L127.725 125.769L128.09 105.072L138.603 102.945C140.724 102.509 142.461 102.701 143.852 103.503C145.242 104.305 146.111 105.526 146.458 107.182C146.562 107.723 146.615 108.298 146.615 108.908C146.562 111.227 145.919 113.18 144.686 114.767M109.444 99.2137V140.137L152.349 131.349V147.094C139.959 161.183 122.39 169.221 103.64 169.221C67.7899 169.221 38.6303 139.963 38.6303 103.991C38.6303 68.0198 67.7899 38.7962 103.622 38.7962C123.172 38.7962 141.193 47.3227 153.635 62.3704V73.9831H190.528V2.04007H153.635V12.9204C138.43 4.51605 121.226 0 103.622 0C46.4676 0 0 46.6601 0 104.026C0 161.392 46.4676 208 103.622 208C120.705 208 137.422 203.745 152.332 195.777V205.733H192.074V123.189L208.983 119.754V78.7955L109.427 99.2311L109.444 99.2137Z" fill="currentColor"/></svg></a>
       <!-- Language selector -->
       <div class="lang-wrap" id="lang-wrap">
         <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
@@ -511,15 +542,15 @@ section{scroll-margin-top:64px}
             <circle cx="10" cy="10" r="8"/>
             <path d="M10 2C10 2 7 6 7 10s3 8 3 8M10 2c0 0 3 4 3 8s-3 8-3 8M2 10h16"/>
           </svg>
-          <span class="lang-code" id="lang-code">EN</span>
+          <span class="lang-code" id="lang-code">FR</span>
           <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5l5 5 5-5"/></svg>
         </button>
         <ul class="lang-drop" id="lang-drop" role="listbox" aria-label="Language" hidden>
-          <li role="option" data-lang="EN" data-label="English"      aria-selected="true"  class="lang-opt active"><span class="lc">EN</span><span class="ll">English</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
+          <li role="option" data-lang="EN" data-label="English"      aria-selected="false"  class="lang-opt"><span class="lc">EN</span><span class="ll">English</span></li>
           <li role="option" data-lang="ES" data-label="Español"      aria-selected="false" class="lang-opt"><span class="lc">ES</span><span class="ll">Español</span></li>
           <li role="option" data-lang="DE" data-label="Deutsch"      aria-selected="false" class="lang-opt"><span class="lc">DE</span><span class="ll">Deutsch</span></li>
           <li role="option" data-lang="IT" data-label="Italiano"     aria-selected="false" class="lang-opt"><span class="lc">IT</span><span class="ll">Italiano</span></li>
-          <li role="option" data-lang="FR" data-label="Français"     aria-selected="false" class="lang-opt"><span class="lc">FR</span><span class="ll">Français</span></li>
+          <li role="option" data-lang="FR" data-label="Français"     aria-selected="true" class="lang-opt active"><span class="lc">FR</span><span class="ll">Français</span><svg class="lcheck" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,5 5,9 13,1"/></svg></li>
           <li role="option" data-lang="PT" data-label="Português (Brasil)" aria-selected="false" class="lang-opt"><span class="lc">PT</span><span class="ll">Português (Brasil)</span></li>
           <li role="option" data-lang="SV" data-label="Svenska" aria-selected="false" class="lang-opt"><span class="lc">SV</span><span class="ll">Svenska</span></li>
           <li role="option" data-lang="PL" data-label="Polski" aria-selected="false" class="lang-opt"><span class="lc">PL</span><span class="ll">Polski</span></li>
@@ -533,81 +564,157 @@ section{scroll-margin-top:64px}
 
 <main>
   <header class="intro wrap">
-    <h1><svg class="wordmark" viewBox="0 0 214 65" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M11.74,58.69c-4.35-3.58-6.53-8.72-6.53-15.42,0-2.14.24-4.48.73-7.01,1.89-9.24,5.91-16.27,12.05-21.09,6.13-4.81,14.29-7.22,24.46-7.22,6.27,0,11.6.82,15.98,2.45l-3.16,15.46c-3.79-1.69-8.71-2.53-14.76-2.53-4.76,0-8.52,1.01-11.28,3.04s-4.6,5.32-5.52,9.89c-.43,2.25-.65,4.08-.65,5.49,0,2.59.74,4.39,2.23,5.41,1.49,1.01,3.99,1.52,7.5,1.52,2.38,0,4.49-.28,6.33-.84l1.14-5.58h-9.49l2.27-11.07h24.01l-5.68,27.71c-2.54,1.58-5.64,2.83-9.29,3.76s-7.77,1.39-12.37,1.39c-7.63,0-13.62-1.79-17.97-5.37h0ZM66.07,8.79h27.18c5.35,0,9.46,1.48,12.33,4.44,2.87,2.96,4.3,6.8,4.3,11.53,0,1.47-.16,3.01-.49,4.65-1.19,6.48-3.79,11.51-7.79,15.08-4,3.58-9.36,5.37-16.06,5.37h-10.38l-2.68,13.35h-17.44l11.03-54.42ZM84.4,35.75c2.16,0,3.8-.53,4.91-1.61,1.11-1.07,1.88-2.65,2.31-4.73.16-.84.24-1.63.24-2.37,0-2.76-1.51-4.14-4.54-4.14h-6.65l-2.6,12.84h6.33ZM116.77,8.79h40.64l-2.68,13.43h-23.2l-1.46,6.93h20.2l-2.76,13.77h-20.2l-1.46,6.84h23.2l-2.68,13.43h-40.64l11.04-54.4ZM161.47,8.79h14.68l12.09,25.09,5.11-25.09h17.44l-11.03,54.41h-14.85l-12.01-25.01-5.03,25.01h-17.44l11.04-54.41Z"/></svg><span class="sr-only">G Pen </span><span data-i18n="idx_title">Product Guides</span></h1>
-    <p data-i18n="idx_intro">Pick your device below. Next time, scan the code on your device or its box to jump straight to its guide: how to charge it, load it, use it, and keep it clean.</p>
-    <p class="id-cta"><a href="identify/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><span data-i18n="id_cta">Not sure which G Pen you have?</span><span class="arrow" aria-hidden="true">→</span></a></p>
+    <h1 class="id-h1" data-i18n="id_title">Quel est mon G Pen ?</h1>
+    <p data-i18n="id_intro">Trouvez votre appareil parmi les photos ci-dessous, puis ouvrez son guide. Commencez par ce que vous y mettez.</p>
+    <nav class="id-jump" aria-labelledby="id-q">
+      <p class="eyebrow" id="id-q" data-i18n="id_q">Qu'y mettez-vous ?</p>
+      <div class="chips">
+        <a class="chip" href="#id-dryherb" data-i18n="id_chip_dryherb">Herbes sèches</a>
+        <a class="chip" href="#id-concentrate" data-i18n="id_chip_concentrate">Concentrés</a>
+        <a class="chip" href="#id-510" data-i18n="id_chip_510">Cartouche d'huile</a>
+      </div>
+    </nav>
   </header>
 
   <div class="wrap list">
-    <div class="group" role="group" aria-labelledby="grp-dryherb">
-      <h2 class="group-title" id="grp-dryherb" data-i18n="grp_dryherb">Dry Herb Devices</h2>
+    <section class="group" id="id-dryherb" aria-labelledby="idg-dryherb">
+      <h2 class="group-title" id="idg-dryherb" data-i18n="grp_dryherb">Appareils pour herbes sèches</h2>
+      <p class="group-sub" data-i18n="id_sub_dryherb">La fleur moulue va dans une chambre chauffante.</p>
       <div class="grid">
-      <a class="card" href="dash-ii/" >
-        <span class="thumb"><img src="dash-ii/img/dash-ii-card.png" srcset="dash-ii/img/dash-ii-card-160.webp 160w, dash-ii/img/dash-ii-card-320.webp 320w, dash-ii/img/dash-ii-card-640.webp 640w" sizes="80px" alt="" width="1304" height="1304"></span>
-        <div>
-          <h3>G Pen Dash II</h3>
-          <span class="eyebrow" data-i18n="cat_dash-ii">Dry Herb Vaporizer</span>
-        </div>
-      </a>
-      <a class="card" href="dash-plus/" >
-        <span class="thumb"><img src="dash-plus/img/dash-plus-card.png" srcset="dash-plus/img/dash-plus-card-160.webp 160w, dash-plus/img/dash-plus-card-320.webp 320w, dash-plus/img/dash-plus-card-640.webp 640w" sizes="80px" alt="" width="1306" height="1306"></span>
-        <div>
-          <h3>G Pen Dash+</h3>
-          <span class="eyebrow" data-i18n="cat_dash-plus">Dry Herb Vaporizer</span>
-        </div>
-      </a>
-      <a class="card" href="grinder/" >
-        <span class="thumb"><img src="grinder/img/grinder-card.png" srcset="grinder/img/grinder-card-160.webp 160w, grinder/img/grinder-card-320.webp 320w, grinder/img/grinder-card-640.webp 640w" sizes="80px" alt="" width="648" height="648"></span>
-        <div>
-          <h3>G Pen 3-Piece Slim Grinder</h3>
-          <span class="eyebrow" data-i18n="cat_grinder">Dry Herb Grinder</span>
-        </div>
-      </a>
+        <article class="dev">
+          <a class="dev-photo" href="../dash-ii/" tabindex="-1" aria-hidden="true"><img src="../../dash-ii/img/dash-ii-card.png" srcset="../../dash-ii/img/dash-ii-card-160.webp 160w, ../../dash-ii/img/dash-ii-card-320.webp 320w, ../../dash-ii/img/dash-ii-card-640.webp 640w" sizes="112px" alt="" width="1304" height="1304"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../dash-ii/">G Pen Dash II</a></h3>
+            <span class="eyebrow" data-i18n="cat_dash-ii">Vaporisateur d'herbes sèches</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_dash-ii_1">Un pavé de boutons rond à l'avant, avec + et −</li>
+              <li data-i18n="id_dash-ii_2">Un petit écran en bas qui affiche la température</li>
+              <li data-i18n="id_dash-ii_3">Un haut arrondi avec un embout magnétique</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../dash-ii/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
+        <article class="dev">
+          <a class="dev-photo" href="../dash-plus/" tabindex="-1" aria-hidden="true"><img src="../../dash-plus/img/dash-plus-card.png" srcset="../../dash-plus/img/dash-plus-card-160.webp 160w, ../../dash-plus/img/dash-plus-card-320.webp 320w, ../../dash-plus/img/dash-plus-card-640.webp 640w" sizes="112px" alt="" width="1306" height="1306"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../dash-plus/">G Pen Dash+</a></h3>
+            <span class="eyebrow" data-i18n="cat_dash-plus">Vaporisateur d'herbes sèches</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_dash-plus_1">Un écran couleur avec un anneau de température circulaire</li>
+              <li data-i18n="id_dash-plus_2">Un bouton carré juste au-dessus de l'écran</li>
+              <li data-i18n="id_dash-plus_3">Un embout magnétique au-dessus d'une chambre en titane</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../dash-plus/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
+        <article class="dev">
+          <a class="dev-photo" href="../grinder/" tabindex="-1" aria-hidden="true"><img src="../../grinder/img/grinder-card.png" srcset="../../grinder/img/grinder-card-160.webp 160w, ../../grinder/img/grinder-card-320.webp 320w, ../../grinder/img/grinder-card-640.webp 640w" sizes="112px" alt="" width="648" height="648" loading="lazy"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../grinder/">G Pen 3-Piece Slim Grinder</a></h3>
+            <span class="eyebrow" data-i18n="cat_grinder">Grinder pour herbes sèches</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_grinder_1">Un grinder rond en métal, en trois pièces</li>
+              <li data-i18n="id_grinder_2">Un couvercle magnétique avec un grand logo G</li>
+              <li data-i18n="id_grinder_3">Des dents arrondies et pas de grille à kief à l'intérieur</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../grinder/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
       </div>
-    </div>
-    <div class="group" role="group" aria-labelledby="grp-concentrate">
-      <h2 class="group-title" id="grp-concentrate" data-i18n="grp_concentrate">Concentrate Devices</h2>
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_dash_t">Dash II ou Dash+ ?</p><p data-i18n="id_tip_dash">Le Dash+ possède un écran couleur avec un anneau de température circulaire. Le Dash II possède un pavé de boutons rond avec + et − et un petit écran en bas.</p></aside>
+    </section>
+    <section class="group" id="id-concentrate" aria-labelledby="idg-concentrate">
+      <h2 class="group-title" id="idg-concentrate" data-i18n="grp_concentrate">Appareils pour concentrés</h2>
+      <p class="group-sub" data-i18n="id_sub_concentrate">Pour la wax, le shatter, la rosin et les autres concentrés.</p>
       <div class="grid">
-      <a class="card" href="micro-ii/" >
-        <span class="thumb"><img src="micro-ii/img/micro-ii-card.png" srcset="micro-ii/img/micro-ii-card-160.webp 160w, micro-ii/img/micro-ii-card-320.webp 320w, micro-ii/img/micro-ii-card-640.webp 640w" sizes="80px" alt="" width="1350" height="1350"></span>
-        <div>
-          <h3>G Pen Micro II</h3>
-          <span class="eyebrow" data-i18n="cat_micro-ii">Concentrate Vaporizer</span>
-        </div>
-      </a>
-      <a class="card" href="melt/" >
-        <span class="thumb"><img src="melt/img/melt-card.png" srcset="melt/img/melt-card-160.webp 160w, melt/img/melt-card-320.webp 320w, melt/img/melt-card-640.webp 640w" sizes="80px" alt="" width="1342" height="1342" loading="lazy"></span>
-        <div>
-          <h3>G Pen Melt</h3>
-          <span class="eyebrow" data-i18n="cat_melt">Hot Knife / Dab Tool</span>
-        </div>
-      </a>
+        <article class="dev">
+          <a class="dev-photo" href="../micro-ii/" tabindex="-1" aria-hidden="true"><img src="../../micro-ii/img/micro-ii-card.png" srcset="../../micro-ii/img/micro-ii-card-160.webp 160w, ../../micro-ii/img/micro-ii-card-320.webp 320w, ../../micro-ii/img/micro-ii-card-640.webp 640w" sizes="112px" alt="" width="1350" height="1350" loading="lazy"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../micro-ii/">G Pen Micro II</a></h3>
+            <span class="eyebrow" data-i18n="cat_micro-ii">Vaporisateur de concentrés</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_micro-ii_1">Un embout incliné avec une bande de préhension texturée en dessous</li>
+              <li data-i18n="id_micro-ii_2">L'embout se retire et laisse voir une chambre en céramique</li>
+              <li data-i18n="id_micro-ii_3">Des voyants qui affichent le réglage de chauffe de 1 à 3 nuages</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../micro-ii/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
+        <article class="dev">
+          <a class="dev-photo" href="../melt/" tabindex="-1" aria-hidden="true"><img src="../../melt/img/melt-card.png" srcset="../../melt/img/melt-card-160.webp 160w, ../../melt/img/melt-card-320.webp 320w, ../../melt/img/melt-card-640.webp 640w" sizes="112px" alt="" width="1342" height="1342" loading="lazy"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../melt/">G Pen Melt</a></h3>
+            <span class="eyebrow" data-i18n="cat_melt">Couteau chauffant / outil à dab</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_melt_1">Un outil fin en forme de stylo, avec une pointe plate en céramique</li>
+              <li data-i18n="id_melt_2">Un seul bouton, près de la pointe</li>
+              <li data-i18n="id_melt_3">Un capuchon de protection qui couvre la pointe</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../melt/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
       </div>
-    </div>
-    <div class="group" role="group" aria-labelledby="grp-510">
-      <h2 class="group-title" id="grp-510" data-i18n="grp_510">510 Batteries</h2>
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_hydmic_t">Hydout ou Micro II ?</p><p data-i18n="id_tip_hydmic">Les deux ont un haut incliné. Retirez-le : s'il y a une cartouche d'huile à l'intérieur, c'est un Hydout. S'il y a une chambre en céramique pour concentrés, c'est un Micro II.</p></aside>
+    </section>
+    <section class="group" id="id-510" aria-labelledby="idg-510">
+      <h2 class="group-title" id="idg-510" data-i18n="grp_510">Batteries 510</h2>
+      <p class="group-sub" data-i18n="id_sub_510">Une cartouche d'huile 510 préremplie se visse sur la batterie.</p>
       <div class="grid">
-      <a class="card" href="hydout/" >
-        <span class="thumb"><img src="hydout/img/hero.png" srcset="hydout/img/hero-160.webp 160w, hydout/img/hero-320.webp 320w, hydout/img/hero-640.webp 640w" sizes="80px" alt="" width="658" height="658" loading="lazy"></span>
-        <div>
-          <h3>G Pen Hydout</h3>
-          <span class="eyebrow" data-i18n="cat_hydout">510 Cartridge Battery</span>
-        </div>
-      </a>
-      <a class="card" href="510-original/" >
-        <span class="thumb"><img src="510-original/img/510-original-card.png" srcset="510-original/img/510-original-card-160.webp 160w, 510-original/img/510-original-card-320.webp 320w, 510-original/img/510-original-card-640.webp 640w" sizes="80px" alt="" width="1011" height="1011" loading="lazy"></span>
-        <div>
-          <h3>G Pen 510 Original</h3>
-          <span class="eyebrow" data-i18n="cat_510-original">510 Cartridge Battery</span>
-        </div>
-      </a>
+        <article class="dev">
+          <a class="dev-photo" href="../hydout/" tabindex="-1" aria-hidden="true"><img src="../../hydout/img/hero.png" srcset="../../hydout/img/hero-160.webp 160w, ../../hydout/img/hero-320.webp 320w, ../../hydout/img/hero-640.webp 640w" sizes="112px" alt="" width="658" height="658" loading="lazy"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../hydout/">G Pen Hydout</a></h3>
+            <span class="eyebrow" data-i18n="cat_hydout">Batterie pour cartouches 510</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_hydout_1">Une batterie haute aux côtés plats, avec un haut incliné</li>
+              <li data-i18n="id_hydout_2">Un capuchon magnétique qui cache la cartouche à l'intérieur</li>
+              <li data-i18n="id_hydout_3">Un écran qui affiche la tension et le niveau de batterie</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../hydout/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
+        <article class="dev">
+          <a class="dev-photo" href="../510-original/" tabindex="-1" aria-hidden="true"><img src="../../510-original/img/510-original-card.png" srcset="../../510-original/img/510-original-card-160.webp 160w, ../../510-original/img/510-original-card-320.webp 320w, ../../510-original/img/510-original-card-640.webp 640w" sizes="112px" alt="" width="1011" height="1011" loading="lazy"></a>
+          <div class="dev-head">
+            <h3 class="dev-name"><a href="../510-original/">G Pen 510 Original</a></h3>
+            <span class="eyebrow" data-i18n="cat_510-original">Batterie pour cartouches 510</span>
+          </div>
+          <div class="dev-cues">
+            <p class="eyebrow" data-i18n="id_look">À repérer</p>
+            <ul>
+              <li data-i18n="id_510-original_1">Une petite batterie arrondie d'environ 5,7 cm (2,2 in) de haut</li>
+              <li data-i18n="id_510-original_2">La cartouche se visse sur le dessus et reste visible</li>
+              <li data-i18n="id_510-original_3">Des voyants à l'avant qui affichent la tension de 1 à 3 nuages</li>
+            </ul>
+          </div>
+          <a class="dev-go" href="../510-original/"><span data-i18n="id_open">Ouvrir le guide</span><span aria-hidden="true">→</span></a>
+        </article>
       </div>
-    </div>
-
+      <aside class="tip"><p class="tip-t" data-i18n="id_tip_510_t">Hydout ou 510 Original ?</p><p data-i18n="id_tip_510">Les deux accueillent une cartouche d'huile 510. Le Hydout est haut, avec des côtés plats, et sa cartouche est cachée sous un capuchon magnétique. Sur le 510 Original, petit et arrondi, la cartouche se trouve sur le dessus, bien visible.</p></aside>
+    </section>
   </div>
 
   <div class="wrap help">
-    <h3 data-i18n="idx_help">Need help?</h3>
+    <h3 data-i18n="id_unsure">Toujours un doute ?</h3>
+    <p class="help-text" data-i18n="id_unsure_text">Envoyez-nous une photo de votre appareil et nous vous dirons de quel modèle il s'agit.</p>
     <div class="support">
       <a class="card-link" href="tel:+18336913224">
         <span class="card-icon" aria-hidden="true">
@@ -634,124 +741,11 @@ section{scroll-margin-top:64px}
   </div>
 
   <footer class="wrap">
-    <p class="legal" data-i18n="legal_notice">For adults 21 and over only. This product is not for use with tobacco, nicotine-containing e-liquids, or any synthetic nicotine or nicotine substitute.</p>
+    <p class="legal" data-i18n="legal_notice">Réservé aux adultes de 21 ans et plus. Ce produit n'est pas destiné à être utilisé avec du tabac, des e‑liquides contenant de la nicotine, ni de la nicotine synthétique ou un substitut de nicotine.</p>
     <p class="legal">© 2026 G Pen</p>
   </footer>
 </main>
-
-<script>window._T={"EN": {"cat_hydout": "510 Cartridge Battery", "cat_510-original": "510 Cartridge Battery", "cat_dash-ii": "Dry Herb Vaporizer", "cat_dash-plus": "Dry Herb Vaporizer", "cat_micro-ii": "Concentrate Vaporizer", "cat_melt": "Hot Knife / Dab Tool", "cat_grinder": "Dry Herb Grinder", "cat_elite-ii": "Dry Herb Vaporizer", "cat_micro-plus": "Concentrate Vaporizer", "cat_hyer": "Concentrate Vaporizer", "cat_connect": "Concentrate Vaporizer", "cat_roam": "Portable E-Rig", "legacy_title": "Legacy products", "idx_title": "Product Guides", "idx_intro": "Pick your device below. Next time, scan the code on your device or its box to jump straight to its guide: how to charge it, load it, use it, and keep it clean.", "idx_help": "Need help?", "doc_title_index": "G Pen Product Guides", "nf_text": "We couldn't find that page. Pick your device below to get to its guide.", "doc_title_404": "Page not found: G Pen Product Guides", "legal_notice": "For adults 21 and over only. This product is not for use with tobacco, nicotine-containing e‑liquids, or any synthetic nicotine or nicotine substitute.", "grp_510": "510 Batteries", "grp_concentrate": "Concentrate Devices", "grp_dryherb": "Dry Herb Devices", "id_cta": "Not sure which G Pen you have?", "doc_title": "G Pen Product Guides"}, "ES": {"cat_hydout": "Batería para cartuchos 510", "cat_510-original": "Batería para cartuchos 510", "cat_dash-ii": "Vaporizador de hierba seca", "cat_dash-plus": "Vaporizador de hierba seca", "cat_micro-ii": "Vaporizador de concentrados", "cat_melt": "Cuchillo caliente / herramienta para dab", "cat_grinder": "Molinillo de hierba seca", "cat_elite-ii": "Vaporizador de hierba seca", "cat_micro-plus": "Vaporizador de concentrados", "cat_hyer": "Vaporizador de concentrados", "cat_connect": "Vaporizador de concentrados", "cat_roam": "E-rig portátil", "legacy_title": "Productos anteriores", "idx_title": "Guías de productos", "idx_intro": "Elige tu dispositivo a continuación. La próxima vez, escanea el código de tu dispositivo o de su caja para ir directo a su guía: cómo cargarlo, llenarlo, usarlo y mantenerlo limpio.", "idx_help": "¿Necesitas ayuda?", "doc_title_index": "Guías de productos G Pen", "nf_text": "No encontramos esa página. Elige tu dispositivo a continuación para ir a su guía.", "doc_title_404": "Página no encontrada: Guías de productos G Pen", "legal_notice": "Solo para adultos de 21 años en adelante. Este producto no es para usarse con tabaco, e‑líquidos que contengan nicotina ni ninguna nicotina sintética o sustituto de la nicotina.", "grp_510": "Baterías 510", "grp_concentrate": "Dispositivos para concentrados", "grp_dryherb": "Dispositivos para hierba seca", "id_cta": "¿No sabes qué G Pen tienes?", "doc_title": "Guías de productos G Pen"}, "DE": {"cat_hydout": "510‑Cartridge-Akku", "cat_510-original": "510‑Cartridge-Akku", "cat_dash-ii": "Kräuter-Vaporizer", "cat_dash-plus": "Kräuter-Vaporizer", "cat_micro-ii": "Konzentrat-Vaporizer", "cat_melt": "Heißmesser / Dab-Werkzeug", "cat_grinder": "Kräuter-Grinder", "cat_elite-ii": "Kräuter-Vaporizer", "cat_micro-plus": "Konzentrat-Vaporizer", "cat_hyer": "Konzentrat-Vaporizer", "cat_connect": "Konzentrat-Vaporizer", "cat_roam": "Tragbares E-Rig", "legacy_title": "Ältere Produkte", "idx_title": "Produktanleitungen", "idx_intro": "Wähle unten dein Gerät aus. Beim nächsten Mal scanne einfach den Code auf deinem Gerät oder der Verpackung, um direkt zur Anleitung zu gelangen: Aufladen, Befüllen, Benutzen und Reinigen.", "idx_help": "Brauchst du Hilfe?", "doc_title_index": "G Pen Produktanleitungen", "nf_text": "Diese Seite haben wir nicht gefunden. Wähle unten dein Gerät aus, um zur Anleitung zu gelangen.", "doc_title_404": "Seite nicht gefunden: G Pen Produktanleitungen", "legal_notice": "Nur für Erwachsene ab 21 Jahren. Dieses Produkt ist nicht zur Verwendung mit Tabak, nikotinhaltigen E‑Liquids oder synthetischem Nikotin bzw. Nikotinersatzstoffen bestimmt.", "grp_510": "510‑Akkus", "grp_concentrate": "Konzentrat-Geräte", "grp_dryherb": "Kräuter-Geräte", "id_cta": "Du weißt nicht, welchen G Pen du hast?", "doc_title": "G Pen Produktanleitungen"}, "IT": {"cat_hydout": "Batteria per cartucce 510", "cat_510-original": "Batteria per cartucce 510", "cat_dash-ii": "Vaporizzatore per erbe secche", "cat_dash-plus": "Vaporizzatore per erbe secche", "cat_micro-ii": "Vaporizzatore per concentrati", "cat_melt": "Coltello caldo / strumento per dab", "cat_grinder": "Grinder per erbe secche", "cat_elite-ii": "Vaporizzatore per erbe secche", "cat_micro-plus": "Vaporizzatore per concentrati", "cat_hyer": "Vaporizzatore per concentrati", "cat_connect": "Vaporizzatore per concentrati", "cat_roam": "E-rig portatile", "legacy_title": "Prodotti precedenti", "idx_title": "Guide ai prodotti", "idx_intro": "Scegli il tuo dispositivo qui sotto. La prossima volta, scansiona il codice sul dispositivo o sulla confezione per andare direttamente alla sua guida: come ricaricarlo, riempirlo, usarlo e pulirlo.", "idx_help": "Hai bisogno di aiuto?", "doc_title_index": "Guide ai prodotti G Pen", "nf_text": "Non abbiamo trovato questa pagina. Scegli il tuo dispositivo qui sotto per andare alla sua guida.", "doc_title_404": "Pagina non trovata: Guide ai prodotti G Pen", "legal_notice": "Solo per adulti dai 21 anni in su. Questo prodotto non è destinato all'uso con tabacco, e‑liquid contenenti nicotina né con nicotina sintetica o sostituti della nicotina.", "grp_510": "Batterie 510", "grp_concentrate": "Dispositivi per concentrati", "grp_dryherb": "Dispositivi per erbe secche", "id_cta": "Non sai quale G Pen hai?", "doc_title": "Guide ai prodotti G Pen"}, "FR": {"cat_hydout": "Batterie pour cartouches 510", "cat_510-original": "Batterie pour cartouches 510", "cat_dash-ii": "Vaporisateur d'herbes sèches", "cat_dash-plus": "Vaporisateur d'herbes sèches", "cat_micro-ii": "Vaporisateur de concentrés", "cat_melt": "Couteau chauffant / outil à dab", "cat_grinder": "Grinder pour herbes sèches", "cat_elite-ii": "Vaporisateur d'herbes sèches", "cat_micro-plus": "Vaporisateur de concentrés", "cat_hyer": "Vaporisateur de concentrés", "cat_connect": "Vaporisateur de concentrés", "cat_roam": "E-rig portable", "legacy_title": "Anciens produits", "idx_title": "Guides produits", "idx_intro": "Choisissez votre appareil ci-dessous. La prochaine fois, scannez le code sur votre appareil ou sa boîte pour accéder directement à son guide : comment le recharger, le remplir, l'utiliser et le nettoyer.", "idx_help": "Besoin d'aide ?", "doc_title_index": "Guides produits G Pen", "nf_text": "Nous n'avons pas trouvé cette page. Choisissez votre appareil ci-dessous pour accéder à son guide.", "doc_title_404": "Page introuvable : Guides produits G Pen", "legal_notice": "Réservé aux adultes de 21 ans et plus. Ce produit n'est pas destiné à être utilisé avec du tabac, des e‑liquides contenant de la nicotine, ni de la nicotine synthétique ou un substitut de nicotine.", "grp_510": "Batteries 510", "grp_concentrate": "Appareils pour concentrés", "grp_dryherb": "Appareils pour herbes sèches", "id_cta": "Vous ne savez pas quel G Pen vous avez ?", "doc_title": "Guides produits G Pen"}, "PT": {"cat_hydout": "Bateria para cartuchos 510", "cat_510-original": "Bateria para cartuchos 510", "cat_dash-ii": "Vaporizador de ervas secas", "cat_dash-plus": "Vaporizador de ervas secas", "cat_micro-ii": "Vaporizador de concentrados", "cat_melt": "Faca quente / ferramenta para dab", "cat_grinder": "Dichavador de ervas secas", "cat_elite-ii": "Vaporizador de ervas secas", "cat_micro-plus": "Vaporizador de concentrados", "cat_hyer": "Vaporizador de concentrados", "cat_connect": "Vaporizador de concentrados", "cat_roam": "E-rig portátil", "legacy_title": "Produtos anteriores", "idx_title": "Guias de produtos", "idx_intro": "Escolha seu dispositivo abaixo. Da próxima vez, escaneie o código no dispositivo ou na caixa para ir direto ao guia dele: como carregar a bateria, abastecer, usar e manter limpo.", "idx_help": "Precisa de ajuda?", "doc_title_index": "Guias de produtos G Pen", "nf_text": "Não encontramos essa página. Escolha seu dispositivo abaixo para ir ao guia dele.", "doc_title_404": "Página não encontrada: Guias de produtos G Pen", "legal_notice": "Somente para maiores de 21 anos. Este produto não deve ser usado com tabaco, e‑líquidos com nicotina ou qualquer nicotina sintética ou substituto de nicotina.", "grp_510": "Baterias 510", "grp_concentrate": "Dispositivos para concentrados", "grp_dryherb": "Dispositivos para ervas secas", "id_cta": "Não sabe qual G Pen você tem?", "doc_title": "Guias de produtos G Pen"}, "DA": {"cat_hydout": "510‑patronbatteri", "cat_510-original": "510‑patronbatteri", "cat_dash-ii": "Vaporizer til tørre urter", "cat_dash-plus": "Vaporizer til tørre urter", "cat_micro-ii": "Vaporizer til koncentrater", "cat_melt": "Varmekniv / dab-værktøj", "cat_grinder": "Grinder til tørre urter", "cat_elite-ii": "Vaporizer til tørre urter", "cat_micro-plus": "Vaporizer til koncentrater", "cat_hyer": "Vaporizer til koncentrater", "cat_connect": "Vaporizer til koncentrater", "cat_roam": "Bærbar e-rig", "legacy_title": "Ældre produkter", "idx_title": "Produktvejledninger", "idx_intro": "Vælg din enhed nedenfor. Næste gang kan du scanne koden på enheden eller æsken og komme direkte til vejledningen – sådan oplader, fylder, bruger og rengør du den.", "idx_help": "Brug for hjælp?", "doc_title_index": "G Pen-produktvejledninger", "nf_text": "Vi kunne ikke finde siden. Vælg din enhed nedenfor for at komme til vejledningen.", "doc_title_404": "Siden blev ikke fundet: G Pen-produktvejledninger", "legal_notice": "Kun for voksne på 21 år og derover. Dette produkt må ikke bruges med tobak, nikotinholdige e‑væsker eller syntetisk nikotin eller nikotinerstatning.", "grp_510": "510‑batterier", "grp_concentrate": "Enheder til koncentrater", "grp_dryherb": "Enheder til tørre urter", "id_cta": "I tvivl om, hvilken G Pen du har?", "doc_title": "G Pen-produktvejledninger"}, "SV": {"cat_hydout": "Batteri för 510‑patroner", "cat_510-original": "Batteri för 510‑patroner", "cat_dash-ii": "Örtvaporizer", "cat_dash-plus": "Örtvaporizer", "cat_micro-ii": "Koncentratvaporizer", "cat_melt": "Hot knife / dabbverktyg", "cat_grinder": "Örtgrinder", "cat_elite-ii": "Örtvaporizer", "cat_micro-plus": "Koncentratvaporizer", "cat_hyer": "Koncentratvaporizer", "cat_connect": "Koncentratvaporizer", "cat_roam": "Bärbar e-rigg", "legacy_title": "Äldre produkter", "idx_title": "Produktguider", "idx_intro": "Välj din enhet nedan. Nästa gång kan du skanna koden på enheten eller förpackningen för att komma direkt till guiden – hur du laddar, fyller på, använder och rengör den.", "idx_help": "Behöver du hjälp?", "doc_title_index": "G Pen produktguider", "nf_text": "Vi hittade inte sidan. Välj din enhet nedan för att komma till guiden.", "doc_title_404": "Sidan hittades inte: G Pen produktguider", "legal_notice": "Endast för vuxna från 21 år. Produkten är inte avsedd att användas med tobak, nikotinhaltiga e‑vätskor eller syntetiskt nikotin eller nikotinersättning.", "grp_510": "510‑batterier", "grp_concentrate": "Koncentratenheter", "grp_dryherb": "Enheter för torra örter", "id_cta": "Osäker på vilken G Pen du har?", "doc_title": "G Pen produktguider"}, "PL": {"cat_hydout": "Bateria do kartridży 510", "cat_510-original": "Bateria do kartridży 510", "cat_dash-ii": "Waporyzator do suszu", "cat_dash-plus": "Waporyzator do suszu", "cat_micro-ii": "Waporyzator do koncentratów", "cat_melt": "Gorący nóż / narzędzie do dabów", "cat_grinder": "Grinder do suszu", "cat_elite-ii": "Waporyzator do suszu", "cat_micro-plus": "Waporyzator do koncentratów", "cat_hyer": "Waporyzator do koncentratów", "cat_connect": "Waporyzator do koncentratów", "cat_roam": "Przenośny e-rig", "legacy_title": "Starsze produkty", "idx_title": "Instrukcje produktów", "idx_intro": "Wybierz swoje urządzenie poniżej. Następnym razem zeskanuj kod na urządzeniu lub jego opakowaniu, aby od razu przejść do instrukcji: jak je naładować, napełnić, używać i utrzymać w czystości.", "idx_help": "Potrzebujesz pomocy?", "doc_title_index": "Instrukcje produktów G Pen", "nf_text": "Nie znaleźliśmy tej strony. Wybierz swoje urządzenie poniżej, aby przejść do jego instrukcji.", "doc_title_404": "Nie znaleziono strony: Instrukcje produktów G Pen", "legal_notice": "Wyłącznie dla osób dorosłych, które ukończyły 21 lat. Ten produkt nie jest przeznaczony do użytku z tytoniem, e‑liquidami zawierającymi nikotynę ani z jakąkolwiek nikotyną syntetyczną lub substytutem nikotyny.", "grp_510": "Baterie 510", "grp_concentrate": "Urządzenia do koncentratów", "grp_dryherb": "Urządzenia do suszu", "id_cta": "Nie wiesz, jaki masz G Pen?", "doc_title": "Instrukcje produktów G Pen"}};</script>
-<script>/* i18n runtime — injected by build.py after the window._T data block */
-(function(){
-  var T = window._T;
-  if (!T) return;
-
-  var LANG_CODES = {EN:'en',ES:'es',DE:'de',IT:'it',FR:'fr',PT:'pt-BR',SV:'sv',PL:'pl',DA:'da'};
-  var SUPPORTED = ['EN','ES','DE','IT','FR','PT','SV','PL','DA'];
-  var ORIGINAL_TITLE = document.title;
-  var barName = document.querySelector('.bar-name');
-  var PRODUCT_NAME = barName ? barName.textContent.trim() : '';
-
-  /* keep the lang-switcher pill + dropdown checkmark in sync with the applied
-     language — the dropdown's own click handler only updates itself when the
-     user clicks an option, so a language restored from localStorage or
-     auto-detected from navigator.language on load would otherwise leave the
-     pill stuck showing "EN" while the page content is already translated. */
-  function syncLangUI(lang) {
-    var codeEl = document.getElementById('lang-code');
-    if (codeEl) codeEl.textContent = lang;
-    document.querySelectorAll('.lang-opt').forEach(function(o){
-      var isActive = o.getAttribute('data-lang') === lang;
-      o.classList.toggle('active', isActive);
-      o.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      var chk = o.querySelector('.lcheck');
-      if (isActive && !chk) {
-        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('viewBox', '0 0 14 10');
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('stroke-width', '2');
-        svg.setAttribute('stroke-linecap', 'round');
-        svg.setAttribute('stroke-linejoin', 'round');
-        svg.setAttribute('class', 'lcheck');
-        svg.innerHTML = '<polyline points="1,5 5,9 13,1"/>';
-        o.appendChild(svg);
-      } else if (!isActive && chk) {
-        chk.remove();
-      }
-    });
-  }
-
-  function applyLang(lang) {
-    if (SUPPORTED.indexOf(lang) < 0) lang = 'EN';
-    var s = T[lang] || T['EN'];
-    if (!s) return;
-
-    /* ── text nodes: data-i18n ─────────────────────────────────────────── */
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      var key = el.getAttribute('data-i18n');
-      if (!s[key]) return;
-      /* Bottom-nav <a> contains an <svg> child — replace only the text node */
-      if (el.querySelector('svg,button')) {
-        for (var i = el.childNodes.length - 1; i >= 0; i--) {
-          var n = el.childNodes[i];
-          if (n.nodeType === 3 && n.textContent.trim()) {
-            n.textContent = s[key];
-            break;
-          }
-        }
-      } else {
-        el.textContent = s[key];
-      }
-    });
-
-    /* ── HTML zones: data-i18n-zone ────────────────────────────────────── */
-    /* vids_block skipped — its video buttons have JS listeners bound at load */
-    document.querySelectorAll('[data-i18n-zone]').forEach(function(el){
-      var key = el.getAttribute('data-i18n-zone');
-      if (key === 'vids_block') return;
-      if (s[key]) el.innerHTML = s[key];
-    });
-
-    /* ── <html lang> attribute + tab title ─────────────────────────────── */
-    document.documentElement.lang = LANG_CODES[lang] || 'en';
-    if (lang === 'EN') document.title = ORIGINAL_TITLE;
-    else if (s.doc_title) document.title = s.doc_title;
-    else if (s.nav_use && PRODUCT_NAME) document.title = 'G Pen ' + PRODUCT_NAME + ': ' + s.nav_use;
-
-    syncLangUI(lang);
-  }
-
-  /* expose so the dropdown handler can call it */
-  window._i18n = applyLang;
-
-  /* ── on load: pick language from ?lang= > localStorage > navigator ───── */
-  /* A ?lang=es link wins and sticks (same rule as the brand portal at assets.gpen.com),
-     so a translated link sent to someone stays translated after a refresh. */
-  var saved = null;
-  var q = (location.search.match(/[?&]lang=([a-z]{2})\b/i) || [])[1];
-  if (q && SUPPORTED.indexOf(q.toUpperCase()) >= 0) {
-    saved = q.toUpperCase();
-    try { localStorage.setItem('gpen-lang', saved); } catch(e){}
-  } else {
-    try { saved = localStorage.getItem('gpen-lang'); } catch(e){}
-  }
-  /* navigator.language "pt-BR" -> "PT"; anything unsupported (or empty) -> EN */
-  var navLang = ((navigator.language || navigator.userLanguage || '').slice(0,2)).toUpperCase();
-  var initLang = (saved && SUPPORTED.indexOf(saved) >= 0) ? saved :
-                 (SUPPORTED.indexOf(navLang) >= 0 ? navLang : 'EN');
-
-  if (initLang !== 'EN') applyLang(initLang);
-  /* the <head> hid the page for a non-English visitor so English never flashes first */
-  document.documentElement.classList.remove('i18n-wait');
-
-  /* save chosen language to localStorage whenever the dropdown fires _i18n */
-  var _orig = window._i18n;
-  window._i18n = function(lang){
-    _orig(lang);
-    try { localStorage.setItem('gpen-lang', lang); } catch(e){}
-  };
-})();
-</script>
+<script>(function(){var P='FR',U={"EN":"../../identify/","ES":"../../es/identify/","DE":"../../de/identify/","IT":"../../it/identify/","FR":"./","PT":"../../pt/identify/","SV":"../../sv/identify/","PL":"../../pl/identify/","DA":"../../da/identify/"};try{localStorage.setItem('gpen-lang',P)}catch(e){}window._i18n=function(l){if(l===P||!U[l])return;try{localStorage.setItem('gpen-lang',l)}catch(e){}location.href=U[l]+location.hash}})();</script>
 <script>
 /* G Pen Core — guide page behavior.
    One copy, shared by every guide page (build.py inlines it before </body>, after the
