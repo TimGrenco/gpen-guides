@@ -281,10 +281,10 @@ section{scroll-margin-top:8px}
 /* Upgrades: every product photo on the same white tile. Store images arrive in three
    styles (white JPG, off-white JPG, transparent cut-out); all three sit cleanly on white. */
 .acc-card{border:1px solid var(--line-2)}
-.acc-img{display:block; background:#FFFFFF; aspect-ratio:1}
+.acc-img{display:block; background:var(--plate); aspect-ratio:1}
 /* the store's "white" product shots range from #EEE to #FFF; lift them all to white so no
    off-white box shows inside the tile (the products themselves are dark and barely move) */
-.acc-img img, .acc-card .acc-img img{width:100%; height:100%; aspect-ratio:auto; object-fit:contain; padding:10%; filter:brightness(1.07) contrast(1.03)}
+.acc-img img, .acc-card .acc-img img{width:100%; height:100%; aspect-ratio:auto; object-fit:contain; padding:10%; filter:brightness(1.07) contrast(1.03); mix-blend-mode:multiply}  /* store photos (white or off-white) sit on the plate like every other picture */
 /* one card per row on a phone: picture left, words right, instead of a 480px-tall card */
 @media (max-width:400px){
   .acc-card{display:grid; grid-template-columns:104px minmax(0,1fr); align-items:center; column-gap:2px; padding-left:12px}
@@ -363,3 +363,29 @@ html[data-store]:not([data-store="us"]) .acc-card-price{display:none}
   [aria-current="true"]{outline:2px solid CanvasText; outline-offset:-3px}
   .bottom-nav [aria-current="true"] svg{forced-color-adjust:auto}
 }
+
+/* ---------- design polish (round 3 review) ---------- */
+/* the page ends on one dark block: the legal line continues the support band, edge to edge */
+.cs + footer{background:#08090B; box-shadow:0 0 0 100vmax #08090B; clip-path:inset(0 -100vmax); padding-top:6px}
+.cs + footer p{color:#8A9098}
+@media (max-width:639px){
+  main{padding-bottom:0}
+  /* room for the bottom nav, now inside the dark block (guides only: home/identify/404 have no nav) */
+  .cs + footer{padding-bottom:calc(46px + 74px + env(safe-area-inset-bottom))}
+  body:not(:has(.bottom-nav)) .cs + footer{padding-bottom:calc(46px + env(safe-area-inset-bottom))}
+}
+/* warnings (⊘) read as warnings, not tips: neutral wash with an ink edge, mono brand palette */
+.note.note-warn{background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--ink)}
+.note.note-warn .note-icon{color:var(--ink)}
+/* dark mode tips: neutral surface with a thin gold edge instead of a brown wash */
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .note:not(.note-warn), :root:not([data-theme="light"]) .tip, :root:not([data-theme="light"]) .notfound{background:var(--surface); border-color:var(--line); border-left:2px solid var(--accent)} }
+:root[data-theme="dark"] .note:not(.note-warn), :root[data-theme="dark"] .tip, :root[data-theme="dark"] .notfound{background:var(--surface); border-color:var(--line); border-left:2px solid var(--accent)}
+/* Micro II attachments line up with the steps above them */
+@media (max-width:639px){ .attach-item .step-img-wrap{float:none; margin:0} .attach-item{gap:18px} .attach-item:first-child{padding-top:0} }
+/* the narrowest phones (320-374px): bullets run full width under the photo + heading row */
+@media (max-width:374px){ .step-body > .do{clear:both; margin-top:12px} }
+/* nicer line breaks where the browser supports it */
+.cs-title, h1, .id-h1{text-wrap:balance}
+header.intro p, .notfound, .cs-text, .group-sub, .tip p{text-wrap:pretty}
+/* 404: the not-found note leads, with room before the heading under it */
+.intro .notfound{margin:0 0 26px}

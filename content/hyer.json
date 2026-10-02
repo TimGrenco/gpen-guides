@@ -4,7 +4,7 @@
       "id": "charge",
       "title": "Charge",
       "image": "images/hyer-step-01-charge.jpg",
-      "imageAlt": "G Pen Hyer USB-C charging",
+      "imageAlt": "G Pen Hyer battery and its LED battery indicator",
       "image2": null,
       "image2Alt": null,
       "bullets": [
@@ -148,8 +148,8 @@
     {
       "id": "clean",
       "title": "Clean",
-      "image": "images/hyer-step-02-setup.jpg",
-      "imageAlt": "G Pen Hyer quartz chamber with the tank cap removed",
+      "image": "images/hyer-step-05-clean.jpg",
+      "imageAlt": "G Pen Hyer quartz tank",
       "image2": null,
       "image2Alt": null,
       "bullets": [

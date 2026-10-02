@@ -52,7 +52,9 @@ _UNIT_RE = re.compile(
     r"Stunden?|segundos?|minutos?|horas?|secondi|minuti|ore|secondes|heures?|mois|jours?|días|dias|"
     r"giorni|Tage|Monate|meses|mesi|ans?|años|anos|anni|Jahre?|veces|vezes|volte|fois|mal|times|"
     r"sekunder|sekundach|minutach|godzinach|sekundy?|sekundę|minuter|minutter|minuty|minutę|minut|timmar|timme|timer|time|godzin[yę]?|"
-    r"månader|måneder|miesięcy|miesiące|dagar|dage|dni|år|lat|lata|gånger|gange|razy|×)(?![\w]))")
+    r"månader|måneder|miesięcy|miesiące|dagar|dage|dni|år|lat|lata|gånger|gange|razy|LEDs?|diody|in|×)(?![\w]))")
+# a one-letter word (Polish w/z/i/o/a/u, Spanish y/o/a/e, English a/I) never ends a line
+_ONE_LETTER_RE = re.compile(r"(?<![\w\u00a0*])([AaEeIiOoUuWwYyZz]) (?=[^\s])")
 _SEP_RE = re.compile(r" ([/=→·])([ \u00a0])")
 _NUMHY_RE = re.compile(r"(\d[a-zA-Z]{0,2})-(?=\w)")
 _NAMES = ("G Pen", "Micro II", "Dash II", "Micro+", "510 Original", "Rig Adapter")
@@ -63,6 +65,7 @@ def keep_together(text):
     unit ("5 seconds", "3,8 V"), the product names, and the separators that read as part of
     the next item ("/ 302°F", "= decrease", "→ 3.8V", "· Haptics")."""
     text = _UNIT_RE.sub(lambda m: m.group(1) + NBSP, text)
+    text = _ONE_LETTER_RE.sub(lambda m: m.group(1) + NBSP, text)
     for name in _NAMES:
         if " " in name:
             text = text.replace(name, name.replace(" ", NBSP))
@@ -169,10 +172,12 @@ def render_note(note, id_prefix, leaf_lookup):
         return ""
     text = _leaf(leaf_lookup, f"{id_prefix}.note", note["text"])
     rendered = render_inline(no_widow(text))
+    # warnings and hazards share one look (ink edge, ⊘ icon), clearly not a tip
     if note["type"] == "hazard":
-        return _fill(_partial("note-hazard"), TEXT=rendered)
-    icon = NOTE_ICON_TIP if note["type"] == "tip" else NOTE_ICON_WARNING
-    return _fill(_partial("note"), ICON=icon, TEXT=rendered)
+        return _fill(_partial("note-hazard"), ICON=NOTE_ICON_WARNING, TEXT=rendered)
+    if note["type"] == "tip":
+        return _fill(_partial("note"), CLASS="", ICON=NOTE_ICON_TIP, TEXT=rendered)
+    return _fill(_partial("note"), CLASS=" note-warn", ICON=NOTE_ICON_WARNING, TEXT=rendered)
 
 
 def img_ref(filename):

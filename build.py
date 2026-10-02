@@ -1253,7 +1253,8 @@ def build_index() -> None:
     nf = inject_i18n(page_plain, titled("doc_title_404"))
     nf = nf.replace("<head>", f'<head>\n<base href="{BASE_URL}">\n{alias_script()}', 1)
     nf = nf.replace("<title>", "<title>Page not found: ", 1)
-    nf = nf.replace('  <div class="wrap list">', f'  <div class="wrap">{notice}  </div>\n  <div class="wrap list">', 1)
+    # the not-found message comes first, above the home page's heading and intro
+    nf = nf.replace('<header class="intro wrap">', '<header class="intro wrap">\n    ' + notice.strip(), 1)
     nf = inject_core(nf, core_head("", False, BASE_URL, "Page not found: G Pen Product Guides", desc, None, noindex=True))
     write(ROOT / "404.html", nf)
 
