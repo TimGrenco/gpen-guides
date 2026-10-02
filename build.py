@@ -406,7 +406,7 @@ def core_head(prefix: str, offline: bool, canonical: str, title: str, desc: str,
         # translations, so it stays small for the visitors who read it.
         folders = json.dumps({k: f for k, f, _ in LANG_PAGES}, separators=(",", ":"))
         out.append(
-            "<script>(function(){try{var F=%s,s=null,m=location.search.match(/[?&]lang=([a-z]{2})\\b/i);"
+            "<script id=\"lang-redirect\">(function(){try{var F=%s,s=null,m=location.search.match(/[?&]lang=([a-z]{2})\\b/i);"
             "if(m){s=m[1].toUpperCase();if(s==='EN'||F[s]){try{localStorage.setItem('gpen-lang',s)}catch(e){}}else s=null}"
             "else{try{s=localStorage.getItem('gpen-lang')}catch(e){}}"
             "var n=(navigator.language||'').slice(0,2).toUpperCase(),L=(s==='EN'||F[s])?s:(F[n]?n:'EN'),"
@@ -467,9 +467,27 @@ def inject_core(html: str, head: str) -> str:
     core <head> block after the page's own <style> (so core rules win ties), and inline
     the shared behavior script last, after the i18n runtime it talks to."""
     html = FONT_IMPORT_RE.sub("", html)
+    # the language redirect runs before the browser reads ~25 KB of CSS it may never use
+    redirect = re.search(r'<script id="lang-redirect">.*?</script>', head)
+    if redirect:
+        head = head.replace(redirect.group(0), "")
+        html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + redirect.group(0), 1)
     html = html.replace("</head>", head + "</head>", 1)
+    html = re.sub(r"(<style[^>]*>)(.*?)(</style>)", lambda m: m.group(1) + minify_css(m.group(2)) + m.group(3),
+                  html, flags=re.S)
     js = (CORE_SRC / "guide.js").read_text()
     return html.replace("</body>", f"<script>\n{js}</script>\n</body>", 1)
+
+
+def minify_css(css: str) -> str:
+    """Comments and layout whitespace out of inline CSS (about 5 KB gzip per page). Only
+    whitespace that can't matter goes: around { } ; , and after a colon; descendant
+    combinators like ".a :focus" keep their space."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{};,>])\s*", r"\1", css)
+    css = re.sub(r":\s+", ":", css)
+    return css.replace(";}", "}").strip()
 
 
 # ─────────────────────────────────────────────────────────────────────────────────────
@@ -888,7 +906,8 @@ def framed(im: Image.Image) -> Image.Image:
     return canvas
 
 
-def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path, frame: bool = False) -> tuple[str, int, int]:
+def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path, frame: bool = False,
+                 quality: int = 80) -> tuple[str, int, int]:
     """Write <stem>-<width>.webp into out_dir (from a content-hash cache) and return
     (filename, width, height). Never upscales: a request wider than the source yields a
     rendition at the source's own width."""
@@ -899,23 +918,24 @@ def webp_variant(src: pathlib.Path, width: int, out_dir: pathlib.Path, frame: bo
         w = min(width, W)
         h = round(H * w / W)
         name = f"{src.stem}-{width}.webp"
-        key = hashlib.sha1(data + f"|{w}|q80m6|{'f%s' % CARD_FILL if frame else ''}".encode()).hexdigest()[:16]
+        key = hashlib.sha1(data + f"|{w}|q{quality}m6|{'f%s' % CARD_FILL if frame else ''}".encode()).hexdigest()[:16]
         cached = CACHE_DIR / "img" / f"{key}.webp"
         if not cached.exists():
             cached.parent.mkdir(parents=True, exist_ok=True)
             mode = "RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB"
-            im.convert(mode).resize((w, h), Image.LANCZOS).save(cached, "WEBP", quality=80, method=6)
+            im.convert(mode).resize((w, h), Image.LANCZOS).save(cached, "WEBP", quality=quality, method=6)
     shutil.copy(cached, out_dir / name)
     return name, w, h
 
 
-def srcset_for(src: pathlib.Path, widths, out_dir: pathlib.Path, base: str = "img/") -> tuple[str, int, int]:
+def srcset_for(src: pathlib.Path, widths, out_dir: pathlib.Path, base: str = "img/",
+               quality: int = 80) -> tuple[str, int, int]:
     """Generate renditions and return (srcset, natural_w, natural_h)."""
     with Image.open(src) as im:
         W, H = im.size
     parts = []
     for width in widths:
-        name, w, _ = webp_variant(src, width, out_dir)
+        name, w, _ = webp_variant(src, width, out_dir, quality=quality)
         parts.append(f"{base}{name} {w}w")
     return ", ".join(dict.fromkeys(parts)), W, H
 
@@ -1069,9 +1089,11 @@ def _build_product(slug, spec, template, content, body, out_dir, img_dir) -> Non
         is_video = ref in video_refs
         video_sizes = SIZES_VIDEO_SINGLE if len(video_refs) == 1 else SIZES_VIDEO
         widths, sizes = (WIDTHS_VIDEO, video_sizes) if is_video else (WIDTHS_CIRCLE, SIZES_CIRCLE)
-        srcset, w, h = srcset_for(src, widths, img_dir)
+        # video stills are photos of a person or a hand: q70 looks the same and weighs ~30% less
+        q = 70 if is_video else 80
+        srcset, w, h = srcset_for(src, widths, img_dir, quality=q)
         plans[name] = (srcset, sizes, w, h)
-        inline_name, _, _ = webp_variant(src, widths[-1], img_dir)
+        inline_name, _, _ = webp_variant(src, widths[-1], img_dir, quality=q)
         hosted = hosted.replace("{{img:%s}}" % ref, f"img/{name}")
         offline = offline.replace("{{img:%s}}" % ref, data_uri(img_dir / inline_name))
     hosted = responsive_images(hosted, plans)
